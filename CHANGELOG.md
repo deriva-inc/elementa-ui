@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.5.0] - 2024-02-27
+---
+#### Added
+- Add `Checkbox` component.
+
 ### [1.4.0] - 2024-02-27
 ---
 #### Added

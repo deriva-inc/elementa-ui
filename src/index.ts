@@ -1,4 +1,5 @@
 import { Button } from '@/src/components/button';
+import { Checkbox } from '@/src/components/checkbox';
 import {
     Select,
     SelectContent,
@@ -13,8 +14,9 @@ import {
 } from '@/src/components/select';
 import { Text } from '@/src/components/text';
 
+export { Button };
+export { Checkbox };
 export {
-    Button,
     Select,
     SelectContent,
     SelectGroup,
@@ -24,6 +26,6 @@ export {
     SelectScrollUpButton,
     SelectSeparator,
     SelectTrigger,
-    SelectValue,
-    Text
+    SelectValue
 };
+export { Text };
