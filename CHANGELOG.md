@@ -1,0 +1,15 @@
+# CHANGELOG
+### [1.2.0] - 2024-02-26
+---
+#### Added
+- Add `TailwindCSS`, and `TypeScript` support.
+
+### [1.1.0] - 2026-02-26
+---
+#### Added
+- Add `ESLint`, and `Prettier` support.
+
+### [1.0.0] - 2024-03-15
+---
+#### Added
+- Initialize the repository.
