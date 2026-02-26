@@ -7,11 +7,7 @@ import { TextProps, TextVariant } from '@/src/lib/types';
 /**
  * This function renders the Text component for the library.
  */
-export default function Text({
-    variant = TextVariant.Body,
-    color,
-    children
-}: TextProps) {
+function Text({ variant = TextVariant.Body, color, children }: TextProps) {
     // SECTION: Constants and Variables
     const [className, setClassName] = useState('');
     // !SECTION: Constants and Variables
@@ -63,3 +59,5 @@ export default function Text({
     return <p className={className}>{children}</p>;
     // !SECTION: UI
 }
+
+export { Text };
