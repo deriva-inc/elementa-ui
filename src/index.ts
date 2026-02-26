@@ -13,6 +13,7 @@ import {
     SelectValue
 } from '@/src/components/select';
 import { Separator } from '@/src/components/separator';
+import { Skeleton } from '@/src/components/skeleton';
 import { Text } from '@/src/components/text';
 
 export { Button };
@@ -30,4 +31,5 @@ export {
     SelectValue
 };
 export { Separator };
+export { Skeleton };
 export { Text };

@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.7.0] - 2024-02-27
+---
+#### Added
+- Add `Skeleton` component.
+
 ### [1.6.0] - 2024-02-27
 ---
 #### Added
