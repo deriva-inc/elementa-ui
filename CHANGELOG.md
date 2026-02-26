@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.3.0] - 2024-02-26
+---
+#### Added
+- Add `Text` component with `Satoshi`, and `Fraunces` fonts.
+
 ### [1.2.0] - 2024-02-26
 ---
 #### Added

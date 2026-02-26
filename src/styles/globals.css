@@ -1,3 +1,61 @@
+/* 1. Fraunces */
+@font-face {
+  font-family: 'Fraunces';
+  src: url('./../assets/fonts/fraunces/Fraunces-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('./../assets/fonts/fraunces/Fraunces-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Satoshi */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./../assets/fonts/satoshi/Satoshi-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./../assets/fonts/satoshi/Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./../assets/fonts/satoshi/Satoshi-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./../assets/fonts/satoshi/Satoshi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./../assets/fonts/satoshi/Satoshi-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -41,6 +99,77 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --breakpoint-3xl: 1920px;
+  --color-electric-violet-100: #F5F0FE;
+  --color-electric-violet-200: #E1D3FB;
+  --color-electric-violet-300: #CDB6F9;
+  --color-electric-violet-400: #B999F6;
+  --color-electric-violet-500: #A57CF3;
+  --color-electric-violet-600: #9B6DF2;
+  --color-electric-violet-700: #8C62DA;
+  --color-electric-violet-800: #6D4CA9;
+  --color-electric-violet-900: #4E3779;
+  --color-electric-violet-1000: #2E2149;
+  --color-electric-violet-1100: #0F0B18;
+  --color-hot-pink-100: #FEEFF5;
+  --color-hot-pink-200: #FDCEE2;
+  --color-hot-pink-300: #FBAECF;
+  --color-hot-pink-400: #F98EBB;
+  --color-hot-pink-500: #F86DA8;
+  --color-hot-pink-600: #F75D9E;
+  --color-hot-pink-700: #DE548E;
+  --color-hot-pink-800: #AD416F;
+  --color-hot-pink-900: #7C2F4F;
+  --color-hot-pink-1000: #4A1C2F;
+  --color-hot-pink-1100: #190910;
+  --color-acid-lime-100: #FBFEED;
+  --color-acid-lime-200: #F2FBCA;
+  --color-acid-lime-300: #EAF8A6;
+  --color-acid-lime-400: #E2F582;
+  --color-acid-lime-500: #D9F25F;
+  --color-acid-lime-600: #D5F14D;
+  --color-acid-lime-700: #C0D945;
+  --color-acid-lime-800: #95A936;
+  --color-acid-lime-900: #6B7927;
+  --color-acid-lime-1000: #404817;
+  --color-acid-lime-1100: #151808;
+  --color-aqua-mint-100: #F1FDF9;
+  --color-aqua-mint-200: #D5FAEE;
+  --color-aqua-mint-300: #B9F6E2;
+  --color-aqua-mint-400: #9CF2D6;
+  --color-aqua-mint-500: #80EFCB;
+  --color-aqua-mint-600: #72EDC5;
+  --color-aqua-mint-700: #67D5B1;
+  --color-aqua-mint-800: #50A68A;
+  --color-aqua-mint-900: #397763;
+  --color-aqua-mint-1000: #22473B;
+  --color-aqua-mint-1100: #0B1814;
+  --color-gun-metal-100: #D3D7D9;
+  --color-gun-metal-200: #B5BDC0;
+  --color-gun-metal-300: #919CA1;
+  --color-gun-metal-400: #6C7A82;
+  --color-gun-metal-500: #475962;
+  --color-gun-metal-600: #223843;
+  --color-gun-metal-700: #1C2F38;
+  --color-gun-metal-800: #17252D;
+  --color-gun-metal-900: #111C22;
+  --color-gun-metal-1000: #0B1316;
+  --color-gun-metal-1100: #070B0D;
+  --color-amber-white-100: #FCFCFD;
+  --color-amber-white-200: #FAFAFB;
+  --color-amber-white-300: #F7F8F9;
+  --color-amber-white-400: #F4F6F7;
+  --color-amber-white-500: #F2F3F5;
+  --color-amber-white-600: #EFF1F3;
+  --color-amber-white-700: #C7C9CB;
+  --color-amber-white-800: #9FA1A2;
+  --color-amber-white-900: #78797A;
+  --color-amber-white-1000: #505051;
+  --color-amber-white-1100: #303031;
+  --font-heading: 'Fraunces', sans-serif;
+  --font-body: 'Satoshi', sans-serif;
+  --font-heading: var(--font-fraunces), serif;
+  --font-body: var(--font-satoshi), sans-serif;
 }
 
 :root {
