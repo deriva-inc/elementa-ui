@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.6.0] - 2024-02-27
+---
+#### Added
+- Add `Separator` component.
+
 ### [1.5.0] - 2024-02-27
 ---
 #### Added

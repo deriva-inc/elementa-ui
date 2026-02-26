@@ -12,6 +12,7 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/src/components/select';
+import { Separator } from '@/src/components/separator';
 import { Text } from '@/src/components/text';
 
 export { Button };
@@ -28,4 +29,5 @@ export {
     SelectTrigger,
     SelectValue
 };
+export { Separator };
 export { Text };
