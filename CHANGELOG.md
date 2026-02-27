@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.10.0] - 2024-02-27
+---
+#### Added
+- Add `Avatar` components.
+
 ### [1.9.0] - 2024-02-27
 ---
 #### Added
