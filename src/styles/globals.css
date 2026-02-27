@@ -348,19 +348,25 @@ For charts, graphs, and status badges. These are vital for dashboards (Deriva's 
   /* !SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
 }
 
-
-/* TODO: Keeping this for now as shadcn might need it. Once our library is up and stable, starting removing this gradually. */
-/* Base Styles */
-/* @layer base {
-  * { @apply border-gray-200 dark:border-gray-800; }
-  body { @apply bg-background text-foreground transition-colors duration-300; }
-} */
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: var(--primary);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
