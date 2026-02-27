@@ -60,9 +60,11 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* GLOBAL PALETTE */
 @theme inline {
+  /* TODO: Again these are used by tailwind. Remove them gradually once our library is using the same variables and is stable. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -100,28 +102,38 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --breakpoint-3xl: 1920px;
-  --color-electric-violet-100: #F5F0FE;
-  --color-electric-violet-200: #E1D3FB;
-  --color-electric-violet-300: #CDB6F9;
-  --color-electric-violet-400: #B999F6;
-  --color-electric-violet-500: #A57CF3;
-  --color-electric-violet-600: #9B6DF2;
-  --color-electric-violet-700: #8C62DA;
-  --color-electric-violet-800: #6D4CA9;
-  --color-electric-violet-900: #4E3779;
-  --color-electric-violet-1000: #2E2149;
-  --color-electric-violet-1100: #0F0B18;
-  --color-hot-pink-100: #FEEFF5;
-  --color-hot-pink-200: #FDCEE2;
-  --color-hot-pink-300: #FBAECF;
-  --color-hot-pink-400: #F98EBB;
-  --color-hot-pink-500: #F86DA8;
-  --color-hot-pink-600: #F75D9E;
-  --color-hot-pink-700: #DE548E;
-  --color-hot-pink-800: #AD416F;
-  --color-hot-pink-900: #7C2F4F;
-  --color-hot-pink-1000: #4A1C2F;
-  --color-hot-pink-1100: #190910;
+  
+  /* SECTION: Variables */
+  /* SECTION: Colors */
+  /* SECTION: Electric Violet */
+  --color-electric-violet-100: oklch(0.963 0.0193 302.21);
+  --color-electric-violet-200: oklch(0.8907 0.0562 301.22);
+  --color-electric-violet-300: oklch(0.8189 0.0956 300.04);
+  --color-electric-violet-400: oklch(0.7474 0.1344 298.96);
+  --color-electric-violet-500: oklch(0.6777 0.1726 297.5);
+  --color-electric-violet-600: oklch(0.6436 0.1922 296.58);
+  --color-electric-violet-700: oklch(0.5965 0.177 296.84);
+  --color-electric-violet-800: oklch(0.4977 0.144 297.26);
+  --color-electric-violet-900: oklch(0.3963 0.1087 297.27);
+  --color-electric-violet-1000: oklch(0.2849 0.0719 296.56);
+  --color-electric-violet-1100: oklch(0.162 0.0275 297.41);
+  /* !SECTION: Electric Violet */
+  
+  /* SECTION: Hot Pink */
+  --color-hot-pink-100: oklch(0.9656 0.0179 351.14);
+  --color-hot-pink-200: oklch(0.8976 0.0586 350.91);
+  --color-hot-pink-300: oklch(0.8335 0.0986 352.09);
+  --color-hot-pink-400: oklch(0.7732 0.1386 354.16);
+  --color-hot-pink-500: oklch(0.7195 0.1797 356.01);
+  --color-hot-pink-600: oklch(0.6958 0.197 357.35);
+  --color-hot-pink-700: oklch(0.6435 0.1802 357.35);
+  --color-hot-pink-800: oklch(0.5363 0.1483 356.85);
+  --color-hot-pink-900: oklch(0.4245 0.1124 357.09);
+  --color-hot-pink-1000: oklch(0.3017 0.0738 356.56);
+  --color-hot-pink-1100: oklch(0.3017 0.0738 356.56);
+  /* !SECTION: Hot Pink */
+  
+  /* SECTION: Acid Lime */
   --color-acid-lime-100: #FBFEED;
   --color-acid-lime-200: #F2FBCA;
   --color-acid-lime-300: #EAF8A6;
@@ -133,6 +145,9 @@
   --color-acid-lime-900: #6B7927;
   --color-acid-lime-1000: #404817;
   --color-acid-lime-1100: #151808;
+  /* !SECTION: Acid Lime */
+
+  /* SECTION: Aqua Mint */
   --color-aqua-mint-100: #F1FDF9;
   --color-aqua-mint-200: #D5FAEE;
   --color-aqua-mint-300: #B9F6E2;
@@ -144,6 +159,9 @@
   --color-aqua-mint-900: #397763;
   --color-aqua-mint-1000: #22473B;
   --color-aqua-mint-1100: #0B1814;
+  /* !SECTION: Aqua Mint */
+
+  /* SECTION: Gun Metal (Neutrals) */
   --color-gun-metal-100: #D3D7D9;
   --color-gun-metal-200: #B5BDC0;
   --color-gun-metal-300: #919CA1;
@@ -155,6 +173,9 @@
   --color-gun-metal-900: #111C22;
   --color-gun-metal-1000: #0B1316;
   --color-gun-metal-1100: #070B0D;
+  /* !SECTION: Gun Metal (Neutrals) */
+
+  /* SECTION: Amber White (Neutrals) */
   --color-amber-white-100: #FCFCFD;
   --color-amber-white-200: #FAFAFB;
   --color-amber-white-300: #F7F8F9;
@@ -166,11 +187,174 @@
   --color-amber-white-900: #78797A;
   --color-amber-white-1000: #505051;
   --color-amber-white-1100: #303031;
+  /* !SECTION: Amber White (Neutrals) */
+  /* !SECTION: Colors */
+
+  /* SECTION: Fonts */
   --font-heading: 'Fraunces', sans-serif;
   --font-body: 'Satoshi', sans-serif;
   --font-heading: var(--font-fraunces), serif;
   --font-body: var(--font-satoshi), sans-serif;
+  /* !SECTION: Fonts */
+  /* !SECTION: Variables */
+
+  /* SECTION: Semantics Mapping */
+  /* SECTION: Structure & Surfaces */
+  /* --background: The absolute bottom layer of the app (Page BG).
+--foreground: The default text color on top of background.
+--card: Background color for Cards, Modals, and Popovers.
+--card-foreground: Text color inside cards.
+--popover: Background for dropdowns, tooltips, and select menus.
+--popover-foreground: Text color inside popovers. */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+1. Structure & Surfaces (6 Tokens)
+
+
+
+/* 2. Brand Actions (8 Tokens)
+These handle your "Primary" (Brand) and "Secondary" (Alternative) interactions.
+
+--primary: High-emphasis actions (Solid Buttons, Active States).
+Example: Electric Violet 600
+--primary-foreground: Text color on top of primary.
+--secondary: Low-emphasis actions (Ghost buttons, Chips).
+Example: Electric Violet 100 (Light) / Violet 900 (Dark)
+--secondary-foreground: Text color on top of secondary.
+--accent: Interactive elements that are not buttons (Hover states, Selected rows).
+--accent-foreground: Text color on top of accent.
+--muted: Backgrounds for disabled states, skeletons, or subtle areas.
+--muted-foreground: Low-contrast text (subtitles, placeholders).
+3. Feedback & Borders (6 Tokens)
+--destructive: Critical actions (Delete, Error).
+--destructive-foreground: Text on top of destructive.
+--border: Hairline borders for inputs, cards, and dividers.
+--input: Background or border specifically for form inputs (often same as --border).
+--ring: Focus ring color for accessibility.
+--radius: Global border-radius (e.g., 0.5rem).
+4. Data Visualization (8 Tokens)
+For charts, graphs, and status badges. These are vital for dashboards (Deriva's core use case).
+
+--chart-1: Primary data series (usually matches Brand Primary).
+--chart-2: Secondary data series.
+--chart-3: Tertiary data series.
+--chart-4: Quaternary data series.
+--chart-5: Quinary data series.
+--success: Positive states (Green/Teal).
+--warning: Cautionary states (Yellow/Orange).
+--info: Neutral information (Blue/Gray). */
+  /* !SECTION: Semantics Mapping */
 }
+
+/* SECTION: TODO: rename */
+@layer base {
+  /* SECTION: Base Styles */
+  /* Light Theme */
+  :root {
+    --background: var(--color-amber-white-100);
+    --foreground: var(--color-gun-metal-1100);
+  }
+
+  /* Dark Theme */
+  .dark {
+    --background: var(--color-gun-metal-1100);
+    --foreground: var(--color-amber-white-100);
+  }
+  /* !SECTION: Base Styles */
+
+  /* SECTION: Energies */
+  /* SECTION: ENERGY 1: VAPORWAVE (Electric Violet + Hot Pink) */
+  /* Light Theme */
+  [data-energy="vaporwave"] {
+    --primary: var(--color-electric-violet-600);
+    --primary-foreground: #ffffff;
+    --secondary: var(--color-electric-violet-100);
+    --secondary-foreground: var(--color-electric-violet-900);
+  }
+
+  /* Dark Theme */
+  .dark[data-energy="vaporwave"] {    
+    --primary: var(--color-electric-violet-400); 
+    --primary-foreground: var(--color-gun-metal-1100);
+    --secondary: var(--color-electric-violet-900); 
+    --secondary-foreground: var(--color-electric-violet-100);
+  }
+  /* !SECTION: ENERGY 1: VAPORWAVE (Electric Violet + Hot Pink) */
+
+  /* SECTION: ENERGY 2: ELECTRIC SHOCK (Electric Violet + Acid Lime) */
+  /* Light Theme */
+  [data-energy="electric-shock"] {
+    --primary: var(--color-electric-violet-600);
+    --primary-foreground: #ffffff;
+    --secondary: var(--color-acid-lime-100);
+    --secondary-foreground: var(--color-acid-lime-900);
+  }
+
+  /* Dark Theme */
+  .dark[data-energy="electric-shock"] {
+    --primary: var(--color-electric-violet-400);
+    --primary-foreground: var(--color-gun-metal-1100);
+    --secondary: var(--color-electric-violet-900);
+    --secondary-foreground: var(--color-electric-violet-100);
+  }
+  /* !SECTION: ENERGY 2: ELECTRIC SHOCK (Electric Violet + Acid Lime) */
+
+  /* SECTION: ENERGY 3: CYBER MIST (Electric Violet + Aqua Mint) */
+  /* Light Theme */
+  [data-energy="cyber-mist"] {
+    --primary: var(--color-electric-violet-600);
+    --primary-foreground: #ffffff;
+    --secondary: var(--color-aqua-mint-100);
+    --secondary-foreground: var(--color-aqua-mint-900);
+  }
+
+  /* Dark Theme */
+  /* !SECTION: ENERGY 3: CYBER MIST (Electric Violet + Aqua Mint) */
+
+  /* SECTION: ENERGY 4: SUMMER FRUIT (Hot Pink + Acid Lime) */
+  /* Light Theme */
+  [data-energy="summer-fruit"] {
+    --primary: var(--color-hot-pink-600);
+    --primary-foreground: #ffffff;
+    --secondary: var(--color-acid-lime-100);
+    --secondary-foreground: var(--color-acid-lime-900);
+  }
+
+  /* Dark Theme */
+  /* !SECTION: ENERGY 4: SUMMER FRUIT (Hot Pink + Acid Lime) */
+
+  /* SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
+  /* Light Theme */
+  [data-energy="bubblegum-ice"] {
+    --primary: var(--color-hot-pink-600);
+    --primary-foreground: #ffffff;
+    --secondary: var(--color-aqua-mint-100);
+    --secondary-foreground: var(--color-aqua-mint-900);
+  }
+
+  /* Dark Theme */
+  .dark[data-energy="bubblegum-ice"] {
+    --primary: var(--color-hot-pink-600);
+    --primary-foreground: #ffffff;
+    
+    --secondary: var(--color-gun-metal-900);
+    --secondary-foreground: var(--color-aqua-mint-400);
+  }
+  /* !SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
+}
+
+
+/* TODO: Keeping this for now as shadcn might need it. Once our library is up and stable, starting removing this gradually. */
+/* Base Styles */
+/* @layer base {
+  * { @apply border-gray-200 dark:border-gray-800; }
+  body { @apply bg-background text-foreground transition-colors duration-300; }
+} */
 
 :root {
   --radius: 0.625rem;

@@ -7,7 +7,12 @@ import { TextProps, TextVariant } from '@/src/lib/types';
 /**
  * This function renders the Text component for the library.
  */
-function Text({ variant = TextVariant.Body, color, children }: TextProps) {
+function Text({
+    variant = TextVariant.Body,
+    color,
+    children,
+    customClassName
+}: TextProps) {
     // SECTION: Constants and Variables
     const [className, setClassName] = useState('');
     // !SECTION: Constants and Variables
@@ -51,8 +56,8 @@ function Text({ variant = TextVariant.Body, color, children }: TextProps) {
 
     // SECTION: Side Effects
     useEffect(() => {
-        setClassName(cn(getVariantClass(variant), color));
-    }, [variant, color]);
+        setClassName(cn(getVariantClass(variant), color, customClassName));
+    }, [variant, color, customClassName]);
     // !SECTION: Side Effects
 
     // SECTION: UI

@@ -17,6 +17,7 @@ interface TextProps {
     variant?: TextVariant;
     color?: string;
     children: React.ReactNode;
+    customClassName?: string;
 }
 
 export { TextVariant };

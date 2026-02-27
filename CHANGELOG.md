@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.9.0] - 2024-02-27
+---
+#### Added
+- Add brand colors on `globals.css` file.
+
 ### [1.7.0] - 2024-02-27
 ---
 #### Added

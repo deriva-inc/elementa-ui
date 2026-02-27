@@ -1,6 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import copy from 'rollup-plugin-copy';
 import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
@@ -46,11 +46,6 @@ export default {
             babelHelpers: 'bundled',
             presets: ['@babel/preset-react', '@babel/preset-typescript']
         }),
-        // copy({
-        //     targets: [
-        //         { src: 'src/assets/fonts/**/*', dest: 'dist/assets/fonts' }
-        //     ]
-        // }),
         terser()
     ],
     external: [
