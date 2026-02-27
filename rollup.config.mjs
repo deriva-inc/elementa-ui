@@ -46,11 +46,11 @@ export default {
             babelHelpers: 'bundled',
             presets: ['@babel/preset-react', '@babel/preset-typescript']
         }),
-        copy({
-            targets: [
-                { src: 'src/assets/fonts/**/*', dest: 'dist/assets/fonts' }
-            ]
-        }),
+        // copy({
+        //     targets: [
+        //         { src: 'src/assets/fonts/**/*', dest: 'dist/assets/fonts' }
+        //     ]
+        // }),
         terser()
     ],
     external: [
