@@ -236,8 +236,6 @@
   /* SECTION: Fonts */
   --font-fraunces: 'Fraunces', sans-serif;
   --font-satoshi: 'Satoshi', sans-serif;
-  --font-heading: var(--font-fraunces), serif;
-  --font-body: var(--font-satoshi), sans-serif;
   /* !SECTION: Fonts */
   /* !SECTION: Variables */
 
@@ -301,12 +299,16 @@ For charts, graphs, and status badges. These are vital for dashboards (Deriva's 
   :root {
     --background: var(--color-amber-white-100);
     --foreground: var(--color-gun-metal-1100);
+    --font-heading: var(--font-fraunces), serif;
+    --font-body: var(--font-satoshi), sans-serif;
   }
 
   /* Dark Theme */
   .dark {
     --background: var(--color-gun-metal-1100);
     --foreground: var(--color-amber-white-100);
+    --font-heading: var(--font-fraunces), serif;
+    --font-body: var(--font-satoshi), sans-serif;
   }
   /* !SECTION: Base Styles */
 
