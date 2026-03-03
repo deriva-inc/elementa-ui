@@ -32,9 +32,7 @@ export default [
             typescript({ tsconfig: './tsconfig.json' }),
             // The copy plugin now lives here. It only needs to run once.
             copy({
-                targets: [
-                    { src: 'src/assets/fonts', dest: 'dist/assets/fonts' }
-                ]
+                targets: [{ src: 'src/assets', dest: 'dist' }]
             })
         ],
         // Define external dependencies to avoid bundling them
