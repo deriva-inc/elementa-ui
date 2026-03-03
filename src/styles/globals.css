@@ -234,8 +234,8 @@
   /* !SECTION: Colors */
 
   /* SECTION: Fonts */
-  --font-heading: 'Fraunces', sans-serif;
-  --font-body: 'Satoshi', sans-serif;
+  --font-fraunces: 'Fraunces', sans-serif;
+  --font-satoshi: 'Satoshi', sans-serif;
   --font-heading: var(--font-fraunces), serif;
   --font-body: var(--font-satoshi), sans-serif;
   /* !SECTION: Fonts */
