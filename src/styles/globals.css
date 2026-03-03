@@ -1,7 +1,7 @@
 /* 1. Fraunces */
 @font-face {
   font-family: 'Fraunces';
-  src: url('assets/fonts/fraunces/Fraunces-Regular.ttf') format('truetype');
+  src: url('./assets/fonts/fraunces/Fraunces-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Fraunces';
-  src: url('assets/fonts/fraunces/Fraunces-Bold.ttf') format('truetype');
+  src: url('./assets/fonts/fraunces/Fraunces-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -18,7 +18,7 @@
 /* 2. Satoshi */
 @font-face {
   font-family: 'Satoshi';
-  src: url('assets/fonts/satoshi/Satoshi-Light.otf') format('opentype');
+  src: url('./assets/fonts/satoshi/Satoshi-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('assets/fonts/satoshi/Satoshi-Regular.otf') format('opentype');
+  src: url('./assets/fonts/satoshi/Satoshi-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('assets/fonts/satoshi/Satoshi-Medium.otf') format('opentype');
+  src: url('./assets/fonts/satoshi/Satoshi-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -42,7 +42,7 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('assets/fonts/satoshi/Satoshi-Bold.otf') format('opentype');
+  src: url('./assets/fonts/satoshi/Satoshi-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -50,53 +50,14 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('assets/fonts/satoshi/Satoshi-Black.otf') format('opentype');
+  src: url('./assets/fonts/satoshi/Satoshi-Black.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 /* GLOBAL PALETTE */
-@theme inline {
-  /* TODO: Again these are used by tailwind. Remove them gradually once our library is using the same variables and is stable. */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --breakpoint-3xl: 1920px;
-  
+:root {
   /* SECTION: Variables */
   /* SECTION: Colors */
   /* SECTION: Accent Colors */
@@ -290,122 +251,103 @@ For charts, graphs, and status badges. These are vital for dashboards (Deriva's 
 --warning: Cautionary states (Yellow/Orange).
 --info: Neutral information (Blue/Gray). */
   /* !SECTION: Semantics Mapping */
-}
 
-/* SECTION: TODO: rename */
-@layer base {
+
+
   /* SECTION: Base Styles */
   /* Light Theme */
-  :root {
+  
     --background: var(--color-amber-white-100);
     --foreground: var(--color-gun-metal-1100);
     --font-heading: var(--font-fraunces), serif;
     --font-body: var(--font-satoshi), sans-serif;
-  }
-
-  /* Dark Theme */
-  .dark {
-    --background: var(--color-gun-metal-1100);
-    --foreground: var(--color-amber-white-100);
-    --font-heading: var(--font-fraunces), serif;
-    --font-body: var(--font-satoshi), sans-serif;
-  }
-  /* !SECTION: Base Styles */
-
-  /* SECTION: Energies */
-  /* SECTION: ENERGY 1: VAPORWAVE (Electric Violet + Hot Pink) */
-  /* Light Theme */
-  [data-energy="vaporwave"] {
-    --primary: var(--color-electric-violet-600);
-    --primary-foreground: #ffffff;
-    --secondary: var(--color-electric-violet-100);
-    --secondary-foreground: var(--color-electric-violet-900);
-  }
-
-  /* Dark Theme */
-  .dark[data-energy="vaporwave"] {    
-    --primary: var(--color-electric-violet-400); 
-    --primary-foreground: var(--color-gun-metal-1100);
-    --secondary: var(--color-electric-violet-900); 
-    --secondary-foreground: var(--color-electric-violet-100);
-  }
-  /* !SECTION: ENERGY 1: VAPORWAVE (Electric Violet + Hot Pink) */
-
-  /* SECTION: ENERGY 2: ELECTRIC SHOCK (Electric Violet + Acid Lime) */
-  /* Light Theme */
-  [data-energy="electric-shock"] {
-    --primary: var(--color-electric-violet-600);
-    --primary-foreground: #ffffff;
-    --secondary: var(--color-acid-lime-100);
-    --secondary-foreground: var(--color-acid-lime-900);
-  }
-
-  /* Dark Theme */
-  .dark[data-energy="electric-shock"] {
-    --primary: var(--color-electric-violet-400);
-    --primary-foreground: var(--color-gun-metal-1100);
-    --secondary: var(--color-electric-violet-900);
-    --secondary-foreground: var(--color-electric-violet-100);
-  }
-  /* !SECTION: ENERGY 2: ELECTRIC SHOCK (Electric Violet + Acid Lime) */
-
-  /* SECTION: ENERGY 3: CYBER MIST (Electric Violet + Aqua Mint) */
-  /* Light Theme */
-  [data-energy="cyber-mist"] {
-    --primary: var(--color-electric-violet-600);
-    --primary-foreground: #ffffff;
-    --secondary: var(--color-aqua-mint-100);
-    --secondary-foreground: var(--color-aqua-mint-900);
-  }
-
-  /* Dark Theme */
-  /* !SECTION: ENERGY 3: CYBER MIST (Electric Violet + Aqua Mint) */
-
-  /* SECTION: ENERGY 4: SUMMER FRUIT (Hot Pink + Acid Lime) */
-  /* Light Theme */
-  [data-energy="summer-fruit"] {
-    --primary: var(--color-hot-pink-600);
-    --primary-foreground: #ffffff;
-    --secondary: var(--color-acid-lime-100);
-    --secondary-foreground: var(--color-acid-lime-900);
-  }
-
-  /* Dark Theme */
-  /* !SECTION: ENERGY 4: SUMMER FRUIT (Hot Pink + Acid Lime) */
-
-  /* SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
-  /* Light Theme */
-  [data-energy="bubblegum-ice"] {
-    --primary: var(--color-hot-pink-600);
-    --primary-foreground: #ffffff;
-    --secondary: var(--color-aqua-mint-100);
-    --secondary-foreground: var(--color-aqua-mint-900);
-  }
-
-  /* Dark Theme */
-  .dark[data-energy="bubblegum-ice"] {
-    --primary: var(--color-hot-pink-600);
-    --primary-foreground: #ffffff;
-    --secondary: var(--color-gun-metal-900);
-    --secondary-foreground: var(--color-aqua-mint-400);
-  }
-  /* !SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
 }
 
-@layer utilities {
-  .bg-primary {
-    background-color: var(--primary);
-  }
-
-  .bg-secondary {
-    background-color: var(--secondary);
-  }
-
-  .no-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
+/* Dark Theme */
+.dark {
+  --background: var(--color-gun-metal-1100);
+  --foreground: var(--color-amber-white-100);
+  --font-heading: var(--font-fraunces), serif;
+  --font-body: var(--font-satoshi), sans-serif;
 }
+/* !SECTION: Base Styles */
+
+/* SECTION: Energies */
+/* SECTION: ENERGY 1: VAPORWAVE (Electric Violet + Hot Pink) */
+/* Light Theme */
+[data-energy="vaporwave"] {
+  --primary: var(--color-electric-violet-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-electric-violet-100);
+  --secondary-foreground: var(--color-electric-violet-900);
+}
+
+/* Dark Theme */
+.dark[data-energy="vaporwave"] {    
+  --primary: var(--color-electric-violet-400); 
+  --primary-foreground: var(--color-gun-metal-1100);
+  --secondary: var(--color-electric-violet-900); 
+  --secondary-foreground: var(--color-electric-violet-100);
+}
+/* !SECTION: ENERGY 1: VAPORWAVE (Electric Violet + Hot Pink) */
+
+/* SECTION: ENERGY 2: ELECTRIC SHOCK (Electric Violet + Acid Lime) */
+/* Light Theme */
+[data-energy="electric-shock"] {
+  --primary: var(--color-electric-violet-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-acid-lime-100);
+  --secondary-foreground: var(--color-acid-lime-900);
+}
+
+/* Dark Theme */
+.dark[data-energy="electric-shock"] {
+  --primary: var(--color-electric-violet-400);
+  --primary-foreground: var(--color-gun-metal-1100);
+  --secondary: var(--color-electric-violet-900);
+  --secondary-foreground: var(--color-electric-violet-100);
+}
+/* !SECTION: ENERGY 2: ELECTRIC SHOCK (Electric Violet + Acid Lime) */
+
+/* SECTION: ENERGY 3: CYBER MIST (Electric Violet + Aqua Mint) */
+/* Light Theme */
+[data-energy="cyber-mist"] {
+  --primary: var(--color-electric-violet-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-aqua-mint-100);
+  --secondary-foreground: var(--color-aqua-mint-900);
+}
+
+/* Dark Theme */
+/* !SECTION: ENERGY 3: CYBER MIST (Electric Violet + Aqua Mint) */
+
+/* SECTION: ENERGY 4: SUMMER FRUIT (Hot Pink + Acid Lime) */
+/* Light Theme */
+[data-energy="summer-fruit"] {
+  --primary: var(--color-hot-pink-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-acid-lime-100);
+  --secondary-foreground: var(--color-acid-lime-900);
+}
+
+/* Dark Theme */
+/* !SECTION: ENERGY 4: SUMMER FRUIT (Hot Pink + Acid Lime) */
+
+/* SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
+/* Light Theme */
+[data-energy="bubblegum-ice"] {
+  --primary: var(--color-hot-pink-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-aqua-mint-100);
+  --secondary-foreground: var(--color-aqua-mint-900);
+}
+
+/* Dark Theme */
+.dark[data-energy="bubblegum-ice"] {
+  --primary: var(--color-hot-pink-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-gun-metal-900);
+  --secondary-foreground: var(--color-aqua-mint-400);
+}
+/* !SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
+
