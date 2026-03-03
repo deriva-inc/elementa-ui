@@ -56,12 +56,6 @@
   font-display: swap;
 }
 
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* GLOBAL PALETTE */
 @theme inline {
   /* TODO: Again these are used by tailwind. Remove them gradually once our library is using the same variables and is stable. */
@@ -105,6 +99,7 @@
   
   /* SECTION: Variables */
   /* SECTION: Colors */
+  /* SECTION: Accent Colors */
   /* SECTION: Electric Violet */
   --color-electric-violet-100: oklch(0.963 0.0193 302.21);
   --color-electric-violet-200: oklch(0.8907 0.0562 301.22);
@@ -134,60 +129,108 @@
   /* !SECTION: Hot Pink */
   
   /* SECTION: Acid Lime */
-  --color-acid-lime-100: #FBFEED;
-  --color-acid-lime-200: #F2FBCA;
-  --color-acid-lime-300: #EAF8A6;
-  --color-acid-lime-400: #E2F582;
-  --color-acid-lime-500: #D9F25F;
-  --color-acid-lime-600: #D5F14D;
-  --color-acid-lime-700: #C0D945;
-  --color-acid-lime-800: #95A936;
-  --color-acid-lime-900: #6B7927;
-  --color-acid-lime-1000: #404817;
-  --color-acid-lime-1100: #151808;
+  --color-acid-lime-100: oklch(0.9902 0.0225 114.93);
+  --color-acid-lime-200: oklch(0.9691 0.0642 116.06);
+  --color-acid-lime-300: oklch(0.9499 0.1049 116.33);
+  --color-acid-lime-400: oklch(0.9322 0.1418 116.96);
+  --color-acid-lime-500: oklch(0.9152 0.172 118.11);
+  --color-acid-lime-600: oklch(0.9086 0.185 118.66);
+  --color-acid-lime-700: oklch(0.8399 0.1704 118.55);
+  --color-acid-lime-800: oklch(0.6971 0.1399 118.7);
+  --color-acid-lime-900: oklch(0.5474 0.1072 118.39);
+  --color-acid-lime-1000: oklch(0.3829 0.0713 117.74);
+  --color-acid-lime-1100: oklch(0.2008 0.0295 117.79);
   /* !SECTION: Acid Lime */
 
   /* SECTION: Aqua Mint */
-  --color-aqua-mint-100: #F1FDF9;
-  --color-aqua-mint-200: #D5FAEE;
-  --color-aqua-mint-300: #B9F6E2;
-  --color-aqua-mint-400: #9CF2D6;
-  --color-aqua-mint-500: #80EFCB;
-  --color-aqua-mint-600: #72EDC5;
-  --color-aqua-mint-700: #67D5B1;
-  --color-aqua-mint-800: #50A68A;
-  --color-aqua-mint-900: #397763;
-  --color-aqua-mint-1000: #22473B;
-  --color-aqua-mint-1100: #0B1814;
+  --color-aqua-mint-100: oklch(0.984 0.0136 174.18);
+  --color-aqua-mint-200: oklch(0.9555 0.0414 173.81);
+  --color-aqua-mint-300: oklch(0.9264 0.0673 172.59);
+  --color-aqua-mint-400: oklch(0.8986 0.0924 171.55);
+  --color-aqua-mint-500: oklch(0.8761 0.1153 170.28);
+  --color-aqua-mint-600: oklch(0.8644 0.1254 169.48);
+  --color-aqua-mint-700: oklch(0.7981 0.1149 169.43);
+  --color-aqua-mint-800: oklch(0.6636 0.0942 169.64);
+  --color-aqua-mint-900: oklch(0.5218 0.0724 170);
+  --color-aqua-mint-1000: oklch(0.3663 0.0479 170.32);
+  --color-aqua-mint-1100: oklch(0.1953 0.0202 172.63);
   /* !SECTION: Aqua Mint */
+  /* !SECTION: Accent Colors */
 
-  /* SECTION: Gun Metal (Neutrals) */
-  --color-gun-metal-100: #D3D7D9;
-  --color-gun-metal-200: #B5BDC0;
-  --color-gun-metal-300: #919CA1;
-  --color-gun-metal-400: #6C7A82;
-  --color-gun-metal-500: #475962;
-  --color-gun-metal-600: #223843;
-  --color-gun-metal-700: #1C2F38;
-  --color-gun-metal-800: #17252D;
-  --color-gun-metal-900: #111C22;
-  --color-gun-metal-1000: #0B1316;
-  --color-gun-metal-1100: #070B0D;
-  /* !SECTION: Gun Metal (Neutrals) */
+  /* SECTION: Surface Colors */
+  /* SECTION: Gun Metal */
+  --color-gun-metal-100: oklch(0.8766 0.0052 228.83);
+  --color-gun-metal-200: oklch(0.793 0.0099 222.08);
+  --color-gun-metal-300: oklch(0.6855 0.0146 226.66);
+  --color-gun-metal-400: oklch(0.5707 0.0207 232.78);
+  --color-gun-metal-500: oklch(0.4523 0.0266 229.7);
+  --color-gun-metal-600: oklch(0.3273 0.034 230.85);
+  --color-gun-metal-700: oklch(0.293 0.0296 229.4);
+  --color-gun-metal-800: oklch(0.2555 0.0244 234.06);
+  --color-gun-metal-900: oklch(0.2189 0.0197 232.69);
+  --color-gun-metal-1000: oklch(0.1801 0.0136 223.07);
+  --color-gun-metal-1100: oklch(0.1458 0.0083 227.73);
+  /* !SECTION: Gun Metal */
 
-  /* SECTION: Amber White (Neutrals) */
-  --color-amber-white-100: #FCFCFD;
-  --color-amber-white-200: #FAFAFB;
-  --color-amber-white-300: #F7F8F9;
-  --color-amber-white-400: #F4F6F7;
-  --color-amber-white-500: #F2F3F5;
-  --color-amber-white-600: #EFF1F3;
-  --color-amber-white-700: #C7C9CB;
-  --color-amber-white-800: #9FA1A2;
-  --color-amber-white-900: #78797A;
-  --color-amber-white-1000: #505051;
-  --color-amber-white-1100: #303031;
-  /* !SECTION: Amber White (Neutrals) */
+  /* SECTION: Amber White */
+  --color-amber-white-100: oklch(0.9913 0.0013 286.38);
+  --color-amber-white-200: oklch(0.9854 0.0013 286.38);
+  --color-amber-white-300: oklch(0.9787 0.0017 247.84);
+  --color-amber-white-400: oklch(0.9719 0.0025 228.78);
+  --color-amber-white-500: oklch(0.964 0.0029 264.54);
+  --color-amber-white-600: oklch(0.9572 0.0034 247.86);
+  --color-amber-white-700: oklch(0.8349 0.0036 247.87);
+  --color-amber-white-800: oklch(0.7077 0.0027 228.8);
+  --color-amber-white-900: oklch(0.5756 0.002 247.86);
+  --color-amber-white-1000: oklch(0.4316 0.0016 286.33);
+  --color-amber-white-1100: oklch(0.3096 0.0018 286.3);
+  /* !SECTION: Amber White */
+  /* !SECTION: Surface Colors */
+
+  /* SECTION: Feedback Colors */
+  /* SECTION: Basil */
+  --color-basil-amber-light: oklch(0.6454 0.1347 142.31)#59A253;
+  --color-basil-amber: oklch(0.4914 0.1336 143.21);
+  --color-basil-amber-dark: oklch(0.3415 0.1162 142.5);
+  --color-basil-gun-metal-light: oklch(0.7736 0.1039 144.1);
+  --color-basil-gun-metal: oklch(0.6187 0.1035 144.2);
+  --color-basil-gun-metal-dark: oklch(0.4647 0.1035 144.68);
+  /* !SECTION: Basil */
+
+  /* SECTION: Tomato */
+  --color-tomato-amber-light: oklch(0.6656 0.2019 22.56);
+  --color-tomato-amber: oklch(0.5106 0.1997 21.42);
+  --color-tomato-amber-dark: oklch(0.3898 0.159163 27.6392);
+  --color-tomato-gun-metal-light: oklch(0.6976 0.1933 29.11);
+  --color-tomato-gun-metal: oklch(0.6373 0.2481 27.08);
+  --color-tomato-gun-metal-dark: oklch(0.5132 0.2106 29.23);
+  /* !SECTION: Tomato */
+
+  /* SECTION: Corn */
+  --color-corn-amber-light: oklch(0.8559 0.1406 80.59);
+  --color-corn-amber: oklch(0.7042 0.1341 80.03);
+  --color-corn-amber-dark: oklch(0.5492 0.1147 77.38);
+  
+  --color-corn-gun-metal-light: oklch(0.8798 0.1242 83.19);
+  --color-corn-gun-metal: oklch(0.779 0.1505 62.52);
+  --color-corn-gun-metal-dark: oklch(0.6232 0.1407 61.65);
+  /* !SECTION: Corn */
+
+  /* SECTION: Blueberry */
+  --color-blueberry-amber-light: oklch(0.6413 0.1555 262.33);
+  --color-blueberry-amber: oklch(0.4867 0.1602 255.4);
+  --color-blueberry-amber-dark: oklch(0.3562 0.1452 259.99);
+  --color-blueberry-gun-metal-light: oklch(0.7874 0.1107 252.43);
+  --color-blueberry-gun-metal: oklch(0.6327 0.1152 250.45);
+  --color-blueberry-gun-metal-dark: oklch(0.4774 0.1207 246);
+  /* !SECTION: Blueberry */
+
+  /* SECTION: Koala */
+  --color-disabled-amber: oklch(0.6731 0 0);
+  --color-disabled-gun-metal: oklch(0.325 0 0);
+  --color-text-on-disabled: oklch(0.5208 0 0);
+  /* !SECTION: Koala */
+  /* !SECTION: Feedback Colors */
   /* !SECTION: Colors */
 
   /* SECTION: Fonts */
@@ -341,25 +384,19 @@ For charts, graphs, and status badges. These are vital for dashboards (Deriva's 
   .dark[data-energy="bubblegum-ice"] {
     --primary: var(--color-hot-pink-600);
     --primary-foreground: #ffffff;
-    
     --secondary: var(--color-gun-metal-900);
     --secondary-foreground: var(--color-aqua-mint-400);
   }
   /* !SECTION: ENERGY 5: BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 @layer utilities {
   .bg-primary {
     background-color: var(--primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary);
   }
 
   .no-scrollbar {
