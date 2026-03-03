@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy';
 import { dts } from 'rollup-plugin-dts';
 import fs from 'fs';
 
@@ -28,7 +29,13 @@ export default [
         plugins: [
             resolve(),
             commonjs(),
-            typescript({ tsconfig: './tsconfig.json' })
+            typescript({ tsconfig: './tsconfig.json' }),
+            // The copy plugin now lives here. It only needs to run once.
+            copy({
+                targets: [
+                    { src: 'src/assets/fonts', dest: 'dist/assets/fonts' }
+                ]
+            })
         ],
         // Define external dependencies to avoid bundling them
         external: ['react', 'react-dom']
