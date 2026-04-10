@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.13.0] - 2024-04-10
+---
+#### Updated
+- Update `Avatar` component with design specs.
+
 ### [1.12.0] - 2024-04-10
 ---
 #### Updated
