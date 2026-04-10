@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.11.0] - 2024-04-10
+---
+#### Updated
+- Update `Button` component with design specs.
+
 ### [1.10.0] - 2024-02-27
 ---
 #### Added
