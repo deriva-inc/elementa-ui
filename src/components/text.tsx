@@ -61,7 +61,24 @@ function Text({
     // !SECTION: Side Effects
 
     // SECTION: UI
-    return <p className={className}>{children}</p>;
+    switch (variant) {
+        case TextVariant.H1:
+            return <h1 className={className}>{children}</h1>;
+        case TextVariant.H2:
+            return <h2 className={className}>{children}</h2>;
+        case TextVariant.H3:
+            return <h3 className={className}>{children}</h3>;
+        case TextVariant.H4:
+            return <h4 className={className}>{children}</h4>;
+        case TextVariant.H5:
+            return <h5 className={className}>{children}</h5>;
+        case TextVariant.H6:
+            return <h6 className={className}>{children}</h6>;
+        case TextVariant.Button:
+            return <span className={className}>{children}</span>;
+        default:
+            return <p className={className}>{children}</p>;
+    }
     // !SECTION: UI
 }
 

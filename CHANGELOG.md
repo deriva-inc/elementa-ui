@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.12.0] - 2024-04-10
+---
+#### Updated
+- Update `Text` component with design specs.
+
 ### [1.11.0] - 2024-04-10
 ---
 #### Updated
