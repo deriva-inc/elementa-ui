@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.14.0] - 2024-04-10
+---
+#### Added
+- Add `Label` component with design specs.
+
 ### [1.13.0] - 2024-04-10
 ---
 #### Updated
