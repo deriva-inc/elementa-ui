@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.15.0] - 2024-04-14
+---
+#### Added
+- Update `theme.css` with the working branding logic.
+
 ### [1.14.0] - 2024-04-10
 ---
 #### Added
