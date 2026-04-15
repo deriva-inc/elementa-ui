@@ -1,20 +1,41 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { cn } from '@/src/lib/utils';
-import { TextProps, TextVariant } from '@/src/lib/types';
+import { cn } from '@/lib/utils';
+
+export enum TextVariant {
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    Body,
+    Button,
+    Subtitle1,
+    Subtitle2,
+    Caption,
+    Custom
+}
+
+export interface TextProps {
+    variant?: TextVariant;
+    color?: string;
+    children: React.ReactNode;
+    className?: string;
+}
 
 /**
  * This function renders the Text component for the library.
  */
-function Text({
+export function Text({
     variant = TextVariant.Body,
-    color,
+    color = 'text-primary',
     children,
-    customClassName
+    className
 }: TextProps) {
     // SECTION: Constants and Variables
-    const [className, setClassName] = useState('');
+    const [internalClassName, setInternalClassName] = useState('');
     // !SECTION: Constants and Variables
 
     // SECTION: States
@@ -30,23 +51,25 @@ function Text({
     const getVariantClass = (variant: TextVariant) => {
         switch (variant) {
             case TextVariant.H1:
-                return 'text-[61px] font-heading';
+                return '';
             case TextVariant.H2:
-                return 'text-[48px] font-heading';
+                return '';
             case TextVariant.H3:
-                return 'text-[39px] font-heading';
+                return '';
             case TextVariant.H4:
-                return 'text-[31px] font-bold font-heading';
+                return '';
             case TextVariant.H5:
-                return 'text-[25px] font-bold font-heading';
+                return '';
             case TextVariant.H6:
-                return 'text-[20px] font-bold font-heading';
+                return '';
             case TextVariant.Body:
-                return 'text-[16px] font-body';
+                return 'text-sm font-body';
             case TextVariant.Button:
-                return 'text-[16px] font-bold font-body';
+                return 'text-sm font-body';
+            case TextVariant.Caption:
+                return 'text-xs font-body';
             default:
-                return 'text-[16px] font-body';
+                return 'text-sm font-body';
         }
     };
     // !SECTION Functions
@@ -56,30 +79,30 @@ function Text({
 
     // SECTION: Side Effects
     useEffect(() => {
-        setClassName(cn(getVariantClass(variant), color, customClassName));
-    }, [variant, color, customClassName]);
+        setInternalClassName(cn(getVariantClass(variant), color, className));
+    }, [variant, color, className]);
     // !SECTION: Side Effects
 
     // SECTION: UI
     switch (variant) {
         case TextVariant.H1:
-            return <h1 className={className}>{children}</h1>;
+            return <h1 className={internalClassName}>{children}</h1>;
         case TextVariant.H2:
-            return <h2 className={className}>{children}</h2>;
+            return <h2 className={internalClassName}>{children}</h2>;
         case TextVariant.H3:
-            return <h3 className={className}>{children}</h3>;
+            return <h3 className={internalClassName}>{children}</h3>;
         case TextVariant.H4:
-            return <h4 className={className}>{children}</h4>;
+            return <h4 className={internalClassName}>{children}</h4>;
         case TextVariant.H5:
-            return <h5 className={className}>{children}</h5>;
+            return <h5 className={internalClassName}>{children}</h5>;
         case TextVariant.H6:
-            return <h6 className={className}>{children}</h6>;
+            return <h6 className={internalClassName}>{children}</h6>;
         case TextVariant.Button:
-            return <span className={className}>{children}</span>;
+            return <span className={internalClassName}>{children}</span>;
+        case TextVariant.Caption:
+            return <span className={internalClassName}>{children}</span>;
         default:
             return <p className={className}>{children}</p>;
     }
     // !SECTION: UI
 }
-
-export { Text };

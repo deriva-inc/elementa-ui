@@ -1,12 +1,12 @@
 {
     "name": "get-elementa-ui",
-    "version": "1.11.6",
+    "version": "1.12.0",
     "description": "Elementa UI components library.",
     "homepage": "https://deriva.xyz/branding",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
     "types": "dist/types/index.d.ts",
-    "style": "dist/style.css",
+    "style": "dist/styles.css",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/deriva-inc/elementa-ui.git"

@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.16.0] - 2024-04-10
+---
+#### Added
+- Add `Spinner` component with design specs.
+
 ### [1.15.0] - 2024-04-14
 ---
 #### Added
