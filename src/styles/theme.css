@@ -145,6 +145,10 @@
 
 /* SECTION: Semantic Mapping */
 @theme inline {
+	/* SECTION: Dimensions */
+	--radius: 0.625rem;
+	/* !SECTION: Dimensions */
+
 	/* SECTION: LAYER 1: BASE */
 	--color-bg-base-primary: var(--bg-base-primary);
 	--color-bg-base-secondary: var(--bg-base-secondary);

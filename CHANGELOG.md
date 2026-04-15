@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.17.0] - 2024-04-10
+---
+#### Added
+- Add logger utility for better log management.
+
 ### [1.16.0] - 2024-04-10
 ---
 #### Added
