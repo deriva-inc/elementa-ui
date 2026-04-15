@@ -30,15 +30,16 @@ export interface TextProps {
  */
 export function Text({
     variant = TextVariant.Body,
-    color = 'text-primary',
+    color = 'text-text-primary',
     children,
     className
 }: TextProps) {
     // SECTION: Constants and Variables
-    const [internalClassName, setInternalClassName] = useState('');
+    const baseClassNames = 'w-fit';
     // !SECTION: Constants and Variables
 
     // SECTION: States
+    const [internalClassName, setInternalClassName] = useState('');
     // !SECTION: States
 
     // SECTION: Functions
@@ -64,8 +65,12 @@ export function Text({
                 return '';
             case TextVariant.Body:
                 return 'text-sm font-body';
+            case TextVariant.Subtitle1:
+                return 'text-sm font-medium font-body';
+            case TextVariant.Subtitle2:
+                return 'text-xs font-medium font-body';
             case TextVariant.Button:
-                return 'text-sm font-body';
+                return 'text-sm font-medium font-body';
             case TextVariant.Caption:
                 return 'text-xs font-body';
             default:
@@ -79,7 +84,9 @@ export function Text({
 
     // SECTION: Side Effects
     useEffect(() => {
-        setInternalClassName(cn(getVariantClass(variant), color, className));
+        setInternalClassName(
+            cn(baseClassNames, getVariantClass(variant), color, className)
+        );
     }, [variant, color, className]);
     // !SECTION: Side Effects
 
@@ -98,11 +105,15 @@ export function Text({
         case TextVariant.H6:
             return <h6 className={internalClassName}>{children}</h6>;
         case TextVariant.Button:
-            return <span className={internalClassName}>{children}</span>;
+            return <p className={internalClassName}>{children}</p>;
         case TextVariant.Caption:
-            return <span className={internalClassName}>{children}</span>;
+            return <p className={internalClassName}>{children}</p>;
+        case TextVariant.Subtitle1:
+            return <p className={internalClassName}>{children}</p>;
+        case TextVariant.Subtitle2:
+            return <p className={internalClassName}>{children}</p>;
         default:
-            return <p className={className}>{children}</p>;
+            return <p className={internalClassName}>{children}</p>;
     }
     // !SECTION: UI
 }

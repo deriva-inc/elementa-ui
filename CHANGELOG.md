@@ -1,10 +1,15 @@
 # CHANGELOG
-### [1.17.0] - 2024-04-10
+### [1.18.0] - 2024-04-15
+---
+#### Added
+- Add `Button Group` component with design specs.
+
+### [1.17.0] - 2024-04-15
 ---
 #### Added
 - Add logger utility for better log management.
 
-### [1.16.0] - 2024-04-10
+### [1.16.0] - 2024-04-15
 ---
 #### Added
 - Add `Spinner` component with design specs.
