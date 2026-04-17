@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.19.0] - 2024-04-17
+---
+#### Added
+- Add `Sheet` component with design specs.
+
 ### [1.18.0] - 2024-04-15
 ---
 #### Added
