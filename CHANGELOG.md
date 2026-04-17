@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.21.0] - 2024-04-17
+---
+#### Added
+- Add `Tabs` component with design specs.
+
 ### [1.20.0] - 2024-04-17
 ---
 #### Added
