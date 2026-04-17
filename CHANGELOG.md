@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.22.0] - 2024-04-17
+---
+#### Added
+- Add `Input` component with design specs.
+
 ### [1.21.0] - 2024-04-17
 ---
 #### Added
