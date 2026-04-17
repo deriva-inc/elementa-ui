@@ -1,6 +1,6 @@
 {
     "name": "get-elementa-ui",
-    "version": "1.12.0",
+    "version": "1.14.0",
     "description": "Elementa UI components library.",
     "homepage": "https://deriva.xyz/branding",
     "main": "dist/index.js",
@@ -82,6 +82,7 @@
         "@tailwindcss/postcss": "^4.2.1",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
+        "elementa-icons": "^1.63.0",
         "lucide-react": "^0.575.0",
         "postcss": "^8.5.8",
         "postcss-url": "^10.1.3",

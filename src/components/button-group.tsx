@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 
 import { cn } from '@/lib/utils';
-import { Separator } from '@/src/components/separator';
+import { Separator } from '@/src/components/ui/separator';
 
 const buttonGroupVariants = cva(
     "flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-lg [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
@@ -67,7 +67,7 @@ function ButtonGroupSeparator({
             data-slot="button-group-separator"
             orientation={orientation}
             className={cn(
-                'bg-bg-flat-secondary relative self-stretch data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto',
+                'bg-stroke-flat-secondary relative self-stretch data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto',
                 className
             )}
             {...props}

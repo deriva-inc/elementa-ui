@@ -178,15 +178,19 @@
 	--color-bg-modal-primary: var(--bg-modal-primary);
 	--color-bg-modal-secondary: var(--bg-modal-secondary);
 	--color-bg-success: var(--bg-success);
+	--color-bg-fill-success: var(--bg-fill-success);
 	--color-bg-hover-success: var(--bg-hover-success);
 	--color-stroke-success: var(--stroke-success);
 	--color-bg-destructive: var(--bg-destructive);
+	--color-bg-fill-destructive: var(--bg-fill-destructive);
 	--color-bg-hover-destructive: var(--bg-hover-destructive);
 	--color-stroke-destructive: var(--stroke-destructive);
 	--color-bg-info: var(--bg-info);
+	--color-bg-fill-info: var(--bg-fill-info);
 	--color-bg-hover-info: var(--bg-hover-info);
 	--color-stroke-info: var(--stroke-info);
 	--color-bg-warning: var(--bg-warning);
+	--color-bg-fill-warning: var(--bg-fill-warning);
 	--color-bg-hover-warning: var(--bg-hover-warning);
 	--color-stroke-warning: var(--stroke-warning);
 	/* !SECTION: LAYER 2: MODAL */
@@ -195,12 +199,12 @@
 	/* SECTION: LAYER 3: ACTIVE */
 	--color-bg-active-primary: var(--bg-active-primary);
 	--color-bg-active-hover-primary: var(--bg-active-hover-primary);
+	--color-bg-fill-active-primary: var(--bg-fill-active-primary);
+	--color-stroke-active-primary: var(--stroke-active-primary);
 	--color-bg-active-secondary: var(--bg-active-secondary);
 	--color-bg-active-hover-secondary: var(--bg-active-hover-secondary);
-	--color-stroke-active-primary: var(--stroke-active-primary);
-	--color-stroke-active-secondary: var(--stroke-active-secondary);
-	--color-bg-fill-active-primary: var(--bg-fill-active-primary);
 	--color-bg-fill-active-secondary: var(--bg-fill-active-secondary);
+	--color-stroke-active-secondary: var(--stroke-active-secondary);
 
 	/* SECTION: LAYER 3: CHARTS */
 	--color-chart-primary-1: var(--chart-primary-1);
@@ -225,13 +229,20 @@
 	:root {
 		/* SECTION: Dimensions */
 		--radius: 0.625rem;
+		--radius-sm: calc(var(--radius) * 0.6);
+		--radius-md: calc(var(--radius) * 0.8);
+		--radius-lg: var(--radius);
+		--radius-xl: calc(var(--radius) * 1.4);
+		--radius-2xl: calc(var(--radius) * 1.8);
+		--radius-3xl: calc(var(--radius) * 2.2);
+		--radius-4xl: calc(var(--radius) * 2.6);
 		/* !SECTION: Dimensions */
 
 		/* SECTION: LAYER 1: BASE */
 		--bg-base-primary: var(--color-amber-white-100);
 		--bg-base-secondary: var(--color-amber-white-300);
-		--stroke-base-primary: var(--color-gun-metal-700);
-		--stroke-base-secondary: var(--color-gun-metal-600);
+		--stroke-base-primary: var(--color-gun-metal-1000);
+		--stroke-base-secondary: var(--color-gun-metal-900);
 		--bg-disabled: var(--color-disabled-amber);
 		--bg-muted: var(--color-muted);
 		/* !SECTION: LAYER 1: BASE */
@@ -239,11 +250,11 @@
 		/* SECTION: LAYER 2: FLAT */
 		--bg-flat-primary: var(--color-amber-white-400);
 		--bg-flat-secondary: var(--color-amber-white-600);
-		--stroke-flat-primary: var(--color-gun-metal-400);
-		--stroke-flat-secondary: var(--color-gun-metal-200);
+		--stroke-flat-primary: var(--color-gun-metal-700);
+		--stroke-flat-secondary: var(--color-gun-metal-600);
 		--text-primary: var(--color-gun-metal-1100);
-		--text-secondary: var(--color-gun-metal-600);
-		--text-tertiary: var(--color-gun-metal-100);
+		--text-secondary: var(--color-gun-metal-500);
+		--text-tertiary: var(--color-gun-metal-300);
 		--text-disabled: var(--color-text-on-disabled);
 		--text-muted: var(--color-gun-metal-900);
 		--text-success: var(--color-basil-amber);
@@ -254,16 +265,20 @@
 		/* SECTION: LAYER 2: MODAL */
 		--bg-modal-primary: var(--color-amber-white-700);
 		--bg-modal-secondary: var(--color-amber-white-800);
-		--bg-success: color-mix(in oklch, var(--color-basil-amber), transparent 60%);
+		--bg-success: var(--color-basil-amber);
+		--bg-fill-success: color-mix(in oklch, var(--color-basil-amber), transparent 60%);
 		--bg-hover-success: color-mix(in oklch, var(--color-basil-amber), transparent 80%);
 		--stroke-success: var(--color-basil-amber-dark);
-		--bg-destructive: color-mix(in oklch, var(--color-tomato-amber), transparent 60%);
+		--bg-destructive: var(--color-tomato-amber);
+		--bg-fill-destructive: color-mix(in oklch, var(--color-tomato-amber), transparent 60%);
 		--bg-hover-destructive: color-mix(in oklch, var(--color-tomato-amber), transparent 80%);
 		--stroke-destructive: var(--color-tomato-amber-dark);
+		--bg-info: var(--color-blueberry-amber);
 		--bg-info: color-mix(in oklch, var(--color-blueberry-amber), transparent 60%);
 		--bg-hover-info: color-mix(in oklch, var(--color-blueberry-amber), transparent 80%);
 		--stroke-info: var(--color-blueberry-amber-dark);
-		--bg-warning: color-mix(in oklch, var(--color-corn-amber), transparent 60%);
+		--bg-warning: var(--color-corn-amber);
+		--bg-fill-warning: color-mix(in oklch, var(--color-corn-amber), transparent 60%);
 		--bg-hover-warning: color-mix(in oklch, var(--color-corn-amber), transparent 80%);
 		--stroke-warning: var(--color-corn-amber-dark);
 		/* !SECTION: LAYER 2: MODAL */
@@ -276,8 +291,8 @@
 		/* SECTION: LAYER 1: BASE */
 		--bg-base-primary: var(--color-gun-metal-1100);
 		--bg-base-secondary: var(--color-gun-metal-900);
-		--stroke-base-primary: var(--color-amber-white-500);
-		--stroke-base-secondary: var(--color-amber-white-600);
+		--stroke-base-primary: var(--color-amber-white-200);
+		--stroke-base-secondary: var(--color-amber-white-300);
 		--bg-disabled: var(--color-disabled-gun-metal);
 		--bg-muted: var(--color-muted);
 		/* !SECTION: LAYER 1: BASE */
@@ -285,11 +300,11 @@
 		/* SECTION: LAYER 2: FLAT */
 		--bg-flat-primary: var(--color-gun-metal-800);
 		--bg-flat-secondary: var(--color-gun-metal-600);
-		--stroke-flat-primary: var(--color-amber-white-800);
-		--stroke-flat-secondary: var(--color-amber-white-1000);
+		--stroke-flat-primary: var(--color-amber-white-400);
+		--stroke-flat-secondary: var(--color-amber-white-500);
 		--text-primary: var(--color-amber-white-100);
-		--text-secondary: var(--color-amber-white-600);
-		--text-tertiary: var(--color-amber-white-1100);
+		--text-secondary: var(--color-amber-white-700);
+		--text-tertiary: var(--color-amber-white-900);
 		--text-disabled: var(--color-text-on-disabled);
 		--text-muted: var(--color-gun-metal-900);
 		--text-success: var(--color-basil-gun-metal-light);
@@ -300,16 +315,20 @@
 		/* SECTION: LAYER 2: MODAL */
 		--bg-modal-primary: var(--color-gun-metal-500);
 		--bg-modal-secondary: var(--color-gun-metal-400);
-		--bg-success: color-mix(in oklch, var(--color-basil-gun-metal), transparent 70%);
+		--bg-success: var(--color-basil-gun-metal);
+		--bg-fill-success: color-mix(in oklch, var(--color-basil-gun-metal), transparent 70%);
 		--bg-hover-success: color-mix(in oklch, var(--color-basil-gun-metal), transparent 85%);
 		--stroke-success: var(--color-basil-gun-metal-dark);
-		--bg-destructive: color-mix(in oklch, var(--color-tomato-gun-metal), transparent 70%);
+		--bg-destructive: var(--color-tomato-gun-metal);
+		--bg-fill-destructive: color-mix(in oklch, var(--color-tomato-gun-metal), transparent 70%);
 		--bg-hover-destructive: color-mix(in oklch, var(--color-tomato-gun-metal), transparent 85%);
 		--stroke-destructive: var(--color-tomato-gun-metal-dark);
-		--bg-info: color-mix(in oklch, var(--color-blueberry-gun-metal), transparent 70%);
+		--bg-info: var(--color-blueberry-gun-metal);
+		--bg-fill-info: color-mix(in oklch, var(--color-blueberry-gun-metal), transparent 70%);
 		--bg-hover-info: color-mix(in oklch, var(--color-blueberry-gun-metal), transparent 85%);
 		--stroke-info: var(--color-blueberry-gun-metal-dark);
-		--bg-warning: color-mix(in oklch, var(--color-corn-gun-metal), transparent 70%);
+		--bg-warning: var(--color-corn-gun-metal);
+		--bg-fill-warning: color-mix(in oklch, var(--color-corn-gun-metal), transparent 70%);
 		--bg-hover-warning: color-mix(in oklch, var(--color-corn-gun-metal), transparent 85%);
 		--stroke-warning: var(--color-corn-gun-metal-dark);
 		/* !SECTION: LAYER 2: MODAL */
@@ -359,8 +378,8 @@
 
 	.dark[data-energy="vaporwave"] {
 		/* SECTION: LAYER 1: BASE */
-		--bg-base-selected-primary: var(--color-electric-violet-1000);
-		--bg-base-selected-secondary: var(--color-hot-pink-1000);
+		--bg-base-selected-primary: var(--color-electric-violet-900);
+		--bg-base-selected-secondary: var(--color-hot-pink-900);
 		/* !SECTION: LAYER 1: BASE */
 
 		/* SECTION: LAYER 2: FLAT */
@@ -375,8 +394,8 @@
 		--bg-active-hover-secondary: var(--color-hot-pink-200);
 		--stroke-active-primary: var(--color-electric-violet-200);
 		--stroke-active-secondary: var(--color-hot-pink-200);
-		--bg-fill-active-primary: var(--color-electric-violet-1100);
-		--bg-fill-active-secondary: var(--color-hot-pink-1100);
+		--bg-fill-active-primary: var(--color-electric-violet-1000);
+		--bg-fill-active-secondary: var(--color-hot-pink-1000);
 
 		/* SECTION: LAYER 3: CHARTS */
 		--chart-primary-1: var(--color-electric-violet-200);
@@ -436,8 +455,8 @@
 
 	.dark[data-energy="electric-shock"] {
 		/* SECTION: LAYER 1: BASE */
-		--bg-base-selected-primary: var(--color-electric-violet-1000);
-		--bg-base-selected-secondary: var(--color-acid-lime-1000);
+		--bg-base-selected-primary: var(--color-electric-violet-900);
+		--bg-base-selected-secondary: var(--color-acid-lime-900);
 		/* !SECTION: LAYER 1: BASE */
 
 		/* SECTION: LAYER 2: FLAT */
@@ -452,8 +471,8 @@
 		--bg-active-hover-secondary: var(--color-acid-lime-200);
 		--stroke-active-primary: var(--color-electric-violet-200);
 		--stroke-active-secondary: var(--color-acid-lime-200);
-		--bg-fill-active-primary: var(--color-electric-violet-1100);
-		--bg-fill-active-secondary: var(--color-acid-lime-1100);
+		--bg-fill-active-primary: var(--color-electric-violet-1000);
+		--bg-fill-active-secondary: var(--color-acid-lime-1000);
 
 		/* SECTION: LAYER 3: CHARTS */
 		--chart-primary-1: var(--color-electric-violet-200);
@@ -513,8 +532,8 @@
 
 	.dark[data-energy="cyber-mist"] {
 		/* SECTION: LAYER 1: BASE */
-		--bg-base-selected-primary: var(--color-electric-violet-1000);
-		--bg-base-selected-secondary: var(--color-aqua-mint-1000);
+		--bg-base-selected-primary: var(--color-electric-violet-900);
+		--bg-base-selected-secondary: var(--color-aqua-mint-900);
 		/* !SECTION: LAYER 1: BASE */
 
 		/* SECTION: LAYER 2: FLAT */
@@ -529,8 +548,8 @@
 		--bg-active-hover-secondary: var(--color-aqua-mint-200);
 		--stroke-active-primary: var(--color-electric-violet-200);
 		--stroke-active-secondary: var(--color-aqua-mint-200);
-		--bg-fill-active-primary: var(--color-electric-violet-1100);
-		--bg-fill-active-secondary: var(--color-aqua-mint-1100);
+		--bg-fill-active-primary: var(--color-electric-violet-1000);
+		--bg-fill-active-secondary: var(--color-aqua-mint-1000);
 
 		/* SECTION: LAYER 3: CHARTS */
 		--chart-primary-1: var(--color-electric-violet-200);
@@ -590,8 +609,8 @@
 
 	.dark[data-energy="summer-fruit"] {
 		/* SECTION: LAYER 1: BASE */
-		--bg-base-selected-primary: var(--color-hot-pink-1000);
-		--bg-base-selected-secondary: var(--color-acid-lime-1000);
+		--bg-base-selected-primary: var(--color-hot-pink-900);
+		--bg-base-selected-secondary: var(--color-acid-lime-900);
 		/* !SECTION: LAYER 1: BASE */
 
 		/* SECTION: LAYER 2: FLAT */
@@ -606,8 +625,8 @@
 		--bg-active-hover-secondary: var(--color-acid-lime-200);
 		--stroke-active-primary: var(--color-hot-pink-200);
 		--stroke-active-secondary: var(--color-acid-lime-200);
-		--bg-fill-active-primary: var(--color-hot-pink-1100);
-		--bg-fill-active-secondary: var(--color-acid-lime-1100);
+		--bg-fill-active-primary: var(--color-hot-pink-1000);
+		--bg-fill-active-secondary: var(--color-acid-lime-1000);
 
 		/* SECTION: LAYER 3: CHARTS */
 		--chart-primary-1: var(--color-hot-pink-200);
@@ -667,8 +686,8 @@
 
 	.dark[data-energy="bubblegum-ice"] {
 		/* SECTION: LAYER 1: BASE */
-		--bg-base-selected-primary: var(--color-hot-pink-1000);
-		--bg-base-selected-secondary: var(--color-aqua-mint-1000);
+		--bg-base-selected-primary: var(--color-hot-pink-900);
+		--bg-base-selected-secondary: var(--color-aqua-mint-900);
 		/* !SECTION: LAYER 1: BASE */
 
 		/* SECTION: LAYER 2: FLAT */
@@ -683,8 +702,8 @@
 		--bg-active-hover-secondary: var(--color-aqua-mint-200);
 		--stroke-active-primary: var(--color-hot-pink-200);
 		--stroke-active-secondary: var(--color-aqua-mint-200);
-		--bg-fill-active-primary: var(--color-hot-pink-1100);
-		--bg-fill-active-secondary: var(--color-aqua-mint-1100);
+		--bg-fill-active-primary: var(--color-hot-pink-1000);
+		--bg-fill-active-secondary: var(--color-aqua-mint-1000);
 
 		/* SECTION: LAYER 3: CHARTS */
 		--chart-primary-1: var(--color-hot-pink-200);
