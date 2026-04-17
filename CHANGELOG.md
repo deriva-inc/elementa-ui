@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.20.0] - 2024-04-17
+---
+#### Added
+- Add `Breadcrumb` component with design specs.
+
 ### [1.19.0] - 2024-04-17
 ---
 #### Added
