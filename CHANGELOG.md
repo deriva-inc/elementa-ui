@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.24.0] - 2024-04-20
+---
+#### Added
+- Add `Dialog` component with design specs.
+
 ### [1.23.0] - 2024-04-20
 ---
 #### Added
