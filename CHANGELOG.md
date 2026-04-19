@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.23.0] - 2024-04-20
+---
+#### Added
+- Add `Alert Dialog` component with design specs.
+
 ### [1.22.0] - 2024-04-17
 ---
 #### Added
