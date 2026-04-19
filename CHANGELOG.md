@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.25.0] - 2024-04-20
+---
+#### Added
+- Add `Textarea` component with design specs.
+
 ### [1.24.0] - 2024-04-20
 ---
 #### Added
