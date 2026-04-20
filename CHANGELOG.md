@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.28.0] - 2024-04-20
+---
+#### Added
+- Add `Field` component with design specs.
+
 ### [1.27.0] - 2024-04-20
 ---
 #### Added
