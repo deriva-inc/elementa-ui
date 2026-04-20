@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.32.0] - 2024-04-21
+---
+#### Added
+- Add `Progress` component with design specs.
+
 ### [1.31.0] - 2024-04-21
 ---
 #### Added
