@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.31.0] - 2024-04-21
+---
+#### Added
+- Add `Toggle Group` component with design specs.
+
 ### [1.30.0] - 2024-04-21
 ---
 #### Added
