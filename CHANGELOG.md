@@ -1,4 +1,14 @@
 # CHANGELOG
+### [1.27.0] - 2024-04-20
+---
+#### Added
+- Add `Radio Group` component with design specs.
+
+### [1.26.0] - 2024-04-20
+---
+#### Added
+- Add `Tooltip` component with design specs.
+
 ### [1.25.0] - 2024-04-20
 ---
 #### Added
