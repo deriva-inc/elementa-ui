@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.30.0] - 2024-04-21
+---
+#### Added
+- Add `Toggle` component with design specs.
+
 ### [1.29.0] - 2024-04-20
 ---
 #### Added
