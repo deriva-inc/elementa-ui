@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.29.0] - 2024-04-20
+---
+#### Added
+- Add `Switch` component with design specs.
+
 ### [1.28.0] - 2024-04-20
 ---
 #### Added
