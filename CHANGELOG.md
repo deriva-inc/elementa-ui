@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.34.0] - 2024-04-21
+---
+#### Added
+- Add `Accordion` component with design specs.
+
 ### [1.33.0] - 2024-04-21
 ---
 #### Added
