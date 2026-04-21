@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.37.0] - 2024-04-22
+---
+#### Added
+- Add `Table` component with design specs.
+
 ### [1.36.0] - 2024-04-21
 ---
 #### Added
