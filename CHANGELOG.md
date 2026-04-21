@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.33.0] - 2024-04-21
+---
+#### Added
+- Add `Input OTP` component with design specs.
+
 ### [1.32.0] - 2024-04-21
 ---
 #### Added
