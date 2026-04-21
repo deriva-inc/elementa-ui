@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.35.0] - 2024-04-21
+---
+#### Added
+- Add `Badge` component with design specs.
+
 ### [1.34.0] - 2024-04-21
 ---
 #### Added
