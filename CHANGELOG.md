@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.39.0] - 2024-04-22
+---
+#### Added
+- Add `Sonner` component with design specs.
+
 ### [1.38.0] - 2024-04-22
 ---
 #### Added
