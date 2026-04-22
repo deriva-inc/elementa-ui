@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.48.0] - 2024-04-22
+---
+#### Added
+- Add `Item` component with design specs.
+
 ### [1.47.0] - 2024-04-22
 ---
 #### Added
