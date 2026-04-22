@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.45.0] - 2024-04-22
+---
+#### Added
+- Add `Stepper` component with design specs.
+
 ### [1.44.0] - 2024-04-22
 ---
 #### Added
