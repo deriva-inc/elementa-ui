@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.42.0] - 2024-04-22
+---
+#### Added
+- Add `Pagination` component with design specs.
+
 ### [1.41.0] - 2024-04-22
 ---
 #### Added
