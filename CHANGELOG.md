@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.46.0] - 2024-04-22
+---
+#### Added
+- Add `Sidebar` component with design specs.
+
 ### [1.45.0] - 2024-04-22
 ---
 #### Added
