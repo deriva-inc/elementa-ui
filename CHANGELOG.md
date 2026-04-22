@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.47.0] - 2024-04-22
+---
+#### Added
+- Add `Input Group` component with design specs.
+
 ### [1.46.0] - 2024-04-22
 ---
 #### Added
