@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.43.0] - 2024-04-22
+---
+#### Added
+- Add `Popover` component with design specs.
+
 ### [1.42.0] - 2024-04-22
 ---
 #### Added
