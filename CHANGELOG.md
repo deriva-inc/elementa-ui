@@ -1,4 +1,14 @@
 # CHANGELOG
+### [1.51.0] - 2024-04-22
+---
+#### Added
+- Add `Empty` block with design specs.
+
+### [1.50.0] - 2024-04-22
+---
+#### Added
+- Add `Error State` block with design specs.
+
 ### [1.49.0] - 2024-04-22
 ---
 #### Added
