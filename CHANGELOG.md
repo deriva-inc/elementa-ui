@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.52.0] - 2024-04-22
+---
+#### Added
+- Add `Hover Card` component with design specs.
+
 ### [1.51.0] - 2024-04-22
 ---
 #### Added
