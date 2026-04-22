@@ -13,16 +13,18 @@ import { Text, TextVariant } from '@/src/components/text';
  */
 export default function LoadingState({
     text,
+    animData = sampleAnimData,
     className
 }: {
     text?: string;
+    animData?: any;
     className?: string;
 }) {
     // SECTION: Constants and Variables
     const sampleAnimLottieOptions = {
         loop: true,
         autoplay: true,
-        animationData: sampleAnimData,
+        animationData: animData,
         rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'
         }
