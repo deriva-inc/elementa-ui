@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.40.0] - 2024-04-22
+---
+#### Added
+- Add `Dropdown Menu` component with design specs.
+
 ### [1.39.0] - 2024-04-22
 ---
 #### Added
