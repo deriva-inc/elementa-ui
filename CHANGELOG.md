@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.49.0] - 2024-04-22
+---
+#### Added
+- Add `Loading State` block with design specs.
+
 ### [1.48.0] - 2024-04-22
 ---
 #### Added
