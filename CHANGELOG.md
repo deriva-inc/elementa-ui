@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.53.0] - 2024-04-28
+---
+#### Updated
+- Fix feedback colors on theme and related components.
+
 ### [1.52.0] - 2024-04-22
 ---
 #### Added
