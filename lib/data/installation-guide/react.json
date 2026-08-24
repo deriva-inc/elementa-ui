@@ -1,0 +1,138 @@
+{
+    "id": "installation",
+    "type": "guide",
+    "title": "Getting Started with Elementa UI on React",
+    "description": "Complete setup guide for integrating Elementa UI into your React.js project",
+    "sections": [
+        {
+            "id": "prerequisites",
+            "title": "Prerequisites",
+            "content": "Before installing Elementa UI, ensure you have the following:",
+            "items": [
+                "Node.js 18 or higher",
+                "npm, yarn, or pnpm package manager",
+                "React 18+",
+                "Tailwind CSS 4.0"
+            ]
+        },
+        {
+            "id": "step-1-install-deps-peer",
+            "title": "Step 1: Install Peer Dependencies",
+            "content": "Elementa UI requires several peer dependencies. Install them automatically or manually:",
+            "commands": [
+                {
+                    "command": "npm install class-variance-authority clsx echarts echarts-for-react elementa-icons gsap lines lucide-react motion postcss prettier-plugin-tailwindcss radix-ui react-day-picker react-intersection-observer react-lottie react-markdown react-syntax-highlighter rehype-raw shadcn simplex-noise sonner tailwind-merge tw-animate-css tailwindcss @tailwindcss/postcss"
+                },
+                {
+                    "manager": "yarn",
+                    "command": "yarn add class-variance-authority clsx echarts echarts-for-react elementa-icons gsap lines lucide-react motion postcss prettier-plugin-tailwindcss radix-ui react-day-picker react-intersection-observer react-lottie react-markdown react-syntax-highlighter rehype-raw shadcn sonner tailwind-merge tw-animate-css tailwindcss @tailwindcss/postcss"
+                },
+                {
+                    "manager": "pnpm",
+                    "command": "pnpm add class-variance-authority clsx echarts echarts-for-react elementa-icons gsap lines lucide-react motion postcss prettier-plugin-tailwindcss radix-ui react-day-picker react-intersection-observer react-lottie react-markdown react-syntax-highlighter rehype-raw shadcn simplex-noise sonner tailwind-merge tw-animate-css tailwindcss @tailwindcss/postcss"
+                }
+            ]
+        },
+        {
+            "id": "step-2-tailwind-config",
+            "title": "Step 2: Configure PostCSS Config",
+            "content": "Update your postcss.config.mjs:",
+            "fileName": "postcss.config.mjs",
+            "code": "\nconst config = {\n\tplugins: {\n\t\t'@tailwindcss/postcss': {},\n\t},\n};\nexport default config;",
+            "language": "typescript"
+        },
+        {
+            "id": "step-3-globals-css",
+            "title": "Step 3: Add Global Styles",
+            "content": "Edit globals.css for importing shadcn, tailwind, and elementa styles:",
+            "fileName": "globals.css",
+            "code": "@import \"tailwindcss\";\n@import \"tw-animate-css\";\n@import \"shadcn/tailwind.css\";\n@import \"lenis/dist/lenis.css\";\n@import \"./../styles/animations.css\";\n@import \"./../styles/theme.css\";\n@import \"./../styles/utilities.css\";\n\n@custom-variant dark (&:is(.dark *));",
+            "language": "css"
+        },
+        {
+            "id": "step-4-root-layout",
+            "title": "Step 4: Update your root layout.tsx",
+            "content": "Update your root layout.tsx file to incorporate all styling changes:",
+            "fileName": "layout.tsx",
+            "code": "import {ReactLenis} from 'lenis/react';\n\n<html\n\tlang=\"en\"\n\tclassName=\"bg-bg-base-primary antialiased\"\n\tdata-energy={energy} // This is what applies an energy to your UI\n>\n\t<ReactLenis\n\t\troot\n\t\toptions={{\n\t\t\tlerp: 0.1,\n\t\t\tduration: 1.5,\n\t\t\tsmoothWheel: true,\n\t\t\tsyncTouch: true\n\t\t}}}\n\t\t{children}\n\t</ReactLenis>\n</html>",
+            "language": "typescript"
+        },
+        {
+            "id": "step-5-static-fonts",
+            "title": "Step 5: Apply Static Fonts",
+            "content": "To apply static fonts globally to your app, you can do the following:",
+            "fileName": "globals.css",
+            "code": "// Download static font assets from this URL:\n// https://github.com/deriva-inc/elementa-ui/tree/master/src/assets/fonts\n\n/* 1. Rowan */\n@font-face {\n\tfont-family: 'Rowan';\n\tsrc: url('../../public/fonts/rowan/Rowan-Regular.otf') format('opentype');\n\tfont-weight: 400;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n\n@font-face {\n\tfont-family: 'Rowan';\n\tsrc: url('../../public/fonts/rowan/Rowan-Bold.otf') format('opentype');\n\tfont-weight: 700;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n\n/* 2. Satoshi */\n@font-face {\n\tfont-family: 'Satoshi';\n\tsrc: url('./../public/fonts/satoshi/Satoshi-Light.otf') format('opentype');\n\tfont-weight: 300;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n\n@font-face {\n\tfont-family: 'Satoshi';\n\tsrc: url('./../public/fonts/satoshi/Satoshi-Regular.otf') format('opentype');\n\tfont-weight: 400;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n\n@font-face {\n\tfont-family: 'Satoshi';\n\tsrc: url('./../public/fonts/satoshi/Satoshi-Medium.otf') format('opentype');\n\tfont-weight: 500;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n\n@font-face {\n\tfont-family: 'Satoshi';\n\tsrc: url('./../public/fonts/satoshi/Satoshi-Bold.otf') format('opentype');\n\tfont-weight: 700;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n\n@font-face {\n\tfont-family: 'Satoshi';\n\tsrc: url('./../public/fonts/satoshi/Satoshi-Black.otf') format('opentype');\n\tfont-weight: 900;\n\tfont-style: normal;\n\tfont-display: swap;\n}",
+            "language": "typescript"
+        },
+        {
+            "id": "step-6-update-themes",
+            "title": "Step 6: Update themes and semantic mapping",
+            "content": "You can update your theme configuration and semantic mapping by using the following files:\nhttps://github.com/deriva-inc/elementa-ui/tree/master/src/styles.\n\n Make sure to have these files in your project:",
+            "items": [
+                "styles/theme.css",
+                "styles/utilities.css",
+                "styles/energies/acoustic-wood.css",
+                "styles/energies/cipher-vault.css",
+                "styles/energies/crema-extraction.css",
+                "styles/energies/dawn-chorus.css",
+                "styles/energies/dusk-bloom.css",
+                "styles/energies/event-horizon.css",
+                "styles/energies/index.css",
+                "styles/energies/makers-canvas.css",
+                "styles/energies/neon-symphony.css",
+                "styles/energies/tropical-grid.css",
+                "styles/energies/zen-toolkit.css"
+            ]
+        },
+        {
+            "id": "step-7-make-it-come-together",
+            "title": "Step 7: Make it come together",
+            "subsections": [
+                {
+                    "title": "Import components from elementa",
+                    "content": "Import the required component code from elementa website or GitHub repository."
+                },
+                {
+                    "title": "Import blocks from elementa",
+                    "content": "Import the required blocks code from elementa website or GitHub repository."
+                },
+                {
+                    "title": "Check code for theme-switcher and energy-switcher",
+                    "content": "Check the code for theme-switcher and energy-switcher blocks. They use zustand as state library. You are free to choose any library of your liking, but the overall idea is same. Changing the theme and energy should update the UI colors accordingly."
+                }
+            ]
+        },
+        {
+            "id": "next-steps",
+            "title": "Next Steps",
+            "content": "Great! You're now ready to use Elementa UI. Here's what to do next:",
+            "items": [
+                "Explore the Component and Blocks Library to see all available components",
+                "Read the component and block documentation for detailed usage examples",
+                "Check out design philosophy to understand component patterns",
+                "Join our community for support and feature requests",
+                "Contribute components and blocks back to the library",
+                "Checkout the color mappings and usage guidelines"
+            ]
+        },
+        {
+            "id": "troubleshooting",
+            "title": "Troubleshooting",
+            "subsections": [
+                {
+                    "title": "Styles not applying?",
+                    "content": "Make sure you've imported the global styles and configured Tailwind CSS paths correctly. Check the styling and semantic mappings match with elementa-ui GitHub repo. Clear your .next folder and rebuild."
+                },
+                {
+                    "title": "Components not found?",
+                    "content": "Check that the latest components and blocks code is imported either via elementa website or GitHub repository @ https://github.com/deriva-inc/elementa-ui."
+                },
+                {
+                    "title": "Dark mode not working?",
+                    "content": "Ensure @custom-variant dark (&:is(.dark *)); is present in your globals.css file. Ensure that the dark mode semantics are present in your theme.css and all the relevant energy specific styling files."
+                }
+            ]
+        }
+    ]
+}

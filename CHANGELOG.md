@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.54.0] - 2024-08-25
+---
+#### Added
+- Add installation guide for React platform.
+
 ### [1.53.1] - 2024-08-24
 ---
 #### Changed
