@@ -1,0 +1,78 @@
+@layer base {
+	/* SECTION: ENERGY - NEON SYMPHONY (Electric Violet + Golden Hour) */
+	[data-energy="neon-symphony"] {
+		/* SECTION: LAYER 1: BASE */
+		--bg-base-accent-primary: var(--color-electric-violet-200);
+		--bg-base-accent-secondary: var(--color-golden-hour-200);
+		/* !SECTION: LAYER 1: BASE */
+
+		/* SECTION: LAYER 2: FLAT */
+		--text-accent-primary: var(--color-electric-violet-600);
+		--text-accent-secondary: var(--color-golden-hour-600);
+		/* !SECTION: LAYER 2: FLAT */
+
+		/* SECTION: LAYER 3: ACTIVE */
+		--bg-active-accent-primary: var(--color-electric-violet-600);
+		--bg-active-hover-accent-primary: var(--color-electric-violet-400);
+		--bg-active-accent-secondary: var(--color-golden-hour-600);
+		--bg-active-hover-accent-secondary: var(--color-golden-hour-400);
+		--stroke-active-accent-primary: var(--color-electric-violet-400);
+		--stroke-active-accent-secondary: var(--color-golden-hour-400);
+		--bg-active-fill-accent-primary: var(--color-electric-violet-100);
+		--bg-active-fill-accent-secondary: var(--color-golden-hour-100);
+
+		/* SECTION: LAYER 3: CHARTS */
+		--chart-primary-1: var(--color-electric-violet-400);
+		--chart-primary-2: var(--color-electric-violet-500);
+		--chart-primary-3: var(--color-electric-violet-600);
+		--chart-primary-4: var(--color-electric-violet-700);
+		--chart-primary-5: var(--color-electric-violet-800);
+		--chart-secondary-1: var(--color-golden-hour-400);
+		--chart-secondary-2: var(--color-golden-hour-500);
+		--chart-secondary-3: var(--color-golden-hour-600);
+		--chart-secondary-4: var(--color-golden-hour-700);
+		--chart-secondary-5: var(--color-golden-hour-800);
+		--chart-3: var(--color-dusty-rose-600);
+		--chart-4: var(--color-matcha-sage-600);
+		/* !SECTION: LAYER 3: CHARTS */
+		/* !SECTION: LAYER 3: ACTIVE */
+	}
+
+	.dark[data-energy="neon-symphony"] {
+		/* SECTION: LAYER 1: BASE */
+		--bg-base-accent-primary: var(--color-electric-violet-900);
+		--bg-base-accent-secondary: var(--color-golden-hour-900);
+		/* !SECTION: LAYER 1: BASE */
+
+		/* SECTION: LAYER 2: FLAT */
+		--text-accent-primary: var(--color-electric-violet-400);
+		--text-accent-secondary: var(--color-golden-hour-400);
+		/* !SECTION: LAYER 2: FLAT */
+
+		/* SECTION: LAYER 3: ACTIVE */
+		--bg-active-accent-primary: var(--color-electric-violet-400);
+		--bg-active-hover-accent-primary: var(--color-electric-violet-200);
+		--bg-active-accent-secondary: var(--color-golden-hour-400);
+		--bg-active-hover-accent-secondary: var(--color-golden-hour-200);
+		--stroke-active-accent-primary: var(--color-electric-violet-200);
+		--stroke-active-accent-secondary: var(--color-golden-hour-200);
+		--bg-active-fill-accent-primary: var(--color-electric-violet-1000);
+		--bg-active-fill-accent-secondary: var(--color-golden-hour-1000);
+
+		/* SECTION: LAYER 3: CHARTS */
+		--chart-primary-1: var(--color-electric-violet-200);
+		--chart-primary-2: var(--color-electric-violet-300);
+		--chart-primary-3: var(--color-electric-violet-400);
+		--chart-primary-4: var(--color-electric-violet-500);
+		--chart-primary-5: var(--color-electric-violet-600);
+		--chart-secondary-1: var(--color-golden-hour-200);
+		--chart-secondary-2: var(--color-golden-hour-300);
+		--chart-secondary-3: var(--color-golden-hour-400);
+		--chart-secondary-4: var(--color-golden-hour-500);
+		--chart-secondary-5: var(--color-golden-hour-600);
+		--chart-3: var(--color-dusty-rose-400);
+		--chart-4: var(--color-matcha-sage-400);
+		/* !SECTION: LAYER 3: ACTIVE */
+	}
+	/* !SECTION: ENERGY - NEON SYMPHONY (Electric Violet + Golden Hour) */
+}

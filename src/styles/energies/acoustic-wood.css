@@ -1,0 +1,78 @@
+@layer base {
+	/* SECTION: ENERGY - ACOUSTIC WOOD (Terracotta Rust + Dusty Rose) */
+	[data-energy="acoustic-wood"] {
+		/* SECTION: LAYER 1: BASE */
+		--bg-base-accent-primary: var(--color-terracotta-rust-200);
+		--bg-base-accent-secondary: var(--color-dusty-rose-200);
+		/* !SECTION: LAYER 1: BASE */
+
+		/* SECTION: LAYER 2: FLAT */
+		--text-accent-primary: var(--color-terracotta-rust-600);
+		--text-accent-secondary: var(--color-dusty-rose-600);
+		/* !SECTION: LAYER 2: FLAT */
+
+		/* SECTION: LAYER 3: ACTIVE */
+		--bg-active-accent-primary: var(--color-terracotta-rust-600);
+		--bg-active-hover-accent-primary: var(--color-terracotta-rust-400);
+		--bg-active-accent-secondary: var(--color-dusty-rose-600);
+		--bg-active-hover-accent-secondary: var(--color-dusty-rose-400);
+		--stroke-active-accent-primary: var(--color-terracotta-rust-400);
+		--stroke-active-accent-secondary: var(--color-dusty-rose-400);
+		--bg-active-fill-accent-primary: var(--color-terracotta-rust-100);
+		--bg-active-fill-accent-secondary: var(--color-dusty-rose-100);
+
+		/* SECTION: LAYER 3: CHARTS */
+		--chart-primary-1: var(--color-terracotta-rust-400);
+		--chart-primary-2: var(--color-terracotta-rust-500);
+		--chart-primary-3: var(--color-terracotta-rust-600);
+		--chart-primary-4: var(--color-terracotta-rust-700);
+		--chart-primary-5: var(--color-terracotta-rust-800);
+		--chart-secondary-1: var(--color-dusty-rose-400);
+		--chart-secondary-2: var(--color-dusty-rose-500);
+		--chart-secondary-3: var(--color-dusty-rose-600);
+		--chart-secondary-4: var(--color-dusty-rose-700);
+		--chart-secondary-5: var(--color-dusty-rose-800);
+		--chart-3: var(--color-matcha-sage-600);
+		--chart-4: var(--color-electric-violet-600);
+		/* !SECTION: LAYER 3: CHARTS */
+		/* !SECTION: LAYER 3: ACTIVE */
+	}
+
+	.dark[data-energy="acoustic-wood"] {
+		/* SECTION: LAYER 1: BASE */
+		--bg-base-accent-primary: var(--color-terracotta-rust-900);
+		--bg-base-accent-secondary: var(--color-dusty-rose-900);
+		/* !SECTION: LAYER 1: BASE */
+
+		/* SECTION: LAYER 2: FLAT */
+		--text-accent-primary: var(--color-terracotta-rust-400);
+		--text-accent-secondary: var(--color-dusty-rose-400);
+		/* !SECTION: LAYER 2: FLAT */
+
+		/* SECTION: LAYER 3: ACTIVE */
+		--bg-active-accent-primary: var(--color-terracotta-rust-400);
+		--bg-active-hover-accent-primary: var(--color-terracotta-rust-200);
+		--bg-active-accent-secondary: var(--color-dusty-rose-400);
+		--bg-active-hover-accent-secondary: var(--color-dusty-rose-200);
+		--stroke-active-accent-primary: var(--color-terracotta-rust-200);
+		--stroke-active-accent-secondary: var(--color-dusty-rose-200);
+		--bg-active-fill-accent-primary: var(--color-terracotta-rust-1000);
+		--bg-active-fill-accent-secondary: var(--color-dusty-rose-1000);
+
+		/* SECTION: LAYER 3: CHARTS */
+		--chart-primary-1: var(--color-terracotta-rust-200);
+		--chart-primary-2: var(--color-terracotta-rust-300);
+		--chart-primary-3: var(--color-terracotta-rust-400);
+		--chart-primary-4: var(--color-terracotta-rust-500);
+		--chart-primary-5: var(--color-terracotta-rust-600);
+		--chart-secondary-1: var(--color-dusty-rose-200);
+		--chart-secondary-2: var(--color-dusty-rose-300);
+		--chart-secondary-3: var(--color-dusty-rose-400);
+		--chart-secondary-4: var(--color-dusty-rose-500);
+		--chart-secondary-5: var(--color-dusty-rose-600);
+		--chart-3: var(--color-matcha-sage-400);
+		--chart-4: var(--color-electric-violet-400);
+		/* !SECTION: LAYER 3: ACTIVE */
+	}
+	/* !SECTION: ENERGY - SUMMER FRUIT (Hot Pink + Acid Lime) */
+}

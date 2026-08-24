@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./../styles/animations.css";
+@import "./../styles/theme.css";
+@import "./../styles/utilities.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 1. Fraunces */
+@font-face {
+    font-family: 'Fraunces';
+    src: url('./../public/fonts/fraunces/Fraunces-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('./../public/fonts/fraunces/Fraunces-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 2. Satoshi */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./../public/fonts/satoshi/Satoshi-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./../public/fonts/satoshi/Satoshi-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./../public/fonts/satoshi/Satoshi-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./../public/fonts/satoshi/Satoshi-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./../public/fonts/satoshi/Satoshi-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 3. JetBrains Mono */
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../../public/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

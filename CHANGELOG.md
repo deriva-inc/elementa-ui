@@ -1,7 +1,12 @@
 # CHANGELOG
+### [1.53.1] - 2024-08-24
+---
+#### Changed
+- Refactor theme and style section to make it more modular.
+
 ### [1.53.0] - 2024-04-28
 ---
-#### Updated
+#### Fixed
 - Fix feedback colors on theme and related components.
 
 ### [1.52.0] - 2024-04-22
@@ -201,17 +206,17 @@
 
 ### [1.13.0] - 2024-04-10
 ---
-#### Updated
+#### Fixed
 - Update `Avatar` component with design specs.
 
 ### [1.12.0] - 2024-04-10
 ---
-#### Updated
+#### Fixed
 - Update `Text` component with design specs.
 
 ### [1.11.0] - 2024-04-10
 ---
-#### Updated
+#### Fixed
 - Update `Button` component with design specs.
 
 ### [1.10.0] - 2024-02-27
