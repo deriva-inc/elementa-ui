@@ -1,0 +1,14 @@
+{
+    "id": "code-block",
+    "name": "Code Block",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-08-25",
+            "changes": [
+                "Initial block for rendering a code block.",
+                "Used Gemini AI along with shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

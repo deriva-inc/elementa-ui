@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.55.0] - 2024-08-25
+---
+#### Added
+- Add `Code Block` block with design specs.
+
 ### [1.54.1] - 2024-08-25
 ---
 #### Changed
