@@ -1,0 +1,60 @@
+{
+    "id": "button",
+    "name": "Button",
+    "versions": [
+        {
+            "version": "0.9.0",
+            "date": "2026-08-25",
+            "changes": ["Add documentation and semantic versioning."]
+        },
+        {
+            "version": "0.8.0",
+            "date": "2026-05-28",
+            "changes": [
+                "Fix shadow on the 'Ghost' and 'Link' variants.",
+                "Fix height on the 'Link' variants."
+            ]
+        },
+        {
+            "version": "0.7.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Add base shadow to all variants.",
+                "Fix text color issue on the 'Outline' variant."
+            ]
+        },
+        {
+            "version": "0.6.0",
+            "date": "2026-04-21",
+            "changes": ["Fix border color issue on all variants."]
+        },
+        {
+            "version": "0.5.0",
+            "date": "2026-04-20",
+            "changes": ["Fix background color issue on all variants."]
+        },
+        {
+            "version": "0.4.0",
+            "date": "2026-04-17",
+            "changes": ["Fix text color issue on all variants."]
+        },
+        {
+            "version": "0.3.0",
+            "date": "2026-04-15",
+            "changes": ["Fix text size on variants."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-10",
+            "changes": ["Update tailwind with semantic mappings."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-02-26",
+            "changes": [
+                "Initial component structure.",
+                "Basic variants and sizes."
+            ]
+        }
+    ]
+}

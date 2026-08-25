@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.54.1] - 2024-08-25
+---
+#### Changed
+- Add documentation and semantic versioning to `Button` and `Sonner` components. 
+
 ### [1.54.0] - 2024-08-25
 ---
 #### Added

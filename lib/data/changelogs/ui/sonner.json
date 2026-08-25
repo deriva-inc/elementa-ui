@@ -1,0 +1,21 @@
+{
+    "id": "sonner",
+    "name": "Sonner",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-08-25",
+            "changes": ["Add documentation and semantic versioning."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-22",
+            "changes": ["Fix font family."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": ["Initial component structure."]
+        }
+    ]
+}

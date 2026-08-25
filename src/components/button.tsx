@@ -1,9 +1,14 @@
-import * as React from 'react';
+import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a button component for the elementa-ui.
+ *
+ * @version 0.8.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-07-28
+ */
 const buttonVariants = cva(
     "focus-visible:border-stroke-active-secondary shadow-md py-1 cursor-pointer active:scale-95 focus-visible:ring-stroke-active-secondary aria-invalid:ring-destructive/20 aria-invalid:border-destructive rounded-[8px] border border-transparent font-body font-bold focus-visible:ring-3 aria-invalid:ring-3 [&_svg:not([class*='size-'])]:size-4 group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 select-none",
     {
