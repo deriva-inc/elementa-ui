@@ -1,8 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import { type VariantProps } from 'class-variance-authority';
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';
+import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import { toggleVariants } from '@/src/components/toggle';
@@ -19,6 +19,13 @@ const ToggleGroupContext = React.createContext<
     orientation: 'horizontal'
 });
 
+/**
+ * This function renders a {@link ToggleGroup} component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-08-25
+ */
 function ToggleGroup({
     className,
     variant,
@@ -77,6 +84,7 @@ function ToggleGroupItem({
                     variant: context.variant || variant,
                     size: context.size || size
                 }),
+                'data-[state=on]:bg-bg-active-fill-accent-primary data-[state=on]:border-stroke-active-accent-primary data-[state=on]:border',
                 className
             )}
             {...props}

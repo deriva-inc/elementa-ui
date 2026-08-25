@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.55.1] - 2024-08-25
+---
+#### Changed
+- Add highlight for the selected Toggle Item.
+
 ### [1.55.0] - 2024-08-25
 ---
 #### Added

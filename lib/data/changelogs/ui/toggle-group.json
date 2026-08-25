@@ -1,0 +1,19 @@
+{
+    "id": "toggle-group",
+    "name": "Toggle Group",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-08-25",
+            "changes": ["Add highlight for the selected Toggle Item."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-21",
+            "changes": [
+                "Initial ToggleGroup component.",
+                "Changed shadcn themes to elementa energies."
+            ]
+        }
+    ]
+}
