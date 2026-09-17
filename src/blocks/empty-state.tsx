@@ -1,10 +1,12 @@
 'use client';
 
-import sampleAnimData from '../assets/anims/sample-anim.json';
-import Lottie from 'react-lottie';
+import { ENERGY_THEMES } from '@/lib/constants';
+import useUIStore from '@/lib/store/user-preference-store';
+import { UIEnergy } from '@/lib/types/model';
 import { cn } from '@/lib/utils';
 import { Button } from '@/src/components/button';
 import { Text, TextVariant } from '@/src/components/text';
+import { useEffect, useState } from 'react';
 
 /**
  * This function renders an empty state component.
@@ -15,14 +17,12 @@ import { Text, TextVariant } from '@/src/components/text';
 export default function EmptyState({
     heading,
     text,
-    animData = sampleAnimData,
     className,
     primaryButtonOptions,
     secondaryButtonOptions
 }: {
     heading?: string;
     text?: string;
-    animData?: any;
     className?: string;
     primaryButtonOptions?: {
         text: string;
@@ -34,17 +34,11 @@ export default function EmptyState({
     };
 }) {
     // SECTION: Constants and Variables
-    const sampleAnimLottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animData,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
+    const energy = useUIStore((state) => state.energy);
     // !SECTION: Constants and Variables
 
     // SECTION: States
+    const [uiEnergy, setUIEnergy] = useState<UIEnergy | null>(null);
     // !SECTION: States
 
     // SECTION: API Queries
@@ -54,6 +48,12 @@ export default function EmptyState({
     // !SECTION: Event Handlers
 
     // SECTION: Side Effects
+    useEffect(() => {
+        const currentEnergy = ENERGY_THEMES.find((t) => t.id === energy);
+        if (currentEnergy) {
+            setUIEnergy(currentEnergy);
+        }
+    }, [energy]);
     // !SECTION: Side Effects
 
     // SECTION: UI
@@ -65,7 +65,13 @@ export default function EmptyState({
             )}
         >
             <div className="m-auto max-h-80 max-w-80">
-                <Lottie options={sampleAnimLottieOptions} />
+                <img
+                    src={`/illus/empty-state/${uiEnergy?.colors?.primary?.code}.svg`}
+                    alt="empty shelves"
+                    className="md:h-60 md:w-60 lg:h-80 lg:w-80 xl:h-100 xl:w-100"
+                    height={200}
+                    width={200}
+                />
             </div>
             <div className="mt-8 flex flex-col items-center gap-2 text-center">
                 <Text variant={TextVariant.H3}>

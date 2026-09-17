@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useEffect, useState } from 'react';
 
 export enum TextVariant {
     H1,
@@ -64,7 +64,7 @@ export function Text({
             case TextVariant.H6:
                 return '';
             case TextVariant.Body:
-                return 'text-sm font-body';
+                return 'font-body';
             case TextVariant.Subtitle1:
                 return 'text-sm font-bold font-body';
             case TextVariant.Subtitle2:

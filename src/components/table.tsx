@@ -60,7 +60,7 @@ function TableRow({ className, ...props }: React.ComponentProps<'tr'>) {
         <tr
             data-slot="table-row"
             className={cn(
-                'bg-bg-active-primary/30 hover:bg-bg-active-fill-accent-primary has-aria-expanded:bg-bg-active-fill-accent-primary data-[state=selected]:bg-bg-active-fill-accent-primary border-b transition-colors',
+                'bg-bg-active-primary/30 hover:bg-bg-active-primary has-aria-expanded:bg-bg-active-fill-accent-primary data-[state=selected]:bg-bg-active-fill-accent-primary border-b transition-colors',
                 className
             )}
             {...props}
@@ -112,11 +112,11 @@ function TableCaption({
 
 export {
     Table,
-    TableHeader,
     TableBody,
+    TableCaption,
+    TableCell,
     TableFooter,
     TableHead,
-    TableRow,
-    TableCell,
-    TableCaption
+    TableHeader,
+    TableRow
 };

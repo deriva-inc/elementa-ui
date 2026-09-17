@@ -77,12 +77,12 @@ const ServerSideResponseSchema = z.object({
 
 // SECTION: Export Zod Schemas
 export {
-    NETWORK_CALLS_ENUM,
-    NETWORK_CALL_STATUS_ENUM,
+    ClientNetworkCallDetailsMapSchema,
     ClientSideNetworkDetailsSchema,
     ClientSideNetworkErrorSchema,
     ClientSideNetworkResponseSchema,
-    ClientNetworkCallDetailsMapSchema,
+    NETWORK_CALL_STATUS_ENUM,
+    NETWORK_CALLS_ENUM,
     ServerSideNetworkErrorSchema,
     ServerSideResponseSchema
 };
@@ -105,12 +105,12 @@ type ServerSideResponse = z.infer<typeof ServerSideResponseSchema>;
 
 // SECTION: Export TypeScript Types
 export type {
-    NETWORK_CALLS,
-    NETWORK_CALL_STATUS,
-    ClientSideNetworkError,
-    ClientSideNetworkResponse,
     ClientNetworkCallDetails,
     ClientNetworkCallDetailsMap,
+    ClientSideNetworkError,
+    ClientSideNetworkResponse,
+    NETWORK_CALL_STATUS,
+    NETWORK_CALLS,
     ServerSideNetworkError,
     ServerSideResponse
 };

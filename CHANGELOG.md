@@ -1,7 +1,18 @@
 # CHANGELOG
+### [1.57.0] - 2024-09-17
+---
+#### Added
+- Update `Empty State` block with theme dependent illustration.
+- Add utility files for user data, models, types, and constants.
+- Add `3xl` breakpoint for responsive design.
+
+#### Changed
+- Update `tsconfig.json` file to compile the library.
+- Update row background color on `Table` component for better readability.
+
 ### [1.56.0] - 2024-09-17
 ---
-#### Changed
+#### Added
 - Add documentation for components.
 
 ### [1.55.1] - 2024-08-25
@@ -42,7 +53,7 @@
 ### [1.51.0] - 2024-04-22
 ---
 #### Added
-- Add `Empty` block with design specs.
+- Add `Empty State` block with design specs.
 
 ### [1.50.0] - 2024-04-22
 ---

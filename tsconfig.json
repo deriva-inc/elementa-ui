@@ -1,23 +1,29 @@
 {
     "compilerOptions": {
-        "target": "ES2022",
+        "baseUrl": ".",
         "paths": {
             "@/*": ["./*"]
         },
-        "module": "ESNext",
-        "jsx": "react-jsx",
-        "declaration": true,
-        "declarationDir": "dist/types",
-        "outDir": "dist",
-        "rootDir": ".",
-        "strict": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
         "skipLibCheck": true,
+        "strict": false,
         "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true,
+        "noEmit": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "resolveJsonModule": true,
-        "typeRoots": ["./node_modules/@types"]
+        "isolatedModules": true,
+        "jsx": "react-jsx",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ]
     },
     "include": ["src", "lib"],
     "exclude": ["node_modules", "dist", "**/__tests__/*", "**/*.stories.tsx"]

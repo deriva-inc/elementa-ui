@@ -1,0 +1,21 @@
+{
+    "id": "empty-state",
+    "name": "Empty State",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-09-17",
+            "changes": [
+                "Update `Empty State` block with theme dependent illustration."
+            ]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial block for rendering an empty state.",
+                "Used Gemini AI along with shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}
