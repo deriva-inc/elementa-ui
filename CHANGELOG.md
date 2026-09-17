@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.56.0] - 2024-09-17
+---
+#### Changed
+- Add documentation for components.
+
 ### [1.55.1] - 2024-08-25
 ---
 #### Changed

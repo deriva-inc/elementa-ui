@@ -1,0 +1,275 @@
+[
+    {
+        "id": "button",
+        "name": "Button",
+        "description": "A versatile button component with multiple variants and sizes, built with class-variance-authority for flexible styling.",
+        "version": "0.8.0",
+        "lastUpdated": "2026-05-28",
+        "thumbnail": "Button component for user interactions",
+        "usage": "Use the Button component for all clickable actions. Choose variants based on visual hierarchy and context.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'link'",
+                "default": "'default'",
+                "description": "Visual style of the button"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'sm' | 'lg' | 'icon'",
+                "default": "'default'",
+                "description": "Size of the button"
+            },
+            {
+                "name": "asChild",
+                "type": "boolean",
+                "default": "false",
+                "description": "Render as child component with Slot"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Disable the button"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Button",
+                "code": "<Button>Click me</Button>"
+            },
+            {
+                "title": "Secondary Button",
+                "code": "<Button variant=\"secondary\">Secondary</Button>"
+            },
+            {
+                "title": "Outline Button",
+                "code": "<Button variant=\"outline\">Outline</Button>"
+            },
+            {
+                "title": "Small Button",
+                "code": "<Button size=\"sm\">Small</Button>"
+            },
+            {
+                "title": "Disabled Button",
+                "code": "<Button disabled>Disabled</Button>"
+            }
+        ],
+        "sourceCode": "// Import global from third party libraries.\nimport * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\n// Import custom utility classes.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import custom components.\n\n// Import styles.\n\n/**\n * This file defines a Button component with various styles and variants.\n */\nconst buttonVariants = cva(\n    'text-[16px] inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',\n    {\n        variants: {\n            variant: {\n                default:\n                    'bg-orange-base hover:bg-orange-40 text-metal-100 shadow',\n                destructive:\n                    'bg-destructive text-metal-100 shadow-sm hover:bg-destructive/90',\n                outline:\n                    'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',\n                secondary:\n                    'bg-green-base hover:bg-green-50 text-metal-100 shadow-sm',\n                ghost: 'hover:bg-accent hover:text-accent-foreground',\n                link: 'text-primary underline-offset-4 hover:underline'\n            },\n            size: {\n                default: 'h-fit px-4 py-3',\n                sm: 'h-8 rounded-lg px-4 text-xs',\n                lg: 'h-10 rounded-lg px-8',\n                icon: 'h-9 w-9'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nexport interface ButtonProps\n    extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n        VariantProps<typeof buttonVariants> {\n    asChild?: boolean;\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n    ({ className, variant, size, asChild = false, ...props }, ref) => {\n        const Comp = asChild ? Slot : 'button';\n        return (\n            <Comp\n                className={cn(buttonVariants({ variant, size, className }))}\n                ref={ref}\n                // eslint-disable-next-line react/jsx-props-no-spreading\n                {...props}\n            />\n        );\n    }\n);\nButton.displayName = 'Button';\n\nexport { Button, buttonVariants };\n"
+    },
+    {
+        "id": "badge",
+        "name": "Badge",
+
+        "description": "A small label component for displaying tags, statuses, or categories with customizable variants.",
+        "version": "1.0.0",
+        "lastUpdated": "2026-07-15",
+        "thumbnail": "Badge component for labels and tags",
+        "features": [
+            "Multiple variants (default, secondary, destructive, outline)",
+            "Customizable colors and sizes",
+            "Lightweight and performant",
+            "Perfect for status indicators",
+            "Rounded styling",
+            "Accessibility friendly"
+        ],
+        "usage": "Use Badge to highlight tags, statuses, or categories. Use default variant for primary labels and outline for subtle tags.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'secondary' | 'destructive' | 'outline'",
+                "default": "'default'",
+                "description": "Visual style of the badge"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Badge",
+                "code": "<Badge>New</Badge>"
+            },
+            {
+                "title": "Secondary Badge",
+                "code": "<Badge variant=\"secondary\">In Progress</Badge>"
+            },
+            {
+                "title": "Destructive Badge",
+                "code": "<Badge variant=\"destructive\">Error</Badge>"
+            },
+            {
+                "title": "Outline Badge",
+                "code": "<Badge variant=\"outline\">Tag</Badge>"
+            }
+        ],
+        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n\n// Import global from third party libraries.\nimport * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\n// Import custom components.\n\n// Import custom utilities.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import styles.\n\nconst badgeVariants = cva(\n    'inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',\n    {\n        variants: {\n            variant: {\n                default:\n                    'border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80',\n                secondary:\n                    'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',\n                destructive:\n                    'border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80',\n                outline: 'text-text-primary'\n            }\n        },\n        defaultVariants: {\n            variant: 'default'\n        }\n    }\n);\n\nexport interface BadgeProps\n    extends React.HTMLAttributes<HTMLDivElement>,\n        VariantProps<typeof badgeVariants> {}\n\nfunction Badge({ className, variant, ...props }: BadgeProps) {\n    return (\n        <div className={cn(badgeVariants({ variant }), className)} {...props} />\n    );\n}\n\nexport { Badge, badgeVariants };\n"
+    },
+    {
+        "id": "toggle",
+        "name": "Toggle",
+
+        "description": "A toggle button component built on Radix UI that can be toggled on or off with accessible state management.",
+        "version": "1.0.0",
+        "lastUpdated": "2026-07-15",
+        "thumbnail": "Toggle component for boolean states",
+
+        "usage": "Use Toggle for binary state changes like bold/italic text formatting, sound on/off, or view modes.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'outline'",
+                "default": "'default'",
+                "description": "Visual style of the toggle"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'sm' | 'lg'",
+                "default": "'default'",
+                "description": "Size of the toggle"
+            },
+            {
+                "name": "pressed",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether the toggle is pressed"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Toggle",
+                "code": "<Toggle>Toggle me</Toggle>"
+            },
+            {
+                "title": "Outline Toggle",
+                "code": "<Toggle variant=\"outline\">Outline</Toggle>"
+            },
+            {
+                "title": "Small Toggle",
+                "code": "<Toggle size=\"sm\">Small</Toggle>"
+            },
+            {
+                "title": "Pressed Toggle",
+                "code": "<Toggle pressed={true}>Pressed</Toggle>"
+            }
+        ],
+        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n\n'use client';\n\nimport * as React from 'react';\nimport * as TogglePrimitive from '@radix-ui/react-toggle';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils/utils';\n\n/**\n * Toggle component is a button that can be toggled on or off.\n */\nconst toggleVariants = cva(\n    'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-text-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',\n    {\n        variants: {\n            variant: {\n                default: 'bg-transparent',\n                outline:\n                    'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground'\n            },\n            size: {\n                default: 'h-9 px-2 min-w-9',\n                sm: 'h-8 px-1.5 min-w-8',\n                lg: 'h-10 px-2.5 min-w-10'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nconst Toggle = React.forwardRef<\n    React.ElementRef<typeof TogglePrimitive.Root>,\n    React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &\n        VariantProps<typeof toggleVariants>\n>(({ className, variant, size, ...props }, ref) => (\n    <TogglePrimitive.Root\n        ref={ref}\n        className={cn(toggleVariants({ variant, size, className }))}\n        {...props}\n    />\n));\n\nToggle.displayName = TogglePrimitive.Root.displayName;\n\nexport { Toggle, toggleVariants };\n"
+    },
+    {
+        "id": "toggle-group",
+        "name": "Toggle Group",
+
+        "description": "A group of toggle buttons where only one can be selected at a time, built on Radix UI.",
+        "version": "1.0.0",
+        "lastUpdated": "2026-07-15",
+        "thumbnail": "Toggle Group component for single selection",
+
+        "usage": "Use ToggleGroup to create mutually exclusive button groups like view modes, text alignment, or option selection.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'outline'",
+                "default": "'default'",
+                "description": "Visual style for toggle items"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'sm' | 'lg'",
+                "default": "'default'",
+                "description": "Size for toggle items"
+            },
+            {
+                "name": "type",
+                "type": "'single' | 'multiple'",
+                "default": "'single'",
+                "description": "Selection mode"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Single Selection",
+                "code": "<ToggleGroup type=\"single\">\n  <ToggleGroupItem value=\"left\">Left</ToggleGroupItem>\n  <ToggleGroupItem value=\"center\">Center</ToggleGroupItem>\n  <ToggleGroupItem value=\"right\">Right</ToggleGroupItem>\n</ToggleGroup>"
+            },
+            {
+                "title": "Multiple Selection",
+                "code": "<ToggleGroup type=\"multiple\">\n  <ToggleGroupItem value=\"bold\">Bold</ToggleGroupItem>\n  <ToggleGroupItem value=\"italic\">Italic</ToggleGroupItem>\n  <ToggleGroupItem value=\"underline\">Underline</ToggleGroupItem>\n</ToggleGroup>"
+            }
+        ],
+        "sourceCode": "/* eslint-disable react/jsx-no-constructed-context-values */\n/* eslint-disable react/jsx-props-no-spreading */\n\n'use client';\n\nimport * as React from 'react';\nimport * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group';\nimport { type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils/utils';\nimport { toggleVariants } from '@/src/components/ui/toggle';\n\n/**\n * ToggleGroupContext provides the context for the ToggleGroup component,\n */\nconst ToggleGroupContext = React.createContext<\n    VariantProps<typeof toggleVariants>\n>({\n    size: 'default',\n    variant: 'default'\n});\n\nconst ToggleGroup = React.forwardRef<\n    React.ElementRef<typeof ToggleGroupPrimitive.Root>,\n    React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &\n        VariantProps<typeof toggleVariants>\n>(({ className, variant, size, children, ...props }, ref) => (\n    <ToggleGroupPrimitive.Root\n        ref={ref}\n        className={cn('flex items-center justify-center gap-1', className)}\n        {...props}\n    >\n        <ToggleGroupContext.Provider value={{ variant, size }}>\n            {children}\n        </ToggleGroupContext.Provider>\n    </ToggleGroupPrimitive.Root>\n));\n\nToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;\n\nconst ToggleGroupItem = React.forwardRef<\n    React.ElementRef<typeof ToggleGroupPrimitive.Item>,\n    React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &\n        VariantProps<typeof toggleVariants>\n>(({ className, children, variant, size, ...props }, ref) => {\n    const context = React.useContext(ToggleGroupContext);\n\n    return (\n        <ToggleGroupPrimitive.Item\n            ref={ref}\n            className={cn(\n                toggleVariants({\n                    variant: context.variant || variant,\n                    size: context.size || size\n                }),\n                className\n            )}\n            {...props}\n        >\n            {children}\n        </ToggleGroupPrimitive.Item>\n    );\n});\n\nToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;\n\nexport { ToggleGroup, ToggleGroupItem };\n"
+    },
+    {
+        "id": "sheet",
+        "name": "Sheet",
+
+        "description": "A side panel component built on Radix UI Dialog that slides in from the edge with overlay support.",
+        "version": "1.0.0",
+        "lastUpdated": "2026-07-15",
+        "thumbnail": "Sheet component for side panels",
+
+        "usage": "Use Sheet for navigation menus, filters, or additional content that needs to be accessed without leaving the current view.",
+        "props": [
+            {
+                "name": "side",
+                "type": "'top' | 'bottom' | 'left' | 'right'",
+                "default": "'right'",
+                "description": "Which side the sheet slides from"
+            },
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether the sheet is open"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Right Sheet",
+                "code": "<Sheet>\n  <SheetTrigger>Open</SheetTrigger>\n  <SheetContent>\n    <SheetHeader><SheetTitle>Title</SheetTitle></SheetHeader>\n  </SheetContent>\n</Sheet>"
+            },
+            {
+                "title": "Left Sheet",
+                "code": "<SheetContent side=\"left\">Content</SheetContent>"
+            }
+        ],
+        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n/* eslint-disable react/prop-types */\n\n'use client';\n\n// Import global from third party libraries.\nimport * as React from 'react';\nimport * as SheetPrimitive from '@radix-ui/react-dialog';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { X } from 'lucide-react';\n\n// Import custom components.\n\n// Import custom utilities.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import styles.\n\nconst Sheet = SheetPrimitive.Root;\n\nconst SheetTrigger = SheetPrimitive.Trigger;\n\nconst SheetClose = SheetPrimitive.Close;\n\nconst SheetPortal = SheetPrimitive.Portal;\n\nconst SheetOverlay = React.forwardRef<\n    React.ElementRef<typeof SheetPrimitive.Overlay>,\n    React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>\n>(({ className, ...props }, ref) => (\n    <SheetPrimitive.Overlay\n        className={cn(\n            'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',\n            className\n        )}\n        {...props}\n        ref={ref}\n    />\n));\nSheetOverlay.displayName = SheetPrimitive.Overlay.displayName;\n\nconst sheetVariants = cva(\n    'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out',\n    {\n        variants: {\n            side: {\n                top: 'inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',\n                bottom: 'inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',\n                left: 'inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm',\n                right: 'inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm'\n            }\n        },\n        defaultVariants: {\n            side: 'right'\n        }\n    }\n);\n\ninterface SheetContentProps\n    extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,\n        VariantProps<typeof sheetVariants> {}\n\nconst SheetContent = React.forwardRef<\n    React.ElementRef<typeof SheetPrimitive.Content>,\n    SheetContentProps\n>(({ side = 'right', className, children, ...props }, ref) => (\n    <SheetPortal>\n        <SheetOverlay />\n        <SheetPrimitive.Content\n            ref={ref}\n            className={cn(sheetVariants({ side }), className)}\n            {...props}\n        >\n            {children}\n            <SheetPrimitive.Close className=\"absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary\">\n                <X className=\"h-4 w-4\" />\n                <span className=\"sr-only\">Close</span>\n            </SheetPrimitive.Close>\n        </SheetPrimitive.Content>\n    </SheetPortal>\n));\nSheetContent.displayName = SheetPrimitive.Content.displayName;\n\nexport { Sheet, SheetTrigger, SheetClose, SheetContent, SheetPortal, SheetOverlay };\n"
+    },
+    {
+        "id": "toast",
+        "name": "Toast",
+
+        "description": "A notification component that displays brief messages that automatically disappear after a timeout.",
+        "version": "1.0.0",
+        "lastUpdated": "2026-07-15",
+        "thumbnail": "Toast component for notifications",
+
+        "usage": "Use Toast to display temporary notifications like success messages, errors, or informational alerts.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'destructive'",
+                "default": "'default'",
+                "description": "Visual style of the toast"
+            },
+            {
+                "name": "duration",
+                "type": "number",
+                "default": "3000",
+                "description": "How long to show the toast in ms"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Success Toast",
+                "code": "<Toast variant=\"default\">\n  <ToastTitle>Success</ToastTitle>\n  <ToastDescription>Action completed</ToastDescription>\n</Toast>"
+            },
+            {
+                "title": "Error Toast",
+                "code": "<Toast variant=\"destructive\">\n  <ToastTitle>Error</ToastTitle>\n  <ToastDescription>Something went wrong</ToastDescription>\n</Toast>"
+            }
+        ],
+        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n/* eslint-disable react/prop-types */\n\n'use client';\n\n// Import global from third party libraries.\nimport * as React from 'react';\nimport * as ToastPrimitives from '@radix-ui/react-toast';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { X } from 'lucide-react';\n\n// Import custom utility classes.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import custom components.\n\n// Import styles.\n\nconst ToastProvider = ToastPrimitives.Provider;\n\nconst ToastViewport = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Viewport>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Viewport\n        ref={ref}\n        className={cn(\n            'fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]',\n            className\n        )}\n        {...props}\n    />\n));\nToastViewport.displayName = ToastPrimitives.Viewport.displayName;\n\nconst toastVariants = cva(\n    'group pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md border p-4 pr-6 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',\n    {\n        variants: {\n            variant: {\n                default: 'border bg-background text-text-primary',\n                destructive:\n                    'destructive group border-destructive bg-destructive text-destructive-foreground'\n            }\n        },\n        defaultVariants: {\n            variant: 'default'\n        }\n    }\n);\n\nconst Toast = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Root>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &\n        VariantProps<typeof toastVariants>\n>(({ className, variant, ...props }, ref) => (\n    <ToastPrimitives.Root\n        ref={ref}\n        className={cn(toastVariants({ variant }), className)}\n        {...props}\n    />\n));\nToast.displayName = ToastPrimitives.Root.displayName;\n\nconst ToastAction = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Action>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Action\n        ref={ref}\n        className={cn(\n            'inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium transition-colors hover:bg-secondary focus:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive',\n            className\n        )}\n        {...props}\n    />\n));\nToastAction.displayName = ToastPrimitives.Action.displayName;\n\nconst ToastClose = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Close>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Close\n        ref={ref}\n        className={cn(\n            'inline-flex h-8 shrink-0 items-center justify-center rounded-md p-0 text-text-primary/50 opacity-0 transition-opacity hover:text-text-primary focus:opacity-100 focus:outline-none focus:ring-1 focus:ring-ring group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400',\n            className\n        )}\n        toast-close=\"\"\n        {...props}\n    >\n        <X className=\"h-4 w-4\" />\n    </ToastPrimitives.Close>\n));\nToastClose.displayName = ToastPrimitives.Close.displayName;\n\nconst ToastTitle = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Title>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Title\n        ref={ref}\n        className={cn('text-sm font-semibold', className)}\n        {...props}\n    />\n));\nToastTitle.displayName = ToastPrimitives.Title.displayName;\n\nconst ToastDescription = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Description>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Description\n        ref={ref}\n        className={cn('text-sm opacity-90', className)}\n        {...props}\n    />\n));\nToastDescription.displayName = ToastPrimitives.Description.displayName;\n\ntype ToastActionElement = React.ReactElement<any>;\n\nexport {\n    type ToastActionElement,\n    Toast,\n    ToastAction,\n    ToastClose,\n    ToastDescription,\n    ToastProvider,\n    ToastTitle,\n    ToastViewport\n};\n"
+    }
+]
