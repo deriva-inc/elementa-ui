@@ -1,4 +1,12 @@
 # CHANGELOG
+### [1.58.0] - 2024-09-17
+---
+#### Added
+- Add documentation for components:
+    - Accordion
+    - Alert Dialog
+    - Input Group
+
 ### [1.57.0] - 2024-09-17
 ---
 #### Added

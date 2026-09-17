@@ -1,0 +1,14 @@
+{
+    "id": "input-group",
+    "name": "Input Group",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial component for rendering an input group.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

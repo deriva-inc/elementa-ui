@@ -1,11 +1,17 @@
 'use client';
 
-import * as React from 'react';
+import { cn } from '@/lib/utils';
 import { ChevronDown, ChevronUp } from 'elementa-icons';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
+import * as React from 'react';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders an Accordion component for the elementa-ui.
+ *
+ * @version 0.1.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-04-21
+ */
 function Accordion({
     className,
     ...props
@@ -89,4 +95,4 @@ function AccordionContent({
     );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };

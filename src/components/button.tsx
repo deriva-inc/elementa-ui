@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 
 /**
- * This function renders a button component for the elementa-ui.
+ * This function renders a Button component for the elementa-ui.
  *
  * @version 0.9.0
  * @author Aayush Goyal

@@ -1,0 +1,14 @@
+{
+    "id": "alert-dialog",
+    "name": "Alert Dialog",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-04-20",
+            "changes": [
+                "Initial component for rendering an alert dialog.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}
