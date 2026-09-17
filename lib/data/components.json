@@ -1,10 +1,182 @@
 [
     {
+        "id": "accordion",
+        "name": "Accordion",
+        "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-21",
+        "thumbnail": "Accordion component for collapsible content sections",
+        "usage": "Use Accordion to organize related content into collapsible sections to reduce page clutter and improve scannability.",
+        "props": [
+            {
+                "name": "type",
+                "type": "'single' | 'multiple'",
+                "default": "'single'",
+                "description": "Determines whether one or multiple items can be opened at the same time"
+            },
+            {
+                "name": "collapsible",
+                "type": "boolean",
+                "default": "false",
+                "description": "When type is 'single', allows closing an item by clicking its trigger again"
+            },
+            {
+                "name": "defaultValue",
+                "type": "string | string[]",
+                "default": "undefined",
+                "description": "The value of the item(s) to expand by default"
+            },
+            {
+                "name": "value",
+                "type": "string | string[]",
+                "default": "undefined",
+                "description": "The controlled value of the item(s) to expand"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Accordion",
+                "code": "<Accordion type=\"single\" collapsible>\n  <AccordionItem value=\"item-1\">\n    <AccordionTrigger>Is it accessible?</AccordionTrigger>\n    <AccordionContent>\n      Yes. It adheres to the WAI-ARIA design pattern.\n    </AccordionContent>\n  </AccordionItem>\n</Accordion>"
+            },
+            {
+                "title": "Multiple Expanded Items",
+                "code": "<Accordion type=\"multiple\">\n  <AccordionItem value=\"item-1\">\n    <AccordionTrigger>Section 1</AccordionTrigger>\n    <AccordionContent>Content for section 1</AccordionContent>\n  </AccordionItem>\n  <AccordionItem value=\"item-2\">\n    <AccordionTrigger>Section 2</AccordionTrigger>\n    <AccordionContent>Content for section 2</AccordionContent>\n  </AccordionItem>\n</Accordion>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { ChevronDown, ChevronUp } from 'elementa-icons';\nimport { Accordion as AccordionPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders an Accordion component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-21\n */\nfunction Accordion({\n    className,\n    ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Root>) {\n    return (\n        <AccordionPrimitive.Root\n            data-slot=\"accordion\"\n            className={cn('flex w-full flex-col', className)}\n            {...props}\n        />\n    );\n}\n\nfunction AccordionItem({\n    className,\n    ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Item>) {\n    return (\n        <AccordionPrimitive.Item\n            data-slot=\"accordion-item\"\n            className={cn(\n                'border-stroke-flat-secondary not-last:border-b',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AccordionTrigger({\n    className,\n    children,\n    ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {\n    return (\n        <AccordionPrimitive.Header className=\"flex\">\n            <AccordionPrimitive.Trigger\n                data-slot=\"accordion-trigger\"\n                className={cn(\n                    'group/accordion-trigger **:data-[slot=accordion-trigger-icon]:text-text-primary relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-lg font-medium transition-all outline-none select-none hover:underline **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4',\n                    'focus-visible:border-stroke-active-secondary focus-visible:ring-stroke-active-secondary/50 focus-visible:after:border-stroke-active-secondary focus-visible:ring-3',\n                    'disabled:text-text-disabled disabled:pointer-events-none disabled:cursor-not-allowed',\n                    className\n                )}\n                {...props}\n            >\n                {children}\n                <ChevronDown\n                    data-slot=\"accordion-trigger-icon\"\n                    className=\"pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden\"\n                />\n                <ChevronUp\n                    data-slot=\"accordion-trigger-icon\"\n                    className=\"pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline\"\n                />\n            </AccordionPrimitive.Trigger>\n        </AccordionPrimitive.Header>\n    );\n}\n\nfunction AccordionContent({\n    className,\n    children,\n    ...props\n}: React.ComponentProps<typeof AccordionPrimitive.Content>) {\n    return (\n        <AccordionPrimitive.Content\n            data-slot=\"accordion-content\"\n            className=\"data-open:animate-accordion-down data-closed:animate-accordion-up overflow-hidden text-sm\"\n            {...props}\n        >\n            <div\n                className={cn(\n                    'font-body text-text-primary [&_a]:hover:text-text-secondary h-(--radix-accordion-content-height) pt-0 pb-2.5 select-none [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4',\n                    className\n                )}\n            >\n                {children}\n            </div>\n        </AccordionPrimitive.Content>\n    );\n}\n\nexport { Accordion, AccordionContent, AccordionItem, AccordionTrigger };\n"
+    },
+    {
+        "id": "alert-dialog",
+        "name": "Alert Dialog",
+        "description": "A modal dialog that interrupts the user with important content and expects a response.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-20",
+        "thumbnail": "Alert Dialog component for confirmation modals and alerts",
+        "usage": "Use Alert Dialog to prompt the user with critical information or confirm irreversible actions such as deletion.",
+        "props": [
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "The controlled open state of the dialog"
+            },
+            {
+                "name": "defaultOpen",
+                "type": "boolean",
+                "default": "false",
+                "description": "The default open state when uncontrolled"
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(open: boolean) => void",
+                "default": "undefined",
+                "description": "Event handler called when the open state changes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Alert Dialog",
+                "code": "<AlertDialog>\n  <AlertDialogTrigger asChild>\n    <Button variant=\"destructive\">Delete Account</Button>\n  </AlertDialogTrigger>\n  <AlertDialogContent>\n    <AlertDialogHeader>\n      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>\n      <AlertDialogDescription>\n        This action cannot be undone. This will permanently delete your account.\n      </AlertDialogDescription>\n    </AlertDialogHeader>\n    <AlertDialogFooter>\n      <AlertDialogCancel>Cancel</AlertDialogCancel>\n      <AlertDialogAction variant=\"destructive\">Continue</AlertDialogAction>\n    </AlertDialogFooter>\n  </AlertDialogContent>\n</AlertDialog>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { AlertDialog as AlertDialogPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\n\n/**\n * This function renders an Alert Dialog component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction AlertDialog({\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {\n    return <AlertDialogPrimitive.Root data-slot=\"alert-dialog\" {...props} />;\n}\n\nfunction AlertDialogTrigger({\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {\n    return (\n        <AlertDialogPrimitive.Trigger\n            data-slot=\"alert-dialog-trigger\"\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogPortal({\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {\n    return (\n        <AlertDialogPrimitive.Portal\n            data-slot=\"alert-dialog-portal\"\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogOverlay({\n    className,\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Overlay>) {\n    return (\n        <AlertDialogPrimitive.Overlay\n            data-slot=\"alert-dialog-overlay\"\n            className={cn(\n                'data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0 bg-bg-base-primary fixed inset-0 z-50 duration-100 supports-backdrop-filter:backdrop-blur-xs',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogContent({\n    className,\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Content> & {\n    size?: 'default' | 'sm';\n}) {\n    return (\n        <AlertDialogPortal>\n            <AlertDialogOverlay />\n            <AlertDialogPrimitive.Content\n                data-slot=\"alert-dialog-content\"\n                data-size={size}\n                className={cn(\n                    'group/alert-dialog-content bg-bg-modal-primary text-text-primary ring-stroke-modal-primary data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 ring-2 duration-100 outline-none data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',\n                    className\n                )}\n                {...props}\n            />\n        </AlertDialogPortal>\n    );\n}\n\nfunction AlertDialogHeader({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"alert-dialog-header\"\n            className={cn(\n                'grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4 sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr]',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogFooter({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"alert-dialog-footer\"\n            className={cn(\n                'bg-bg-modal-secondary/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 sm:flex-row sm:justify-end',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogMedia({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"alert-dialog-media\"\n            className={cn(\n                \"bg-bg-muted mb-2 inline-flex size-10 items-center justify-center rounded-md sm:group-data-[size=default]/alert-dialog-content:row-span-2 *:[svg:not([class*='size-'])]:size-6\",\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogTitle({\n    className,\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {\n    return (\n        <AlertDialogPrimitive.Title\n            data-slot=\"alert-dialog-title\"\n            className={cn(\n                'cn-font-heading text-xl font-bold sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogDescription({\n    className,\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {\n    return (\n        <AlertDialogPrimitive.Description\n            data-slot=\"alert-dialog-description\"\n            className={cn(\n                'text-text-secondary *:[a]:hover:text-text-primary text-sm text-balance md:text-pretty *:[a]:underline *:[a]:underline-offset-3',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogAction({\n    className,\n    variant = 'default',\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Action> &\n    Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {\n    return (\n        <Button variant={variant} size={size} asChild>\n            <AlertDialogPrimitive.Action\n                data-slot=\"alert-dialog-action\"\n                className={cn(className)}\n                {...props}\n            />\n        </Button>\n    );\n}\n\nfunction AlertDialogCancel({\n    className,\n    variant = 'outline',\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Cancel> &\n    Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {\n    return (\n        <Button variant={variant} size={size} asChild>\n            <AlertDialogPrimitive.Cancel\n                data-slot=\"alert-dialog-cancel\"\n                className={cn(className)}\n                {...props}\n            />\n        </Button>\n    );\n}\n\nexport {\n    AlertDialog,\n    AlertDialogAction,\n    AlertDialogCancel,\n    AlertDialogContent,\n    AlertDialogDescription,\n    AlertDialogFooter,\n    AlertDialogHeader,\n    AlertDialogMedia,\n    AlertDialogOverlay,\n    AlertDialogPortal,\n    AlertDialogTitle,\n    AlertDialogTrigger\n};\n"
+    },
+    {
+        "id": "avatar",
+        "name": "Avatar",
+        "description": "An image element with a fallback for representing the user with support for badges and groups.",
+        "version": "0.5.0",
+        "lastUpdated": "2026-04-20",
+        "thumbnail": "Avatar component for user profile images and fallbacks",
+        "usage": "Use Avatar to visually represent users or entities with support for fallbacks, status badges, and grouped stacks.",
+        "props": [
+            {
+                "name": "size",
+                "type": "'default' | 'sm' | 'lg'",
+                "default": "'default'",
+                "description": "Size of the avatar"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Avatar",
+                "code": "<Avatar>\n  <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n  <AvatarFallback>CN</AvatarFallback>\n</Avatar>"
+            },
+            {
+                "title": "Avatar with Status Badge",
+                "code": "<Avatar>\n  <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n  <AvatarFallback>CN</AvatarFallback>\n  <AvatarBadge className=\"bg-green-500\" />\n</Avatar>"
+            },
+            {
+                "title": "Avatar Group",
+                "code": "<AvatarGroup>\n  <Avatar>\n    <AvatarImage src=\"https://github.com/shadcn.png\" />\n    <AvatarFallback>CN</AvatarFallback>\n  </Avatar>\n  <Avatar>\n    <AvatarImage src=\"https://github.com/leerob.png\" />\n    <AvatarFallback>LR</AvatarFallback>\n  </Avatar>\n  <AvatarGroupCount>+3</AvatarGroupCount>\n</AvatarGroup>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Avatar as AvatarPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders an Avatar component for the elementa-ui.\n *\n * @version 0.5.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction Avatar({\n    className,\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root> & {\n    size?: 'default' | 'sm' | 'lg';\n}) {\n    return (\n        <AvatarPrimitive.Root\n            data-slot=\"avatar\"\n            data-size={size}\n            className={cn(\n                'group/avatar border-stroke-active-accent-primary relative flex size-8 shrink-0 rounded-full border-[1.5px] select-none data-[size=lg]:size-10 data-[size=sm]:size-6',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AvatarImage({\n    className,\n    ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n    return (\n        <AvatarPrimitive.Image\n            data-slot=\"avatar-image\"\n            className={cn('aspect-square size-full rounded-full', className)}\n            {...props}\n        />\n    );\n}\n\nfunction AvatarFallback({\n    className,\n    ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n    return (\n        <AvatarPrimitive.Fallback\n            data-slot=\"avatar-fallback\"\n            className={cn(\n                'bg-bg-flat-secondary text-text-secondary font-body flex size-full items-center justify-center rounded-full text-sm font-medium group-data-[size=sm]/avatar:text-xs',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AvatarBadge({ className, ...props }: React.ComponentProps<'span'>) {\n    return (\n        <span\n            data-slot=\"avatar-badge\"\n            className={cn(\n                'bg-bg-base-primary text-text-primary ring-stroke-base-primary absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full ring-1 select-none',\n                'group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:[&>svg]:hidden',\n                'group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:[&>svg]:size-2',\n                'group-data-[size=lg]/avatar:size-3 group-data-[size=lg]/avatar:[&>svg]:size-2',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AvatarGroup({ className, ...props }: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"avatar-group\"\n            className={cn(\n                'group/avatar-group *:data-[slot=avatar]:ring-bg-flat-primary flex -space-x-2 *:data-[slot=avatar]:ring-1',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AvatarGroupCount({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"avatar-group-count\"\n            className={cn(\n                'bg-bg-muted text-text-secondary ring-background relative flex size-8 shrink-0 items-center justify-center rounded-full text-sm ring-1 group-has-data-[size=lg]/avatar-group:size-10 group-has-data-[size=sm]/avatar-group:size-6 [&>svg]:size-4 group-has-data-[size=lg]/avatar-group:[&>svg]:size-5 group-has-data-[size=sm]/avatar-group:[&>svg]:size-3',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport { \n    Avatar,\n    AvatarBadge,\n    AvatarFallback,\n    AvatarGroup,\n    AvatarGroupCount,\n    AvatarImage\n};\n"
+    },
+    {
+        "id": "badge",
+        "name": "Badge",
+        "description": "A small visual status descriptor for UI elements with various feedback and stylistic variants.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-05-28",
+        "thumbnail": "Badge component for status labels and tags",
+        "usage": "Use Badge to highlight tags, categories, or status indicators with contextual color schemes.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'secondary' | 'destructive' | 'warning' | 'info' | 'success' | 'outline' | 'ghost' | 'link'",
+                "default": "'default'",
+                "description": "Visual style of the badge"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'lg'",
+                "default": "'default'",
+                "description": "Size of the badge"
+            },
+            {
+                "name": "asChild",
+                "type": "boolean",
+                "default": "false",
+                "description": "Render as child component with Slot"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Badge",
+                "code": "<Badge>New</Badge>"
+            },
+            {
+                "title": "Secondary Badge",
+                "code": "<Badge variant=\"secondary\">In Progress</Badge>"
+            },
+            {
+                "title": "Success Badge",
+                "code": "<Badge variant=\"success\">Completed</Badge>"
+            },
+            {
+                "title": "Destructive Badge",
+                "code": "<Badge variant=\"destructive\">Failed</Badge>"
+            },
+            {
+                "title": "Outline Badge",
+                "code": "<Badge variant=\"outline\">Tag</Badge>"
+            }
+        ],
+        "sourceCode": "import { cn } from '@/lib/utils';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { Slot } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders a Badge component for the elementa-ui.\n *\n * @version 0.2.0\n * @author Aayush Goyal\n * @modifiedAt 2026-05-28\n */\nconst badgeVariants = cva(\n    'inline-flex w-fit shrink-0 select-none font-body cursor-default items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2 py-0.5 font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:border-stroke-active-secondary focus-visible:ring-[3px] focus-visible:ring-stroke-active-secondary aria-invalid:border-destructive aria-invalid:ring-stroke-destructive [&>svg]:pointer-events-none [&>svg]:size-3',\n    {\n        variants: {\n            variant: {\n                default:\n                    'bg-bg-active-secondary text-text-primary [a&]:hover:bg-bg-active-primary',\n                secondary:\n                    'bg-bg-active-secondary/60 text-text-primary [a&]:hover:bg-bg-active-primary/60',\n                destructive:\n                    'bg-bg-destructive text-text-destructive focus-visible:ring-stroke-destructive [a&]:hover:bg-destructive/90',\n                warning:\n                    'bg-bg-warning text-text-warning focus-visible:ring-stroke-warning [a&]:hover:bg-warning/90',\n                info: 'bg-bg-info text-text-info focus-visible:ring-stroke-info [a&]:hover:bg-info/90',\n                success:\n                    'bg-bg-success text-text-success focus-visible:ring-stroke-success [a&]:hover:bg-success/90',\n                outline:\n                    'border-stroke-active-secondary text-text-primary [a&]:hover:bg-bg-active-primary [a&]:hover:text-text-secondary',\n                ghost: '[a&]:hover:bg-bg-active-primary [a&]:hover:text-text-secondary',\n                link: 'text-text-primary underline-offset-4 [a&]:hover:underline'\n            },\n            size: {\n                default: 'text-xs',\n                lg: 'text-sm'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nfunction Badge({\n    className,\n    variant = 'default',\n    asChild = false,\n    ...props\n}: React.ComponentProps<'span'> &\n    VariantProps<typeof badgeVariants> & { asChild?: boolean }) {\n    const Comp = asChild ? Slot.Root : 'span';\n\n    return (\n        <Comp\n            data-slot=\"badge\"\n            data-variant={variant}\n            data-size={props.size}\n            className={cn(\n                badgeVariants({ variant, size: props.size }),\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport { Badge, badgeVariants };\n"
+    },
+    {
         "id": "button",
         "name": "Button",
         "description": "A versatile button component with multiple variants and sizes, built with class-variance-authority for flexible styling.",
-        "version": "0.8.0",
-        "lastUpdated": "2026-05-28",
+        "version": "0.9.0",
+        "lastUpdated": "2026-08-25",
         "thumbnail": "Button component for user interactions",
         "usage": "Use the Button component for all clickable actions. Choose variants based on visual hierarchy and context.",
         "props": [
@@ -16,7 +188,7 @@
             },
             {
                 "name": "size",
-                "type": "'default' | 'sm' | 'lg' | 'icon'",
+                "type": "'default' | 'xs' | 'sm' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg'",
                 "default": "'default'",
                 "description": "Size of the button"
             },
@@ -47,6 +219,10 @@
                 "code": "<Button variant=\"outline\">Outline</Button>"
             },
             {
+                "title": "Destructive Button",
+                "code": "<Button variant=\"destructive\">Destructive</Button>"
+            },
+            {
                 "title": "Small Button",
                 "code": "<Button size=\"sm\">Small</Button>"
             },
@@ -55,32 +231,17 @@
                 "code": "<Button disabled>Disabled</Button>"
             }
         ],
-        "sourceCode": "// Import global from third party libraries.\nimport * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\n// Import custom utility classes.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import custom components.\n\n// Import styles.\n\n/**\n * This file defines a Button component with various styles and variants.\n */\nconst buttonVariants = cva(\n    'text-[16px] inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md font-bold transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',\n    {\n        variants: {\n            variant: {\n                default:\n                    'bg-orange-base hover:bg-orange-40 text-metal-100 shadow',\n                destructive:\n                    'bg-destructive text-metal-100 shadow-sm hover:bg-destructive/90',\n                outline:\n                    'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',\n                secondary:\n                    'bg-green-base hover:bg-green-50 text-metal-100 shadow-sm',\n                ghost: 'hover:bg-accent hover:text-accent-foreground',\n                link: 'text-primary underline-offset-4 hover:underline'\n            },\n            size: {\n                default: 'h-fit px-4 py-3',\n                sm: 'h-8 rounded-lg px-4 text-xs',\n                lg: 'h-10 rounded-lg px-8',\n                icon: 'h-9 w-9'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nexport interface ButtonProps\n    extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n        VariantProps<typeof buttonVariants> {\n    asChild?: boolean;\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n    ({ className, variant, size, asChild = false, ...props }, ref) => {\n        const Comp = asChild ? Slot : 'button';\n        return (\n            <Comp\n                className={cn(buttonVariants({ variant, size, className }))}\n                ref={ref}\n                // eslint-disable-next-line react/jsx-props-no-spreading\n                {...props}\n            />\n        );\n    }\n);\nButton.displayName = 'Button';\n\nexport { Button, buttonVariants };\n"
+        "sourceCode": "import { cn } from '@/lib/utils';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { Slot } from 'radix-ui';\n\n/**\n * This function renders a Button component for the elementa-ui.\n *\n * @version 0.9.0\n * @author Aayush Goyal\n * @modifiedAt 2026-08-25\n */\nconst buttonVariants = cva(\n    \"focus-visible:border-stroke-active-secondary shadow-md py-1 cursor-pointer active:scale-95 focus-visible:ring-stroke-active-secondary aria-invalid:ring-destructive/20 aria-invalid:border-destructive rounded-[8px] border border-transparent font-body font-bold focus-visible:ring-3 aria-invalid:ring-3 [&_svg:not([class*='size-'])]:size-4 group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 select-none\",\n    {\n        variants: {\n            variant: {\n                default:\n                    'bg-bg-active-accent-primary text-gun-metal-1100 hover:bg-bg-active-hover-accent-primary [a]:hover:bg-primary/80',\n                outline:\n                    'border-stroke-base-primary bg-bg-active-primary hover:bg-bg-active-secondary aria-expanded:bg-muted text-text-primary',\n                secondary:\n                    'bg-bg-active-accent-secondary text-gun-metal-1100 hover:bg-bg-active-hover-accent-secondary aria-expanded:bg-secondary aria-expanded:text-text-primary',\n                ghost: 'hover:bg-muted text-text-primary aria-expanded:bg-muted shadow-none',\n                destructive:\n                    'bg-bg-destructive hover:bg-bg-hover-destructive focus-visible:ring-destructive/20 text-text-destructive focus-visible:border-destructive/40 border-stroke-destructive',\n                link: 'text-text-info underline-offset-4 hover:underline shadow-none h-fit!'\n            },\n            size: {\n                default:\n                    'h-10 gap-1.5 text-sm px-3 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',\n                xs: \"h-8 gap-1 px-2 text-xs has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3\",\n                sm: \"h-9 gap-1 px-3 text-sm text-[0.8rem] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n                lg: 'h-11 gap-1.5 text-base px-3 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3',\n                icon: 'size-8',\n                'icon-xs': \"size-6 [&_svg:not([class*='size-'])]:size-3\",\n                'icon-sm': 'size-7',\n                'icon-lg': 'size-9'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nfunction Button({\n    className,\n    variant = 'default',\n    size = 'default',\n    asChild = false,\n    ...props\n}: React.ComponentProps<'button'> &\n    VariantProps<typeof buttonVariants> & {\n        asChild?: boolean;\n    }) {\n    const Comp = asChild ? Slot.Root : 'button';\n\n    return (\n        <button\n            data-slot=\"button\"\n            data-variant={variant}\n            data-size={size}\n            className={cn(buttonVariants({ variant, size, className }))}\n            {...props}\n        />\n    );\n}\n\nexport { Button, buttonVariants };\n"
     },
     {
-        "id": "badge",
-        "name": "Badge",
-
-        "description": "A small label component for displaying tags, statuses, or categories with customizable variants.",
-        "version": "1.0.0",
-        "lastUpdated": "2026-07-15",
-        "thumbnail": "Badge component for labels and tags",
-        "features": [
-            "Multiple variants (default, secondary, destructive, outline)",
-            "Customizable colors and sizes",
-            "Lightweight and performant",
-            "Perfect for status indicators",
-            "Rounded styling",
-            "Accessibility friendly"
-        ],
-        "usage": "Use Badge to highlight tags, statuses, or categories. Use default variant for primary labels and outline for subtle tags.",
+        "id": "input-group",
+        "name": "Input Group",
+        "description": "A composite container for grouping inputs or textareas with addons, buttons, and icons.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-22",
+        "thumbnail": "Input Group component for composed input fields",
+        "usage": "Use InputGroup to attach prefixes, suffixes, buttons, or extra controls to inputs and textareas.",
         "props": [
-            {
-                "name": "variant",
-                "type": "'default' | 'secondary' | 'destructive' | 'outline'",
-                "default": "'default'",
-                "description": "Visual style of the badge"
-            },
             {
                 "name": "className",
                 "type": "string",
@@ -90,85 +251,71 @@
         ],
         "examples": [
             {
-                "title": "Default Badge",
-                "code": "<Badge>New</Badge>"
+                "title": "Input Group with Prefix",
+                "code": "<InputGroup>\n  <InputGroupAddon align=\"inline-start\">https://</InputGroupAddon>\n  <InputGroupInput placeholder=\"example.com\" />\n</InputGroup>"
             },
             {
-                "title": "Secondary Badge",
-                "code": "<Badge variant=\"secondary\">In Progress</Badge>"
-            },
-            {
-                "title": "Destructive Badge",
-                "code": "<Badge variant=\"destructive\">Error</Badge>"
-            },
-            {
-                "title": "Outline Badge",
-                "code": "<Badge variant=\"outline\">Tag</Badge>"
+                "title": "Input Group with Action Button",
+                "code": "<InputGroup>\n  <InputGroupInput placeholder=\"Search...\" />\n  <InputGroupAddon align=\"inline-end\">\n    <InputGroupButton>Search</InputGroupButton>\n  </InputGroupAddon>\n</InputGroup>"
             }
         ],
-        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n\n// Import global from third party libraries.\nimport * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\n// Import custom components.\n\n// Import custom utilities.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import styles.\n\nconst badgeVariants = cva(\n    'inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',\n    {\n        variants: {\n            variant: {\n                default:\n                    'border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80',\n                secondary:\n                    'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',\n                destructive:\n                    'border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80',\n                outline: 'text-text-primary'\n            }\n        },\n        defaultVariants: {\n            variant: 'default'\n        }\n    }\n);\n\nexport interface BadgeProps\n    extends React.HTMLAttributes<HTMLDivElement>,\n        VariantProps<typeof badgeVariants> {}\n\nfunction Badge({ className, variant, ...props }: BadgeProps) {\n    return (\n        <div className={cn(badgeVariants({ variant }), className)} {...props} />\n    );\n}\n\nexport { Badge, badgeVariants };\n"
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\nimport { Input } from '@/src/components/input';\nimport { Textarea } from '@/src/components/textarea';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\n/**\n * This function renders an Input Group component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-22\n */\nfunction InputGroup({ className, ...props }: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"input-group\"\n            role=\"group\"\n            className={cn(\n                'group/input-group bg-bg-flat-primary border-stroke-flat-primary has-disabled:bg-bg-fill-destructive has-[[data-slot=input-group-control]:focus-visible]:border-stroke-active-primary has-[[data-slot=input-group-control]:focus-visible]:ring-bg-active-secondary has-[[data-slot][aria-invalid=true]]:border-stroke-destructive has-[[data-slot][aria-invalid=true]]:ring-bg-fill-destructive relative flex h-8 w-full min-w-0 items-center rounded-lg border transition-colors outline-none in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0 has-disabled:opacity-50 has-[[data-slot=input-group-control]:focus-visible]:ring-3 has-[[data-slot][aria-invalid=true]]:ring-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-1.5',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nconst inputGroupAddonVariants = cva(\n    \"flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-text-secondary select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4\",\n    {\n        variants: {\n            align: {\n                'inline-start':\n                    'order-first pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]',\n                'inline-end':\n                    'order-last pr-2 has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem]',\n                'block-start':\n                    'order-first w-full justify-start px-2.5 pt-2 group-has-[>input]/input-group:pt-2 [.border-b]:pb-2',\n                'block-end':\n                    'order-last w-full justify-start px-2.5 pb-2 group-has-[>input]/input-group:pb-2 [.border-t]:pt-2'\n            }\n        },\n        defaultVariants: {\n            align: 'inline-start'\n        }\n    }\n);\n\nfunction InputGroupAddon({\n    className,\n    align = 'inline-start',\n    ...props\n}: React.ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) {\n    return (\n        <div\n            role=\"group\"\n            data-slot=\"input-group-addon\"\n            data-align={align}\n            className={cn(inputGroupAddonVariants({ align }), className)}\n            onClick={(e) => {\n                if ((e.target as HTMLElement).closest('button')) {\n                    return;\n                }\n                e.currentTarget.parentElement?.querySelector('input')?.focus();\n            }}\n            {...props}\n        />\n    );\n}\n\nconst inputGroupButtonVariants = cva(\n    'flex items-center gap-2 text-sm shadow-none',\n    {\n        variants: {\n            size: {\n                xs: \"h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*='size-'])]:size-3.5\",\n                sm: '',\n                'icon-xs':\n                    'size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0',\n                'icon-sm': 'size-8 p-0 has-[>svg]:p-0'\n            }\n        },\n        defaultVariants: {\n            size: 'xs'\n        }\n    }\n);\n\nfunction InputGroupButton({\n    className,\n    type = 'button',\n    variant = 'ghost',\n    size = 'xs',\n    ...props\n}: Omit<React.ComponentProps<typeof Button>, 'size'> &\n    VariantProps<typeof inputGroupButtonVariants>) {\n    return (\n        <Button\n            type={type}\n            data-size={size}\n            variant={variant}\n            className={cn(inputGroupButtonVariants({ size }), className)}\n            {...props}\n        />\n    );\n}\n\nfunction InputGroupText({ className, ...props }: React.ComponentProps<'span'>) {\n    return (\n        <span\n            className={cn(\n                \"text-text-secondary font-body flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4\",\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction InputGroupInput({\n    className,\n    ...props\n}: React.ComponentProps<'input'>) {\n    return (\n        <Input\n            data-slot=\"input-group-control\"\n            className={cn(\n                'aria-invalid:ring-bg-fill-destructive flex-1 border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0',\n                'disabled:bg-bg-disabled disabled:text-text-disabled disabled:cursor-not-allowed',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction InputGroupTextarea({\n    className,\n    ...props\n}: React.ComponentProps<'textarea'>) {\n    return (\n        <Textarea\n            data-slot=\"input-group-control\"\n            className={cn(\n                'bg-bg-flat-primary flex-1 resize-none border-0 py-2 shadow-none ring-0 focus-visible:ring-0',\n                'aria-invalid:ring-0',\n                'disabled:bg-bg-disabled',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport {\n    InputGroup,\n    InputGroupAddon,\n    InputGroupButton,\n    InputGroupInput,\n    InputGroupText,\n    InputGroupTextarea\n};\n"
     },
     {
-        "id": "toggle",
-        "name": "Toggle",
-
-        "description": "A toggle button component built on Radix UI that can be toggled on or off with accessible state management.",
-        "version": "1.0.0",
-        "lastUpdated": "2026-07-15",
-        "thumbnail": "Toggle component for boolean states",
-
-        "usage": "Use Toggle for binary state changes like bold/italic text formatting, sound on/off, or view modes.",
+        "id": "sonner",
+        "name": "Sonner",
+        "description": "An opinionated toast component for React built with Sonner and integrated with elementa-ui theme system.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-08-25",
+        "thumbnail": "Sonner toast notification component",
+        "usage": "Use Toaster with toast triggers to provide actionable feedback or alert messages in response to user actions.",
         "props": [
             {
-                "name": "variant",
-                "type": "'default' | 'outline'",
-                "default": "'default'",
-                "description": "Visual style of the toggle"
+                "name": "theme",
+                "type": "'light' | 'dark' | 'system'",
+                "default": "'system'",
+                "description": "Theme mode for toasts"
             },
             {
-                "name": "size",
-                "type": "'default' | 'sm' | 'lg'",
-                "default": "'default'",
-                "description": "Size of the toggle"
+                "name": "position",
+                "type": "'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center'",
+                "default": "'bottom-right'",
+                "description": "Position on screen where toasts are rendered"
             },
             {
-                "name": "pressed",
+                "name": "richColors",
                 "type": "boolean",
                 "default": "false",
-                "description": "Whether the toggle is pressed"
+                "description": "Enable rich colors for status toasts"
             }
         ],
         "examples": [
             {
-                "title": "Default Toggle",
-                "code": "<Toggle>Toggle me</Toggle>"
+                "title": "Toaster Setup",
+                "code": "<Toaster />"
             },
             {
-                "title": "Outline Toggle",
-                "code": "<Toggle variant=\"outline\">Outline</Toggle>"
-            },
-            {
-                "title": "Small Toggle",
-                "code": "<Toggle size=\"sm\">Small</Toggle>"
-            },
-            {
-                "title": "Pressed Toggle",
-                "code": "<Toggle pressed={true}>Pressed</Toggle>"
+                "title": "Triggering a Toast",
+                "code": "import { toast } from 'sonner';\n\ntoast.success('Event has been created');"
             }
         ],
-        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n\n'use client';\n\nimport * as React from 'react';\nimport * as TogglePrimitive from '@radix-ui/react-toggle';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils/utils';\n\n/**\n * Toggle component is a button that can be toggled on or off.\n */\nconst toggleVariants = cva(\n    'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-text-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',\n    {\n        variants: {\n            variant: {\n                default: 'bg-transparent',\n                outline:\n                    'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground'\n            },\n            size: {\n                default: 'h-9 px-2 min-w-9',\n                sm: 'h-8 px-1.5 min-w-8',\n                lg: 'h-10 px-2.5 min-w-10'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nconst Toggle = React.forwardRef<\n    React.ElementRef<typeof TogglePrimitive.Root>,\n    React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &\n        VariantProps<typeof toggleVariants>\n>(({ className, variant, size, ...props }, ref) => (\n    <TogglePrimitive.Root\n        ref={ref}\n        className={cn(toggleVariants({ variant, size, className }))}\n        {...props}\n    />\n));\n\nToggle.displayName = TogglePrimitive.Root.displayName;\n\nexport { Toggle, toggleVariants };\n"
+        "sourceCode": "'use client';\n\nimport useUIStore from '@/lib/store/user-preference-store';\nimport { Info, TickCloud } from 'elementa-icons';\nimport { Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';\nimport { Toaster as Sonner, type ToasterProps } from 'sonner';\n\n/**\n * This function renders a custom Sonner toast component for the elementa-ui.\n *\n * @version 0.3.0\n * @author Aayush Goyal\n * @modifiedAt 2026-08-25\n */\nconst Toaster = ({ ...props }: ToasterProps) => {\n    const theme = useUIStore((state) => state.theme);\n\n    return (\n        <Sonner\n            theme={theme as ToasterProps['theme']}\n            className=\"toaster group\"\n            icons={{\n                success: <TickCloud className=\"size-4\" />,\n                info: <Info className=\"size-4\" />,\n                warning: <TriangleAlertIcon className=\"size-4\" />,\n                error: <OctagonXIcon className=\"size-4\" />,\n                loading: <Loader2Icon className=\"size-4 animate-spin\" />\n            }}\n            style={\n                {\n                    '--normal-bg': 'var(--bg-modal-primary)',\n                    '--normal-text': 'var(--text-primary)',\n                    '--normal-border': 'var(--border)',\n                    '--border-radius': 'var(--radius)'\n                } as React.CSSProperties\n            }\n            toastOptions={{\n                classNames: {\n                    toast: 'cn-toast font-body',\n                    error: 'bg-bg-fill-destructive! text-text-destructive! font-body',\n                    info: 'bg-bg-fill-info! text-text-info! font-body',\n                    success: 'bg-bg-fill-success! text-text-success! font-body',\n                    warning: 'bg-bg-fill-warning! text-text-warning! font-body'\n                }\n            }}\n            {...props}\n        />\n    );\n};\n\nexport { Toaster };\n"
     },
     {
         "id": "toggle-group",
         "name": "Toggle Group",
-
-        "description": "A group of toggle buttons where only one can be selected at a time, built on Radix UI.",
-        "version": "1.0.0",
-        "lastUpdated": "2026-07-15",
-        "thumbnail": "Toggle Group component for single selection",
-
-        "usage": "Use ToggleGroup to create mutually exclusive button groups like view modes, text alignment, or option selection.",
+        "description": "A group of two-state buttons that can be toggled on or off, supporting single or multiple selection.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-08-25",
+        "thumbnail": "Toggle Group component for single or multiple selection",
+        "usage": "Use ToggleGroup to create grouped toggle buttons for formatting options, filter selectors, or view mode switchers.",
         "props": [
+            {
+                "name": "type",
+                "type": "'single' | 'multiple'",
+                "default": "'single'",
+                "description": "Selection mode"
+            },
             {
                 "name": "variant",
                 "type": "'default' | 'outline'",
@@ -182,10 +329,16 @@
                 "description": "Size for toggle items"
             },
             {
-                "name": "type",
-                "type": "'single' | 'multiple'",
-                "default": "'single'",
-                "description": "Selection mode"
+                "name": "spacing",
+                "type": "number",
+                "default": "0",
+                "description": "Spacing between toggle group items"
+            },
+            {
+                "name": "orientation",
+                "type": "'horizontal' | 'vertical'",
+                "default": "'horizontal'",
+                "description": "Orientation of the toggle group"
             }
         ],
         "examples": [
@@ -194,82 +347,10 @@
                 "code": "<ToggleGroup type=\"single\">\n  <ToggleGroupItem value=\"left\">Left</ToggleGroupItem>\n  <ToggleGroupItem value=\"center\">Center</ToggleGroupItem>\n  <ToggleGroupItem value=\"right\">Right</ToggleGroupItem>\n</ToggleGroup>"
             },
             {
-                "title": "Multiple Selection",
-                "code": "<ToggleGroup type=\"multiple\">\n  <ToggleGroupItem value=\"bold\">Bold</ToggleGroupItem>\n  <ToggleGroupItem value=\"italic\">Italic</ToggleGroupItem>\n  <ToggleGroupItem value=\"underline\">Underline</ToggleGroupItem>\n</ToggleGroup>"
+                "title": "Outline with Spacing",
+                "code": "<ToggleGroup type=\"multiple\" variant=\"outline\" spacing={2}>\n  <ToggleGroupItem value=\"bold\">Bold</ToggleGroupItem>\n  <ToggleGroupItem value=\"italic\">Italic</ToggleGroupItem>\n  <ToggleGroupItem value=\"underline\">Underline</ToggleGroupItem>\n</ToggleGroup>"
             }
         ],
-        "sourceCode": "/* eslint-disable react/jsx-no-constructed-context-values */\n/* eslint-disable react/jsx-props-no-spreading */\n\n'use client';\n\nimport * as React from 'react';\nimport * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group';\nimport { type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils/utils';\nimport { toggleVariants } from '@/src/components/ui/toggle';\n\n/**\n * ToggleGroupContext provides the context for the ToggleGroup component,\n */\nconst ToggleGroupContext = React.createContext<\n    VariantProps<typeof toggleVariants>\n>({\n    size: 'default',\n    variant: 'default'\n});\n\nconst ToggleGroup = React.forwardRef<\n    React.ElementRef<typeof ToggleGroupPrimitive.Root>,\n    React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &\n        VariantProps<typeof toggleVariants>\n>(({ className, variant, size, children, ...props }, ref) => (\n    <ToggleGroupPrimitive.Root\n        ref={ref}\n        className={cn('flex items-center justify-center gap-1', className)}\n        {...props}\n    >\n        <ToggleGroupContext.Provider value={{ variant, size }}>\n            {children}\n        </ToggleGroupContext.Provider>\n    </ToggleGroupPrimitive.Root>\n));\n\nToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;\n\nconst ToggleGroupItem = React.forwardRef<\n    React.ElementRef<typeof ToggleGroupPrimitive.Item>,\n    React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &\n        VariantProps<typeof toggleVariants>\n>(({ className, children, variant, size, ...props }, ref) => {\n    const context = React.useContext(ToggleGroupContext);\n\n    return (\n        <ToggleGroupPrimitive.Item\n            ref={ref}\n            className={cn(\n                toggleVariants({\n                    variant: context.variant || variant,\n                    size: context.size || size\n                }),\n                className\n            )}\n            {...props}\n        >\n            {children}\n        </ToggleGroupPrimitive.Item>\n    );\n});\n\nToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;\n\nexport { ToggleGroup, ToggleGroupItem };\n"
-    },
-    {
-        "id": "sheet",
-        "name": "Sheet",
-
-        "description": "A side panel component built on Radix UI Dialog that slides in from the edge with overlay support.",
-        "version": "1.0.0",
-        "lastUpdated": "2026-07-15",
-        "thumbnail": "Sheet component for side panels",
-
-        "usage": "Use Sheet for navigation menus, filters, or additional content that needs to be accessed without leaving the current view.",
-        "props": [
-            {
-                "name": "side",
-                "type": "'top' | 'bottom' | 'left' | 'right'",
-                "default": "'right'",
-                "description": "Which side the sheet slides from"
-            },
-            {
-                "name": "open",
-                "type": "boolean",
-                "default": "false",
-                "description": "Whether the sheet is open"
-            }
-        ],
-        "examples": [
-            {
-                "title": "Right Sheet",
-                "code": "<Sheet>\n  <SheetTrigger>Open</SheetTrigger>\n  <SheetContent>\n    <SheetHeader><SheetTitle>Title</SheetTitle></SheetHeader>\n  </SheetContent>\n</Sheet>"
-            },
-            {
-                "title": "Left Sheet",
-                "code": "<SheetContent side=\"left\">Content</SheetContent>"
-            }
-        ],
-        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n/* eslint-disable react/prop-types */\n\n'use client';\n\n// Import global from third party libraries.\nimport * as React from 'react';\nimport * as SheetPrimitive from '@radix-ui/react-dialog';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { X } from 'lucide-react';\n\n// Import custom components.\n\n// Import custom utilities.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import styles.\n\nconst Sheet = SheetPrimitive.Root;\n\nconst SheetTrigger = SheetPrimitive.Trigger;\n\nconst SheetClose = SheetPrimitive.Close;\n\nconst SheetPortal = SheetPrimitive.Portal;\n\nconst SheetOverlay = React.forwardRef<\n    React.ElementRef<typeof SheetPrimitive.Overlay>,\n    React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>\n>(({ className, ...props }, ref) => (\n    <SheetPrimitive.Overlay\n        className={cn(\n            'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',\n            className\n        )}\n        {...props}\n        ref={ref}\n    />\n));\nSheetOverlay.displayName = SheetPrimitive.Overlay.displayName;\n\nconst sheetVariants = cva(\n    'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out',\n    {\n        variants: {\n            side: {\n                top: 'inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',\n                bottom: 'inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',\n                left: 'inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm',\n                right: 'inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm'\n            }\n        },\n        defaultVariants: {\n            side: 'right'\n        }\n    }\n);\n\ninterface SheetContentProps\n    extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,\n        VariantProps<typeof sheetVariants> {}\n\nconst SheetContent = React.forwardRef<\n    React.ElementRef<typeof SheetPrimitive.Content>,\n    SheetContentProps\n>(({ side = 'right', className, children, ...props }, ref) => (\n    <SheetPortal>\n        <SheetOverlay />\n        <SheetPrimitive.Content\n            ref={ref}\n            className={cn(sheetVariants({ side }), className)}\n            {...props}\n        >\n            {children}\n            <SheetPrimitive.Close className=\"absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary\">\n                <X className=\"h-4 w-4\" />\n                <span className=\"sr-only\">Close</span>\n            </SheetPrimitive.Close>\n        </SheetPrimitive.Content>\n    </SheetPortal>\n));\nSheetContent.displayName = SheetPrimitive.Content.displayName;\n\nexport { Sheet, SheetTrigger, SheetClose, SheetContent, SheetPortal, SheetOverlay };\n"
-    },
-    {
-        "id": "toast",
-        "name": "Toast",
-
-        "description": "A notification component that displays brief messages that automatically disappear after a timeout.",
-        "version": "1.0.0",
-        "lastUpdated": "2026-07-15",
-        "thumbnail": "Toast component for notifications",
-
-        "usage": "Use Toast to display temporary notifications like success messages, errors, or informational alerts.",
-        "props": [
-            {
-                "name": "variant",
-                "type": "'default' | 'destructive'",
-                "default": "'default'",
-                "description": "Visual style of the toast"
-            },
-            {
-                "name": "duration",
-                "type": "number",
-                "default": "3000",
-                "description": "How long to show the toast in ms"
-            }
-        ],
-        "examples": [
-            {
-                "title": "Success Toast",
-                "code": "<Toast variant=\"default\">\n  <ToastTitle>Success</ToastTitle>\n  <ToastDescription>Action completed</ToastDescription>\n</Toast>"
-            },
-            {
-                "title": "Error Toast",
-                "code": "<Toast variant=\"destructive\">\n  <ToastTitle>Error</ToastTitle>\n  <ToastDescription>Something went wrong</ToastDescription>\n</Toast>"
-            }
-        ],
-        "sourceCode": "/* eslint-disable react/jsx-props-no-spreading */\n/* eslint-disable react/prop-types */\n\n'use client';\n\n// Import global from third party libraries.\nimport * as React from 'react';\nimport * as ToastPrimitives from '@radix-ui/react-toast';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { X } from 'lucide-react';\n\n// Import custom utility classes.\nimport { cn } from '@/lib/utils/utils';\n\n// Import custom types.\n\n// Import custom components.\n\n// Import styles.\n\nconst ToastProvider = ToastPrimitives.Provider;\n\nconst ToastViewport = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Viewport>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Viewport\n        ref={ref}\n        className={cn(\n            'fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]',\n            className\n        )}\n        {...props}\n    />\n));\nToastViewport.displayName = ToastPrimitives.Viewport.displayName;\n\nconst toastVariants = cva(\n    'group pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md border p-4 pr-6 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full',\n    {\n        variants: {\n            variant: {\n                default: 'border bg-background text-text-primary',\n                destructive:\n                    'destructive group border-destructive bg-destructive text-destructive-foreground'\n            }\n        },\n        defaultVariants: {\n            variant: 'default'\n        }\n    }\n);\n\nconst Toast = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Root>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &\n        VariantProps<typeof toastVariants>\n>(({ className, variant, ...props }, ref) => (\n    <ToastPrimitives.Root\n        ref={ref}\n        className={cn(toastVariants({ variant }), className)}\n        {...props}\n    />\n));\nToast.displayName = ToastPrimitives.Root.displayName;\n\nconst ToastAction = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Action>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Action\n        ref={ref}\n        className={cn(\n            'inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium transition-colors hover:bg-secondary focus:outline-none focus:ring-1 focus:ring-ring disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive',\n            className\n        )}\n        {...props}\n    />\n));\nToastAction.displayName = ToastPrimitives.Action.displayName;\n\nconst ToastClose = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Close>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Close\n        ref={ref}\n        className={cn(\n            'inline-flex h-8 shrink-0 items-center justify-center rounded-md p-0 text-text-primary/50 opacity-0 transition-opacity hover:text-text-primary focus:opacity-100 focus:outline-none focus:ring-1 focus:ring-ring group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400',\n            className\n        )}\n        toast-close=\"\"\n        {...props}\n    >\n        <X className=\"h-4 w-4\" />\n    </ToastPrimitives.Close>\n));\nToastClose.displayName = ToastPrimitives.Close.displayName;\n\nconst ToastTitle = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Title>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Title\n        ref={ref}\n        className={cn('text-sm font-semibold', className)}\n        {...props}\n    />\n));\nToastTitle.displayName = ToastPrimitives.Title.displayName;\n\nconst ToastDescription = React.forwardRef<\n    React.ElementRef<typeof ToastPrimitives.Description>,\n    React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>\n>(({ className, ...props }, ref) => (\n    <ToastPrimitives.Description\n        ref={ref}\n        className={cn('text-sm opacity-90', className)}\n        {...props}\n    />\n));\nToastDescription.displayName = ToastPrimitives.Description.displayName;\n\ntype ToastActionElement = React.ReactElement<any>;\n\nexport {\n    type ToastActionElement,\n    Toast,\n    ToastAction,\n    ToastClose,\n    ToastDescription,\n    ToastProvider,\n    ToastTitle,\n    ToastViewport\n};\n"
+        "sourceCode": "'use client';\n\nimport { type VariantProps } from 'class-variance-authority';\nimport { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport { toggleVariants } from '@/src/components/toggle';\n\nconst ToggleGroupContext = React.createContext<\n    VariantProps<typeof toggleVariants> & {\n        spacing?: number;\n        orientation?: 'horizontal' | 'vertical';\n    }\n>({\n    size: 'default',\n    variant: 'default',\n    spacing: 0,\n    orientation: 'horizontal'\n});\n\n/**\n * This function renders a {@link ToggleGroup} component for the elementa-ui.\n *\n * @version 0.2.0\n * @author Aayush Goyal\n * @modifiedAt 2026-08-25\n */\nfunction ToggleGroup({\n    className,\n    variant,\n    size,\n    spacing = 0,\n    orientation = 'horizontal',\n    children,\n    ...props\n}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &\n    VariantProps<typeof toggleVariants> & {\n        spacing?: number;\n        orientation?: 'horizontal' | 'vertical';\n    }) {\n    return (\n        <ToggleGroupPrimitive.Root\n            data-slot=\"toggle-group\"\n            data-variant={variant}\n            data-size={size}\n            data-spacing={spacing}\n            data-orientation={orientation}\n            style={{ '--gap': spacing } as React.CSSProperties}\n            className={cn(\n                'group/toggle-group flex w-fit flex-row items-center gap-[--spacing(var(--gap))] rounded-lg data-vertical:flex-col data-vertical:items-stretch data-[size=sm]:rounded-[min(var(--radius-md),10px)]',\n                className\n            )}\n            {...props}\n        >\n            <ToggleGroupContext.Provider\n                value={{ variant, size, spacing, orientation }}\n            >\n                {children}\n            </ToggleGroupContext.Provider>\n        </ToggleGroupPrimitive.Root>\n    );\n}\n\nfunction ToggleGroupItem({\n    className,\n    children,\n    variant = 'default',\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> &\n    VariantProps<typeof toggleVariants>) {\n    const context = React.useContext(ToggleGroupContext);\n\n    return (\n        <ToggleGroupPrimitive.Item\n            data-slot=\"toggle-group-item\"\n            data-variant={context.variant || variant}\n            data-size={context.size || size}\n            data-spacing={context.spacing}\n            className={cn(\n                'shrink-0 group-data-[spacing=0]/toggle-group:rounded-none group-data-[spacing=0]/toggle-group:px-2 focus:z-10 focus-visible:z-10 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-end]:pr-1.5 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-start]:pl-1.5 group-data-horizontal/toggle-group:data-[spacing=0]:first:rounded-l-lg group-data-vertical/toggle-group:data-[spacing=0]:first:rounded-t-lg group-data-horizontal/toggle-group:data-[spacing=0]:last:rounded-r-lg group-data-vertical/toggle-group:data-[spacing=0]:last:rounded-b-lg group-data-horizontal/toggle-group:data-[spacing=0]:data-[variant=outline]:border-l-0 group-data-vertical/toggle-group:data-[spacing=0]:data-[variant=outline]:border-t-0 group-data-horizontal/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-l group-data-vertical/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-t',\n                toggleVariants({\n                    variant: context.variant || variant,\n                    size: context.size || size\n                }),\n                'data-[state=on]:bg-bg-active-fill-accent-primary data-[state=on]:border-stroke-active-accent-primary data-[state=on]:border',\n                className\n            )}\n            {...props}\n        >\n            {children}\n        </ToggleGroupPrimitive.Item>\n    );\n}\n\nexport { ToggleGroup, ToggleGroupItem };\n"
     }
 ]

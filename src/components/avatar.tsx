@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
-import { Avatar as AvatarPrimitive } from 'radix-ui';
-
 import { cn } from '@/lib/utils';
+import { Avatar as AvatarPrimitive } from 'radix-ui';
+import * as React from 'react';
 
+/**
+ * This function renders an Avatar component for the elementa-ui.
+ *
+ * @version 0.5.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-04-20
+ */
 function Avatar({
     className,
     size = 'default',
@@ -101,9 +107,9 @@ function AvatarGroupCount({
 
 export {
     Avatar,
-    AvatarImage,
-    AvatarFallback,
     AvatarBadge,
+    AvatarFallback,
     AvatarGroup,
-    AvatarGroupCount
+    AvatarGroupCount,
+    AvatarImage
 };

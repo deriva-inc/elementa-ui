@@ -1,4 +1,11 @@
 # CHANGELOG
+### [1.59.0] - 2024-09-17
+---
+#### Added
+- Add documentation for components:
+    - Avatar
+    - Badge
+
 ### [1.58.0] - 2024-09-17
 ---
 #### Added

@@ -1,0 +1,19 @@
+{
+    "id": "badge",
+    "name": "Badge",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-05-28",
+            "changes": ["Update background colors for feedback variants."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-21",
+            "changes": [
+                "Initial component for rendering a badge.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}
