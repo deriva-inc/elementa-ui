@@ -1,0 +1,24 @@
+{
+    "id": "input",
+    "name": "Input",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-04-20",
+            "changes": ["Fix ring color on focus visible."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-20",
+            "changes": ["Fix ring size on focus visible."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-17",
+            "changes": [
+                "Initial component for rendering a table.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

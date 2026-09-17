@@ -1,7 +1,13 @@
+import { cn } from '@/lib/utils';
 import * as React from 'react';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Button component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-04-20
+ */
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
     return (
         <input

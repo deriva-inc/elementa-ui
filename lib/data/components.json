@@ -234,6 +234,50 @@
         "sourceCode": "import { cn } from '@/lib/utils';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { Slot } from 'radix-ui';\n\n/**\n * This function renders a Button component for the elementa-ui.\n *\n * @version 0.9.0\n * @author Aayush Goyal\n * @modifiedAt 2026-08-25\n */\nconst buttonVariants = cva(\n    \"focus-visible:border-stroke-active-secondary shadow-md py-1 cursor-pointer active:scale-95 focus-visible:ring-stroke-active-secondary aria-invalid:ring-destructive/20 aria-invalid:border-destructive rounded-[8px] border border-transparent font-body font-bold focus-visible:ring-3 aria-invalid:ring-3 [&_svg:not([class*='size-'])]:size-4 group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 select-none\",\n    {\n        variants: {\n            variant: {\n                default:\n                    'bg-bg-active-accent-primary text-gun-metal-1100 hover:bg-bg-active-hover-accent-primary [a]:hover:bg-primary/80',\n                outline:\n                    'border-stroke-base-primary bg-bg-active-primary hover:bg-bg-active-secondary aria-expanded:bg-muted text-text-primary',\n                secondary:\n                    'bg-bg-active-accent-secondary text-gun-metal-1100 hover:bg-bg-active-hover-accent-secondary aria-expanded:bg-secondary aria-expanded:text-text-primary',\n                ghost: 'hover:bg-muted text-text-primary aria-expanded:bg-muted shadow-none',\n                destructive:\n                    'bg-bg-destructive hover:bg-bg-hover-destructive focus-visible:ring-destructive/20 text-text-destructive focus-visible:border-destructive/40 border-stroke-destructive',\n                link: 'text-text-info underline-offset-4 hover:underline shadow-none h-fit!'\n            },\n            size: {\n                default:\n                    'h-10 gap-1.5 text-sm px-3 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',\n                xs: \"h-8 gap-1 px-2 text-xs has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3\",\n                sm: \"h-9 gap-1 px-3 text-sm text-[0.8rem] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n                lg: 'h-11 gap-1.5 text-base px-3 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3',\n                icon: 'size-8',\n                'icon-xs': \"size-6 [&_svg:not([class*='size-'])]:size-3\",\n                'icon-sm': 'size-7',\n                'icon-lg': 'size-9'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nfunction Button({\n    className,\n    variant = 'default',\n    size = 'default',\n    asChild = false,\n    ...props\n}: React.ComponentProps<'button'> &\n    VariantProps<typeof buttonVariants> & {\n        asChild?: boolean;\n    }) {\n    const Comp = asChild ? Slot.Root : 'button';\n\n    return (\n        <button\n            data-slot=\"button\"\n            data-variant={variant}\n            data-size={size}\n            className={cn(buttonVariants({ variant, size, className }))}\n            {...props}\n        />\n    );\n}\n\nexport { Button, buttonVariants };\n"
     },
     {
+        "id": "input",
+        "name": "Input",
+        "description": "A basic text input field component styled with elementa design system tokens.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-04-20",
+        "thumbnail": "Input component for collecting user text entry",
+        "usage": "Use Input to collect short freeform text data from the user such as names, emails, or search queries.",
+        "props": [
+            {
+                "name": "type",
+                "type": "string",
+                "default": "'text'",
+                "description": "HTML input type (e.g., text, password, email)"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Disable the input field"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Input",
+                "code": "<Input placeholder=\"Enter your name...\" />"
+            },
+            {
+                "title": "Disabled Input",
+                "code": "<Input disabled placeholder=\"Disabled input\" />"
+            },
+            {
+                "title": "Password Input",
+                "code": "<Input type=\"password\" placeholder=\"Password\" />"
+            }
+        ],
+        "sourceCode": "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\n/**\n * This function renders a Button component for the elementa-ui.\n *\n * @version 0.3.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction Input({ className, type, ...props }: React.ComponentProps<'input'>) {\n    return (\n        <input\n            type={type}\n            data-slot=\"input\"\n            className={cn(\n                'border-stroke-base-primary font-body text-text-primary bg-bg-flat-primary file:bg-bg-flat-secondary h-8 w-full min-w-0 rounded-lg border px-2.5 py-1 text-sm transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:font-medium',\n                'focus-visible:border-stroke-active-accent-primary focus-visible:ring-bg-active-fill-accent-primary focus-visible:ring-3',\n                'aria-invalid:ring-bg-hover-destructive aria-invalid:border-stroke-destructive aria-invalid:ring-3',\n                'disabled:bg-bg-disabled disabled:text-text-disabled disabled:pointer-events-none disabled:cursor-not-allowed',\n                'placeholder:text-text-tertiary',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport { Input };\n"
+    },
+    {
         "id": "input-group",
         "name": "Input Group",
         "description": "A composite container for grouping inputs or textareas with addons, buttons, and icons.",
@@ -300,6 +344,70 @@
             }
         ],
         "sourceCode": "'use client';\n\nimport useUIStore from '@/lib/store/user-preference-store';\nimport { Info, TickCloud } from 'elementa-icons';\nimport { Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';\nimport { Toaster as Sonner, type ToasterProps } from 'sonner';\n\n/**\n * This function renders a custom Sonner toast component for the elementa-ui.\n *\n * @version 0.3.0\n * @author Aayush Goyal\n * @modifiedAt 2026-08-25\n */\nconst Toaster = ({ ...props }: ToasterProps) => {\n    const theme = useUIStore((state) => state.theme);\n\n    return (\n        <Sonner\n            theme={theme as ToasterProps['theme']}\n            className=\"toaster group\"\n            icons={{\n                success: <TickCloud className=\"size-4\" />,\n                info: <Info className=\"size-4\" />,\n                warning: <TriangleAlertIcon className=\"size-4\" />,\n                error: <OctagonXIcon className=\"size-4\" />,\n                loading: <Loader2Icon className=\"size-4 animate-spin\" />\n            }}\n            style={\n                {\n                    '--normal-bg': 'var(--bg-modal-primary)',\n                    '--normal-text': 'var(--text-primary)',\n                    '--normal-border': 'var(--border)',\n                    '--border-radius': 'var(--radius)'\n                } as React.CSSProperties\n            }\n            toastOptions={{\n                classNames: {\n                    toast: 'cn-toast font-body',\n                    error: 'bg-bg-fill-destructive! text-text-destructive! font-body',\n                    info: 'bg-bg-fill-info! text-text-info! font-body',\n                    success: 'bg-bg-fill-success! text-text-success! font-body',\n                    warning: 'bg-bg-fill-warning! text-text-warning! font-body'\n                }\n            }}\n            {...props}\n        />\n    );\n};\n\nexport { Toaster };\n"
+    },
+    {
+        "id": "table",
+        "name": "Table",
+        "description": "A responsive and accessible table component with styled headers, rows, cells, and caption support.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-17",
+        "thumbnail": "Table component for displaying structured tabular data",
+        "usage": "Use Table to present data organized into rows and columns with custom styling and cell components.",
+        "props": [
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Basic Table",
+                "code": "<Table>\n  <TableHeader>\n    <TableRow>\n      <TableHead>Invoice</TableHead>\n      <TableHead>Status</TableHead>\n      <TableHead>Method</TableHead>\n      <TableHead className=\"text-right\">Amount</TableHead>\n    </TableRow>\n  </TableHeader>\n  <TableBody>\n    <TableRow>\n      <TableCell className=\"font-medium\">INV001</TableCell>\n      <TableCell>Paid</TableCell>\n      <TableCell>Credit Card</TableCell>\n      <TableCell className=\"text-right\">$250.00</TableCell>\n    </TableRow>\n  </TableBody>\n</Table>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\n/**\n * This function renders a Table component for the elementa-ui.\n *\n * @version 0.2.0\n * @author Aayush Goyal\n * @modifiedAt 2026-09-17\n */\nfunction Table({ className, ...props }: React.ComponentProps<'table'>) {\n    return (\n        <div\n            data-slot=\"table-container\"\n            className=\"relative w-full overflow-x-auto\"\n        >\n            <table\n                data-slot=\"table\"\n                className={cn('w-full caption-bottom text-sm', className)}\n                {...props}\n            />\n        </div>\n    );\n}\n\nfunction TableHeader({ className, ...props }: React.ComponentProps<'thead'>) {\n    return (\n        <thead\n            data-slot=\"table-header\"\n            className={cn(\n                'font-heading bg-bg-active-primary text-base select-none [&_tr]:border-b',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction TableBody({ className, ...props }: React.ComponentProps<'tbody'>) {\n    return (\n        <tbody\n            data-slot=\"table-body\"\n            className={cn('[&_tr:last-child]:border-0', className)}\n            {...props}\n        />\n    );\n}\n\nfunction TableFooter({ className, ...props }: React.ComponentProps<'tfoot'>) {\n    return (\n        <tfoot\n            data-slot=\"table-footer\"\n            className={cn(\n                'bg-bg-active-secondary border-t font-bold [&>tr]:last:border-b-0',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction TableRow({ className, ...props }: React.ComponentProps<'tr'>) {\n    return (\n        <tr\n            data-slot=\"table-row\"\n            className={cn(\n                'bg-bg-active-primary/30 hover:bg-bg-active-primary has-aria-expanded:bg-bg-active-fill-accent-primary data-[state=selected]:bg-bg-active-fill-accent-primary border-b transition-colors',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction TableHead({ className, ...props }: React.ComponentProps<'th'>) {\n    return (\n        <th\n            data-slot=\"table-head\"\n            className={cn(\n                'text-text-primary h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction TableCell({ className, ...props }: React.ComponentProps<'td'>) {\n    return (\n        <td\n            data-slot=\"table-cell\"\n            className={cn(\n                'font-body text-text-primary p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction TableCaption({\n    className,\n    ...props\n}: React.ComponentProps<'caption'>) {\n    return (\n        <caption\n            data-slot=\"table-caption\"\n            className={cn(\n                'text-text-secondary font-body mt-4 text-sm',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport {\n    Table,\n    TableBody,\n    TableCaption,\n    TableCell,\n    TableFooter,\n    TableHead,\n    TableHeader,\n    TableRow\n};\n"
+    },
+    {
+        "id": "textarea",
+        "name": "Textarea",
+        "description": "A multi-line text input field supporting dynamic field sizing and custom states.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-20",
+        "thumbnail": "Textarea component for multi-line user input",
+        "usage": "Use Textarea for multi-line inputs such as comments, messages, descriptions, or reviews.",
+        "props": [
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            },
+            {
+                "name": "placeholder",
+                "type": "string",
+                "default": "undefined",
+                "description": "Placeholder text for empty state"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Disable user interactions"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Textarea",
+                "code": "<Textarea placeholder=\"Type your message here...\" />"
+            },
+            {
+                "title": "Disabled Textarea",
+                "code": "<Textarea disabled placeholder=\"Disabled message input\" />"
+            }
+        ],
+        "sourceCode": "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\n/**\n * This function renders a Table component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {\n    return (\n        <textarea\n            data-slot=\"textarea\"\n            className={cn(\n                'border-stroke-base-primary font-body bg-bg-flat-primary flex field-sizing-content min-h-16 w-full rounded-lg border px-2.5 py-2 text-base transition-colors outline-none md:text-sm',\n                'focus-visible:border-stroke-active-accent-primary focus-visible:ring-bg-active-fill-accent-primary focus-visible:ring-3',\n                'aria-invalid:ring-bg-hover-destructive aria-invalid:border-stroke-destructive aria-invalid:ring-3',\n                'disabled:bg-bg-disabled disabled:text-text-disabled disabled:pointer-events-none disabled:cursor-not-allowed',\n                'placeholder:text-text-tertiary',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport { Textarea };\n"
     },
     {
         "id": "toggle-group",

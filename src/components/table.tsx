@@ -1,9 +1,15 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import * as React from 'react';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Table component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-09-17
+ */
 function Table({ className, ...props }: React.ComponentProps<'table'>) {
     return (
         <div

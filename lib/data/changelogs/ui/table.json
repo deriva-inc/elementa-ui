@@ -1,0 +1,19 @@
+{
+    "id": "table",
+    "name": "Table",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-09-17",
+            "changes": ["Update row background color better readability."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-02-22",
+            "changes": [
+                "Initial component for rendering a table.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

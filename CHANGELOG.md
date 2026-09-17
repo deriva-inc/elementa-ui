@@ -1,4 +1,12 @@
 # CHANGELOG
+### [1.60.0] - 2024-09-17
+---
+#### Added
+- Add documentation for components:
+    - Input
+    - Table
+    - Textarea
+
 ### [1.59.0] - 2024-09-17
 ---
 #### Added
