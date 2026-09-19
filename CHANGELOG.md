@@ -1,4 +1,12 @@
 # CHANGELOG
+### [1.64.0] - 2024-09-20
+---
+#### Added
+- Add documentation for components:
+    - Breadcrumb
+    - Calendar
+    - Popover
+
 ### [1.63.0] - 2024-09-20
 ---
 #### Added

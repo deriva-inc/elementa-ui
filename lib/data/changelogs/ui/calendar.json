@@ -1,0 +1,14 @@
+{
+    "id": "calendar",
+    "name": "Calendar",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial component for rendering a calendar.",
+                "Used shadcn calendar component and elementa branding."
+            ]
+        }
+    ]
+}

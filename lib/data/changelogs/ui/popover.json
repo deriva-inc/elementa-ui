@@ -1,0 +1,14 @@
+{
+    "id": "popover",
+    "name": "Popover",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial component for rendering a Popover.",
+                "Used shadcn Popover component and elementa branding."
+            ]
+        }
+    ]
+}

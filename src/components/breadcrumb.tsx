@@ -1,10 +1,16 @@
-import * as React from 'react';
+import { cn } from '@/lib/utils';
 import { ChevronRight } from 'elementa-icons';
 import { MoreHorizontal } from 'lucide-react';
 import { Slot } from 'radix-ui';
+import * as React from 'react';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Breadcrumb component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-05-28
+ */
 function Breadcrumb({ ...props }: React.ComponentProps<'nav'>) {
     return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
@@ -14,7 +20,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
         <ol
             data-slot="breadcrumb-list"
             className={cn(
-                'text-text-secondary font-body flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5',
+                'text-text-secondary font-body flex flex-wrap items-center gap-1.5 text-sm wrap-break-words sm:gap-2.5',
                 className
             )}
             {...props}
@@ -107,10 +113,10 @@ function BreadcrumbEllipsis({
 
 export {
     Breadcrumb,
-    BreadcrumbList,
+    BreadcrumbEllipsis,
     BreadcrumbItem,
     BreadcrumbLink,
+    BreadcrumbList,
     BreadcrumbPage,
-    BreadcrumbSeparator,
-    BreadcrumbEllipsis
+    BreadcrumbSeparator
 };

@@ -1,0 +1,19 @@
+{
+    "id": "breadcrumb",
+    "name": "Breadcrumb",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-05-28",
+            "changes": ["Fix text colors on BreadcrumbLink and BreadcrumbPage."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-17",
+            "changes": [
+                "Initial component for rendering a Breadcrumb.",
+                "Used shadcn Breadcrumb component and elementa branding."
+            ]
+        }
+    ]
+}

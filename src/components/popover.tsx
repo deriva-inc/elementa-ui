@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
-import { Popover as PopoverPrimitive } from 'radix-ui';
-
 import { cn } from '@/lib/utils';
+import { Popover as PopoverPrimitive } from 'radix-ui';
+import * as React from 'react';
 
+/**
+ * This function renders a Popover component for the elementa-ui.
+ *
+ * @version 0.1.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-04-22
+ */
 function Popover({
     ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
