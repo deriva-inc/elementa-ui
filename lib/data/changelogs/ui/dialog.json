@@ -1,0 +1,14 @@
+{
+    "id": "dialog",
+    "name": "Dialog",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-04-20",
+            "changes": [
+                "Initial component for rendering a dialog.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

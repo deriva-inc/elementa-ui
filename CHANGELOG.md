@@ -1,4 +1,12 @@
 # CHANGELOG
+### [1.62.0] - 2024-09-19
+---
+#### Added
+- Add documentation for components:
+    - Dialog
+    - Separator
+    - Sonner
+
 ### [1.61.0] - 2024-09-19
 ---
 #### Added
@@ -10,6 +18,10 @@
     - Error State
     - Loading State
     - Theme Switcher
+- Add documentation for components:
+    - Dialog
+    - Separator
+    - Sonner
 
 ### [1.60.0] - 2024-09-17
 ---

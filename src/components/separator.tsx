@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
-import { Separator as SeparatorPrimitive } from 'radix-ui';
-
 import { cn } from '@/lib/utils';
+import { Separator as SeparatorPrimitive } from 'radix-ui';
+import * as React from 'react';
 
+/**
+ * This function renders a Separator component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-04-15
+ */
 function Separator({
     className,
     orientation = 'horizontal',
