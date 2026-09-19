@@ -1,0 +1,14 @@
+{
+    "id": "scroll-indicator",
+    "name": "Scroll Indicator",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-09-20",
+            "changes": [
+                "Initial component for rendering a scroll indicator.",
+                "Used shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
-import { Label as LabelPrimitive } from 'radix-ui';
-
 import { cn } from '@/lib/utils';
+import { Label as LabelPrimitive } from 'radix-ui';
+import * as React from 'react';
 
+/**
+ * This function renders a Label component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modifiedAt 2026-04-17
+ */
 function Label({
     className,
     ...props

@@ -82,42 +82,6 @@
         "sourceCode": "'use client';\n\nimport { AlertDialog as AlertDialogPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\n\n/**\n * This function renders an Alert Dialog component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction AlertDialog({\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {\n    return <AlertDialogPrimitive.Root data-slot=\"alert-dialog\" {...props} />;\n}\n\nfunction AlertDialogTrigger({\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {\n    return (\n        <AlertDialogPrimitive.Trigger\n            data-slot=\"alert-dialog-trigger\"\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogPortal({\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {\n    return (\n        <AlertDialogPrimitive.Portal\n            data-slot=\"alert-dialog-portal\"\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogOverlay({\n    className,\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Overlay>) {\n    return (\n        <AlertDialogPrimitive.Overlay\n            data-slot=\"alert-dialog-overlay\"\n            className={cn(\n                'data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0 bg-bg-base-primary fixed inset-0 z-50 duration-100 supports-backdrop-filter:backdrop-blur-xs',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogContent({\n    className,\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Content> & {\n    size?: 'default' | 'sm';\n}) {\n    return (\n        <AlertDialogPortal>\n            <AlertDialogOverlay />\n            <AlertDialogPrimitive.Content\n                data-slot=\"alert-dialog-content\"\n                data-size={size}\n                className={cn(\n                    'group/alert-dialog-content bg-bg-modal-primary text-text-primary ring-stroke-modal-primary data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 ring-2 duration-100 outline-none data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm',\n                    className\n                )}\n                {...props}\n            />\n        </AlertDialogPortal>\n    );\n}\n\nfunction AlertDialogHeader({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"alert-dialog-header\"\n            className={cn(\n                'grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4 sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr]',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogFooter({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"alert-dialog-footer\"\n            className={cn(\n                'bg-bg-modal-secondary/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2 sm:flex-row sm:justify-end',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogMedia({\n    className,\n    ...props\n}: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"alert-dialog-media\"\n            className={cn(\n                \"bg-bg-muted mb-2 inline-flex size-10 items-center justify-center rounded-md sm:group-data-[size=default]/alert-dialog-content:row-span-2 *:[svg:not([class*='size-'])]:size-6\",\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogTitle({\n    className,\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {\n    return (\n        <AlertDialogPrimitive.Title\n            data-slot=\"alert-dialog-title\"\n            className={cn(\n                'cn-font-heading text-xl font-bold sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogDescription({\n    className,\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {\n    return (\n        <AlertDialogPrimitive.Description\n            data-slot=\"alert-dialog-description\"\n            className={cn(\n                'text-text-secondary *:[a]:hover:text-text-primary text-sm text-balance md:text-pretty *:[a]:underline *:[a]:underline-offset-3',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction AlertDialogAction({\n    className,\n    variant = 'default',\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Action> &\n    Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {\n    return (\n        <Button variant={variant} size={size} asChild>\n            <AlertDialogPrimitive.Action\n                data-slot=\"alert-dialog-action\"\n                className={cn(className)}\n                {...props}\n            />\n        </Button>\n    );\n}\n\nfunction AlertDialogCancel({\n    className,\n    variant = 'outline',\n    size = 'default',\n    ...props\n}: React.ComponentProps<typeof AlertDialogPrimitive.Cancel> &\n    Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {\n    return (\n        <Button variant={variant} size={size} asChild>\n            <AlertDialogPrimitive.Cancel\n                data-slot=\"alert-dialog-cancel\"\n                className={cn(className)}\n                {...props}\n            />\n        </Button>\n    );\n}\n\nexport {\n    AlertDialog,\n    AlertDialogAction,\n    AlertDialogCancel,\n    AlertDialogContent,\n    AlertDialogDescription,\n    AlertDialogFooter,\n    AlertDialogHeader,\n    AlertDialogMedia,\n    AlertDialogOverlay,\n    AlertDialogPortal,\n    AlertDialogTitle,\n    AlertDialogTrigger\n};\n"
     },
     {
-        "id": "dialog",
-        "name": "Dialog",
-        "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-20",
-        "thumbnail": "Dialog component for modal dialogs and overlays",
-        "usage": "Use Dialog to present critical information or complex workflows that require user interaction without leaving the current page context.",
-        "props": [
-            {
-                "name": "open",
-                "type": "boolean",
-                "default": "undefined",
-                "description": "The controlled open state of the dialog"
-            },
-            {
-                "name": "defaultOpen",
-                "type": "boolean",
-                "default": "false",
-                "description": "The default open state when uncontrolled"
-            },
-            {
-                "name": "onOpenChange",
-                "type": "(open: boolean) => void",
-                "default": "undefined",
-                "description": "Event handler called when the open state changes"
-            }
-        ],
-        "examples": [
-            {
-                "title": "Default Dialog",
-                "code": "<Dialog>\n  <DialogTrigger asChild>\n    <Button variant=\"outline\">Open Dialog</Button>\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Edit Profile</DialogTitle>\n      <DialogDescription>\n        Make changes to your profile here. Click save when you're done.\n      </DialogDescription>\n    </DialogHeader>\n    <div className=\"grid gap-4 py-4\">\n      <Input placeholder=\"Name\" defaultValue=\"John Doe\" />\n    </div>\n    <DialogFooter>\n      <Button type=\"submit\">Save changes</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
-            }
-        ],
-        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\nimport { Cancel } from 'elementa-icons';\nimport { Dialog as DialogPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders a Dialog component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction Dialog({\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Root>) {\n    return <DialogPrimitive.Root data-slot=\"dialog\" {...props} />;\n}\n\nfunction DialogTrigger({\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {\n    return <DialogPrimitive.Trigger data-slot=\"dialog-trigger\" {...props} />;\n}\n\nfunction DialogPortal({\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Portal>) {\n    return <DialogPrimitive.Portal data-slot=\"dialog-portal\" {...props} />;\n}\n\nfunction DialogClose({\n    children,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Close> &\n    React.ComponentProps<typeof Button>) {\n    return (\n        <DialogPrimitive.Close data-slot=\"dialog-close\" asChild>\n            <Button {...props} variant=\"outline\">\n                {children}\n            </Button>\n        </DialogPrimitive.Close>\n    );\n}\n\nfunction DialogOverlay({\n    className,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {\n    return (\n        <DialogPrimitive.Overlay\n            data-slot=\"dialog-overlay\"\n            className={cn(\n                'data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 isolate z-50 duration-100 supports-backdrop-filter:backdrop-blur-xs',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction DialogContent({\n    className,\n    children,\n    showCloseButton = true,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Content> & {\n    showCloseButton?: boolean;\n}) {\n    return (\n        <DialogPortal>\n            <DialogOverlay />\n            <DialogPrimitive.Content\n                data-slot=\"dialog-content\"\n                className={cn(\n                    'bg-bg-modal-primary data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-stroke-modal-primary fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl p-4 text-sm ring-2 duration-100 outline-none sm:max-w-sm',\n                    className\n                )}\n                {...props}\n            >\n                {children}\n                {showCloseButton && (\n                    <DialogPrimitive.Close data-slot=\"dialog-close\" asChild>\n                        <Button\n                            variant=\"ghost\"\n                            className=\"absolute top-2 right-2\"\n                            size=\"icon-sm\"\n                        >\n                            <Cancel />\n                            <span className=\"sr-only\">Close</span>\n                        </Button>\n                    </DialogPrimitive.Close>\n                )}\n            </DialogPrimitive.Content>\n        </DialogPortal>\n    );\n}\n\nfunction DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"dialog-header\"\n            className={cn('flex flex-col gap-2', className)}\n            {...props}\n        />\n    );\n}\n\nfunction DialogFooter({\n    className,\n    showCloseButton = false,\n    children,\n    ...props\n}: React.ComponentProps<'div'> & {\n    showCloseButton?: boolean;\n}) {\n    return (\n        <div\n            data-slot=\"dialog-footer\"\n            className={cn(\n                'bg-bg-modal-secondary/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 sm:flex-row sm:justify-end',\n                className\n            )}\n            {...props}\n        >\n            {children}\n            {showCloseButton && (\n                <DialogPrimitive.Close asChild>\n                    <Button variant=\"outline\">Close</Button>\n                </DialogPrimitive.Close>\n            )}\n        </div>\n    );\n}\n\nfunction DialogTitle({\n    className,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Title>) {\n    return (\n        <DialogPrimitive.Title\n            data-slot=\"dialog-title\"\n            className={cn(\n                'font-heading text-xl leading-none font-bold',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction DialogDescription({\n    className,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Description>) {\n    return (\n        <DialogPrimitive.Description\n            data-slot=\"dialog-description\"\n            className={cn(\n                'text-text-secondary *:[a]:hover:text-text-primary text-sm *:[a]:underline *:[a]:underline-offset-3',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport {\n    Dialog,\n    DialogClose,\n    DialogContent,\n    DialogDescription,\n    DialogFooter,\n    DialogHeader,\n    DialogOverlay,\n    DialogPortal,\n    DialogTitle,\n    DialogTrigger\n};\n"
-    },
-    {
         "id": "avatar",
         "name": "Avatar",
         "description": "An image element with a fallback for representing the user with support for badges and groups.",
@@ -270,6 +234,123 @@
         "sourceCode": "import { cn } from '@/lib/utils';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { Slot } from 'radix-ui';\n\n/**\n * This function renders a Button component for the elementa-ui.\n *\n * @version 0.9.0\n * @author Aayush Goyal\n * @modifiedAt 2026-08-25\n */\nconst buttonVariants = cva(\n    \"focus-visible:border-stroke-active-secondary shadow-md py-1 cursor-pointer active:scale-95 focus-visible:ring-stroke-active-secondary aria-invalid:ring-destructive/20 aria-invalid:border-destructive rounded-[8px] border border-transparent font-body font-bold focus-visible:ring-3 aria-invalid:ring-3 [&_svg:not([class*='size-'])]:size-4 group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 select-none\",\n    {\n        variants: {\n            variant: {\n                default:\n                    'bg-bg-active-accent-primary text-gun-metal-1100 hover:bg-bg-active-hover-accent-primary [a]:hover:bg-primary/80',\n                outline:\n                    'border-stroke-base-primary bg-bg-active-primary hover:bg-bg-active-secondary aria-expanded:bg-muted text-text-primary',\n                secondary:\n                    'bg-bg-active-accent-secondary text-gun-metal-1100 hover:bg-bg-active-hover-accent-secondary aria-expanded:bg-secondary aria-expanded:text-text-primary',\n                ghost: 'hover:bg-muted text-text-primary aria-expanded:bg-muted shadow-none',\n                destructive:\n                    'bg-bg-destructive hover:bg-bg-hover-destructive focus-visible:ring-destructive/20 text-text-destructive focus-visible:border-destructive/40 border-stroke-destructive',\n                link: 'text-text-info underline-offset-4 hover:underline shadow-none h-fit!'\n            },\n            size: {\n                default:\n                    'h-10 gap-1.5 text-sm px-3 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',\n                xs: \"h-8 gap-1 px-2 text-xs has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3\",\n                sm: \"h-9 gap-1 px-3 text-sm text-[0.8rem] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5\",\n                lg: 'h-11 gap-1.5 text-base px-3 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3',\n                icon: 'size-8',\n                'icon-xs': \"size-6 [&_svg:not([class*='size-'])]:size-3\",\n                'icon-sm': 'size-7',\n                'icon-lg': 'size-9'\n            }\n        },\n        defaultVariants: {\n            variant: 'default',\n            size: 'default'\n        }\n    }\n);\n\nfunction Button({\n    className,\n    variant = 'default',\n    size = 'default',\n    asChild = false,\n    ...props\n}: React.ComponentProps<'button'> &\n    VariantProps<typeof buttonVariants> & {\n        asChild?: boolean;\n    }) {\n    const Comp = asChild ? Slot.Root : 'button';\n\n    return (\n        <button\n            data-slot=\"button\"\n            data-variant={variant}\n            data-size={size}\n            className={cn(buttonVariants({ variant, size, className }))}\n            {...props}\n        />\n    );\n}\n\nexport { Button, buttonVariants };\n"
     },
     {
+        "id": "color-picker",
+        "name": "Color Picker",
+        "description": "An interactive color picker component with custom HSV/RGB/HSL studio, rainbow hue slider, and preset swatches.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-09-20",
+        "thumbnail": "Color Picker component for selecting colors in HEX, RGB, and HSL formats",
+        "usage": "Use ColorPicker to allow users to select, customize, and copy color values using an intuitive spectrum studio or compact popover.",
+        "props": [
+            {
+                "name": "value",
+                "type": "string",
+                "default": "'#EF767A'",
+                "description": "Current color value in HEX, RGB, or HSL format"
+            },
+            {
+                "name": "onChange",
+                "type": "(color: string) => void",
+                "default": "undefined",
+                "description": "Callback invoked when color changes with normalized hex string"
+            },
+            {
+                "name": "label",
+                "type": "string",
+                "default": "'Color'",
+                "description": "Optional label to display above the color picker"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes for the root container"
+            },
+            {
+                "name": "presets",
+                "type": "string[]",
+                "default": "DEFAULT_PRESETS",
+                "description": "Array of preset HEX color strings displayed as clickable swatches"
+            },
+            {
+                "name": "showPresets",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether to show the preset color swatches"
+            },
+            {
+                "name": "showEyedropper",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether to show the eyedropper tool button"
+            },
+            {
+                "name": "showCopy",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether to show the copy hex button"
+            },
+            {
+                "name": "mode",
+                "type": "'popover' | 'inline'",
+                "default": "'popover'",
+                "description": "Display mode: compact trigger with popover studio, or fully inline studio"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether interaction with the color picker is disabled"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Popover Color Picker",
+                "code": "const [color, setColor] = React.useState('#EF767A');\n\n<ColorPicker value={color} onChange={setColor} />"
+            },
+            {
+                "title": "Inline Studio Color Picker",
+                "code": "const [color, setColor] = React.useState('#9B6DF2');\n\n<ColorPicker\n  value={color}\n  onChange={setColor}\n  mode=\"inline\"\n  label=\"Accent Color\"\n/>"
+            }
+        ]
+    },
+    {
+        "id": "dialog",
+        "name": "Dialog",
+        "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-20",
+        "thumbnail": "Dialog component for modal dialogs and overlays",
+        "usage": "Use Dialog to present critical information or complex workflows that require user interaction without leaving the current page context.",
+        "props": [
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "The controlled open state of the dialog"
+            },
+            {
+                "name": "defaultOpen",
+                "type": "boolean",
+                "default": "false",
+                "description": "The default open state when uncontrolled"
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(open: boolean) => void",
+                "default": "undefined",
+                "description": "Event handler called when the open state changes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Dialog",
+                "code": "<Dialog>\n  <DialogTrigger asChild>\n    <Button variant=\"outline\">Open Dialog</Button>\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Edit Profile</DialogTitle>\n      <DialogDescription>\n        Make changes to your profile here. Click save when you're done.\n      </DialogDescription>\n    </DialogHeader>\n    <div className=\"grid gap-4 py-4\">\n      <Input placeholder=\"Name\" defaultValue=\"John Doe\" />\n    </div>\n    <DialogFooter>\n      <Button type=\"submit\">Save changes</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\nimport { Cancel } from 'elementa-icons';\nimport { Dialog as DialogPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders a Dialog component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-20\n */\nfunction Dialog({\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Root>) {\n    return <DialogPrimitive.Root data-slot=\"dialog\" {...props} />;\n}\n\nfunction DialogTrigger({\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {\n    return <DialogPrimitive.Trigger data-slot=\"dialog-trigger\" {...props} />;\n}\n\nfunction DialogPortal({\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Portal>) {\n    return <DialogPrimitive.Portal data-slot=\"dialog-portal\" {...props} />;\n}\n\nfunction DialogClose({\n    children,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Close> &\n    React.ComponentProps<typeof Button>) {\n    return (\n        <DialogPrimitive.Close data-slot=\"dialog-close\" asChild>\n            <Button {...props} variant=\"outline\">\n                {children}\n            </Button>\n        </DialogPrimitive.Close>\n    );\n}\n\nfunction DialogOverlay({\n    className,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {\n    return (\n        <DialogPrimitive.Overlay\n            data-slot=\"dialog-overlay\"\n            className={cn(\n                'data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 isolate z-50 duration-100 supports-backdrop-filter:backdrop-blur-xs',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction DialogContent({\n    className,\n    children,\n    showCloseButton = true,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Content> & {\n    showCloseButton?: boolean;\n}) {\n    return (\n        <DialogPortal>\n            <DialogOverlay />\n            <DialogPrimitive.Content\n                data-slot=\"dialog-content\"\n                className={cn(\n                    'bg-bg-modal-primary data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-stroke-modal-primary fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl p-4 text-sm ring-2 duration-100 outline-none sm:max-w-sm',\n                    className\n                )}\n                {...props}\n            >\n                {children}\n                {showCloseButton && (\n                    <DialogPrimitive.Close data-slot=\"dialog-close\" asChild>\n                        <Button\n                            variant=\"ghost\"\n                            className=\"absolute top-2 right-2\"\n                            size=\"icon-sm\"\n                        >\n                            <Cancel />\n                            <span className=\"sr-only\">Close</span>\n                        </Button>\n                    </DialogPrimitive.Close>\n                )}\n            </DialogPrimitive.Content>\n        </DialogPortal>\n    );\n}\n\nfunction DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"dialog-header\"\n            className={cn('flex flex-col gap-2', className)}\n            {...props}\n        />\n    );\n}\n\nfunction DialogFooter({\n    className,\n    showCloseButton = false,\n    children,\n    ...props\n}: React.ComponentProps<'div'> & {\n    showCloseButton?: boolean;\n}) {\n    return (\n        <div\n            data-slot=\"dialog-footer\"\n            className={cn(\n                'bg-bg-modal-secondary/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 sm:flex-row sm:justify-end',\n                className\n            )}\n            {...props}\n        >\n            {children}\n            {showCloseButton && (\n                <DialogPrimitive.Close asChild>\n                    <Button variant=\"outline\">Close</Button>\n                </DialogPrimitive.Close>\n            )}\n        </div>\n    );\n}\n\nfunction DialogTitle({\n    className,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Title>) {\n    return (\n        <DialogPrimitive.Title\n            data-slot=\"dialog-title\"\n            className={cn(\n                'font-heading text-xl leading-none font-bold',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction DialogDescription({\n    className,\n    ...props\n}: React.ComponentProps<typeof DialogPrimitive.Description>) {\n    return (\n        <DialogPrimitive.Description\n            data-slot=\"dialog-description\"\n            className={cn(\n                'text-text-secondary *:[a]:hover:text-text-primary text-sm *:[a]:underline *:[a]:underline-offset-3',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport {\n    Dialog,\n    DialogClose,\n    DialogContent,\n    DialogDescription,\n    DialogFooter,\n    DialogHeader,\n    DialogOverlay,\n    DialogPortal,\n    DialogTitle,\n    DialogTrigger\n};\n"
+    },
+    {
         "id": "input",
         "name": "Input",
         "description": "A basic text input field component styled with elementa design system tokens.",
@@ -342,6 +423,57 @@
         "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\nimport { Input } from '@/src/components/input';\nimport { Textarea } from '@/src/components/textarea';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\n/**\n * This function renders an Input Group component for the elementa-ui.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-22\n */\nfunction InputGroup({ className, ...props }: React.ComponentProps<'div'>) {\n    return (\n        <div\n            data-slot=\"input-group\"\n            role=\"group\"\n            className={cn(\n                'group/input-group bg-bg-flat-primary border-stroke-flat-primary has-disabled:bg-bg-fill-destructive has-[[data-slot=input-group-control]:focus-visible]:border-stroke-active-primary has-[[data-slot=input-group-control]:focus-visible]:ring-bg-active-secondary has-[[data-slot][aria-invalid=true]]:border-stroke-destructive has-[[data-slot][aria-invalid=true]]:ring-bg-fill-destructive relative flex h-8 w-full min-w-0 items-center rounded-lg border transition-colors outline-none in-data-[slot=combobox-content]:focus-within:border-inherit in-data-[slot=combobox-content]:focus-within:ring-0 has-disabled:opacity-50 has-[[data-slot=input-group-control]:focus-visible]:ring-3 has-[[data-slot][aria-invalid=true]]:ring-3 has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-1.5',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nconst inputGroupAddonVariants = cva(\n    \"flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-text-secondary select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4\",\n    {\n        variants: {\n            align: {\n                'inline-start':\n                    'order-first pl-2 has-[>button]:ml-[-0.3rem] has-[>kbd]:ml-[-0.15rem]',\n                'inline-end':\n                    'order-last pr-2 has-[>button]:mr-[-0.3rem] has-[>kbd]:mr-[-0.15rem]',\n                'block-start':\n                    'order-first w-full justify-start px-2.5 pt-2 group-has-[>input]/input-group:pt-2 [.border-b]:pb-2',\n                'block-end':\n                    'order-last w-full justify-start px-2.5 pb-2 group-has-[>input]/input-group:pb-2 [.border-t]:pt-2'\n            }\n        },\n        defaultVariants: {\n            align: 'inline-start'\n        }\n    }\n);\n\nfunction InputGroupAddon({\n    className,\n    align = 'inline-start',\n    ...props\n}: React.ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) {\n    return (\n        <div\n            role=\"group\"\n            data-slot=\"input-group-addon\"\n            data-align={align}\n            className={cn(inputGroupAddonVariants({ align }), className)}\n            onClick={(e) => {\n                if ((e.target as HTMLElement).closest('button')) {\n                    return;\n                }\n                e.currentTarget.parentElement?.querySelector('input')?.focus();\n            }}\n            {...props}\n        />\n    );\n}\n\nconst inputGroupButtonVariants = cva(\n    'flex items-center gap-2 text-sm shadow-none',\n    {\n        variants: {\n            size: {\n                xs: \"h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*='size-'])]:size-3.5\",\n                sm: '',\n                'icon-xs':\n                    'size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0',\n                'icon-sm': 'size-8 p-0 has-[>svg]:p-0'\n            }\n        },\n        defaultVariants: {\n            size: 'xs'\n        }\n    }\n);\n\nfunction InputGroupButton({\n    className,\n    type = 'button',\n    variant = 'ghost',\n    size = 'xs',\n    ...props\n}: Omit<React.ComponentProps<typeof Button>, 'size'> &\n    VariantProps<typeof inputGroupButtonVariants>) {\n    return (\n        <Button\n            type={type}\n            data-size={size}\n            variant={variant}\n            className={cn(inputGroupButtonVariants({ size }), className)}\n            {...props}\n        />\n    );\n}\n\nfunction InputGroupText({ className, ...props }: React.ComponentProps<'span'>) {\n    return (\n        <span\n            className={cn(\n                \"text-text-secondary font-body flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4\",\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction InputGroupInput({\n    className,\n    ...props\n}: React.ComponentProps<'input'>) {\n    return (\n        <Input\n            data-slot=\"input-group-control\"\n            className={cn(\n                'aria-invalid:ring-bg-fill-destructive flex-1 border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0',\n                'disabled:bg-bg-disabled disabled:text-text-disabled disabled:cursor-not-allowed',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nfunction InputGroupTextarea({\n    className,\n    ...props\n}: React.ComponentProps<'textarea'>) {\n    return (\n        <Textarea\n            data-slot=\"input-group-control\"\n            className={cn(\n                'bg-bg-flat-primary flex-1 resize-none border-0 py-2 shadow-none ring-0 focus-visible:ring-0',\n                'aria-invalid:ring-0',\n                'disabled:bg-bg-disabled',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport {\n    InputGroup,\n    InputGroupAddon,\n    InputGroupButton,\n    InputGroupInput,\n    InputGroupText,\n    InputGroupTextarea\n};\n"
     },
     {
+        "id": "label",
+        "name": "Label",
+        "description": "Renders an accessible label associated with form controls.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-04-17",
+        "thumbnail": "Label component for form controls and inputs",
+        "usage": "Use Label to provide clear, accessible labels for input fields, checkboxes, sliders, and other form elements.",
+        "props": [
+            {
+                "name": "htmlFor",
+                "type": "string",
+                "default": "undefined",
+                "description": "The id of the element the label is associated with"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Label with Input",
+                "code": "<div className=\"grid w-full max-w-sm items-center gap-1.5\">\n  <Label htmlFor=\"email\">Email address</Label>\n  <Input type=\"email\" id=\"email\" placeholder=\"Email\" />\n</div>"
+            },
+            {
+                "title": "Disabled Label",
+                "code": "<div className=\"grid w-full max-w-sm items-center gap-1.5\" data-disabled=\"true\">\n  <Label htmlFor=\"disabled-input\">Disabled Label</Label>\n  <Input id=\"disabled-input\" disabled placeholder=\"Disabled\" />\n</div>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Label as LabelPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders a Label component for the elementa-ui.\n *\n * @version 0.3.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-17\n */\nfunction Label({\n    className,\n    ...props\n}: React.ComponentProps<typeof LabelPrimitive.Root>) {\n    return (\n        <LabelPrimitive.Root\n            data-slot=\"label\"\n            className={cn(\n                'text-text-primary font-body flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport { Label };\n"
+    },
+    {
+        "id": "scroll-indicator",
+        "name": "Scroll Indicator",
+        "description": "An animated scroll indicator prompting users to explore content below the fold.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-09-20",
+        "thumbnail": "Scroll indicator component with floating bounce animation",
+        "usage": "Use ScrollIndicator in hero sections or landing pages to guide users to scroll down.",
+        "props": [],
+        "examples": [
+            {
+                "title": "Hero Scroll Indicator",
+                "code": "<div className=\"relative h-screen flex items-center justify-center\">\n  <h1>Welcome to Elementa UI</h1>\n  <ScrollIndicator />\n</div>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { Text } from '@/src/components/text';\nimport { motion } from 'motion/react';\n\n/**\n * This function renders a scroll indicator for hero items on the UI.\n *\n * @author Aayush Goyal\n * @created 2026-09-20\n */\nexport default function ScrollIndicator() {\n    // SECTION: Constants and Variables\n    // !SECTION: Constants and Variables\n\n    // SECTION: States\n    // !SECTION: States\n\n    // SECTION: API Queries\n    // !SECTION API Queries\n\n    // SECTION: Event Handlers\n    // !SECTION: Event Handlers\n\n    // SECTION: Side Effects\n    // !SECTION: Side Effects\n\n    // SECTION: UI\n    return (\n        <motion.div\n            className=\"absolute bottom-8 left-1/2 -translate-x-1/2 transform\"\n            animate={{ y: [0, 8, 0] }}\n            transition={{\n                duration: 2,\n                repeat: Infinity,\n                ease: 'easeInOut'\n            }}\n        >\n            <div className=\"flex flex-col items-center gap-2\">\n                <Text className=\"\">Scroll to explore</Text>\n                <svg\n                    className=\"text-text-secondary dark:text-amber-60 h-5 w-5\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    viewBox=\"0 0 24 24\"\n                >\n                    <path\n                        strokeLinecap=\"round\"\n                        strokeLinejoin=\"round\"\n                        strokeWidth={2}\n                        d=\"M19 14l-7 7m0 0l-7-7m7 7V3\"\n                    />\n                </svg>\n            </div>\n        </motion.div>\n    );\n    // !SECTION: UI\n}\n"
+    },
+    {
         "id": "separator",
         "name": "Separator",
         "description": "Visually or semantically separates content with horizontal or vertical dividers.",
@@ -380,6 +512,70 @@
             }
         ],
         "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Separator as SeparatorPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders a Separator component for the elementa-ui.\n *\n * @version 0.2.0\n * @author Aayush Goyal\n * @modifiedAt 2026-04-15\n */\nfunction Separator({\n    className,\n    orientation = 'horizontal',\n    decorative = true,\n    ...props\n}: React.ComponentProps<typeof SeparatorPrimitive.Root>) {\n    return (\n        <SeparatorPrimitive.Root\n            data-slot=\"separator\"\n            decorative={decorative}\n            orientation={orientation}\n            className={cn(\n                'bg-stroke-base-primary shrink-0 data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch',\n                className\n            )}\n            {...props}\n        />\n    );\n}\n\nexport { Separator };\n"
+    },
+    {
+        "id": "slider",
+        "name": "Slider",
+        "description": "An input where the user selects a value from within a given range.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-21",
+        "thumbnail": "Slider component for selecting numeric ranges and values",
+        "usage": "Use Slider to allow users to adjust continuous values such as volume, size, brightness, or percentage.",
+        "props": [
+            {
+                "name": "value",
+                "type": "number[]",
+                "default": "undefined",
+                "description": "The controlled value of the slider"
+            },
+            {
+                "name": "defaultValue",
+                "type": "number[]",
+                "default": "[0, 100]",
+                "description": "The default value when uncontrolled"
+            },
+            {
+                "name": "min",
+                "type": "number",
+                "default": "0",
+                "description": "The minimum value for the range"
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "default": "100",
+                "description": "The maximum value for the range"
+            },
+            {
+                "name": "step",
+                "type": "number",
+                "default": "1",
+                "description": "The stepping interval"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "When true, prevents the user from interacting with the slider"
+            },
+            {
+                "name": "orientation",
+                "type": "'horizontal' | 'vertical'",
+                "default": "'horizontal'",
+                "description": "The orientation of the slider"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Slider",
+                "code": "<Slider defaultValue={[50]} max={100} step={1} />"
+            },
+            {
+                "title": "Range Slider",
+                "code": "<Slider defaultValue={[25, 75]} max={100} step={5} />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Slider as SliderPrimitive } from 'radix-ui';\nimport * as React from 'react';\n\n/**\n * This function renders a Slider component for the elementa-ui.\n *\n * @author Aayush Goyal\n * @version 0.1.0\n * @modifiedAt 2026-04-21\n */\nfunction Slider({\n    className,\n    defaultValue,\n    value,\n    min = 0,\n    max = 100,\n    ...props\n}: React.ComponentProps<typeof SliderPrimitive.Root>) {\n    const _values = React.useMemo(\n        () =>\n            Array.isArray(value)\n                ? value\n                : Array.isArray(defaultValue)\n                  ? defaultValue\n                  : [min, max],\n        [value, defaultValue, min, max]\n    );\n\n    return (\n        <SliderPrimitive.Root\n            data-slot=\"slider\"\n            defaultValue={defaultValue}\n            value={value}\n            min={min}\n            max={max}\n            className={cn(\n                'relative flex w-full touch-none items-center rounded-lg select-none data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col',\n                'data-disabled:bg-bg-disabled data-disabled:cursor-not-allowed',\n                className\n            )}\n            {...props}\n        >\n            <SliderPrimitive.Track\n                data-slot=\"slider-track\"\n                className=\"bg-bg-active-primary border-stroke-active-primary relative grow overflow-hidden rounded-full data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1\"\n            >\n                <SliderPrimitive.Range\n                    data-slot=\"slider-range\"\n                    className=\"bg-text-primary data-disabled:bg-text-disabled absolute select-none data-horizontal:h-full data-vertical:w-full\"\n                />\n            </SliderPrimitive.Track>\n            {Array.from({ length: _values.length }, (_, index) => (\n                <SliderPrimitive.Thumb\n                    data-slot=\"slider-thumb\"\n                    key={index}\n                    className={cn(\n                        'border-stroke-base-primary ring-text-primary bg-bg-active-secondary relative block size-3 shrink-0 rounded-full border transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3',\n                        'disabled:bg-bg-active-fill-accent-secondary disabled:pointer-events-none'\n                    )}\n                />\n            ))}\n        </SliderPrimitive.Root>\n    );\n}\n\nexport { Slider };\n"
     },
     {
         "id": "sonner",

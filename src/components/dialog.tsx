@@ -9,9 +9,9 @@ import * as React from 'react';
 /**
  * This function renders a Dialog component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modifiedAt 2026-04-20
+ * @modifiedAt 2026-09-20
  */
 function Dialog({
     ...props
@@ -75,7 +75,7 @@ function DialogContent({
             <DialogPrimitive.Content
                 data-slot="dialog-content"
                 className={cn(
-                    'bg-bg-modal-primary data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-stroke-modal-primary fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl p-4 text-sm ring-2 duration-100 outline-none sm:max-w-sm',
+                    'bg-bg-modal-primary data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-stroke-modal-primary fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl p-4 text-sm ring-2 duration-100 outline-none',
                     className
                 )}
                 {...props}

@@ -1,0 +1,14 @@
+{
+    "id": "color-picker",
+    "name": "Color Picker",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-09-20",
+            "changes": [
+                "Initial component for rendering a color picker.",
+                "Developed with Gemini and elementa design guidelines."
+            ]
+        }
+    ]
+}

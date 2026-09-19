@@ -1,4 +1,12 @@
 # CHANGELOG
+### [1.63.0] - 2024-09-20
+---
+#### Added
+- Add `Color Picker` and `Scroll Indicator` component.
+- Add documentation for components:
+    - Label
+    - Slider
+
 ### [1.62.0] - 2024-09-19
 ---
 #### Added

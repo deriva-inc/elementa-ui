@@ -1,0 +1,26 @@
+{
+    "id": "label",
+    "name": "Label",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-04-17",
+            "changes": [
+                "Update Avatar component with elementa design branding."
+            ]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-15",
+            "changes": ["Update Label component with elementa design specs."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-10",
+            "changes": [
+                "Initial component for rendering a label.",
+                "Used shadcn Label component."
+            ]
+        }
+    ]
+}
