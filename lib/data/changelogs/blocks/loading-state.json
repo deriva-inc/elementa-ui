@@ -1,0 +1,21 @@
+{
+    "id": "loading-state",
+    "name": "Loading State",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Update `Loading State` block with default Lottie animation."
+            ]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial block for rendering a loading state.",
+                "Used Gemini AI along with shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

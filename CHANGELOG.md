@@ -1,4 +1,16 @@
 # CHANGELOG
+### [1.61.0] - 2024-09-19
+---
+#### Added
+- Add `SquigglyText`, `EnergySwitcher`, and `ThemeSwitcher` block.
+- Add documentation for blocks:
+    - Code Block
+    - Empty State
+    - Energy Switcher
+    - Error State
+    - Loading State
+    - Theme Switcher
+
 ### [1.60.0] - 2024-09-17
 ---
 #### Added

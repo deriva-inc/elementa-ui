@@ -1,0 +1,14 @@
+{
+    "id": "energy-switcher",
+    "name": "Energy Switcher",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-09-19",
+            "changes": [
+                "Initial block for rendering energy switcher to switch elementa energies.",
+                "Used Gemini AI along with shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}

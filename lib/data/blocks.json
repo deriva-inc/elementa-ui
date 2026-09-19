@@ -1,0 +1,325 @@
+[
+    {
+        "id": "code-block",
+        "name": "Code Block",
+        "description": "A customizable code block component with syntax highlighting, language badge, and copy-to-clipboard functionality.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-08-25",
+        "thumbnail": "Code Block component with syntax highlighting and copy button",
+        "usage": "Use CodeBlock to display syntax-highlighted source code snippets with theme adaptation and one-click copy support.",
+        "props": [
+            {
+                "name": "code",
+                "type": "string",
+                "default": "undefined",
+                "description": "The raw code string to display and copy"
+            },
+            {
+                "name": "language",
+                "type": "CODE_LANGUAGES",
+                "default": "CODE_LANGUAGES.TYPESCRIPT",
+                "description": "Language for syntax highlighting"
+            },
+            {
+                "name": "title",
+                "type": "string",
+                "default": "undefined",
+                "description": "Optional title displayed in the header"
+            },
+            {
+                "name": "showLineNumbers",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether to show line numbers beside code"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Code Block",
+                "code": "<CodeBlock code=\"const greeting = 'Hello, World!';\" language={CODE_LANGUAGES.TYPESCRIPT} />"
+            },
+            {
+                "title": "Custom Title and No Line Numbers",
+                "code": "<CodeBlock code=\"npm install get-elementa-ui\" language={CODE_LANGUAGES.BASH} title=\"Install\" showLineNumbers={false} />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport useUserPreferenceStore from '@/lib/store/user-preference-store';\nimport { copyToClipboard } from '@/lib/text';\nimport { CODE_LANGUAGES } from '@/lib/types/enums';\nimport { Badge } from '@/src/components/badge';\nimport { Button } from '@/src/components/button';\nimport { Text } from '@/src/components/text';\nimport { Check, Copy } from 'lucide-react';\nimport { useEffect, useState } from 'react';\nimport SyntaxHighlighter from 'react-syntax-highlighter';\nimport {\n    atomOneDark,\n    atomOneLight\n} from 'react-syntax-highlighter/dist/esm/styles/hljs';\n\n/**\n * This component renders a code block with syntax highlighting and copy functionality.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @created 2026-08-25\n */\n\ninterface CodeBlockProps {\n    code: string;\n    language?: CODE_LANGUAGES;\n    title?: string;\n    showLineNumbers?: boolean;\n}\n\nexport default function CodeBlock({\n    code,\n    language = CODE_LANGUAGES.TYPESCRIPT,\n    title,\n    showLineNumbers = true\n}: CodeBlockProps) {\n    // SECTION: Constants and Variables\n    const theme = useUserPreferenceStore((state) => state.theme);\n    // !SECTION: Constants and Variables\n\n    // SECTION: States\n    const [isCopied, setIsCopied] = useState(false);\n    const [isDarkTheme, setIsDarkTheme] = useState(false);\n    // !SECTION: States\n\n    // SECTION: Side Effects\n    useEffect(() => {\n        const checkIsDark = () => {\n            if (theme === 'system') {\n                return window.matchMedia('(prefers-color-scheme: dark)')\n                    .matches;\n            }\n            return theme === 'dark';\n        };\n\n        setIsDarkTheme(checkIsDark());\n\n        if (theme === 'system') {\n            const mediaQuery = window.matchMedia(\n                '(prefers-color-scheme: dark)'\n            );\n            const listener = (e: MediaQueryListEvent) => {\n                setIsDarkTheme(e.matches);\n            };\n            mediaQuery.addEventListener('change', listener);\n            return () => mediaQuery.removeEventListener('change', listener);\n        }\n    }, [theme]);\n    // !SECTION: Side Effects\n\n    // SECTION: Event Handlers\n    /**\n     * This function handles the copy code button click event.\n     */\n    const handleCopyCode = async () => {\n        const isCodeCopied = await copyToClipboard(code);\n        if (isCodeCopied) {\n            setIsCopied(true);\n            setTimeout(() => setIsCopied(false), 2000);\n        }\n    };\n    // !SECTION: Event Handlers\n\n    // SECTION: UI\n    return (\n        <div className=\"border-stroke-raised-secondary bg-bg-raised-secondary relative overflow-hidden rounded-lg border\">\n            {/* Header with title and copy button */}\n            {(title || true) && (\n                <div className=\"bg-bg-raised-secondary border-stroke-raised-secondary flex items-center justify-between border-b px-4 py-3\">\n                    <div className=\"flex items-center gap-2\">\n                        <Badge variant=\"info\" className=\"font-mono\">\n                            {language.toLocaleUpperCase()}\n                        </Badge>\n                        <Text className=\"text-text-primary font-mono font-semibold\">\n                            {title || 'Code Block'}\n                        </Text>\n                    </div>\n                    <Button\n                        size=\"xs\"\n                        variant=\"default\"\n                        onClick={handleCopyCode}\n                        className=\"\"\n                        title=\"Copy code\"\n                    >\n                        {isCopied ? (\n                            <>\n                                <Check\n                                    size={16}\n                                    className=\"text-text-success\"\n                                />\n                                <Text className=\"text-xs\">Copied</Text>\n                            </>\n                        ) : (\n                            <>\n                                <Copy className=\"text-text-primary\" size={16} />\n                                <Text className=\"text-xs\">Copy</Text>\n                            </>\n                        )}\n                    </Button>\n                </div>\n            )}\n\n            {/* Code block */}\n            <div className=\"overflow-x-auto font-mono\">\n                <SyntaxHighlighter\n                    language={language}\n                    style={isDarkTheme ? atomOneDark : atomOneLight}\n                    showLineNumbers={showLineNumbers}\n                    customStyle={{\n                        margin: 0,\n                        padding: '1rem',\n                        fontSize: '0.875rem',\n                        lineHeight: '1.5',\n                        fontFamily: 'JetBrains Mono'\n                    }}\n                    codeTagProps={{\n                        style: {\n                            fontFamily: 'JetBrains Mono',\n                            fontSize: '0.875rem',\n                            lineHeight: '1.5'\n                        }\n                    }}\n                    lineNumberStyle={{\n                        color: '#666',\n                        paddingRight: '1rem',\n                        userSelect: 'none'\n                    }}\n                >\n                    {code}\n                </SyntaxHighlighter>\n            </div>\n        </div>\n    );\n    // !SECTION: UI\n}\n"
+    },
+    {
+        "id": "empty-state",
+        "name": "Empty State",
+        "description": "An empty state block displaying theme-dependent illustrations, message headings, descriptions, and action buttons.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-17",
+        "thumbnail": "Empty State block with illustration and action buttons",
+        "usage": "Use EmptyState when data collections or views are empty to guide the user towards actionable next steps.",
+        "props": [
+            {
+                "name": "heading",
+                "type": "string",
+                "default": "'Woah! That looks like a black hole!'",
+                "description": "Main title message"
+            },
+            {
+                "name": "text",
+                "type": "string",
+                "default": "'There is no data available at the moment.'",
+                "description": "Supporting description text"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            },
+            {
+                "name": "primaryButtonOptions",
+                "type": "{ text: string; onClick: () => void }",
+                "default": "undefined",
+                "description": "Configuration for the primary action button"
+            },
+            {
+                "name": "secondaryButtonOptions",
+                "type": "{ text: string; onClick: () => void }",
+                "default": "undefined",
+                "description": "Configuration for the secondary action button"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Empty State",
+                "code": "<EmptyState />"
+            },
+            {
+                "title": "Custom Actions",
+                "code": "<EmptyState heading=\"No projects found\" text=\"Get started by creating a new project.\" primaryButtonOptions={{ text: 'Create Project', onClick: () => {} }} secondaryButtonOptions={{ text: 'Learn More', onClick: () => {} }} />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { ENERGY_THEMES } from '@/lib/constants';\nimport useUIStore from '@/lib/store/user-preference-store';\nimport { UIEnergy } from '@/lib/types/model';\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\nimport { Text, TextVariant } from '@/src/components/text';\nimport { useEffect, useState } from 'react';\n\n/**\n * This function renders an empty state component.\n *\n * @author Aayush Goyal\n * @created 2026-04-22\n */\nexport default function EmptyState({\n    heading,\n    text,\n    className,\n    primaryButtonOptions,\n    secondaryButtonOptions\n}: {\n    heading?: string;\n    text?: string;\n    className?: string;\n    primaryButtonOptions?: {\n        text: string;\n        onClick: () => void;\n    };\n    secondaryButtonOptions?: {\n        text: string;\n        onClick: () => void;\n    };\n}) {\n    // SECTION: Constants and Variables\n    const energy = useUIStore((state) => state.energy);\n    // !SECTION: Constants and Variables\n\n    // SECTION: States\n    const [uiEnergy, setUIEnergy] = useState<UIEnergy | null>(null);\n    // !SECTION: States\n\n    // SECTION: API Queries\n    // !SECTION API Queries\n\n    // SECTION: Event Handlers\n    // !SECTION: Event Handlers\n\n    // SECTION: Side Effects\n    useEffect(() => {\n        const currentEnergy = ENERGY_THEMES.find((t) => t.id === energy);\n        if (currentEnergy) {\n            setUIEnergy(currentEnergy);\n        }\n    }, [energy]);\n    // !SECTION: Side Effects\n\n    // SECTION: UI\n    return (\n        <div\n            className={cn(\n                'flex h-fit w-full flex-col items-center justify-center gap-4',\n                className\n            )}\n        >\n            <div className=\"m-auto max-h-80 max-w-80\">\n                <img\n                    src={`/illus/empty-state/${uiEnergy?.colors?.primary?.code}.svg`}\n                    alt=\"empty shelves\"\n                    className=\"md:h-60 md:w-60 lg:h-80 lg:w-80 xl:h-100 xl:w-100\"\n                    height={200}\n                    width={200}\n                />\n            </div>\n            <div className=\"mt-8 flex flex-col items-center gap-2 text-center\">\n                <Text variant={TextVariant.H3}>\n                    {heading || 'Woah! That looks like a black hole!'}\n                </Text>\n                <Text variant={TextVariant.Body}>\n                    {text || 'There is no data available at the moment.'}\n                </Text>\n            </div>\n            <div className=\"mt-4 flex items-center gap-4\">\n                {secondaryButtonOptions && (\n                    <Button\n                        onClick={secondaryButtonOptions.onClick}\n                        variant=\"outline\"\n                    >\n                        {secondaryButtonOptions.text || 'Go to Home'}\n                    </Button>\n                )}\n                {primaryButtonOptions && (\n                    <Button onClick={primaryButtonOptions.onClick}>\n                        {primaryButtonOptions.text || 'Create Something'}\n                    </Button>\n                )}\n            </div>\n        </div>\n    );\n    // !SECTION: UI\n}\n"
+    },
+    {
+        "id": "energy-switcher",
+        "name": "Energy Switcher",
+        "description": "A dropdown selector block for switching design system energy color palettes dynamically across the application.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-09-19",
+        "thumbnail": "Energy Switcher theme palette selector block",
+        "usage": "Use EnergySwitcher in application navigation bars or settings panels to let users select and preview design energy themes.",
+        "props": [],
+        "examples": [
+            {
+                "title": "Default Energy Switcher",
+                "code": "<EnergySwitcher />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { ENERGY_THEMES } from '@/lib/constants';\nimport {\n    getDataFromLocalStorage,\n    setDataInLocalStorage\n} from '@/lib/local-storage';\nimport useUserPreferenceStore from '@/lib/store/user-preference-store';\nimport {\n    DropdownMenu,\n    DropdownMenuContent,\n    DropdownMenuItem,\n    DropdownMenuLabel,\n    DropdownMenuSeparator,\n    DropdownMenuTrigger\n} from '@/src/components/dropdown-menu';\nimport { Text, TextVariant } from '@/src/components/text';\nimport { ChevronDown } from 'lucide-react';\nimport { useEffect, useState } from 'react';\n\n/**\n * This component renders the Energy Switcher for selecting design system themes.\n * It provides access to all 10 available design energy themes.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @created 2026-09-19\n */\nexport default function EnergySwitcher() {\n    // SECTION: States and Constants\n    const { energy, actions } = useUserPreferenceStore();\n    const [currentEnergy, setCurrentEnergy] = useState(energy);\n    const currentThemeName =\n        ENERGY_THEMES.find((t) => t.id === currentEnergy)?.label ||\n        'Select Theme';\n    // !SECTION\n\n    // SECTION: Event Handlers\n    const handleEnergyChange = (themeId: string) => {\n        // Store in local storage\n        setDataInLocalStorage('energy', themeId);\n        actions.setEnergy(themeId);\n        setCurrentEnergy(themeId);\n\n        // Apply the energy theme to the HTML element\n        const htmlElement = document.documentElement;\n        htmlElement.setAttribute('data-energy', themeId);\n    };\n    // !SECTION\n\n    // SECTION: Side Effects\n    useEffect(() => {\n        // Initialize the theme on mount\n        const storedEnergy = getDataFromLocalStorage('energy') as string;\n        const initialEnergy = storedEnergy || 'dusk-bloom';\n        setCurrentEnergy(initialEnergy);\n        actions.setEnergy(initialEnergy);\n        setDataInLocalStorage('energy', initialEnergy);\n    }, []);\n    // !SECTION\n\n    // SECTION: UI\n    return (\n        <DropdownMenu>\n            <DropdownMenuTrigger\n                asChild\n                className=\"border-stroke-active-accent-primary border-2\"\n            >\n                <button className=\"text-text-primary hover:bg-secondary dark:text-text-primary flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors\">\n                    <div className=\"hidden flex-col items-start sm:flex\">\n                        <Text\n                            variant={TextVariant.Caption}\n                            color=\"text-text-secondary\"\n                        >\n                            Energy\n                        </Text>\n                        <Text\n                            variant={TextVariant.Subtitle2}\n                            className=\"font-heading font-semibold\"\n                            color=\"text-text-accent-primary\"\n                        >\n                            {currentThemeName}\n                        </Text>\n                    </div>\n                    <ChevronDown size={16} className=\"ml-1\" />\n                </button>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align=\"end\" className=\"w-56\">\n                <DropdownMenuLabel>Design System Themes</DropdownMenuLabel>\n                <DropdownMenuSeparator />\n                <div className=\"max-h-96 overflow-y-auto\">\n                    {ENERGY_THEMES.map((theme) => (\n                        <DropdownMenuItem\n                            key={theme.id}\n                            onClick={() => handleEnergyChange(theme.id)}\n                            className={`flex flex-col items-start gap-1 py-2 ${\n                                currentEnergy === theme.id\n                                    ? 'bg-primary text-primary-foreground'\n                                    : ''\n                            }`}\n                        >\n                            <div className=\"flex w-full items-center justify-between\">\n                                <Text\n                                    variant={TextVariant.H6}\n                                    className=\"text-text-primary font-medium\"\n                                >\n                                    {theme.label}\n                                </Text>\n                                <div className=\"flex items-center gap-1\">\n                                    <div\n                                        style={{\n                                            backgroundColor:\n                                                theme.colors.primary.hexCode\n                                        }}\n                                        className=\"h-4 w-4 rounded-sm\"\n                                    />\n                                    <div\n                                        style={{\n                                            backgroundColor:\n                                                theme.colors.secondary.hexCode\n                                        }}\n                                        className=\"h-4 w-4 rounded-sm\"\n                                    />\n                                </div>\n                            </div>\n                            <Text\n                                variant={TextVariant.Caption}\n                                className=\"text-text-secondary text-xs\"\n                            >\n                                {theme.description}\n                            </Text>\n                        </DropdownMenuItem>\n                    ))}\n                </div>\n            </DropdownMenuContent>\n        </DropdownMenu>\n    );\n    // !SECTION: UI\n}\n"
+    },
+    {
+        "id": "error-state",
+        "name": "Error State",
+        "description": "An error feedback block featuring animated illustrations, custom message headings, text, and action buttons.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-04-22",
+        "thumbnail": "Error State block with animation and retry actions",
+        "usage": "Use ErrorState when operations fail or network errors occur to inform users and provide recovery actions like retry or navigation.",
+        "props": [
+            {
+                "name": "heading",
+                "type": "string",
+                "default": "'Oops that is not good!'",
+                "description": "Main error title message"
+            },
+            {
+                "name": "text",
+                "type": "string",
+                "default": "'An error occurred while loading your data.'",
+                "description": "Supporting error description text"
+            },
+            {
+                "name": "animData",
+                "type": "any",
+                "default": "sampleAnimData",
+                "description": "Lottie animation JSON data"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            },
+            {
+                "name": "primaryButtonOptions",
+                "type": "{ text: string; onClick: () => void }",
+                "default": "undefined",
+                "description": "Configuration for the primary action button"
+            },
+            {
+                "name": "secondaryButtonOptions",
+                "type": "{ text: string; onClick: () => void }",
+                "default": "undefined",
+                "description": "Configuration for the secondary action button"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Error State",
+                "code": "<ErrorState />"
+            },
+            {
+                "title": "Custom Retry Action",
+                "code": "<ErrorState heading=\"Failed to fetch data\" text=\"Please check your network connection and try again.\" primaryButtonOptions={{ text: 'Try Again', onClick: () => window.location.reload() }} />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport sampleAnimData from '../assets/anims/sample-anim.json';\nimport Lottie from 'react-lottie';\nimport { cn } from '@/lib/utils';\nimport { Button } from '@/src/components/button';\nimport { Text, TextVariant } from '@/src/components/text';\n\n/**\n * This function renders an error state component.\n *\n * @author Aayush Goyal\n * @created 2026-04-22\n */\nexport default function ErrorState({\n    heading,\n    text,\n    animData = sampleAnimData,\n    className,\n    primaryButtonOptions,\n    secondaryButtonOptions\n}: {\n    heading?: string;\n    text?: string;\n    animData?: any;\n    className?: string;\n    primaryButtonOptions?: {\n        text: string;\n        onClick: () => void;\n    };\n    secondaryButtonOptions?: {\n        text: string;\n        onClick: () => void;\n    };\n}) {\n    // SECTION: Constants and Variables\n    const sampleAnimLottieOptions = {    loop: true,\n        autoplay: true,\n        animationData: animData,\n        rendererSettings: {\n            preserveAspectRatio: 'xMidYMid slice'\n        }\n    };\n    // !SECTION: Constants and Variables\n\n    // SECTION: States\n    // !SECTION: States\n\n    // SECTION: API Queries\n    // !SECTION API Queries\n\n    // SECTION: Event Handlers\n    // !SECTION: Event Handlers\n\n    // SECTION: Side Effects\n    // !SECTION: Side Effects\n\n    // SECTION: UI\n    return (\n        <div\n            className={cn(\n                'flex h-fit w-full flex-col items-center justify-center gap-4',\n                className\n            )}\n        >\n            <div className=\"m-auto max-h-80 max-w-80\">\n                <Lottie options={sampleAnimLottieOptions} />\n            </div>\n            <div className=\"mt-8 flex flex-col items-center gap-2 text-center\">\n                <Text variant={TextVariant.H3}>\n                    {heading || 'Oops that is not good!'}\n                </Text>\n                <Text variant={TextVariant.Body}>\n                    {text || 'An error occurred while loading your data.'}\n                </Text>\n            </div>\n            <div className=\"mt-4 flex items-center gap-4\">\n                {secondaryButtonOptions && (\n                    <Button\n                        onClick={secondaryButtonOptions.onClick}\n                        variant=\"outline\"\n                    >\n                        {secondaryButtonOptions.text || 'Go to Home'}\n                    </Button>\n                )}\n                {primaryButtonOptions && (\n                    <Button onClick={primaryButtonOptions.onClick}>\n                        {primaryButtonOptions.text || 'Retry'}\n                    </Button>\n                )}\n            </div>\n        </div>\n    );\n    // !SECTION: UI\n}\n"
+    },
+    {
+        "id": "loading-state",
+        "name": "Loading State",
+        "description": "A loading indicator block with customizable Lottie animation and informative loading text.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-04-22",
+        "thumbnail": "Loading State block with animation and label",
+        "usage": "Use LoadingState while waiting for asynchronous operations or data fetching to complete.",
+        "props": [
+            {
+                "name": "text",
+                "type": "string",
+                "default": "'Loading your data...'",
+                "description": "Loading message to display below animation"
+            },
+            {
+                "name": "animData",
+                "type": "any",
+                "default": "sampleAnimData",
+                "description": "Lottie animation JSON data"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Loading State",
+                "code": "<LoadingState />"
+            },
+            {
+                "title": "Custom Loading Text",
+                "code": "<LoadingState text=\"Fetching user preferences...\" />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport sampleAnimData from '../assets/anims/sample-anim.json';\nimport Lottie from 'react-lottie';\nimport { cn } from '@/lib/utils';\nimport { Text, TextVariant } from '@/src/components/text';\n\n/**\n * This function renders a loading state component.\n *\n * @author Aayush Goyal\n * @created 2026-04-22\n */\nexport default function LoadingState({\n    text,\n    animData = sampleAnimData,\n    className\n}: {\n    text?: string;\n    animData?: any;\n    className?: string;\n}) {\n    // SECTION: Constants and Variables\n    const sampleAnimLottieOptions = {\n        loop: true,\n        autoplay: true,\n        animationData: animData,\n        rendererSettings: {\n            preserveAspectRatio: 'xMidYMid slice'\n        }\n    };\n    // !SECTION: Constants and Variables\n\n    // SECTION: States\n    // !SECTION: States\n\n    // SECTION: API Queries\n    // !SECTION API Queries\n\n    // SECTION: Event Handlers\n    // !SECTION: Event Handlers\n\n    // SECTION: Side Effects\n    // !SECTION: Side Effects\n\n    // SECTION: UI\n    return (\n        <div\n            className={cn(\n                'flex h-fit w-full flex-col items-center justify-center gap-4',\n                className\n            )}\n        >\n            <div className=\"m-auto max-h-80 max-w-80\">\n                <Lottie options={sampleAnimLottieOptions} />\n            </div>\n            <Text variant={TextVariant.H3}>\n                {text || 'Loading your data...'}\n            </Text>\n        </div>\n    );\n    // !SECTION: UI\n}\n"
+    },
+    {
+        "id": "squiggly-text",
+        "name": "Squiggly Text",
+        "description": "An animated text block that applies a vibrating, wavy squiggly effect using dynamic SVG filters.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-09-19",
+        "thumbnail": "Squiggly Text animated typography block",
+        "usage": "Use SquigglyText to create playful, high-energy text callouts or headers with organic animated wobble.",
+        "props": [
+            {
+                "name": "children",
+                "type": "React.ReactNode",
+                "default": "undefined",
+                "description": "The text or node to wrap with the squiggly effect"
+            },
+            {
+                "name": "steps",
+                "type": "number",
+                "default": "5",
+                "description": "Number of distinct displacement frames to cycle through"
+            },
+            {
+                "name": "stepDuration",
+                "type": "number",
+                "default": "80",
+                "description": "Time between filter swaps in milliseconds"
+            },
+            {
+                "name": "scale",
+                "type": "number | [number, number]",
+                "default": "[6, 8]",
+                "description": "Maximum displacement in pixels"
+            },
+            {
+                "name": "baseFrequency",
+                "type": "number",
+                "default": "0.02",
+                "description": "Turbulence base frequency for wave smoothness"
+            },
+            {
+                "name": "numOctaves",
+                "type": "number",
+                "default": "3",
+                "description": "Number of turbulence octaves for detail"
+            },
+            {
+                "name": "as",
+                "type": "'span' | 'div'",
+                "default": "'span'",
+                "description": "Wrapper element type"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Squiggly Text",
+                "code": "<SquigglyText>Wavy Text</SquigglyText>"
+            },
+            {
+                "title": "Custom Displacement and Speed",
+                "code": "<SquigglyText scale={[8, 12]} stepDuration={60}>Crazy Wobble</SquigglyText>"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { motion, useTime, useTransform } from 'motion/react';\nimport React, { useId } from 'react';\n\nexport interface SquigglyTextProps {\n    /**\n     * The text (or any node) to wrap with the squiggly effect.\n     */\n    children: React.ReactNode;\n    className?: string;\n    style?: React.CSSProperties;\n    /**\n     * Number of distinct displacement frames to cycle through.\n     * Higher = smoother wobble, more SVG filters in the DOM.\n     * @default 5\n     */\n    steps?: number;\n    /**\n     * Time between filter swaps, in milliseconds.\n     * Lower = more frantic; higher = lazier wave.\n     * @default 80\n     */\n    stepDuration?: number;\n    /**\n     * Maximum displacement in px. Bigger = more squiggly.\n     * Pass a single number for a constant scale, or a tuple to alternate\n     * between two values per step (matches the original Lucas Bebber demo).\n     * @default [6, 8]\n     */\n    scale?: number | [number, number];\n    /**\n     * Turbulence base frequency. Lower values produce longer, smoother waves;\n     * higher values produce tighter, jitterier noise.\n     * @default 0.02\n     */\n    baseFrequency?: number;\n    /**\n     * Number of turbulence octaves. Higher = more detailed noise.\n     * @default 3\n     */\n    numOctaves?: number;\n    /**\n     * Render the wrapper as this element type.\n     * @default \"span\"\n     */\n    as?: 'span' | 'div';\n}\n\n/**\n * This funciton renders the {@link SquigglyText} text block component.\n *\n * @author Aayush Goyal\n * @version 0.1.0\n * @created 2026-09-19\n */\nexport function SquigglyText({\n    children,\n    steps = 5,\n    stepDuration = 80,\n    scale = [6, 8],\n    baseFrequency = 0.02,\n    numOctaves = 3,\n    as = 'span',\n    className,\n    style\n}: SquigglyTextProps) {\n    const reactId = useId();\n    // useId can produce \":\" / \"_\" which aren't valid in CSS url(#…) refs.\n    const safeId = reactId.replace(/[:_]/g, '');\n    const filterId = (i: number) => `squiggly-${safeId}-${i}`;\n\n    const filters = React.useMemo(\n        () => Array.from({ length: steps }, (_, i) => `url(#${filterId(i)})`),\n        // filterId is stable per render\n        // eslint-disable-next-line react-hooks/exhaustive-deps\n        [steps, safeId]\n    );\n\n    const time = useTime();\n    const filter = useTransform(\n        time,\n        (t) => filters[Math.floor(t / stepDuration) % filters.length]\n    );\n\n    const scaleAt = (i: number) =>\n        Array.isArray(scale) ? scale[i % scale.length] : scale;\n\n    const Wrapper = as === 'div' ? motion.div : motion.span;\n\n    return (\n        <Wrapper\n            style={{ filter, ...style }}\n            className={cn('inline-block', className)}\n        >\n            <svg\n                aria-hidden\n                className=\"pointer-events-none absolute h-0 w-0 overflow-hidden\"\n                xmlns=\"http://www.w3.org/2000/svg\"\n            >\n                <defs>\n                    {Array.from({ length: steps }).map((_, i) => (\n                        <filter id={filterId(i)} key={i}>\n                            <feTurbulence\n                                baseFrequency={baseFrequency}\n                                numOctaves={numOctaves}\n                                result=\"noise\"\n                                seed={i}\n                            />\n                            <feDisplacementMap\n                                in=\"SourceGraphic\"\n                                in2=\"noise\"\n                                scale={scaleAt(i)}\n                            />\n                        </filter>\n                    ))}\n                </defs>\n            </svg>\n            {children}\n        </Wrapper>\n    );\n}\n"
+    },
+    {
+        "id": "theme-switcher",
+        "name": "Theme Switcher",
+        "description": "A versatile theme toggle block with smooth View Transitions API shape transitions (circle, square, triangle, etc.).",
+        "version": "0.1.0",
+        "lastUpdated": "2026-09-19",
+        "thumbnail": "Theme Switcher mode toggle with morphing shape transitions",
+        "usage": "Use ThemeSwitcher to let users toggle between light, dark, and system themes with smooth animated transitions.",
+        "props": [
+            {
+                "name": "duration",
+                "type": "number",
+                "default": "500",
+                "description": "Duration of the view transition animation in milliseconds"
+            },
+            {
+                "name": "fromCenter",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether the view transition starts from viewport center or clicked element"
+            },
+            {
+                "name": "variant",
+                "type": "'circle' | 'square' | 'triangle' | 'diamond' | 'hexagon' | 'rectangle' | 'star'",
+                "default": "'circle'",
+                "description": "Shape variant for the transition clip path"
+            },
+            {
+                "name": "onThemeChange",
+                "type": "(theme: THEME) => void",
+                "default": "undefined",
+                "description": "Callback triggered when theme is changed"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Theme Switcher",
+                "code": "<ThemeSwitcher />"
+            },
+            {
+                "title": "Custom Transition Variant and Duration",
+                "code": "<ThemeSwitcher variant=\"star\" duration={600} />"
+            }
+        ],
+        "sourceCode": "'use client';\n\nimport {\n    getDataFromLocalStorage,\n    setDataInLocalStorage\n} from '@/lib/local-storage';\nimport useUserPreferenceStore from '@/lib/store/user-preference-store';\nimport { THEME } from '@/lib/types/enums';\nimport { ToggleGroup, ToggleGroupItem } from '@/src/components/toggle-group';\nimport { Monitor, Moon, Sun } from 'lucide-react';\nimport { useCallback, useEffect, useRef, useState } from 'react';\nimport { flushSync } from 'react-dom';\n\nexport type TransitionVariant =\n    | 'circle'\n    | 'square'\n    | 'triangle'\n    | 'diamond'\n    | 'hexagon'\n    | 'rectangle'\n    | 'star';\n\n/**\n * Applies or removes the 'dark' class on the root HTML element.\n */\nconst applyThemeToDocument = (themeValue: string) => {\n    const htmlElement = document.documentElement;\n    if (themeValue === 'system') {\n        const isSystemDark = window.matchMedia(\n            '(prefers-color-scheme: dark)'\n        ).matches;\n        htmlElement.classList.toggle('dark', isSystemDark);\n    } else {\n        htmlElement.classList.toggle('dark', themeValue === 'dark');\n    }\n};\n\n/**\n * This function renders the Theme Switcher component of the app.\n *\n * @version 0.1.0\n * @author Aayush Goyal\n * @created 2026-09-19\n */\nexport default function ThemeSwitcher({\n    duration = 500,\n    fromCenter = false,\n    variant = 'circle',\n    onThemeChange\n}: {\n    duration?: number;\n    fromCenter?: boolean;\n    variant?: TransitionVariant;\n    onThemeChange?: (theme: THEME) => void;\n}) {\n    // SECTION: Constants and Variables\n    const buttonRef = useRef<HTMLDivElement>(null);\n    const isTransitioningRef = useRef(false);\n    const shape = variant ?? 'circle';\n    const { theme, actions } = useUserPreferenceStore();\n    const isControlled = theme !== undefined;\n    // !SECTION: Constants and Variables\n\n    // SECTION: States\n    const [internalIsDark, setInternalIsDark] = useState(false);\n    const isDark = isControlled ? theme === THEME.GUN_METAL : internalIsDark;\n    // !SECTION: States\n\n    // SECTION: Functions\n    function polygonCollapsed(point: string, vertexCount: number): string {\n        const pairs = Array.from({ length: vertexCount }, () => point).join(\n            ', '\n        );\n        return `polygon(${pairs})`;\n    }\n\n    function getThemeTransitionClipPaths(\n        variant: TransitionVariant,\n        cx: number,\n        cy: number,\n        maxRadius: number,\n        viewportWidth: number,\n        viewportHeight: number\n    ): [string, string] {\n        const toX = (x: number) => `${(x / viewportWidth) * 100}%`;\n        const toY = (y: number) => `${(y / viewportHeight) * 100}%`;\n        const point = (x: number, y: number) => `${toX(x)} ${toY(y)}`;\n        const toRadius = (r: number) =>\n            `${(r / (Math.hypot(viewportWidth, viewportHeight) / Math.SQRT2)) * 100}%`;\n\n        switch (variant) {\n            case 'circle':\n                return [\n                    `circle(0% at ${point(cx, cy)})`,\n                    `circle(${toRadius(maxRadius)} at ${point(cx, cy)})`\n                ];\n            case 'square': {\n                const halfW = Math.max(cx, viewportWidth - cx);\n                const halfH = Math.max(cy, viewportHeight - cy);\n                const halfSide = Math.max(halfW, halfH) * 1.05;\n                const end = [\n                    point(cx - halfSide, cy - halfSide),\n                    point(cx + halfSide, cy - halfSide),\n                    point(cx + halfSide, cy + halfSide),\n                    point(cx - halfSide, cy + halfSide)\n                ].join(', ');\n                return [polygonCollapsed(point(cx, cy), 4), `polygon(${end})`];\n            }\n            case 'triangle': {\n                const scale = maxRadius * 2.2;\n                const dx = (Math.sqrt(3) / 2) * scale;\n                const verts = [\n                    point(cx, cy - scale),\n                    point(cx + dx, cy + 0.5 * scale),\n                    point(cx - dx, cy + 0.5 * scale)\n                ].join(', ');\n                return [\n                    polygonCollapsed(point(cx, cy), 3),\n                    `polygon(${verts})`\n                ];\n            }\n            case 'diamond': {\n                const R = maxRadius * Math.SQRT2;\n                const end = [\n                    point(cx, cy - R),\n                    point(cx + R, cy),\n                    point(cx + R, cy + R),\n                    point(cx - R, cy)\n                ].join(', ');\n                return [polygonCollapsed(point(cx, cy), 4), `polygon(${end})`];\n            }\n            case 'hexagon': {\n                const R = maxRadius * Math.SQRT2;\n                const verts: string[] = [];\n                for (let i = 0; i < 6; i++) {\n                    const a = -Math.PI / 2 + (i * Math.PI) / 3;\n                    verts.push(\n                        point(cx + R * Math.cos(a), cy + R * Math.sin(a))\n                    );\n                }\n                return [\n                    polygonCollapsed(point(cx, cy), 6),\n                    `polygon(${verts.join(', ')})`\n                ];\n            }\n            case 'rectangle': {\n                const halfW = Math.max(cx, viewportWidth - cx);\n                const halfH = Math.max(cy, viewportHeight - cy);\n                const end = [\n                    point(cx - halfW, cy - halfH),\n                    point(cx + halfW, cy - halfH),\n                    point(cx + halfW, cy + halfH),\n                    point(cx - halfW, cy + halfH)\n                ].join(', ');\n                return [polygonCollapsed(point(cx, cy), 4), `polygon(${end})`];\n            }\n            case 'star': {\n                const R = maxRadius * Math.SQRT2 * 1.03;\n                const innerRatio = 0.42;\n                const starPolygon = (radius: number) => {\n                    const verts: string[] = [];\n                    for (let i = 0; i < 5; i++) {\n                        const outerA = -Math.PI / 2 + (i * 2 * Math.PI) / 5;\n                        verts.push(\n                            point(\n                                cx + radius * Math.cos(outerA),\n                                cy + radius * Math.sin(outerA)\n                            )\n                        );\n                        const innerA = outerA + Math.PI / 5;\n                        verts.push(\n                            point(\n                                cx + radius * innerRatio * Math.cos(innerA),\n                                cy + radius * innerRatio * Math.sin(innerA)\n                            )\n                        );\n                    }\n                    return `polygon(${verts.join(', ')})`;\n                };\n                const startR = Math.max(2, R * 0.025);\n                return [starPolygon(startR), starPolygon(R)];\n            }\n            default:\n                return [\n                    `circle(0% at ${point(cx, cy)})`,\n                    `circle(${toRadius(maxRadius)} at ${point(cx, cy)})`\n                ];\n        }\n    }\n\n    const handleViewTransition = useCallback(\n        (value: 'light' | 'dark' | 'system') => {\n            const button = buttonRef.current;\n            if (\n                !button ||\n                isTransitioningRef.current ||\n                document.documentElement.dataset.themeSwitcherVt === 'active'\n            ) \n                return;\n\n            const viewportWidth = window.innerWidth;\n            const viewportHeight = window.innerHeight;\n\n            let x: number;\n            let y: number;\n            if (fromCenter) {\n                x = viewportWidth / 2;\n                y = viewportHeight / 2;\n            } else {\n                const { top, left, width, height } = \n                    button.getBoundingClientRect();\n                x = left + width / 2;\n                y = top + height / 2;\n            }\n\n            const maxRadius = Math.hypot(\n                Math.max(x, viewportWidth - x),\n                Math.max(y, viewportHeight - y)\n            );\n\n            const applyTheme = () => {\n                applyThemeToDocument(value);\n            };\n\n            if (typeof document.startViewTransition !== 'function') {\n                applyTheme();\n                return;\n            }\n\n            const clipPath = getThemeTransitionClipPaths(\n                shape,\n                x,\n                y,\n                maxRadius,\n                viewportWidth,\n                viewportHeight\n            );\n\n            const root = document.documentElement;\n            root.dataset.themeSwitcherVt = 'active';\n            root.style.setProperty(\n                '--theme-switcher-vt-duration',\n                `${duration}ms`\n            );\n            root.style.setProperty(\n                '--theme-switcher-vt-clip-from',\n                clipPath[0]\n            );\n            root.style.setProperty('--theme-switcher-vt-clip-to', clipPath[1]);\n\n            const cleanup = () => {\n                isTransitioningRef.current = false;\n                delete root.dataset.themeSwitcherVt;\n                root.style.removeProperty('--theme-switcher-vt-duration');\n                root.style.removeProperty('--theme-switcher-vt-clip-from');\n                root.style.removeProperty('--theme-switcher-vt-clip-to');\n            };\n\n            isTransitioningRef.current = true;\n            const transition = document.startViewTransition(() => {\n                flushSync(applyTheme);\n            });\n\n            if (typeof transition?.finished?.finally === 'function') {\n                transition.finished.finally(cleanup).catch(() => {});\n            } else {\n                cleanup();\n            }\n\n            const ready = transition?.ready;\n            if (ready && typeof ready.then === 'function') {\n                ready\n                    .then(() => {\n                        document.documentElement.animate(\n                            {\n                                clipPath: [clipPath[0], clipPath[1]]\n                            },\n                            {\n                                duration,\n                                easing:\n                                    shape === 'star' ? 'linear' : 'ease-in-out',\n                                fill: 'forwards',\n                                pseudoElement: '::view-transition-new(root)'\n                            }\n                        );\n                    })\n                    .catch(() => {});\n            }\n        },\n        [shape, fromCenter, duration]\n    );\n    // !SECTION: Functions\n\n    // SECTION: Event Handlers\n    const handleThemeToggle = useCallback(\n        (value: 'light' | 'dark' | 'system') => {\n            if (!value) return;\n\n            setDataInLocalStorage('theme', value);\n\n            if (value === 'system') {\n                actions.setTheme(value);\n                actions.setThemeShade(THEME.GUN_METAL); // Default to dark for system\n            } else {\n                actions.setTheme(value);\n                actions.setThemeShade(\n                    value === 'light' ? THEME.AMBER : THEME.GUN_METAL\n                );\n            }\n\n            handleViewTransition(value);\n\n            if (onThemeChange) {\n                onThemeChange(\n                    value === 'light' ? THEME.AMBER : THEME.GUN_METAL\n                );\n            }\n        },\n        [handleViewTransition, onThemeChange, actions]\n    );\n    // !SECTION: Event Handlers\n\n    // SECTION: Side Effects\n    useEffect(() => {\n        const storedTheme = getDataFromLocalStorage('theme') as\n            | 'light'\n            | 'dark'\n            | 'system'\n            | null;\n        if (storedTheme) {\n            actions.setTheme(storedTheme);\n            if (storedTheme === 'system') {\n                actions.setThemeShade(THEME.GUN_METAL);\n            } else {\n                actions.setThemeShade(\n                    storedTheme === 'light' ? THEME.AMBER : THEME.GUN_METAL\n                );\n            }\n            applyThemeToDocument(storedTheme);\n        } else {\n            applyThemeToDocument(theme || 'light');\n        }\n    }, []);\n\n    useEffect(() => {\n        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');\n\n        const handleSystemChange = () => {\n            const currentTheme =\n                (getDataFromLocalStorage('theme') as string) || theme;\n            if (currentTheme === 'system') {\n                applyThemeToDocument('system');\n            }\n        };\n\n        mediaQuery.addEventListener('change', handleSystemChange);\n        return () =>\n            mediaQuery.removeEventListener('change', handleSystemChange);\n    }, [theme]);\n\n    useEffect(() => {\n        if (isControlled) return;\n\n        const updateTheme = () => {\n            setInternalIsDark(\n                document.documentElement.classList.contains('dark')\n            );\n        };\n\n        updateTheme();\n\n        const observer = new MutationObserver(updateTheme);\n        observer.observe(document.documentElement, {\n            attributes: true,\n            attributeFilter: ['class']\n        });\n\n        return () => observer.disconnect();\n    }, [isControlled]);\n    // !SECTION: Side Effects\n\n    return (\n        <ToggleGroup\n            ref={buttonRef}\n            type=\"single\"\n            onValueChange={handleThemeToggle}\n            value={theme}\n        >\n            <ToggleGroupItem value=\"light\" aria-label=\"Light theme\">\n                <Sun className=\"text-text-primary\" />\n            </ToggleGroupItem>\n            <ToggleGroupItem value=\"dark\" aria-label=\"Dark theme\">\n                <Moon className=\"text-text-primary\" />\n            </ToggleGroupItem>\n            <ToggleGroupItem value=\"system\" aria-label=\"System theme\">\n                <Monitor className=\"text-text-primary\" />\n            </ToggleGroupItem>\n        </ToggleGroup>\n    );\n}\n"
+    }
+]

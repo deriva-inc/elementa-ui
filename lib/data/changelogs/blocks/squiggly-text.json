@@ -1,0 +1,14 @@
+{
+    "id": "squiggly-text",
+    "name": "Squiggly Text",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-09-19",
+            "changes": [
+                "Initial Squiggly Text block.",
+                "Referenced from <a href=\"https://ui.aceternity.com/components/squiggly-text\">Aceternity UI - Squiggly Text</a>."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "id": "theme-switcher",
+    "name": "Theme Switcher",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-09-19",
+            "changes": [
+                "Initial block for rendering a theme switcher.",
+                "Used Gemini AI along with MagicUI component."
+            ]
+        }
+    ]
+}

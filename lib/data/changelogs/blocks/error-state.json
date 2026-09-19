@@ -1,0 +1,14 @@
+{
+    "id": "error-state",
+    "name": "Error State",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial block for rendering an error state.",
+                "Used Gemini AI along with shadcn and elementa design guidelines."
+            ]
+        }
+    ]
+}
