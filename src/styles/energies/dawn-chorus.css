@@ -1,4 +1,3 @@
-@layer base {
 	/* SECTION: ENERGY - DAWN CHORUS (Golden Hour + Dusty Rose) */
 	[data-energy="dawn-chorus"] {
 		/* SECTION: LAYER 1: BASE */
@@ -75,4 +74,3 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - DAWN CHORUS (Golden Hour + Dusty Rose) */
-}

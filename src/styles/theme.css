@@ -254,9 +254,8 @@
 }
 /* !SECTION: Semantic Mapping */
 
-@layer base {
-	/* SECTION: THEME - AMBER WHITE */
-	:root {
+/* SECTION: THEME - AMBER WHITE */
+:root, :host, [data-theme="light"] {
 		/* SECTION: Dimensions */
 		--radius: 0.625rem;
 		--radius-sm: calc(var(--radius) * 0.6);
@@ -331,7 +330,7 @@
 	/* !SECTION: THEME - AMBER WHITE */
 
 	/* SECTION: THEME - GUN METAL */
-	.dark {
+	.dark, [data-theme="dark"] {
 		/* SECTION: LAYER 1: BASE */
 		--bg-base-primary: var(--color-gun-metal-1100);
 		--bg-flat-primary: var(--color-gun-metal-1000);
@@ -393,4 +392,3 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: THEME - GUN METAL */
-}

@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import { cn } from '../../lib/utils';
 
 export enum TextVariant {
@@ -42,10 +39,6 @@ export function Text({
     const baseClassNames = 'w-fit';
     // !SECTION: Constants and Variables
 
-    // SECTION: States
-    const [internalClassName, setInternalClassName] = useState('');
-    // !SECTION: States
-
     // SECTION: Functions
     /**
      * This function returns the class name for the given variant.
@@ -83,16 +76,12 @@ export function Text({
     };
     // !SECTION Functions
 
-    // SECTION: Event Handlers
-    // !SECTION: Event Handlers
-
-    // SECTION: Side Effects
-    useEffect(() => {
-        setInternalClassName(
-            cn(baseClassNames, getVariantClass(variant), color, className)
-        );
-    }, [variant, color, className]);
-    // !SECTION: Side Effects
+    const internalClassName = cn(
+        baseClassNames,
+        getVariantClass(variant),
+        color,
+        className
+    );
 
     // SECTION: UI
     switch (variant) {

@@ -1,4 +1,14 @@
 # CHANGELOG
+### [1.67.0] - 2026-09-26
+---
+#### Added
+- Update `lib/data/components.json` with complete metadata, props, and documentation examples for all 44 UI components.
+
+#### Changed
+- Make theme design tokens in `theme.css` (`:root, :host`, `.dark`) and all 10 energy stylesheets unlayered to establish P0 cascade priority over `@layer base`.
+- Move heading typography rules (`h1, .h1` through `h6, .h6`) in `utilities.css` to `@layer components` to prevent Tailwind Preflight resets from overriding font sizes.
+- Refactor `Text` component to evaluate class names synchronously during render, removing `useState`/`useEffect` hydration delay.
+
 ### [1.66.0] - 2026-09-25
 ---
 #### Added

@@ -1,4 +1,3 @@
-@layer base {
 	/* SECTION: ENERGY - CREMA EXTRACTION (Terracotta Rust + Golden Hour) */
 	[data-energy="crema-extraction"] {
 		/* SECTION: LAYER 1: BASE */
@@ -75,4 +74,3 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - BUBBLEGUM ICE (Hot Pink + Aqua Mint) */
-}

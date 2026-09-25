@@ -268,6 +268,45 @@
         ]
     },
     {
+        "id": "button-group",
+        "name": "Button Group",
+        "description": "A container that visually and logically groups related buttons together.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "ButtonGroup component for grouping related actions",
+        "usage": "Use Button Group to group related actions into a connected visual block, such as segmented controls or toolbars.",
+        "props": [
+            {
+                "name": "orientation",
+                "type": "'horizontal' | 'vertical'",
+                "default": "'horizontal'",
+                "description": "Orientation of the button group"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes for styling"
+            },
+            {
+                "name": "children",
+                "type": "React.ReactNode",
+                "default": "undefined",
+                "description": "Buttons and separator elements to group"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Button Group",
+                "code": "<ButtonGroup>\n  <Button variant=\"outline\">Years</Button>\n  <Button variant=\"outline\">Months</Button>\n  <Button variant=\"outline\">Days</Button>\n</ButtonGroup>"
+            },
+            {
+                "title": "With Separator",
+                "code": "<ButtonGroup>\n  <Button variant=\"outline\">Copy</Button>\n  <ButtonGroupSeparator />\n  <Button variant=\"outline\">Paste</Button>\n</ButtonGroup>"
+            }
+        ]
+    },
+    {
         "id": "calendar",
         "name": "Calendar",
         "description": "A date picker calendar component built on react-day-picker with customizable ranges and formatting.",
@@ -321,6 +360,51 @@
             {
                 "title": "Date Range Selection",
                 "code": "const [range, setRange] = React.useState<DateRange | undefined>({\n  from: new Date(),\n  to: addDays(new Date(), 7)\n});\n\n<Calendar\n  mode=\"range\"\n  selected={range}\n  onSelect={setRange}\n  className=\"rounded-md border\"\n/>"
+            }
+        ]
+    },
+    {
+        "id": "checkbox",
+        "name": "Checkbox",
+        "description": "A control that allows the user to toggle between checked and not checked states.",
+        "version": "0.6.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Checkbox component for multi-selection and toggle states",
+        "usage": "Use Checkbox to allow users to select one or multiple options from a list or agree to terms and conditions.",
+        "props": [
+            {
+                "name": "checked",
+                "type": "boolean | 'indeterminate'",
+                "default": "undefined",
+                "description": "The controlled checked state of the checkbox"
+            },
+            {
+                "name": "defaultChecked",
+                "type": "boolean",
+                "default": "false",
+                "description": "The default checked state when uncontrolled"
+            },
+            {
+                "name": "onCheckedChange",
+                "type": "(checked: boolean | 'indeterminate') => void",
+                "default": "undefined",
+                "description": "Event handler called when the checked state changes"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether the checkbox is disabled"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Checkbox",
+                "code": "<div className=\"flex items-center space-x-2\">\n  <Checkbox id=\"terms\" />\n  <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n</div>"
+            },
+            {
+                "title": "Disabled Checkbox",
+                "code": "<div className=\"flex items-center space-x-2\">\n  <Checkbox id=\"disabled-cb\" disabled />\n  <Label htmlFor=\"disabled-cb\">Disabled option</Label>\n</div>"
             }
         ]
     },
@@ -406,6 +490,35 @@
         ]
     },
     {
+        "id": "context-menu",
+        "name": "Context Menu",
+        "description": "Displays a menu to the user — such as a set of actions or functions — triggered by right-click.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Context Menu component triggered by right-click interactions",
+        "usage": "Use Context Menu to reveal context-sensitive actions upon right-clicking or long-pressing on an interactive area.",
+        "props": [
+            {
+                "name": "children",
+                "type": "React.ReactNode",
+                "default": "undefined",
+                "description": "The trigger and content elements of the context menu"
+            },
+            {
+                "name": "modal",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether clicking outside closes the menu and traps focus"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Context Menu",
+                "code": "<ContextMenu>\n  <ContextMenuTrigger className=\"flex h-36 w-72 items-center justify-center rounded-md border border-dashed border-stroke-raised-primary text-sm\">\n    Right click here\n  </ContextMenuTrigger>\n  <ContextMenuContent className=\"w-64\">\n    <ContextMenuItem>Back</ContextMenuItem>\n    <ContextMenuItem>Forward</ContextMenuItem>\n    <ContextMenuItem>Reload</ContextMenuItem>\n    <ContextMenuSeparator />\n    <ContextMenuCheckboxItem checked>Show Bookmarks Bar</ContextMenuCheckboxItem>\n    <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>\n  </ContextMenuContent>\n</ContextMenu>"
+            }
+        ]
+    },
+    {
         "id": "dialog",
         "name": "Dialog",
         "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
@@ -437,6 +550,185 @@
             {
                 "title": "Default Dialog",
                 "code": "<Dialog>\n  <DialogTrigger asChild>\n    <Button variant=\"outline\">Open Dialog</Button>\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Edit Profile</DialogTitle>\n      <DialogDescription>\n        Make changes to your profile here. Click save when you're done.\n      </DialogDescription>\n    </DialogHeader>\n    <div className=\"grid gap-4 py-4\">\n      <Input placeholder=\"Name\" defaultValue=\"John Doe\" />\n    </div>\n    <DialogFooter>\n      <Button type=\"submit\">Save changes</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
+            }
+        ]
+    },
+    {
+        "id": "drawer",
+        "name": "Drawer",
+        "description": "A responsive sliding panel overlay, optimized for mobile devices and sheet-like interactions.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Drawer component for mobile-friendly slide-over sheets",
+        "usage": "Use Drawer for mobile-friendly navigation, action sheets, and modal forms sliding in from the viewport edges.",
+        "props": [
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled open state"
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(open: boolean) => void",
+                "default": "undefined",
+                "description": "Callback triggered when open state changes"
+            },
+            {
+                "name": "direction",
+                "type": "'top' | 'bottom' | 'left' | 'right'",
+                "default": "'bottom'",
+                "description": "Direction from which the drawer slides into view"
+            },
+            {
+                "name": "dismissible",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether the drawer can be dismissed by dragging or clicking outside"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Drawer",
+                "code": "<Drawer>\n  <DrawerTrigger asChild>\n    <Button variant=\"outline\">Open Drawer</Button>\n  </DrawerTrigger>\n  <DrawerContent>\n    <DrawerHeader>\n      <DrawerTitle>Are you absolutely sure?</DrawerTitle>\n      <DrawerDescription>This action cannot be undone.</DrawerDescription>\n    </DrawerHeader>\n    <DrawerFooter>\n      <Button>Submit</Button>\n      <DrawerClose asChild>\n        <Button variant=\"outline\">Cancel</Button>\n      </DrawerClose>\n    </DrawerFooter>\n  </DrawerContent>\n</Drawer>"
+            }
+        ]
+    },
+    {
+        "id": "dropdown-menu",
+        "name": "Dropdown Menu",
+        "description": "Displays a menu of actions or options to the user, triggered by a button click.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Dropdown Menu component for action lists and submenus",
+        "usage": "Use Dropdown Menu to present a list of actions, navigation items, or setting toggles activated by clicking a trigger.",
+        "props": [
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled open state of the dropdown"
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(open: boolean) => void",
+                "default": "undefined",
+                "description": "Callback called when dropdown open state changes"
+            },
+            {
+                "name": "modal",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether outside interaction is blocked when opened"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Dropdown Menu",
+                "code": "<DropdownMenu>\n  <DropdownMenuTrigger asChild>\n    <Button variant=\"outline\">Open Menu</Button>\n  </DropdownMenuTrigger>\n  <DropdownMenuContent className=\"w-56\">\n    <DropdownMenuLabel>My Account</DropdownMenuLabel>\n    <DropdownMenuSeparator />\n    <DropdownMenuItem>Profile</DropdownMenuItem>\n    <DropdownMenuItem>Billing</DropdownMenuItem>\n    <DropdownMenuItem>Settings</DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>"
+            }
+        ]
+    },
+    {
+        "id": "elementa-provider",
+        "name": "ElementaProvider",
+        "description": "Context provider for zero-config theme and energy synchronization in Next.js and React applications.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "ElementaProvider for theme and energy state management",
+        "usage": "Wrap your root layout or application tree with ElementaProvider to manage dark mode, active energy theme, and localStorage sync.",
+        "props": [
+            {
+                "name": "children",
+                "type": "React.ReactNode",
+                "default": "undefined",
+                "description": "App components and children"
+            },
+            {
+                "name": "defaultTheme",
+                "type": "'light' | 'dark' | 'system'",
+                "default": "'system'",
+                "description": "Initial theme mode before localStorage hydration"
+            },
+            {
+                "name": "defaultEnergy",
+                "type": "string",
+                "default": "'dusk-bloom'",
+                "description": "Initial energy palette ID to apply to the document"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Root Layout Setup",
+                "code": "<ElementaProvider defaultTheme=\"system\" defaultEnergy=\"dusk-bloom\">\n  <App />\n</ElementaProvider>"
+            }
+        ]
+    },
+    {
+        "id": "field",
+        "name": "Field",
+        "description": "Composable form field primitives including labels, descriptions, errors, and responsive layouts.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Field component for form layouts, labels, and error messages",
+        "usage": "Use Field to structure form elements with accessible labels, helper descriptions, validation errors, and grouped sets.",
+        "props": [
+            {
+                "name": "orientation",
+                "type": "'vertical' | 'horizontal'",
+                "default": "'vertical'",
+                "description": "Layout alignment for the field label and input"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Form Field",
+                "code": "<Field>\n  <FieldLabel>Email address</FieldLabel>\n  <Input type=\"email\" placeholder=\"you@example.com\" />\n  <FieldDescription>We will never share your email address.</FieldDescription>\n</Field>"
+            },
+            {
+                "title": "Field with Error",
+                "code": "<Field>\n  <FieldLabel>Username</FieldLabel>\n  <Input aria-invalid=\"true\" placeholder=\"username\" />\n  <FieldError>Username is already taken.</FieldError>\n</Field>"
+            }
+        ]
+    },
+    {
+        "id": "hover-card",
+        "name": "Hover Card",
+        "description": "For sighted users to preview content available behind a link or button on hover.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Hover Card component for rich link previews and metadata",
+        "usage": "Use Hover Card to display richer previews or secondary context when hovering over interactive elements.",
+        "props": [
+            {
+                "name": "openDelay",
+                "type": "number",
+                "default": "700",
+                "description": "Duration in milliseconds before card opens on hover"
+            },
+            {
+                "name": "closeDelay",
+                "type": "number",
+                "default": "300",
+                "description": "Duration in milliseconds before card closes on hover exit"
+            },
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled open state"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Hover Card",
+                "code": "<HoverCard>\n  <HoverCardTrigger asChild>\n    <Button variant=\"link\">@deriva</Button>\n  </HoverCardTrigger>\n  <HoverCardContent className=\"w-80\">\n    <div className=\"space-y-1\">\n      <h4 className=\"text-sm font-semibold\">@deriva</h4>\n      <p className=\"text-sm text-text-secondary\">\n        The design engine for high-velocity software engineering.\n      </p>\n    </div>\n  </HoverCardContent>\n</HoverCard>"
             }
         ]
     },
@@ -511,6 +803,82 @@
         ]
     },
     {
+        "id": "input-otp",
+        "name": "Input OTP",
+        "description": "An accessible one-time password component with copy-paste and individual digit slots.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Input OTP component for verification codes and MFA",
+        "usage": "Use Input OTP for two-factor authentication, SMS verification, and PIN entry interfaces.",
+        "props": [
+            {
+                "name": "maxLength",
+                "type": "number",
+                "default": "6",
+                "description": "Total number of code digits allowed"
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "default": "undefined",
+                "description": "Controlled input value"
+            },
+            {
+                "name": "onChange",
+                "type": "(value: string) => void",
+                "default": "undefined",
+                "description": "Callback triggered on OTP character entry"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether OTP input is disabled"
+            }
+        ],
+        "examples": [
+            {
+                "title": "6-Digit OTP Input",
+                "code": "<InputOTP maxLength={6}>\n  <InputOTPGroup>\n    <InputOTPSlot index={0} />\n    <InputOTPSlot index={1} />\n    <InputOTPSlot index={2} />\n  </InputOTPGroup>\n  <InputOTPSeparator />\n  <InputOTPGroup>\n    <InputOTPSlot index={3} />\n    <InputOTPSlot index={4} />\n    <InputOTPSlot index={5} />\n  </InputOTPGroup>\n</InputOTP>"
+            }
+        ]
+    },
+    {
+        "id": "item",
+        "name": "Item",
+        "description": "Composable list item rows with media, content, header, description, and action slots.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Item component for structured list views and settings rows",
+        "usage": "Use Item and ItemGroup to build structured list items, notification rows, settings toggles, and metadata cards.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "'default' | 'outline' | 'muted'",
+                "default": "'default'",
+                "description": "Visual container style"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'sm'",
+                "default": "'default'",
+                "description": "Padding and typography size scale"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Standard Item",
+                "code": "<ItemGroup>\n  <Item>\n    <ItemMedia>\n      <Avatar>\n        <AvatarFallback>AG</AvatarFallback>\n      </Avatar>\n    </ItemMedia>\n    <ItemContent>\n      <ItemTitle>Aayush Goyal</ItemTitle>\n      <ItemDescription>Product Architect</ItemDescription>\n    </ItemContent>\n    <ItemActions>\n      <Button size=\"sm\" variant=\"outline\">Connect</Button>\n    </ItemActions>\n  </Item>\n</ItemGroup>"
+            }
+        ]
+    },
+    {
         "id": "label",
         "name": "Label",
         "description": "Renders an accessible label associated with form controls.",
@@ -540,6 +908,29 @@
             {
                 "title": "Disabled Label",
                 "code": "<div className=\"grid w-full max-w-sm items-center gap-1.5\" data-disabled=\"true\">\n  <Label htmlFor=\"disabled-input\">Disabled Label</Label>\n  <Input id=\"disabled-input\" disabled placeholder=\"Disabled\" />\n</div>"
+            }
+        ]
+    },
+    {
+        "id": "pagination",
+        "name": "Pagination",
+        "description": "Pagination with page navigation, next/previous buttons, and truncation ellipses.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Pagination component for tabular and multi-page navigation",
+        "usage": "Use Pagination to navigate through discrete pages of large data tables, catalogues, and search results.",
+        "props": [
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Pagination",
+                "code": "<Pagination>\n  <PaginationContent>\n    <PaginationItem>\n      <PaginationPrevious href=\"#\" />\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationLink href=\"#\" isActive>1</PaginationLink>\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationLink href=\"#\">2</PaginationLink>\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationLink href=\"#\">3</PaginationLink>\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationEllipsis />\n    </PaginationItem>\n    <PaginationItem>\n      <PaginationNext href=\"#\" />\n    </PaginationItem>\n  </PaginationContent>\n</Pagination>"
             }
         ]
     },
@@ -595,6 +986,86 @@
         ]
     },
     {
+        "id": "progress",
+        "name": "Progress",
+        "description": "Displays an indicator showing the completion progress of a task, typically as a progress bar.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Progress component for visual completion meters",
+        "usage": "Use Progress to provide feedback on ongoing operations, profile completion, or upload progress.",
+        "props": [
+            {
+                "name": "value",
+                "type": "number",
+                "default": "0",
+                "description": "The current progress value between 0 and max"
+            },
+            {
+                "name": "max",
+                "type": "number",
+                "default": "100",
+                "description": "Maximum progress value"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Progress",
+                "code": "<Progress value={45} className=\"w-[60%]\" />"
+            },
+            {
+                "title": "Completed Progress",
+                "code": "<Progress value={100} className=\"w-[60%]\" />"
+            }
+        ]
+    },
+    {
+        "id": "radio-group",
+        "name": "Radio Group",
+        "description": "A set of checkable buttons—known as radio buttons—where no more than one button can be checked at a time.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Radio Group component for single-choice option sets",
+        "usage": "Use Radio Group when users must choose exactly one option from a visible set of alternatives.",
+        "props": [
+            {
+                "name": "value",
+                "type": "string",
+                "default": "undefined",
+                "description": "Controlled value of the selected radio button"
+            },
+            {
+                "name": "defaultValue",
+                "type": "string",
+                "default": "undefined",
+                "description": "Initial value when uncontrolled"
+            },
+            {
+                "name": "onValueChange",
+                "type": "(value: string) => void",
+                "default": "undefined",
+                "description": "Event handler called when the selected value changes"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether the radio group is disabled"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Radio Group",
+                "code": "<RadioGroup defaultValue=\"compact\">\n  <div className=\"flex items-center space-x-2\">\n    <RadioGroupItem value=\"default\" id=\"r1\" />\n    <Label htmlFor=\"r1\">Default</Label>\n  </div>\n  <div className=\"flex items-center space-x-2\">\n    <RadioGroupItem value=\"compact\" id=\"r2\" />\n    <Label htmlFor=\"r2\">Compact</Label>\n  </div>\n</RadioGroup>"
+            }
+        ]
+    },
+    {
         "id": "scroll-indicator",
         "name": "Scroll Indicator",
         "description": "An animated scroll indicator prompting users to explore content below the fold.",
@@ -607,6 +1078,47 @@
             {
                 "title": "Hero Scroll Indicator",
                 "code": "<div className=\"relative h-screen flex items-center justify-center\">\n  <h1>Welcome to Elementa UI</h1>\n  <ScrollIndicator />\n</div>"
+            }
+        ]
+    },
+    {
+        "id": "select",
+        "name": "Select",
+        "description": "Displays a list of options for the user to pick from—triggered by a button.",
+        "version": "0.5.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Select dropdown component for single value selection",
+        "usage": "Use Select when you need a dropdown to allow users to select a single value from a list of options.",
+        "props": [
+            {
+                "name": "value",
+                "type": "string",
+                "default": "undefined",
+                "description": "Controlled value of the selected item"
+            },
+            {
+                "name": "defaultValue",
+                "type": "string",
+                "default": "undefined",
+                "description": "Default selected value when uncontrolled"
+            },
+            {
+                "name": "onValueChange",
+                "type": "(value: string) => void",
+                "default": "undefined",
+                "description": "Event handler called when selected value changes"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether the select is disabled"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Select",
+                "code": "<Select>\n  <SelectTrigger className=\"w-[180px]\">\n    <SelectValue placeholder=\"Theme\" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectItem value=\"light\">Light</SelectItem>\n    <SelectItem value=\"dark\">Dark</SelectItem>\n    <SelectItem value=\"system\">System</SelectItem>\n  </SelectContent>\n</Select>"
             }
         ]
     },
@@ -646,6 +1158,99 @@
             {
                 "title": "Vertical Separator",
                 "code": "<div className=\"flex h-5 items-center space-x-4 text-sm\">\n  <div>Blog</div>\n  <Separator orientation=\"vertical\" />\n  <div>Docs</div>\n  <Separator orientation=\"vertical\" />\n  <div>Source</div>\n</div>"
+            }
+        ]
+    },
+    {
+        "id": "sheet",
+        "name": "Sheet",
+        "description": "Extends the Dialog component to display content that complements the main screen, anchored to viewport edges.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Sheet component for sliding sidebar overlays",
+        "usage": "Use Sheet for supplementary content, filters, settings, and navigation drawers that slide in from any edge.",
+        "props": [
+            {
+                "name": "side",
+                "type": "'top' | 'bottom' | 'left' | 'right'",
+                "default": "'right'",
+                "description": "Edge of the screen where the sheet appears"
+            },
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled open state"
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(open: boolean) => void",
+                "default": "undefined",
+                "description": "Callback triggered when open state changes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Side Sheet",
+                "code": "<Sheet>\n  <SheetTrigger asChild>\n    <Button variant=\"outline\">Open Sheet</Button>\n  </SheetTrigger>\n  <SheetContent side=\"right\">\n    <SheetHeader>\n      <SheetTitle>Edit Profile</SheetTitle>\n      <SheetDescription>\n        Make changes to your profile here. Click save when you are done.\n      </SheetDescription>\n    </SheetHeader>\n    <div className=\"py-4\">Profile Form</div>\n    <SheetFooter>\n      <SheetClose asChild>\n        <Button type=\"submit\">Save changes</Button>\n      </SheetClose>\n    </SheetFooter>\n  </SheetContent>\n</Sheet>"
+            }
+        ]
+    },
+    {
+        "id": "sidebar",
+        "name": "Sidebar",
+        "description": "A composable, responsive sidebar component with collapsible states and mobile drawer integration.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Sidebar component for responsive application navigation",
+        "usage": "Use Sidebar to provide comprehensive vertical navigation for dashboard and enterprise application shells.",
+        "props": [
+            {
+                "name": "collapsible",
+                "type": "'offcanvas' | 'icon' | 'none'",
+                "default": "'offcanvas'",
+                "description": "Collapse behavior on desktop and mobile"
+            },
+            {
+                "name": "variant",
+                "type": "'sidebar' | 'floating' | 'inset'",
+                "default": "'sidebar'",
+                "description": "Visual presentation style"
+            },
+            {
+                "name": "side",
+                "type": "'left' | 'right'",
+                "default": "'left'",
+                "description": "Edge where the sidebar is docked"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Application Sidebar Shell",
+                "code": "<SidebarProvider>\n  <Sidebar>\n    <SidebarHeader>\n      <h3 className=\"font-semibold\">Elementa</h3>\n    </SidebarHeader>\n    <SidebarContent>\n      <SidebarGroup>\n        <SidebarGroupLabel>Menu</SidebarGroupLabel>\n        <SidebarGroupContent>\n          <SidebarMenu>\n            <SidebarMenuItem>\n              <SidebarMenuButton asChild>\n                <a href=\"#\">Dashboard</a>\n              </SidebarMenuButton>\n            </SidebarMenuItem>\n          </SidebarMenu>\n        </SidebarGroupContent>\n      </SidebarGroup>\n    </SidebarContent>\n    <SidebarFooter />\n  </Sidebar>\n  <SidebarInset>\n    <SidebarTrigger />\n  </SidebarInset>\n</SidebarProvider>"
+            }
+        ]
+    },
+    {
+        "id": "skeleton",
+        "name": "Skeleton",
+        "description": "Use to show a placeholder while content is loading with an animated shimmer effect.",
+        "version": "0.3.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Skeleton component for loading placeholder animations",
+        "usage": "Use Skeleton to reduce perceived loading time by previewing layout structure before data resolves.",
+        "props": [
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Classes determining width, height, and border radius"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Card Skeleton",
+                "code": "<div className=\"flex items-center space-x-4\">\n  <Skeleton className=\"h-12 w-12 rounded-full\" />\n  <div className=\"space-y-2\">\n    <Skeleton className=\"h-4 w-[250px]\" />\n    <Skeleton className=\"h-4 w-[200px]\" />\n  </div>\n</div>"
             }
         ]
     },
@@ -752,6 +1357,105 @@
         ]
     },
     {
+        "id": "spinner",
+        "name": "Spinner",
+        "description": "An animated loading spinner indicator for pending operations.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Spinner component for async action loading states",
+        "usage": "Use Spinner inside buttons, cards, or screens to signify an active background task.",
+        "props": [
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "CSS classes for sizing and coloring"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Button with Spinner",
+                "code": "<Button disabled>\n  <Spinner className=\"mr-2 size-4\" />\n  Please wait\n</Button>"
+            }
+        ]
+    },
+    {
+        "id": "stepper",
+        "name": "Stepper",
+        "description": "A progress component that guides users through numbered, sequential steps.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Stepper component for multi-step progress indicators",
+        "usage": "Use Stepper to communicate progress through sequential processes, checkouts, and onboarding wizards.",
+        "props": [
+            {
+                "name": "currentStep",
+                "type": "number",
+                "default": "1",
+                "description": "Active step index (1-based)"
+            },
+            {
+                "name": "onStepChange",
+                "type": "(step: number) => void",
+                "default": "undefined",
+                "description": "Callback triggered when a step is clicked"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Stepper",
+                "code": "<Stepper currentStep={1}>\n  <StepperIndicatorList>\n    <StepperIndicatorListItem step={1} title=\"Account\" />\n    <StepperIndicatorListItem step={2} title=\"Profile\" />\n    <StepperIndicatorListItem step={3} title=\"Review\" />\n  </StepperIndicatorList>\n  <StepperContent>\n    <StepperContentItem step={1}>Account step content</StepperContentItem>\n  </StepperContent>\n</Stepper>"
+            }
+        ]
+    },
+    {
+        "id": "switch",
+        "name": "Switch",
+        "description": "A control that allows the user to toggle between checked and not checked states.",
+        "version": "0.4.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Switch component for binary on/off settings",
+        "usage": "Use Switch for binary preferences, settings, and instant toggle actions.",
+        "props": [
+            {
+                "name": "checked",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled checked state"
+            },
+            {
+                "name": "defaultChecked",
+                "type": "boolean",
+                "default": "false",
+                "description": "Initial state when uncontrolled"
+            },
+            {
+                "name": "onCheckedChange",
+                "type": "(checked: boolean) => void",
+                "default": "undefined",
+                "description": "Callback called when toggle state changes"
+            },
+            {
+                "name": "disabled",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether switch is disabled"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'sm'",
+                "default": "'default'",
+                "description": "Size scale of the switch"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Switch",
+                "code": "<div className=\"flex items-center space-x-2\">\n  <Switch id=\"notifications\" />\n  <Label htmlFor=\"notifications\">Enable notifications</Label>\n</div>"
+            }
+        ]
+    },
+    {
         "id": "table",
         "name": "Table",
         "description": "A responsive and accessible table component with styled headers, rows, cells, and caption support.",
@@ -771,6 +1475,82 @@
             {
                 "title": "Basic Table",
                 "code": "<Table>\n  <TableHeader>\n    <TableRow>\n      <TableHead>Invoice</TableHead>\n      <TableHead>Status</TableHead>\n      <TableHead>Method</TableHead>\n      <TableHead className=\"text-right\">Amount</TableHead>\n    </TableRow>\n  </TableHeader>\n  <TableBody>\n    <TableRow>\n      <TableCell className=\"font-medium\">INV001</TableCell>\n      <TableCell>Paid</TableCell>\n      <TableCell>Credit Card</TableCell>\n      <TableCell className=\"text-right\">$250.00</TableCell>\n    </TableRow>\n  </TableBody>\n</Table>"
+            }
+        ]
+    },
+    {
+        "id": "tabs",
+        "name": "Tabs",
+        "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+        "version": "0.5.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Tabs component for segmented content panels",
+        "usage": "Use Tabs to partition content into logical panels within the same page context.",
+        "props": [
+            {
+                "name": "defaultValue",
+                "type": "string",
+                "default": "undefined",
+                "description": "Default active tab value when uncontrolled"
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "default": "undefined",
+                "description": "Controlled active tab value"
+            },
+            {
+                "name": "onValueChange",
+                "type": "(value: string) => void",
+                "default": "undefined",
+                "description": "Event handler called when tab changes"
+            },
+            {
+                "name": "orientation",
+                "type": "'horizontal' | 'vertical'",
+                "default": "'horizontal'",
+                "description": "Orientation of tab list"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Tabs",
+                "code": "<Tabs defaultValue=\"account\" className=\"w-[400px]\">\n  <TabsList>\n    <TabsTrigger value=\"account\">Account</TabsTrigger>\n    <TabsTrigger value=\"password\">Password</TabsTrigger>\n  </TabsList>\n  <TabsContent value=\"account\">Manage your account here.</TabsContent>\n  <TabsContent value=\"password\">Change your password here.</TabsContent>\n</Tabs>"
+            }
+        ]
+    },
+    {
+        "id": "text",
+        "name": "Text",
+        "description": "Typography component with semantic variants adhering to Elementa design tokens.",
+        "version": "0.9.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Text typography component with variant mapping",
+        "usage": "Use Text to display headings, body copy, and subtitles consistent with the active design system.",
+        "props": [
+            {
+                "name": "variant",
+                "type": "TextVariant",
+                "default": "TextVariant.Body",
+                "description": "Typography scale variant (H1-H6, Body, Subtitle1-2, Caption, Mono)"
+            },
+            {
+                "name": "color",
+                "type": "string",
+                "default": "undefined",
+                "description": "Custom color override class"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS classes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Headings and Body",
+                "code": "<Text variant={TextVariant.H1}>Design System</Text>\n<Text variant={TextVariant.Body}>Crafted with high intentionality and performance.</Text>"
             }
         ]
     },
@@ -810,6 +1590,53 @@
             {
                 "title": "Disabled Textarea",
                 "code": "<Textarea disabled placeholder=\"Disabled message input\" />"
+            }
+        ]
+    },
+    {
+        "id": "toggle",
+        "name": "Toggle",
+        "description": "A two-state button that can be either on or off.",
+        "version": "0.5.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Toggle button component for pressable state toggling",
+        "usage": "Use Toggle for standalone two-state actions like bolding text or muting audio.",
+        "props": [
+            {
+                "name": "pressed",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled pressed state"
+            },
+            {
+                "name": "defaultPressed",
+                "type": "boolean",
+                "default": "false",
+                "description": "Initial state when uncontrolled"
+            },
+            {
+                "name": "onPressedChange",
+                "type": "(pressed: boolean) => void",
+                "default": "undefined",
+                "description": "Callback called when pressed state toggles"
+            },
+            {
+                "name": "variant",
+                "type": "'default' | 'outline'",
+                "default": "'default'",
+                "description": "Visual styling variant"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'sm' | 'lg'",
+                "default": "'default'",
+                "description": "Size scale of the toggle"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Toggle",
+                "code": "<Toggle aria-label=\"Toggle bold\">\n  Bold\n</Toggle>"
             }
         ]
     },
@@ -861,6 +1688,41 @@
             {
                 "title": "Outline with Spacing",
                 "code": "<ToggleGroup type=\"multiple\" variant=\"outline\" spacing={2}>\n  <ToggleGroupItem value=\"bold\">Bold</ToggleGroupItem>\n  <ToggleGroupItem value=\"italic\">Italic</ToggleGroupItem>\n  <ToggleGroupItem value=\"underline\">Underline</ToggleGroupItem>\n</ToggleGroup>"
+            }
+        ]
+    },
+    {
+        "id": "tooltip",
+        "name": "Tooltip",
+        "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-09-25",
+        "thumbnail": "Tooltip component for floating contextual help text",
+        "usage": "Use Tooltip to clarify icon buttons, keyboard shortcuts, or brief contextual hints.",
+        "props": [
+            {
+                "name": "delayDuration",
+                "type": "number",
+                "default": "0",
+                "description": "Duration in milliseconds before tooltip appears"
+            },
+            {
+                "name": "open",
+                "type": "boolean",
+                "default": "undefined",
+                "description": "Controlled open state"
+            },
+            {
+                "name": "onOpenChange",
+                "type": "(open: boolean) => void",
+                "default": "undefined",
+                "description": "Callback triggered on open state change"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Default Tooltip",
+                "code": "<TooltipProvider>\n  <Tooltip>\n    <TooltipTrigger asChild>\n      <Button variant=\"outline\">Hover me</Button>\n    </TooltipTrigger>\n    <TooltipContent>\n      <p>Contextual tip</p>\n    </TooltipContent>\n  </Tooltip>\n</TooltipProvider>"
             }
         ]
     }
