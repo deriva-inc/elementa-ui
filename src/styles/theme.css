@@ -254,8 +254,9 @@
 }
 /* !SECTION: Semantic Mapping */
 
-/* SECTION: THEME - AMBER WHITE */
-:root, :host, [data-theme="light"] {
+@layer base {
+	/* SECTION: THEME - AMBER WHITE */
+	:root, :host, [data-theme="light"] {
 		/* SECTION: Dimensions */
 		--radius: 0.625rem;
 		--radius-sm: calc(var(--radius) * 0.6);
@@ -392,3 +393,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: THEME - GUN METAL */
+}

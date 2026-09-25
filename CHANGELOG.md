@@ -1,4 +1,10 @@
 # CHANGELOG
+### [1.67.1] - 2026-09-26
+---
+#### Fixed
+- Re-wrap theme variable definitions (`:root, :host`, `.dark`) in `src/styles/theme.css` inside `@layer base` to restore proper CSS cascade order and allow Tailwind utility class overrides.
+- Re-wrap all 10 energy stylesheets in `src/styles/energies/` inside `@layer base` to prevent unlayered CSS variable rules from overriding component styling.
+
 ### [1.67.0] - 2026-09-26
 ---
 #### Added

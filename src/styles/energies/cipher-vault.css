@@ -1,3 +1,4 @@
+@layer base {
 	/* SECTION: ENERGY - CIPHER VAULT (Electric Violet + Matcha Sage) */
 	[data-energy="cipher-vault"] {
 		/* SECTION: LAYER 1: BASE */
@@ -74,3 +75,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - CIPHER VAULT (Electric Violet + Matcha Sage) */
+}

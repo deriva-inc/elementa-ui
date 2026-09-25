@@ -1,3 +1,4 @@
+@layer base {
 	/* SECTION: ENERGY - ZEN TOOLKIT (Matcha Sage + Dusty Rose) */
 	[data-energy="zen-toolkit"] {
 		/* SECTION: LAYER 1: BASE */
@@ -74,3 +75,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - ZEN TOOLKIT (Matcha Sage + Dusty Rose) */
+}

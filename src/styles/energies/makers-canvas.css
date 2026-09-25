@@ -1,3 +1,4 @@
+@layer base {
 	/* SECTION: ENERGY - MAKER'S CANVAS (Terracotta Rust + Matcha Sage) */
 	[data-energy="makers-canvas"] {
 		/* SECTION: LAYER 1: BASE */
@@ -74,3 +75,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - MAKERS CANVAS (Terracotta Rust + Matcha Sage) */
+}

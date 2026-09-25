@@ -1,3 +1,4 @@
+@layer base {
 	/* SECTION: ENERGY - DUST BLOOM (Electric Violet + Dusty Rose) */
 	[data-energy="dusk-bloom"] {
 		/* SECTION: LAYER 1: BASE */
@@ -74,3 +75,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - DUSK BLOOM (Electric Violet + Dusty Rose) */
+}

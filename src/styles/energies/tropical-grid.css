@@ -1,3 +1,4 @@
+@layer base {
 	/* SECTION: ENERGY - TROPICAL GRID (Matcha Sage + Golden Hour) */
 	[data-energy="tropical-grid"] {
 		/* SECTION: LAYER 1: BASE */
@@ -74,3 +75,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - TROPICAL GRID (Matcha Sage + Golden Hour) */
+}

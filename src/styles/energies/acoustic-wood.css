@@ -1,3 +1,4 @@
+@layer base {
 	/* SECTION: ENERGY - ACOUSTIC WOOD (Terracotta Rust + Dusty Rose) */
 	[data-energy="acoustic-wood"] {
 		/* SECTION: LAYER 1: BASE */
@@ -74,3 +75,4 @@
 		/* !SECTION: LAYER 3: ACTIVE */
 	}
 	/* !SECTION: ENERGY - SUMMER FRUIT (Hot Pink + Acid Lime) */
+}
