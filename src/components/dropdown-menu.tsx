@@ -1,11 +1,17 @@
 'use client';
 
-import * as React from 'react';
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Dropdown Menu component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function DropdownMenu({
     ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
@@ -277,18 +283,18 @@ function DropdownMenuSubContent({
 
 export {
     DropdownMenu,
-    DropdownMenuPortal,
-    DropdownMenuTrigger,
+    DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuGroup,
-    DropdownMenuLabel,
     DropdownMenuItem,
-    DropdownMenuCheckboxItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuSeparator,
     DropdownMenuShortcut,
     DropdownMenuSub,
+    DropdownMenuSubContent,
     DropdownMenuSubTrigger,
-    DropdownMenuSubContent
+    DropdownMenuTrigger
 };

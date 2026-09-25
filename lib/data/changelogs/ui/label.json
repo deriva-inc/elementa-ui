@@ -3,11 +3,14 @@
     "name": "Label",
     "versions": [
         {
+            "version": "0.4.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
             "version": "0.3.0",
             "date": "2026-04-17",
-            "changes": [
-                "Update Avatar component with elementa design branding."
-            ]
+            "changes": ["Update Label component with elementa design branding."]
         },
         {
             "version": "0.2.0",

@@ -1,0 +1,24 @@
+{
+    "id": "button-group",
+    "name": "Button Group",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-17",
+            "changes": ["Update Button Group separator background color."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-15",
+            "changes": [
+                "Initial component for rendering a button group.",
+                "Used elementa design specifications."
+            ]
+        }
+    ]
+}

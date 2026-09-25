@@ -1,0 +1,34 @@
+{
+    "id": "tabs",
+    "name": "Tabs",
+    "versions": [
+        {
+            "version": "0.5.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.4.0",
+            "date": "2026-04-21",
+            "changes": ["Fix focus ring border colors."]
+        },
+        {
+            "version": "0.3.0",
+            "date": "2026-04-20",
+            "changes": ["Update styles for the active tab."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-17",
+            "changes": ["Update cursor style on disabled state."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-17",
+            "changes": [
+                "Initial component for tab navigation and panel switching.",
+                "Used shadcn Tabs component with elementa design specs."
+            ]
+        }
+    ]
+}

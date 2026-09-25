@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { motion, useTime, useTransform } from 'motion/react';
 import React, { useId } from 'react';
+import { cn } from '../../../lib/utils';
 
 export interface SquigglyTextProps {
     /**
@@ -51,9 +51,9 @@ export interface SquigglyTextProps {
 /**
  * This funciton renders the {@link SquigglyText} text block component.
  *
+ * @version 0.2.0
  * @author Aayush Goyal
- * @version 0.1.0
- * @created 2026-09-19
+ * @modified 2026-09-25
  */
 export function SquigglyText({
     children,

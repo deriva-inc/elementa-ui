@@ -1,0 +1,24 @@
+{
+    "id": "item",
+    "name": "Item",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-05-28",
+            "changes": ["Update feedback colors on theme and item components."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial component for rendering list items and item groups.",
+                "Used elementa design specifications."
+            ]
+        }
+    ]
+}

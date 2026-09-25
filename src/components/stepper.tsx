@@ -2,9 +2,16 @@
 'use client';
 
 import React, { createContext, useContext, useState } from 'react';
-import { Text } from '@/src/components/text';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
+import { Text } from './text';
 
+/**
+ * This function renders an Stepper component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 /**
  * This interface defines the context for the Stepper component.
  */
@@ -199,8 +206,8 @@ const Stepper: React.FC<StepperProps> = (props) => {
 // export default Stepper;
 export {
     Stepper,
-    StepperIndicatorList,
-    StepperIndicatorListItem,
     StepperContent,
-    StepperContentItem
+    StepperContentItem,
+    StepperIndicatorList,
+    StepperIndicatorListItem
 };

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { THEME } from '@/lib/types/enums';
+import { THEME } from '../types/enums';
 import { create } from 'zustand';
 
 /**

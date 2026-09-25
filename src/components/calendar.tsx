@@ -1,7 +1,5 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { Button, buttonVariants } from '@/src/components/button';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'elementa-icons';
 import * as React from 'react';
 import {
@@ -10,13 +8,15 @@ import {
     type DayButton,
     type Locale
 } from 'react-day-picker';
+import { cn } from '../../lib/utils';
+import { Button, buttonVariants } from './button';
 
 /**
  * This function renders a Calendar component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modifiedAt 2026-04-22
+ * @modified 2026-09-25
  */
 function Calendar({
     className,

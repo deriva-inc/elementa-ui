@@ -1,7 +1,7 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+import { cn } from '../../lib/utils';
 
 export enum TextVariant {
     H1,
@@ -27,6 +27,10 @@ export interface TextProps {
 
 /**
  * This function renders the Text component for the library.
+ *
+ * @version 0.9.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
  */
 export function Text({
     variant = TextVariant.Body,

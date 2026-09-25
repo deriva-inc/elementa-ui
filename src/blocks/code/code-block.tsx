@@ -1,11 +1,5 @@
 'use client';
 
-import useUserPreferenceStore from '@/lib/store/user-preference-store';
-import { copyToClipboard } from '@/lib/text';
-import { CODE_LANGUAGES } from '@/lib/types/enums';
-import { Badge } from '@/src/components/badge';
-import { Button } from '@/src/components/button';
-import { Text } from '@/src/components/text';
 import { Check, Copy } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -13,13 +7,19 @@ import {
     atomOneDark,
     atomOneLight
 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import useUserPreferenceStore from '../../../lib/store/user-preference-store';
+import { copyToClipboard } from '../../../lib/text';
+import { CODE_LANGUAGES } from '../../../lib/types/enums';
+import { Badge } from '../../components/badge';
+import { Button } from '../../components/button';
+import { Text } from '../../components/text';
 
 /**
  * This component renders a code block with syntax highlighting and copy functionality.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @created 2026-08-25
+ * @modifed 2026-09-25
  */
 
 interface CodeBlockProps {

@@ -1,11 +1,16 @@
 import { ChevronLeft, ChevronRight } from 'elementa-icons';
-import * as React from 'react';
-
 import { MoreHorizontalIcon } from 'lucide-react';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
+import { Button } from './button';
 
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
-
+/**
+ * This function renders a Pagination component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
     return (
         <nav

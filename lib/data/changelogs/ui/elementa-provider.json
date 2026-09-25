@@ -1,0 +1,20 @@
+{
+    "id": "elementa-provider",
+    "name": "ElementaProvider",
+    "versions": [
+        {
+            "version": "0.2.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "1.0.0",
+            "date": "2026-09-25",
+            "changes": [
+                "Initial implementation of ElementaProvider context.",
+                "Automates synchronization of theme and energy with HTML document attributes and localStorage.",
+                "Adds useElementa hook for programmatic theme and energy switching."
+            ]
+        }
+    ]
+}

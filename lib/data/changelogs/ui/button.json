@@ -3,6 +3,11 @@
     "name": "Button",
     "versions": [
         {
+            "version": "0.11.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
             "version": "0.10.0",
             "date": "2026-09-25",
             "changes": ["Fix asChild delegation"]

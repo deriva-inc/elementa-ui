@@ -1,15 +1,15 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { Slider as SliderPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
 
 /**
  * This function renders a Slider component for the elementa-ui.
  *
  * @author Aayush Goyal
- * @version 0.1.0
- * @modifiedAt 2026-04-21
+ * @version 0.2.0
+ * @modified 2026-09-25
  */
 function Slider({
     className,

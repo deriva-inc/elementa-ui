@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
 import { Progress as ProgressPrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Progress component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function Progress({
     className,
     value,

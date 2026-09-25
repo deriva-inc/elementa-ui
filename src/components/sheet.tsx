@@ -1,12 +1,18 @@
 'use client';
 
-import * as React from 'react';
-import { Dialog as SheetPrimitive } from 'radix-ui';
-
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
 import { Cancel } from 'elementa-icons';
+import { Dialog as SheetPrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
+import { Button } from './button';
 
+/**
+ * This function renders a Sheet component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
     return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }
@@ -140,11 +146,11 @@ function SheetDescription({
 
 export {
     Sheet,
-    SheetTrigger,
     SheetClose,
     SheetContent,
-    SheetHeader,
+    SheetDescription,
     SheetFooter,
+    SheetHeader,
     SheetTitle,
-    SheetDescription
+    SheetTrigger
 };

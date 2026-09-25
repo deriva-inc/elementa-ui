@@ -1,0 +1,29 @@
+{
+    "id": "switch",
+    "name": "Switch",
+    "versions": [
+        {
+            "version": "0.4.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.3.0",
+            "date": "2026-05-28",
+            "changes": ["Update checked state accent color."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-21",
+            "changes": ["Update focus ring border color."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-20",
+            "changes": [
+                "Initial component for toggle switch controls.",
+                "Used shadcn Switch component with elementa styling."
+            ]
+        }
+    ]
+}

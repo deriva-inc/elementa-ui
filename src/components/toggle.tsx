@@ -1,11 +1,17 @@
 'use client';
 
-import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Toggle as TogglePrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Toggle component for the elementa-ui.
+ *
+ * @version 0.5.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 const toggleVariants = cva(
     "group/toggle inline-flex cursor-pointer text-text-primary font-body items-center justify-center gap-1 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none hover:bg-bg-active-primary focus-visible:border-stroke-active-primary focus-visible:ring-[3px] focus-visible:ring-stroke-active-secondary disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-stroke-destructive aria-invalid:ring-bg-fill-destructive aria-invalid:text-text-destructive disabled:border-stroke-disabled disabled:text-text-disabled aria-checked:bg-bg-active-secondary aria-pressed:bg-bg-active-secondary data-[state=on]:bg-bg-active-secondary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
     {

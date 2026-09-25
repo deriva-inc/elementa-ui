@@ -1,15 +1,15 @@
 'use client';
 
-import {
-    getDataFromLocalStorage,
-    setDataInLocalStorage
-} from '@/lib/local-storage';
-import useUserPreferenceStore from '@/lib/store/user-preference-store';
-import { THEME } from '@/lib/types/enums';
-import { ToggleGroup, ToggleGroupItem } from '@/src/components/toggle-group';
 import { Monitor, Moon, Sun } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
+import {
+    getDataFromLocalStorage,
+    setDataInLocalStorage
+} from '../../lib/local-storage';
+import useUserPreferenceStore from '../../lib/store/user-preference-store';
+import { THEME } from '../../lib/types/enums';
+import { ToggleGroup, ToggleGroupItem } from '../components/toggle-group';
 
 export type TransitionVariant =
     | 'circle'
@@ -38,9 +38,9 @@ const applyThemeToDocument = (themeValue: string) => {
 /**
  * This function renders the Theme Switcher component of the app.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @created 2026-09-19
+ * @modifed 2026-09-25
  */
 export default function ThemeSwitcher({
     duration = 500,

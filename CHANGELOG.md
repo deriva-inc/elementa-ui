@@ -1,4 +1,19 @@
 # CHANGELOG
+### [1.66.0] - 2026-09-25
+---
+#### Added
+- Add missing component changelogs in `lib/data/changelogs/ui/` for all UI primitives.
+- Add `src/styles/lenis.css` stylesheet for Lenis smooth scroll integration.
+- Export `COLOR_MAP` from `lib/constants.ts`.
+
+#### Changed
+- Migrate all internal imports across `src/components/`, `src/blocks/`, and `lib/` from `@/lib/...` alias paths to relative paths to ensure clean TypeScript `.d.ts` declaration generation.
+- Refactor Rollup bundling pipeline in `rollup.config.mjs` to assemble a self-contained `dist/styles.css` preserving `@theme inline` design tokens, animations, all 10 energies, and CDN font imports.
+- Update `lenis` dependency to `^1.3.26` and add `next` dependency.
+
+#### Fixed
+- Restore Tailwind CSS v4 IntelliSense autocomplete for all Elementa design tokens by retaining unstripped `@theme` and `@theme inline` blocks in distributed styles.
+
 ### [1.65.0] - 2024-09-25
 ---
 #### Added

@@ -2,7 +2,7 @@
  * This file contains all the type definitions for the model/entities used in the application.
  */
 
-import { ENERGY } from '@/lib/types/enums';
+import { ENERGY } from './enums';
 
 interface AppPlatform {
     id: string;

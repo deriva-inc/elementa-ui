@@ -1,0 +1,24 @@
+{
+    "id": "sidebar",
+    "name": "Sidebar",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-10",
+            "changes": ["Sidebar now works on screen size above 1024px."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-02-27",
+            "changes": [
+                "Initial component for rendering a sidebar.",
+                "Used shadcn Sidebar component."
+            ]
+        }
+    ]
+}

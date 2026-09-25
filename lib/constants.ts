@@ -1,5 +1,5 @@
-import { ENERGY } from '@/lib/types/enums';
-import { AppPlatform, ColorMapping, UIEnergy } from '@/lib/types/model';
+import { ENERGY } from './types/enums';
+import { AppPlatform, ColorMapping, UIEnergy } from './types/model';
 
 const COLOR_MAP: ColorMapping = {
     ELECTRIC_VIOLET: {
@@ -193,4 +193,4 @@ const APP_PLATFORMS: AppPlatform[] = [
     }
 ];
 
-export { APP_PLATFORMS, ENERGY_THEMES };
+export { APP_PLATFORMS, COLOR_MAP, ENERGY_THEMES };

@@ -3,6 +3,11 @@
     "name": "Avatar",
     "versions": [
         {
+            "version": "0.6.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
             "version": "0.5.0",
             "date": "2026-04-20",
             "changes": ["Update border color with accent primary."]

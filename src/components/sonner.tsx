@@ -1,16 +1,16 @@
 'use client';
 
-import useUIStore from '@/lib/store/user-preference-store';
 import { Info, TickCloud } from 'elementa-icons';
 import { Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';
 import { Toaster as Sonner, type ToasterProps } from 'sonner';
+import useUIStore from '../../lib/store/user-preference-store';
 
 /**
  * This function renders a custom Sonner toast component for the elementa-ui.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modifiedAt 2026-08-25
+ * @modified 2026-09-25
  */
 const Toaster = ({ ...props }: ToasterProps) => {
     const theme = useUIStore((state) => state.theme);

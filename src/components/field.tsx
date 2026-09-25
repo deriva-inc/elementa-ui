@@ -1,12 +1,18 @@
 'use client';
 
-import { useMemo } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { useMemo } from 'react';
+import { cn } from '../../lib/utils';
+import { Label } from './label';
+import { Separator } from './separator';
 
-import { cn } from '@/lib/utils';
-import { Label } from '@/src/components/label';
-import { Separator } from '@/src/components/separator';
-
+/**
+ * This function renders a Field component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'>) {
     return (
         <fieldset
@@ -190,9 +196,9 @@ function FieldError({
             return null;
         }
 
-        const uniqueErrors = [
-            ...new Map(errors.map((error) => [error?.message, error])).values()
-        ];
+        const uniqueErrors = Array.from(
+            new Map(errors.map((error) => [error?.message, error])).values()
+        );
 
         if (uniqueErrors?.length == 1) {
             return uniqueErrors[0]?.message;
@@ -229,13 +235,13 @@ function FieldError({
 
 export {
     Field,
-    FieldLabel,
+    FieldContent,
     FieldDescription,
     FieldError,
     FieldGroup,
+    FieldLabel,
     FieldLegend,
     FieldSeparator,
     FieldSet,
-    FieldContent,
     FieldTitle
 };

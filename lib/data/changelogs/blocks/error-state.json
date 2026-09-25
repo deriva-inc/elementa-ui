@@ -3,6 +3,11 @@
     "name": "Error State",
     "versions": [
         {
+            "version": "0.2.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
             "version": "0.1.0",
             "date": "2026-04-22",
             "changes": [

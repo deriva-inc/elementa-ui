@@ -1,17 +1,17 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
 import { Cancel } from 'elementa-icons';
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
+import { Button } from './button';
 
 /**
  * This function renders a Dialog component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modifiedAt 2026-09-20
+ * @modified 2026-09-25
  */
 function Dialog({
     ...props

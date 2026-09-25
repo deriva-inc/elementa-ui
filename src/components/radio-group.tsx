@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders an Avatar component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function RadioGroup({
     className,
     ...props

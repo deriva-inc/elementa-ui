@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
 import { OTPInput, OTPInputContext } from 'input-otp';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders an Input OTP component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 const InputOTPDisabledContext = React.createContext({
     isDisabled: false
 });
@@ -94,4 +100,4 @@ function InputOTPSeparator({ ...props }: React.ComponentProps<'div'>) {
     );
 }
 
-export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };
+export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot };

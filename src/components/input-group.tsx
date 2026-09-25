@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
 import { Button } from './button';
 import { Input } from './input';
 import { Textarea } from './textarea';
@@ -10,9 +10,9 @@ import { Textarea } from './textarea';
 /**
  * This function renders an Input Group component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modifiedAt 2026-04-22
+ * @modified 2026-09-25
  */
 function InputGroup({ className, ...props }: React.ComponentProps<'div'>) {
     return (

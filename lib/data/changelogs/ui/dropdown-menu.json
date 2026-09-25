@@ -1,0 +1,27 @@
+{
+    "id": "dropdown-menu",
+    "name": "Dropdown Menu",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Segrgate tailwind classes logically.",
+                "Update component with elementa design guidelines."
+            ]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-22",
+            "changes": [
+                "Initial component for rendering a dropdown menu.",
+                "Used Radix UI dropdown primitive with elementa design specs."
+            ]
+        }
+    ]
+}

@@ -1,21 +1,17 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { Label } from '@/src/components/label';
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger
-} from '@/src/components/popover';
 import { Check, ChevronDown, Copy, Pipette } from 'lucide-react';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
+import { Label } from './label';
+import { Popover, PopoverContent, PopoverTrigger } from './popover';
 
 /**
  * This function renders a Color Picker component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modifiedAt 2026-09-20
+ * @modified 2026-09-25
  */
 
 export interface ColorPickerProps {
@@ -767,8 +763,8 @@ function ColorStudio({
  * format switcher, and compact responsive layouts for tight spaces.
  *
  * @author Aayush Goyal
- * @version 2.0.0
- * @modifiedAt 2026-09-20
+ * @version 0.2.0
+ * @modified 2026-09-25
  */
 export function ColorPicker({
     value = '#EF767A',

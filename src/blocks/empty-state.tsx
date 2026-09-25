@@ -1,18 +1,19 @@
 'use client';
 
-import { ENERGY_THEMES } from '@/lib/constants';
-import useUIStore from '@/lib/store/user-preference-store';
-import { UIEnergy } from '@/lib/types/model';
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
-import { Text, TextVariant } from '@/src/components/text';
 import { useEffect, useState } from 'react';
+import { ENERGY_THEMES } from '../../lib/constants';
+import useUIStore from '../../lib/store/user-preference-store';
+import { UIEnergy } from '../../lib/types/model';
+import { cn } from '../../lib/utils';
+import { Button } from '../components/button';
+import { Text, TextVariant } from '../components/text';
 
 /**
  * This function renders an empty state component.
  *
+ * * @version 0.3.0
  * @author Aayush Goyal
- * @created 2026-04-22
+ * @modified 2026-09-25
  */
 export default function EmptyState({
     heading,

@@ -1,14 +1,14 @@
-import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
 
 /**
  * This function renders a Badge component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modifiedAt 2026-05-28
+ * @modified 2026-09-25
  */
 const badgeVariants = cva(
     'inline-flex w-fit shrink-0 select-none font-body cursor-default items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2 py-0.5 font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:border-stroke-active-secondary focus-visible:ring-[3px] focus-visible:ring-stroke-active-secondary aria-invalid:border-destructive aria-invalid:ring-stroke-destructive [&>svg]:pointer-events-none [&>svg]:size-3',

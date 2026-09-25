@@ -1,0 +1,24 @@
+{
+    "id": "progress",
+    "name": "Progress",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.3.0",
+            "date": "2026-04-21",
+            "changes": ["Update background and border color."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-21",
+            "changes": [
+                "Initial component for rendering progress bars.",
+                "Used Radix UI progress primitive with elementa design specs."
+            ]
+        }
+    ]
+}

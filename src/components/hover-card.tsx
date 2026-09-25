@@ -1,10 +1,16 @@
 'use client';
 
-import * as React from 'react';
 import { HoverCard as HoverCardPrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Hover Card component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function HoverCard({
     ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
@@ -41,4 +47,4 @@ function HoverCardContent({
     );
 }
 
-export { HoverCard, HoverCardTrigger, HoverCardContent };
+export { HoverCard, HoverCardContent, HoverCardTrigger };

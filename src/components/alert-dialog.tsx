@@ -2,16 +2,15 @@
 
 import { AlertDialog as AlertDialogPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
+import { cn } from '../../lib/utils';
+import { Button } from './button';
 
 /**
  * This function renders an Alert Dialog component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modifiedAt 2026-04-20
+ * @modified 2026-09-25
  */
 function AlertDialog({
     ...props

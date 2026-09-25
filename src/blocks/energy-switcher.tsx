@@ -1,11 +1,13 @@
 'use client';
 
-import { ENERGY_THEMES } from '@/lib/constants';
+import { ChevronDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ENERGY_THEMES } from '../../lib/constants';
 import {
     getDataFromLocalStorage,
     setDataInLocalStorage
-} from '@/lib/local-storage';
-import useUserPreferenceStore from '@/lib/store/user-preference-store';
+} from '../../lib/local-storage';
+import useUserPreferenceStore from '../../lib/store/user-preference-store';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -13,18 +15,16 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger
-} from '@/src/components/dropdown-menu';
-import { Text, TextVariant } from '@/src/components/text';
-import { ChevronDown } from 'lucide-react';
-import { useEffect, useState } from 'react';
+} from '../components/dropdown-menu';
+import { Text, TextVariant } from '../components/text';
 
 /**
  * This component renders the Energy Switcher for selecting design system themes.
  * It provides access to all 10 available design energy themes.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @created 2026-09-19
+ * @modified 2026-09-25
  */
 export default function EnergySwitcher() {
     // SECTION: States and Constants

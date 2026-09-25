@@ -1,10 +1,16 @@
-import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
+import { Separator } from './separator';
 
-import { cn } from '@/lib/utils';
-import { Separator } from '@/src/components/separator';
-
+/**
+ * This function renders a Tooltip component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function ItemGroup({ className, ...props }: React.ComponentProps<'div'>) {
     return (
         <div
@@ -194,13 +200,13 @@ function ItemFooter({ className, ...props }: React.ComponentProps<'div'>) {
 
 export {
     Item,
-    ItemMedia,
-    ItemContent,
     ItemActions,
-    ItemGroup,
-    ItemSeparator,
-    ItemTitle,
+    ItemContent,
     ItemDescription,
+    ItemFooter,
+    ItemGroup,
     ItemHeader,
-    ItemFooter
+    ItemMedia,
+    ItemSeparator,
+    ItemTitle
 };

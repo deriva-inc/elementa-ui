@@ -1,7 +1,7 @@
 /**
  * This file contains utility functions for making API calls.
  */
-import logger from '@/lib/logger';
+import logger from './logger';
 import { NextResponse } from 'next/server';
 
 class ClientSideError extends Error {

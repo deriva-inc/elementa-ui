@@ -1,0 +1,24 @@
+{
+    "id": "radio-group",
+    "name": "Radio Group",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-21",
+            "changes": ["Update focus ring border color."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-20",
+            "changes": [
+                "Initial component for rendering radio options and groups.",
+                "Used Radix UI radio-group primitive with elementa styling."
+            ]
+        }
+    ]
+}

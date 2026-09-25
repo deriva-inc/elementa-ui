@@ -1,15 +1,15 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { Popover as PopoverPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
 
 /**
  * This function renders a Popover component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modifiedAt 2026-04-22
+ * @modified 2026-04-22
  */
 function Popover({
     ...props

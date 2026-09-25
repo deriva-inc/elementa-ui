@@ -1,11 +1,17 @@
 'use client';
 
-import * as React from 'react';
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { ContextMenu as ContextMenuPrimitive } from 'radix-ui';
+import * as React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from '@/lib/utils';
-
+/**
+ * This function renders a Context Menu component for the elementa-ui.
+ *
+ * @version 0.2.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 function ContextMenu({
     ...props
 }: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {
@@ -264,18 +270,18 @@ function ContextMenuSubContent({
 
 export {
     ContextMenu,
-    ContextMenuTrigger,
-    ContextMenuContent,
-    ContextMenuItem,
     ContextMenuCheckboxItem,
-    ContextMenuRadioItem,
+    ContextMenuContent,
+    ContextMenuGroup,
+    ContextMenuItem,
     ContextMenuLabel,
+    ContextMenuPortal,
+    ContextMenuRadioGroup,
+    ContextMenuRadioItem,
     ContextMenuSeparator,
     ContextMenuShortcut,
-    ContextMenuGroup,
-    ContextMenuPortal,
     ContextMenuSub,
     ContextMenuSubContent,
     ContextMenuSubTrigger,
-    ContextMenuRadioGroup
+    ContextMenuTrigger
 };

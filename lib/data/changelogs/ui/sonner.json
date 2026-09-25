@@ -3,6 +3,11 @@
     "name": "Sonner",
     "versions": [
         {
+            "version": "0.4.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
             "version": "0.3.0",
             "date": "2026-08-25",
             "changes": ["Add documentation and semantic versioning."]

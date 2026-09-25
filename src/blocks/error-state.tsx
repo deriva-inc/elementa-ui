@@ -1,16 +1,17 @@
 'use client';
 
-import sampleAnimData from '../assets/anims/sample-anim.json';
 import Lottie from 'react-lottie';
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
-import { Text, TextVariant } from '@/src/components/text';
+import { cn } from '../../lib/utils';
+import sampleAnimData from '../assets/anims/sample-anim.json';
+import { Button } from '../components/button';
+import { Text, TextVariant } from '../components/text';
 
 /**
  * This function renders an error state component.
  *
+ * @version 0.2.0
  * @author Aayush Goyal
- * @created 2026-04-22
+ * @modified 2026-09-25
  */
 export default function ErrorState({
     heading,

@@ -1,9 +1,12 @@
 'use client';
 
-import { getDataFromLocalStorage, setDataInLocalStorage } from '@/lib/local-storage';
-import useUserPreferenceStore from '@/lib/store/user-preference-store';
-import { THEME } from '@/lib/types/enums';
 import React, { createContext, useContext, useEffect } from 'react';
+import {
+    getDataFromLocalStorage,
+    setDataInLocalStorage
+} from '../../lib/local-storage';
+import useUserPreferenceStore from '../../lib/store/user-preference-store';
+import { THEME } from '../../lib/types/enums';
 
 export interface ElementaProviderProps {
     children: React.ReactNode;
@@ -18,12 +21,15 @@ interface ElementaContextType {
     setEnergy: (energy: string) => void;
 }
 
-const ElementaContext = createContext<ElementaContextType | undefined>(undefined);
+const ElementaContext = createContext<ElementaContextType | undefined>(
+    undefined
+);
 
 /**
  * ElementaProvider automatically applies Elementa themes and energy attributes
  * to the document root, ensuring themes and energies work out of the box in Next.js apps.
  *
+ * @version 0.2.0
  * @author Aayush Goyal
  */
 export function ElementaProvider({
@@ -37,22 +43,28 @@ export function ElementaProvider({
         if (typeof window === 'undefined') return;
 
         // 1. Initialize Energy
-        const storedEnergy = (getDataFromLocalStorage('energy') as string) || defaultEnergy;
+        const storedEnergy =
+            (getDataFromLocalStorage('energy') as string) || defaultEnergy;
         actions.setEnergy(storedEnergy);
         document.documentElement.setAttribute('data-energy', storedEnergy);
         setDataInLocalStorage('energy', storedEnergy);
 
         // 2. Initialize Theme
         const storedTheme =
-            (getDataFromLocalStorage('theme') as 'light' | 'dark' | 'system') || defaultTheme;
+            (getDataFromLocalStorage('theme') as 'light' | 'dark' | 'system') ||
+            defaultTheme;
         actions.setTheme(storedTheme);
 
         const applyTheme = (themeValue: 'light' | 'dark' | 'system') => {
             const htmlElement = document.documentElement;
             if (themeValue === 'system') {
-                const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const isSystemDark = window.matchMedia(
+                    '(prefers-color-scheme: dark)'
+                ).matches;
                 htmlElement.classList.toggle('dark', isSystemDark);
-                actions.setThemeShade(isSystemDark ? THEME.GUN_METAL : THEME.AMBER);
+                actions.setThemeShade(
+                    isSystemDark ? THEME.GUN_METAL : THEME.AMBER
+                );
             } else {
                 htmlElement.classList.toggle('dark', themeValue === 'dark');
                 actions.setThemeShade(
@@ -67,14 +79,18 @@ export function ElementaProvider({
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         const handleSystemChange = () => {
             const currentTheme =
-                (getDataFromLocalStorage('theme') as 'light' | 'dark' | 'system') || storedTheme;
+                (getDataFromLocalStorage('theme') as
+                    | 'light'
+                    | 'dark'
+                    | 'system') || storedTheme;
             if (currentTheme === 'system') {
                 applyTheme('system');
             }
         };
 
         mediaQuery.addEventListener('change', handleSystemChange);
-        return () => mediaQuery.removeEventListener('change', handleSystemChange);
+        return () =>
+            mediaQuery.removeEventListener('change', handleSystemChange);
     }, [defaultEnergy, defaultTheme, actions]);
 
     const contextValue: ElementaContextType = {
@@ -85,7 +101,9 @@ export function ElementaProvider({
             setDataInLocalStorage('theme', newTheme);
             const htmlElement = document.documentElement;
             if (newTheme === 'system') {
-                const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const isDark = window.matchMedia(
+                    '(prefers-color-scheme: dark)'
+                ).matches;
                 htmlElement.classList.toggle('dark', isDark);
             } else {
                 htmlElement.classList.toggle('dark', newTheme === 'dark');

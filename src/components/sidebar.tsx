@@ -1,28 +1,24 @@
 'use client';
 
-import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
+import * as React from 'react';
 
-import { useIsMobile } from '@/src/hooks/use-mobile';
-import { cn } from '@/lib/utils';
-import { Button } from '@/src/components/button';
-import { Input } from '@/src/components/input';
-import { Separator } from '@/src/components/separator';
+import { PanelLeftIcon } from 'lucide-react';
+import { cn } from '../../lib/utils';
+import { useIsMobile } from '../hooks/use-mobile';
+import { Button } from './button';
+import { Input } from './input';
+import { Separator } from './separator';
 import {
     Sheet,
     SheetContent,
     SheetDescription,
     SheetHeader,
     SheetTitle
-} from '@/src/components/sheet';
-import { Skeleton } from '@/src/components/skeleton';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger
-} from '@/src/components/tooltip';
-import { PanelLeftIcon } from 'lucide-react';
+} from './sheet';
+import { Skeleton } from './skeleton';
+import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -30,6 +26,14 @@ const SIDEBAR_WIDTH = '16rem';
 const SIDEBAR_WIDTH_MOBILE = '18rem';
 const SIDEBAR_WIDTH_ICON = '3rem';
 const SIDEBAR_KEYBOARD_SHORTCUT = 'b';
+
+/**
+ * This function renders a Sidebar component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 
 type SidebarContextProps = {
     state: 'expanded' | 'collapsed';

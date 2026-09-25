@@ -1,15 +1,16 @@
 'use client';
 
-import sampleAnimData from '../assets/anims/sample-anim.json';
 import Lottie from 'react-lottie';
-import { cn } from '@/lib/utils';
-import { Text, TextVariant } from '@/src/components/text';
+import { cn } from '../../lib/utils';
+import sampleAnimData from '../assets/anims/sample-anim.json';
+import { Text, TextVariant } from '../components/text';
 
 /**
  * This function renders a loading state component.
  *
+ * @version 0.3.0
  * @author Aayush Goyal
- * @created 2026-04-22
+ * @created 2026-09-25
  */
 export default function LoadingState({
     text,

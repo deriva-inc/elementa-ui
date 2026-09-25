@@ -3,10 +3,16 @@
 import { type VariantProps } from 'class-variance-authority';
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';
 import * as React from 'react';
+import { cn } from '../../lib/utils';
+import { toggleVariants } from './toggle';
 
-import { cn } from '@/lib/utils';
-import { toggleVariants } from '@/src/components/toggle';
-
+/**
+ * This function renders a Toggle Group component for the elementa-ui.
+ *
+ * @version 0.3.0
+ * @author Aayush Goyal
+ * @modified 2026-09-25
+ */
 const ToggleGroupContext = React.createContext<
     VariantProps<typeof toggleVariants> & {
         spacing?: number;
@@ -19,13 +25,6 @@ const ToggleGroupContext = React.createContext<
     orientation: 'horizontal'
 });
 
-/**
- * This function renders a {@link ToggleGroup} component for the elementa-ui.
- *
- * @version 0.2.0
- * @author Aayush Goyal
- * @modifiedAt 2026-08-25
- */
 function ToggleGroup({
     className,
     variant,

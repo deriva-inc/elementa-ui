@@ -1,0 +1,24 @@
+{
+    "id": "field",
+    "name": "Field",
+    "versions": [
+        {
+            "version": "0.3.0",
+            "date": "2026-09-25",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.2.0",
+            "date": "2026-04-20",
+            "changes": ["Use relative imports instead of absolute imports."]
+        },
+        {
+            "version": "0.1.0",
+            "date": "2026-04-20",
+            "changes": [
+                "Initial component for field wrappers, labels, and error messages.",
+                "Used elementa design specifications."
+            ]
+        }
+    ]
+}
