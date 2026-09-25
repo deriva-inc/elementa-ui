@@ -154,12 +154,16 @@
   /* !SECTION: Feedback Colors */
   /* !SECTION: Colors */
 
-  /* SECTION: Fonts */
-  --font-heading: 'Rowan', sans-serif;
-  --font-body: 'Satoshi', sans-serif;
-  --font-code: 'JetBrains Mono', monospace;
-  /* !SECTION: Fonts */
-  /* !SECTION: Variables */
+}
+
+/* SECTION: Fonts */
+@theme {
+  --font-heading: var(--font-rowan, 'Rowan', serif);
+  --font-body: var(--font-satoshi, 'Satoshi', sans-serif);
+  --font-code: var(--font-mono, 'JetBrains Mono', monospace);
+  --font-rowan: 'Rowan', serif;
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
 }
 
 /* SECTION: Semantic Mapping */

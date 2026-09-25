@@ -22,7 +22,7 @@ import { useEffect, useState } from 'react';
  * This component renders the Energy Switcher for selecting design system themes.
  * It provides access to all 10 available design energy themes.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
  * @created 2026-09-19
  */
@@ -56,6 +56,9 @@ export default function EnergySwitcher() {
         setCurrentEnergy(initialEnergy);
         actions.setEnergy(initialEnergy);
         setDataInLocalStorage('energy', initialEnergy);
+        if (typeof document !== 'undefined') {
+            document.documentElement.setAttribute('data-energy', initialEnergy);
+        }
     }, []);
     // !SECTION
 

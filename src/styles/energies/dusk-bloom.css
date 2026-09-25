@@ -51,7 +51,7 @@
 
 		/* SECTION: LAYER 3: ACTIVE */
 		--bg-active-accent-primary: var(--color-dusty-rose-400);
-		--bg-active-hover-accent-aprimary: var(--color-dusty-rose-200);
+		--bg-active-hover-accent-primary: var(--color-dusty-rose-200);
 		--bg-active-accent-secondary: var(--color-electric-violet-400);
 		--bg-active-hover-accent-secondary: var(--color-electric-violet-200);
 		--stroke-active-accent-primary: var(--color-dusty-rose-200);

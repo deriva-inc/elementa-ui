@@ -1,4 +1,24 @@
 # CHANGELOG
+### [1.65.0] - 2024-09-25
+---
+#### Added
+- `ElementaProvider` component and `useElementa` hook for zero-config theme (`light`/`dark`) and energy (`data-energy`) hydration in Next.js App Router applications.
+- Full library bundling pipeline using Rollup emitting ESM (`dist/index.esm.js`), CommonJS (`dist/index.js`), and TypeScript declarations (`dist/types/`).
+- Precompiled and tokenized CSS distribution (`dist/styles.css` and `dist/theme.css`).
+- Automatic CDN font loading for `Rowan` (Serif / Headings), `Satoshi` (Sans / Body), and `JetBrains Mono` (Monospace / Code).
+- View transitions and keyframe animations stylesheet (`src/styles/animations.css`).
+- Registry API fetch utilities (`lib/api.ts`).
+
+#### Changed
+- Migrate design system and theme tokens to pure Tailwind CSS v4 CSS-first architecture (`@theme` and `@theme inline`).
+- Refactore library entrypoint in `src/index.ts` for clean component, block, hook, and utility exports.
+- Update PostCSS configuration to use `@tailwindcss/postcss`.
+
+#### Fixed
+- Fix Radix UI `asChild` composition in `Button` component.
+- Fix typo in energy hover variables in `dawn-chorus.css`, `dusk-bloom.css`, and `zen-toolkit.css`.
+- Fix `EnergySwitcher` component to automatically apply initial `data-energy` attribute on mount.
+
 ### [1.64.0] - 2024-09-20
 ---
 #### Added

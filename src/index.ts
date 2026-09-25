@@ -4,7 +4,7 @@ export {
     AccordionContent,
     AccordionItem,
     AccordionTrigger
-} from '@/src/components/accordion';
+} from './components/accordion';
 export {
     AlertDialog,
     AlertDialogAction,
@@ -18,7 +18,7 @@ export {
     AlertDialogPortal,
     AlertDialogTitle,
     AlertDialogTrigger
-} from '@/src/components/alert-dialog';
+} from './components/alert-dialog';
 export {
     Avatar,
     AvatarBadge,
@@ -26,8 +26,8 @@ export {
     AvatarGroup,
     AvatarGroupCount,
     AvatarImage
-} from '@/src/components/avatar';
-export { Badge, badgeVariants } from '@/src/components/badge';
+} from './components/avatar';
+export { Badge, badgeVariants } from './components/badge';
 export {
     Breadcrumb,
     BreadcrumbEllipsis,
@@ -36,16 +36,16 @@ export {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator
-} from '@/src/components/breadcrumb';
-export { Button, buttonVariants } from '@/src/components/button';
+} from './components/breadcrumb';
+export { Button, buttonVariants } from './components/button';
 export {
     ButtonGroup,
     ButtonGroupSeparator,
     ButtonGroupText,
     buttonGroupVariants
-} from '@/src/components/button-group';
-export { Calendar, CalendarDayButton } from '@/src/components/calendar';
-export { Checkbox } from '@/src/components/checkbox';
+} from './components/button-group';
+export { Calendar, CalendarDayButton } from './components/calendar';
+export { Checkbox } from './components/checkbox';
 export {
     ContextMenu,
     ContextMenuCheckboxItem,
@@ -62,7 +62,7 @@ export {
     ContextMenuSubContent,
     ContextMenuSubTrigger,
     ContextMenuTrigger
-} from '@/src/components/context-menu';
+} from './components/context-menu';
 export {
     Dialog,
     DialogClose,
@@ -74,7 +74,7 @@ export {
     DialogPortal,
     DialogTitle,
     DialogTrigger
-} from '@/src/components/dialog';
+} from './components/dialog';
 export {
     Drawer,
     DrawerClose,
@@ -86,7 +86,7 @@ export {
     DrawerPortal,
     DrawerTitle,
     DrawerTrigger
-} from '@/src/components/drawer';
+} from './components/drawer';
 export {
     DropdownMenu,
     DropdownMenuCheckboxItem,
@@ -103,7 +103,12 @@ export {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
     DropdownMenuTrigger
-} from '@/src/components/dropdown-menu';
+} from './components/dropdown-menu';
+export {
+    ElementaProvider,
+    useElementa,
+    type ElementaProviderProps
+} from './components/elementa-provider';
 export {
     Field,
     FieldContent,
@@ -115,13 +120,13 @@ export {
     FieldSeparator,
     FieldSet,
     FieldTitle
-} from '@/src/components/field';
+} from './components/field';
 export {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger
-} from '@/src/components/hover-card';
-export { Input } from '@/src/components/input';
+} from './components/hover-card';
+export { Input } from './components/input';
 export {
     InputGroup,
     InputGroupAddon,
@@ -129,13 +134,13 @@ export {
     InputGroupInput,
     InputGroupText,
     InputGroupTextarea
-} from '@/src/components/input-group';
+} from './components/input-group';
 export {
     InputOTP,
     InputOTPGroup,
     InputOTPSeparator,
     InputOTPSlot
-} from '@/src/components/input-otp';
+} from './components/input-otp';
 export {
     Item,
     ItemActions,
@@ -147,8 +152,8 @@ export {
     ItemMedia,
     ItemSeparator,
     ItemTitle
-} from '@/src/components/item';
-export { Label } from '@/src/components/label';
+} from './components/item';
+export { Label } from './components/label';
 export {
     Pagination,
     PaginationContent,
@@ -157,7 +162,7 @@ export {
     PaginationLink,
     PaginationNext,
     PaginationPrevious
-} from '@/src/components/pagination';
+} from './components/pagination';
 export {
     Popover,
     PopoverAnchor,
@@ -166,9 +171,9 @@ export {
     PopoverHeader,
     PopoverTitle,
     PopoverTrigger
-} from '@/src/components/popover';
-export { Progress } from '@/src/components/progress';
-export { RadioGroup, RadioGroupItem } from '@/src/components/radio-group';
+} from './components/popover';
+export { Progress } from './components/progress';
+export { RadioGroup, RadioGroupItem } from './components/radio-group';
 export {
     Select,
     SelectContent,
@@ -180,8 +185,8 @@ export {
     SelectSeparator,
     SelectTrigger,
     SelectValue
-} from '@/src/components/select';
-export { Separator } from '@/src/components/separator';
+} from './components/select';
+export { Separator } from './components/separator';
 export {
     Sheet,
     SheetClose,
@@ -191,7 +196,7 @@ export {
     SheetHeader,
     SheetTitle,
     SheetTrigger
-} from '@/src/components/sheet';
+} from './components/sheet';
 export {
     Sidebar,
     SidebarContent,
@@ -217,19 +222,19 @@ export {
     SidebarSeparator,
     SidebarTrigger,
     useSidebar
-} from '@/src/components/sidebar';
-export { Skeleton } from '@/src/components/skeleton';
-export { Slider } from '@/src/components/slider';
-export { Toaster as Sonner } from '@/src/components/sonner';
-export { Spinner } from '@/src/components/spinner';
+} from './components/sidebar';
+export { Skeleton } from './components/skeleton';
+export { Slider } from './components/slider';
+export { Toaster as Sonner } from './components/sonner';
+export { Spinner } from './components/spinner';
 export {
     Stepper,
     StepperContent,
     StepperContentItem,
     StepperIndicatorList,
     StepperIndicatorListItem
-} from '@/src/components/stepper';
-export { Switch } from '@/src/components/switch';
+} from './components/stepper';
+export { Switch } from './components/switch';
 export {
     Table,
     TableBody,
@@ -239,28 +244,89 @@ export {
     TableHead,
     TableHeader,
     TableRow
-} from '@/src/components/table';
+} from './components/table';
 export {
     Tabs,
     TabsContent,
     TabsList,
-    TabsTrigger,
-    tabsListVariants
-} from '@/src/components/tabs';
-export { Text, TextVariant } from '@/src/components/text';
-export { Textarea } from '@/src/components/textarea';
-export { Toggle, toggleVariants } from '@/src/components/toggle';
-export { ToggleGroup, ToggleGroupItem } from '@/src/components/toggle-group';
+    tabsListVariants,
+    TabsTrigger
+} from './components/tabs';
+export { Text, TextVariant } from './components/text';
+export { Textarea } from './components/textarea';
+export { Toggle, toggleVariants } from './components/toggle';
+export { ToggleGroup, ToggleGroupItem } from './components/toggle-group';
 export {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger
-} from '@/src/components/tooltip';
+} from './components/tooltip';
 // !SECTION: Components
 
 // SECTION: Blocks
-export { default as EmptyState } from '@/src/blocks/empty-state';
-export { default as ErrorState } from '@/src/blocks/error-state';
-export { default as LoadingState } from '@/src/blocks/loading-state';
+export { default as EmptyState } from './blocks/empty-state';
+export { default as EnergySwitcher } from './blocks/energy-switcher';
+export { default as ErrorState } from './blocks/error-state';
+export { default as LoadingState } from './blocks/loading-state';
+export {
+    default as ThemeSwitcher,
+    type TransitionVariant
+} from './blocks/theme-switcher';
+// export {
+//     default as PixelSwap,
+//     type PixelSwapProps,
+//     type PixelSwapPattern,
+//     type PixelSwapTrigger
+// } from './blocks/pixel-swap';
+// export {
+//     default as Galaxy,
+//     type GalaxyProps
+// } from './blocks/background/galaxy';
+export { default as CodeBlock } from './blocks/code/code-block';
+export {
+    SquigglyText,
+    type SquigglyTextProps
+} from './blocks/text/squiggly-text';
+// export {
+//     default as LightspunCurvedCarousel,
+//     LightspunCurvedCarousel as LightspunCurvedCarouselNamed,
+//     type LightspunCurvedCarouselProps,
+//     type SlideItem
+// } from './blocks/carousel/LightspunCurvedCarousel';
 // !SECTION: Blocks
+
+// SECTION: Hooks
+export { useIsMobile } from './hooks/use-mobile';
+// !SECTION: Hooks
+
+// SECTION: Store & Preferences
+export { default as useUserPreferenceStore } from '../lib/store/user-preference-store';
+// !SECTION: Store & Preferences
+
+// SECTION: Constants & Enums
+export { APP_PLATFORMS, ENERGY_THEMES } from '../lib/constants';
+export {
+    CODE_LANGUAGES,
+    ENERGY,
+    HTTP_STATUS_CODE,
+    THEME,
+    UI_STATE
+} from '../lib/types/enums';
+export type {
+    AppPlatform,
+    ColorMapping,
+    Icon,
+    IconCategory,
+    UIEnergy
+} from '../lib/types/model';
+// !SECTION: Constants & Enums
+
+// SECTION: Utilities
+export {
+    getDataFromLocalStorage,
+    setDataInLocalStorage
+} from '../lib/local-storage';
+export { copyToClipboard } from '../lib/text';
+export { cn } from '../lib/utils';
+// !SECTION: Utilities

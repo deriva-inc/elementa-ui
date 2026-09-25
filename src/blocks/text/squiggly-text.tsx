@@ -121,3 +121,5 @@ export function SquigglyText({
         </Wrapper>
     );
 }
+
+export default SquigglyText;
