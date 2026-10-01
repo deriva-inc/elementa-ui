@@ -1,5 +1,3 @@
-'use client';
-
 // Import global from third party libraries.
 import * as CryptoJS from 'crypto-js';
 

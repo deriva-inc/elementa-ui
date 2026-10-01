@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { cn } from '../../lib/utils';
 
 export enum TextVariant {
@@ -25,9 +26,9 @@ export interface TextProps {
 /**
  * This function renders the Text component for the library.
  *
- * @version 0.9.0
+ * @version 0.10.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-10-01
  */
 export function Text({
     variant = TextVariant.Body,
@@ -110,3 +111,7 @@ export function Text({
     }
     // !SECTION: UI
 }
+
+Text.displayName = 'Text';
+
+export const MotionText = motion(Text);

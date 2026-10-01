@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.73.0] - 2026-10-01
+---
+#### Added
+- Add `Galaxy` block component.
+
 ### [1.72.0] - 2026-10-01
 ---
 #### Removed
