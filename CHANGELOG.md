@@ -1,8 +1,13 @@
 # CHANGELOG
+### [1.75.0] - 2026-10-01
+---
+#### Added
+- Add `BackgroundLines` background block component.
+
 ### [1.74.0] - 2026-10-01
 ---
 #### Added
-- Add `LightspunCurvedCarousel` block component.
+- Add `LightspunCurvedCarousel` carousel block component.
 
 ### [1.73.0] - 2026-10-01
 ---

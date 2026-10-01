@@ -46,6 +46,7 @@ export {
 } from './components/button-group';
 export { Calendar, CalendarDayButton } from './components/calendar';
 export { Checkbox } from './components/checkbox';
+export { ColorPicker } from './components/color-picker';
 export {
     ContextMenu,
     ContextMenuCheckboxItem,
