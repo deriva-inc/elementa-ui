@@ -253,7 +253,7 @@ export {
     tabsListVariants,
     TabsTrigger
 } from './components/tabs';
-export { Text, TextVariant } from './components/text';
+export { MotionText, Text, TextVariant } from './components/text';
 export { Textarea } from './components/textarea';
 export { Toggle, toggleVariants } from './components/toggle';
 export { ToggleGroup, ToggleGroupItem } from './components/toggle-group';
@@ -266,6 +266,7 @@ export {
 // !SECTION: Components
 
 // SECTION: Blocks
+export { default as Galaxy } from './blocks/background/galaxy';
 export { default as EmptyState } from './blocks/empty-state';
 export { default as EnergySwitcher } from './blocks/energy-switcher';
 export { default as ErrorState } from './blocks/error-state';
@@ -284,17 +285,17 @@ export {
 //     default as Galaxy,
 //     type GalaxyProps
 // } from './blocks/background/galaxy';
+export {
+    LightspunCurvedCarousel,
+    LightspunCurvedCarousel as LightspunCurvedCarouselNamed,
+    type LightspunCurvedCarouselProps,
+    type SlideItem
+} from './blocks/carousel/LightspunCurvedCarousel';
 export { default as CodeBlock } from './blocks/code/code-block';
 export {
     SquigglyText,
     type SquigglyTextProps
 } from './blocks/text/squiggly-text';
-// export {
-//     default as LightspunCurvedCarousel,
-//     LightspunCurvedCarousel as LightspunCurvedCarouselNamed,
-//     type LightspunCurvedCarouselProps,
-//     type SlideItem
-// } from './blocks/carousel/LightspunCurvedCarousel';
 // !SECTION: Blocks
 
 // SECTION: Hooks

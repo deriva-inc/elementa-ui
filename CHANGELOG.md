@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.74.0] - 2026-10-01
+---
+#### Added
+- Add `LightspunCurvedCarousel` block component.
+
 ### [1.73.0] - 2026-10-01
 ---
 #### Added

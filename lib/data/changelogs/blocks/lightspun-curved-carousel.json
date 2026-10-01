@@ -1,0 +1,14 @@
+{
+    "id": "lightspun-curved-carousel",
+    "name": "Lightspun Curved Carousel",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-10-01",
+            "changes": [
+                "Initial 3D curved cylinder carousel block component using GSAP.",
+                "Supports customizable radius, perspective, auto-rotation, gesture/drag rotation, edge fadeout, and custom slide rendering."
+            ]
+        }
+    ]
+}
