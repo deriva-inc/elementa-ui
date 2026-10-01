@@ -123,6 +123,9 @@
         "zustand": "^5.0.12"
     },
     "resolutions": {
-        "@types/minimatch": "5.1.2"
+        "@types/minimatch": "5.1.2",
+        "brace-expansion": ">=1.1.19",
+        "picomatch": ">=2.3.2",
+        "postcss-selector-parser": ">=6.1.3"
     }
 }
