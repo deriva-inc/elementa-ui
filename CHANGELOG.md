@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.76.1] - 2026-10-02
+---
+#### Fixed
+- Fix ref issue in `MotionText` component.
+
 ### [1.76.0] - 2026-10-01
 ---
 #### Added

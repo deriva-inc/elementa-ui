@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { forwardRef } from 'react';
 import { cn } from '../../lib/utils';
 
 export enum TextVariant {
@@ -26,16 +27,19 @@ export interface TextProps {
 /**
  * This function renders the Text component for the library.
  *
- * @version 0.10.0
+ * @version 0.11.0
  * @author Aayush Goyal
- * @modified 2026-10-01
+ * @modified 2026-10-02
  */
-export function Text({
-    variant = TextVariant.Body,
-    color = 'text-text-primary',
-    children,
-    className
-}: TextProps) {
+export const Text = forwardRef<HTMLElement, TextProps>(function Text(
+    {
+        variant = TextVariant.Body,
+        color = 'text-text-primary',
+        children,
+        className
+    }: TextProps,
+    ref
+) {
     // SECTION: Constants and Variables
     const baseClassNames = 'w-fit';
     // !SECTION: Constants and Variables
@@ -110,7 +114,7 @@ export function Text({
             return <p className={internalClassName}>{children}</p>;
     }
     // !SECTION: UI
-}
+});
 
 Text.displayName = 'Text';
 
