@@ -1,6 +1,6 @@
 {
     "name": "get-elementa-ui",
-    "version": "1.68.0",
+    "version": "1.68.1",
     "description": "Elementa UI components library.",
     "homepage": "https://elementa.deriva.xyz",
     "main": "dist/index.js",
