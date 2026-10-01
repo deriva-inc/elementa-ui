@@ -1,5 +1,3 @@
-'use client';
-
 import Lottie from 'react-lottie';
 import { cn } from '../../lib/utils';
 import sampleAnimData from '../assets/anims/sample-anim.json';

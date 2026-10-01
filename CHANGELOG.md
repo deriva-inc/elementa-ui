@@ -1,4 +1,17 @@
 # CHANGELOG
+### [1.69.0] - 2026-10-01
+---
+#### Added
+- Add `lib/types/index.ts` barrel export and network response interfaces (`ClientSideNetworkError`, `ClientSideNetworkResponse`, `ClientSideNetworkDetails`, `ServerSideNetworkError`, `ServerSideResponse`) in `lib/types/model.ts`.
+
+#### Changed
+- Migrate `user-preference-store.ts` to `lib/store/user-ui-preferences-store.ts` with updated `ThemeType` and `THEME_ENUM` typing.
+- Standardize enum definitions with `_ENUM` suffix in `lib/types/enums.ts` (`CODE_LANGUAGES_ENUM`, `ENERGY_ENUM`, `HTTP_STATUS_CODE_ENUM`, `THEME_ENUM`, `UI_STATE_ENUM`, `NETWORK_CALL_STATUS_ENUM`, `CHANGELOG_ENTRY_TYPE`, `SIDEBAR_STATE_ENUM`).
+- Remove redundant `'use client'` directives across UI block components.
+
+#### Removed
+- Remove deprecated `lib/types.ts` in favor of modular `lib/types/` directory.
+
 ### [1.68.0] - 2026-10-01
 ---
 #### Added

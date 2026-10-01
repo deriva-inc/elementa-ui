@@ -301,25 +301,12 @@ export { useIsMobile } from './hooks/use-mobile';
 // !SECTION: Hooks
 
 // SECTION: Store & Preferences
-export { default as useUserPreferenceStore } from '../lib/store/user-preference-store';
+export { default as useUserPreferenceStore } from '../lib/store/user-ui-preferences-store';
 // !SECTION: Store & Preferences
 
 // SECTION: Constants & Enums
 export { APP_PLATFORMS, ENERGY_THEMES } from '../lib/constants';
-export {
-    CODE_LANGUAGES,
-    ENERGY,
-    HTTP_STATUS_CODE,
-    THEME,
-    UI_STATE
-} from '../lib/types/enums';
-export type {
-    AppPlatform,
-    ColorMapping,
-    Icon,
-    IconCategory,
-    UIEnergy
-} from '../lib/types/model';
+export * from '../lib/types';
 // !SECTION: Constants & Enums
 
 // SECTION: Utilities

@@ -1,5 +1,3 @@
-'use client';
-
 import { Check, Copy } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -7,9 +5,9 @@ import {
     atomOneDark,
     atomOneLight
 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import useUserPreferenceStore from '../../../lib/store/user-preference-store';
+import useUserPreferenceStore from '../../../lib/store/user-ui-preferences-store';
 import { copyToClipboard } from '../../../lib/text';
-import { CODE_LANGUAGES } from '../../../lib/types/enums';
+import { CODE_LANGUAGES_ENUM } from '../../../lib/types/enums';
 import { Badge } from '../../components/badge';
 import { Button } from '../../components/button';
 import { Text } from '../../components/text';
@@ -24,14 +22,14 @@ import { Text } from '../../components/text';
 
 interface CodeBlockProps {
     code: string;
-    language?: CODE_LANGUAGES;
+    language?: CODE_LANGUAGES_ENUM;
     title?: string;
     showLineNumbers?: boolean;
 }
 
 export default function CodeBlock({
     code,
-    language = CODE_LANGUAGES.TYPESCRIPT,
+    language = CODE_LANGUAGES_ENUM.TYPESCRIPT,
     title,
     showLineNumbers = true
 }: CodeBlockProps) {

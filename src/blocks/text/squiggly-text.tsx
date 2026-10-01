@@ -1,5 +1,3 @@
-'use client';
-
 import { motion, useTime, useTransform } from 'motion/react';
 import React, { useId } from 'react';
 import { cn } from '../../../lib/utils';

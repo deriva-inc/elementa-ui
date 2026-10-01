@@ -1,5 +1,19 @@
-import { ENERGY } from './types/enums';
+import { ENERGY_ENUM } from './types';
 import { AppPlatform, ColorMapping, UIEnergy } from './types/model';
+
+const HTTP_STATUS_CODE = {
+    SUCCESS: 200,
+    CREATED: 201,
+    ACCEPTED: 202,
+    NO_CONTENT: 204,
+    BAD_REQUEST: 400,
+    UNAUTHORIZED: 401,
+    FORBIDDEN: 403,
+    NOT_FOUND: 404,
+    CONFLICT: 409,
+    INTERNAL_ERROR: 500,
+    SERVICE_UNAVAILABLE: 503
+} as const;
 
 const COLOR_MAP: ColorMapping = {
     ELECTRIC_VIOLET: {
@@ -47,7 +61,7 @@ const COLOR_MAP: ColorMapping = {
 const ENERGY_THEMES: UIEnergy[] = [
     {
         code: 'aw',
-        id: ENERGY.ACOUSTIC_WOOD,
+        id: ENERGY_ENUM.ACOUSTIC_WOOD,
         label: 'Acoustic Wood',
         colors: {
             primary: COLOR_MAP.TERRACOTTA_RUST,
@@ -60,7 +74,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'cv',
-        id: ENERGY.CIPHER_VAULT,
+        id: ENERGY_ENUM.CIPHER_VAULT,
         label: 'Cipher Vault',
         colors: {
             primary: COLOR_MAP.ELECTRIC_VIOLET,
@@ -73,7 +87,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'ce',
-        id: ENERGY.CREMA_EXTRACTION,
+        id: ENERGY_ENUM.CREMA_EXTRACTION,
         label: 'Crema Extraction',
         colors: {
             primary: COLOR_MAP.TERRACOTTA_RUST,
@@ -86,7 +100,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'dc',
-        id: ENERGY.DAWN_CHORUS,
+        id: ENERGY_ENUM.DAWN_CHORUS,
         label: 'Dawn Chorus',
         colors: {
             primary: COLOR_MAP.GOLDEN_HOUR,
@@ -99,7 +113,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'db',
-        id: ENERGY.DUSK_BLOOM,
+        id: ENERGY_ENUM.DUSK_BLOOM,
         label: 'Dusk Bloom',
         colors: {
             primary: COLOR_MAP.DUSTY_ROSE,
@@ -112,7 +126,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'eh',
-        id: ENERGY.EVENT_HORIZON,
+        id: ENERGY_ENUM.EVENT_HORIZON,
         label: 'Event Horizon',
         colors: {
             primary: COLOR_MAP.ELECTRIC_VIOLET,
@@ -125,7 +139,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'mc',
-        id: ENERGY.MAKERS_CANVAS,
+        id: ENERGY_ENUM.MAKERS_CANVAS,
         label: "Maker's Canvas",
         colors: {
             primary: COLOR_MAP.TERRACOTTA_RUST,
@@ -138,7 +152,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'ns',
-        id: ENERGY.NEON_SYMPHONY,
+        id: ENERGY_ENUM.NEON_SYMPHONY,
         label: 'Neon Symphony',
         colors: {
             primary: COLOR_MAP.ELECTRIC_VIOLET,
@@ -151,7 +165,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'tg',
-        id: ENERGY.TROPICAL_GRID,
+        id: ENERGY_ENUM.TROPICAL_GRID,
         label: 'Tropical Grid',
         colors: {
             primary: COLOR_MAP.MATCHA_SAGE,
@@ -164,7 +178,7 @@ const ENERGY_THEMES: UIEnergy[] = [
     },
     {
         code: 'zt',
-        id: ENERGY.ZEN_TOOLKIT,
+        id: ENERGY_ENUM.ZEN_TOOLKIT,
         label: 'Zen Toolkit',
         colors: {
             primary: COLOR_MAP.MATCHA_SAGE,
@@ -193,4 +207,4 @@ const APP_PLATFORMS: AppPlatform[] = [
     }
 ];
 
-export { APP_PLATFORMS, COLOR_MAP, ENERGY_THEMES };
+export { APP_PLATFORMS, COLOR_MAP, ENERGY_THEMES, HTTP_STATUS_CODE };

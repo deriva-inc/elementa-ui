@@ -1,8 +1,6 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { ENERGY_THEMES } from '../../lib/constants';
-import useUIStore from '../../lib/store/user-preference-store';
+import useUIStore from '../../lib/store/user-ui-preferences-store';
 import { UIEnergy } from '../../lib/types/model';
 import { cn } from '../../lib/utils';
 import { Button } from '../components/button';

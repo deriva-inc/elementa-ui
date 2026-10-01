@@ -1,5 +1,3 @@
-'use client';
-
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { ENERGY_THEMES } from '../../lib/constants';
@@ -7,7 +5,7 @@ import {
     getDataFromLocalStorage,
     setDataInLocalStorage
 } from '../../lib/local-storage';
-import useUserPreferenceStore from '../../lib/store/user-preference-store';
+import useUserPreferenceStore from '../../lib/store/user-ui-preferences-store';
 import {
     DropdownMenu,
     DropdownMenuContent,

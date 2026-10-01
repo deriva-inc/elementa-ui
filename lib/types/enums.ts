@@ -1,4 +1,4 @@
-enum CODE_LANGUAGES {
+export enum CODE_LANGUAGES_ENUM {
     //     oneC (1c)
     // abnf
     // accesslog
@@ -192,7 +192,7 @@ enum CODE_LANGUAGES {
     // zephir
 }
 
-enum ENERGY {
+export enum ENERGY_ENUM {
     ACOUSTIC_WOOD = 'acoustic-wood',
     CIPHER_VAULT = 'cipher-vault',
     CREMA_EXTRACTION = 'crema-extraction',
@@ -205,7 +205,7 @@ enum ENERGY {
     ZEN_TOOLKIT = 'zen-toolkit'
 }
 
-enum HTTP_STATUS_CODE {
+export enum HTTP_STATUS_CODE_ENUM {
     SUCCESS = 200,
     CREATED = 201,
     ACCEPTED = 202,
@@ -219,16 +219,37 @@ enum HTTP_STATUS_CODE {
     SERVICE_UNAVAILABLE = 503
 }
 
-enum THEME {
+export enum THEME_ENUM {
     AMBER = 'light',
-    GUN_METAL = 'dark'
+    GUN_METAL = 'dark',
+    SYSTEM = 'system'
 }
 
-enum UI_STATE {
+export enum UI_STATE_ENUM {
     'LOADING',
     'ERROR',
     'SUCCESS',
     'IDLE'
 }
 
-export { CODE_LANGUAGES, ENERGY, HTTP_STATUS_CODE, THEME, UI_STATE };
+export enum NETWORK_CALL_STATUS_ENUM {
+    'IDLE',
+    'LOADING',
+    'SUCCESS',
+    'ERROR'
+}
+
+export enum CHANGELOG_ENTRY_TYPE {
+    FEATURE = 'Feature',
+    FIX = 'Fixed',
+    CHANGED = 'Changed',
+    DEPRECATED = 'Deprecated',
+    REMOVED = 'Removed',
+    SECURITY = 'Security'
+}
+
+export enum SIDEBAR_STATE_ENUM {
+    EXPANDED = 'EXPANDED',
+    FLOATING = 'FLOATING',
+    COLLAPSED = 'COLLAPSED'
+}

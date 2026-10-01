@@ -5,8 +5,8 @@ import {
     getDataFromLocalStorage,
     setDataInLocalStorage
 } from '../../lib/local-storage';
-import useUserPreferenceStore from '../../lib/store/user-preference-store';
-import { THEME } from '../../lib/types/enums';
+import useUserPreferenceStore from '../../lib/store/user-ui-preferences-store';
+import { THEME_ENUM } from '../../lib/types/enums';
 
 export interface ElementaProviderProps {
     children: React.ReactNode;
@@ -63,12 +63,14 @@ export function ElementaProvider({
                 ).matches;
                 htmlElement.classList.toggle('dark', isSystemDark);
                 actions.setThemeShade(
-                    isSystemDark ? THEME.GUN_METAL : THEME.AMBER
+                    isSystemDark ? THEME_ENUM.GUN_METAL : THEME_ENUM.AMBER
                 );
             } else {
                 htmlElement.classList.toggle('dark', themeValue === 'dark');
                 actions.setThemeShade(
-                    themeValue === 'light' ? THEME.AMBER : THEME.GUN_METAL
+                    themeValue === 'light'
+                        ? THEME_ENUM.AMBER
+                        : THEME_ENUM.GUN_METAL
                 );
             }
         };

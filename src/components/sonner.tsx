@@ -3,7 +3,7 @@
 import { Info, TickCloud } from 'elementa-icons';
 import { Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';
 import { Toaster as Sonner, type ToasterProps } from 'sonner';
-import useUIStore from '../../lib/store/user-preference-store';
+import useUIStore from '../../lib/store/user-ui-preferences-store';
 
 /**
  * This function renders a custom Sonner toast component for the elementa-ui.

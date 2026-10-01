@@ -1,5 +1,3 @@
-'use client';
-
 import { Monitor, Moon, Sun } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
@@ -7,8 +5,8 @@ import {
     getDataFromLocalStorage,
     setDataInLocalStorage
 } from '../../lib/local-storage';
-import useUserPreferenceStore from '../../lib/store/user-preference-store';
-import { THEME } from '../../lib/types/enums';
+import useUserPreferenceStore from '../../lib/store/user-ui-preferences-store';
+import { THEME_ENUM } from '../../lib/types';
 import { ToggleGroup, ToggleGroupItem } from '../components/toggle-group';
 
 export type TransitionVariant =
@@ -51,7 +49,7 @@ export default function ThemeSwitcher({
     duration?: number;
     fromCenter?: boolean;
     variant?: TransitionVariant;
-    onThemeChange?: (theme: THEME) => void;
+    onThemeChange?: (theme: THEME_ENUM) => void;
 }) {
     // SECTION: Constants and Variables
     const buttonRef = useRef<HTMLDivElement>(null);
@@ -63,7 +61,9 @@ export default function ThemeSwitcher({
 
     // SECTION: States
     const [internalIsDark, setInternalIsDark] = useState(false);
-    const isDark = isControlled ? theme === THEME.GUN_METAL : internalIsDark;
+    const isDark = isControlled
+        ? theme === THEME_ENUM.GUN_METAL
+        : internalIsDark;
     // !SECTION: States
 
     // SECTION: Functions
@@ -300,11 +300,11 @@ export default function ThemeSwitcher({
 
             if (value === 'system') {
                 actions.setTheme(value);
-                actions.setThemeShade(THEME.GUN_METAL); // Default to dark for system
+                actions.setThemeShade(THEME_ENUM.GUN_METAL); // Default to dark for system
             } else {
                 actions.setTheme(value);
                 actions.setThemeShade(
-                    value === 'light' ? THEME.AMBER : THEME.GUN_METAL
+                    value === 'light' ? THEME_ENUM.AMBER : THEME_ENUM.GUN_METAL
                 );
             }
 
@@ -312,7 +312,7 @@ export default function ThemeSwitcher({
 
             if (onThemeChange) {
                 onThemeChange(
-                    value === 'light' ? THEME.AMBER : THEME.GUN_METAL
+                    value === 'light' ? THEME_ENUM.AMBER : THEME_ENUM.GUN_METAL
                 );
             }
         },
@@ -330,10 +330,12 @@ export default function ThemeSwitcher({
         if (storedTheme) {
             actions.setTheme(storedTheme);
             if (storedTheme === 'system') {
-                actions.setThemeShade(THEME.GUN_METAL);
+                actions.setThemeShade(THEME_ENUM.GUN_METAL);
             } else {
                 actions.setThemeShade(
-                    storedTheme === 'light' ? THEME.AMBER : THEME.GUN_METAL
+                    storedTheme === 'light'
+                        ? THEME_ENUM.AMBER
+                        : THEME_ENUM.GUN_METAL
                 );
             }
             applyThemeToDocument(storedTheme);
