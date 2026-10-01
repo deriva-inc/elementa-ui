@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.71.0] - 2026-10-01
+---
+#### Security
+- Resolve dependabot security vulnerabilities with yarn resolutions.
+
 ### [1.70.0] - 2026-10-01
 ---
 #### Security

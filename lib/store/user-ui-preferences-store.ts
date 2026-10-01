@@ -5,7 +5,7 @@ import { THEME_ENUM, ThemeType } from '../types';
 /**
  * This file defines a Zustand store for managing user preferences.
  */
-interface UserUIPreferencesState {
+export interface UserUIPreferencesState {
     theme: ThemeType;
     themeShade: THEME_ENUM;
     energy: string;
@@ -16,15 +16,17 @@ interface UserUIPreferencesState {
     };
 }
 
-const useUserUIPreferencesStore = create<UserUIPreferencesState>((set) => ({
-    theme: 'light',
-    themeShade: THEME_ENUM.AMBER,
-    energy: 'dusk-bloom',
-    actions: {
-        setTheme: (theme: ThemeType) => set({ theme }),
-        setThemeShade: (themeShade: THEME_ENUM) => set({ themeShade }),
-        setEnergy: (energy: string) => set({ energy })
-    }
-}));
+export const useUserUIPreferencesStore = create<UserUIPreferencesState>(
+    (set) => ({
+        theme: 'light',
+        themeShade: THEME_ENUM.AMBER,
+        energy: 'dusk-bloom',
+        actions: {
+            setTheme: (theme: ThemeType) => set({ theme }),
+            setThemeShade: (themeShade: THEME_ENUM) => set({ themeShade }),
+            setEnergy: (energy: string) => set({ energy })
+        }
+    })
+);
 
 export default useUserUIPreferencesStore;
