@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.70.0] - 2026-10-01
+---
+#### Security
+- Update security vulnerabilities found by dependabot in package dependencies.
+
 ### [1.69.0] - 2026-10-01
 ---
 #### Added
