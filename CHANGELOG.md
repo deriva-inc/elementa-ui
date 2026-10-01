@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.72.0] - 2026-10-01
+---
+#### Removed
+- Remove redundant `'use client'` directives across UI components.
+
 ### [1.71.0] - 2026-10-01
 ---
 #### Security

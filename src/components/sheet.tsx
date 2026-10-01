@@ -1,5 +1,3 @@
-'use client';
-
 import { Cancel } from 'elementa-icons';
 import { Dialog as SheetPrimitive } from 'radix-ui';
 import * as React from 'react';

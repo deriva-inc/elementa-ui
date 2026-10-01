@@ -174,6 +174,7 @@ export {
 } from './components/popover';
 export { Progress } from './components/progress';
 export { RadioGroup, RadioGroupItem } from './components/radio-group';
+export { ScrollIndicator } from './components/scroll-indicator';
 export {
     Select,
     SelectContent,
@@ -301,10 +302,10 @@ export { useIsMobile } from './hooks/use-mobile';
 // !SECTION: Hooks
 
 // SECTION: Store & Preferences
-export { default as useUserPreferenceStore } from '../lib/store/user-ui-preferences-store';
+export * from '../lib/store';
 // !SECTION: Store & Preferences
 
-// SECTION: Constants & Enums
+// SECTION: Constants, Enums, and Types
 export { APP_PLATFORMS, ENERGY_THEMES } from '../lib/constants';
 export * from '../lib/types';
 // !SECTION: Constants & Enums

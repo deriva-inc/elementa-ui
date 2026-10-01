@@ -1,5 +1,3 @@
-'use client';
-
 import { Check, ChevronDown, ChevronUp } from 'elementa-icons';
 import { Select as SelectPrimitive } from 'radix-ui';
 import * as React from 'react';

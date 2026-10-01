@@ -1,5 +1,3 @@
-'use client';
-
 import { motion } from 'motion/react';
 import { Text } from './text';
 
@@ -10,7 +8,7 @@ import { Text } from './text';
  * @author Aayush Goyal
  * @created 2026-09-25
  */
-export default function ScrollIndicator() {
+export function ScrollIndicator() {
     // SECTION: Constants and Variables
     // !SECTION: Constants and Variables
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { ChevronDown, ChevronLeft, ChevronRight } from 'elementa-icons';
 import * as React from 'react';
 import {

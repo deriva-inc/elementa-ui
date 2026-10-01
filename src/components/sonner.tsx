@@ -1,5 +1,3 @@
-'use client';
-
 import { Info, TickCloud } from 'elementa-icons';
 import { Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';
 import { Toaster as Sonner, type ToasterProps } from 'sonner';

@@ -1,5 +1,3 @@
-'use client';
-
 import { ChevronDown, ChevronUp } from 'elementa-icons';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import * as React from 'react';
