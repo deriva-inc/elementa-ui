@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.76.0] - 2026-10-01
+---
+#### Added
+- Add `GlowingEffect` background block component.
+
 ### [1.75.0] - 2026-10-01
 ---
 #### Added

@@ -267,7 +267,12 @@ export {
 // !SECTION: Components
 
 // SECTION: Blocks
-export { default as Galaxy } from './blocks/background/galaxy';
+export { BackgroundLines } from './blocks/background/background-lines';
+export {
+    default as Galaxy,
+    type GalaxyProps
+} from './blocks/background/galaxy';
+export { GlowingEffect } from './blocks/background/glowing-effect';
 export { default as EmptyState } from './blocks/empty-state';
 export { default as EnergySwitcher } from './blocks/energy-switcher';
 export { default as ErrorState } from './blocks/error-state';
@@ -282,10 +287,6 @@ export {
 //     type PixelSwapPattern,
 //     type PixelSwapTrigger
 // } from './blocks/pixel-swap';
-// export {
-//     default as Galaxy,
-//     type GalaxyProps
-// } from './blocks/background/galaxy';
 export {
     LightspunCurvedCarousel,
     LightspunCurvedCarousel as LightspunCurvedCarouselNamed,

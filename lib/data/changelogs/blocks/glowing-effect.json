@@ -1,0 +1,14 @@
+{
+    "id": "glowing-effect",
+    "name": "Glowing Effect",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-10-01",
+            "changes": [
+                "Initial block for rendering interactive glowing border and background effect.",
+                "Used Aceternity UI block with design guidelines."
+            ]
+        }
+    ]
+}
