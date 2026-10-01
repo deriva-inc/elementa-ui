@@ -1,4 +1,14 @@
 # CHANGELOG
+### [1.68.0] - 2026-10-01
+---
+#### Added
+- Add `useUserUIPreferencesStore` Zustand store in `src/stores/` with Zod schema validation for managing user UI preferences (`theme`, `sidebarType`, and `isLoggedIn`).
+- Add `logger` utility in `src/utils/` with timestamping, ANSI color-coding, and support for `INFO`, `WARN`, `ERROR`, and `DEBUG` log levels.
+- Add `zod` (`^4.6.5`) dependency.
+
+#### Changed
+- Update library homepage URL in `package.json` to `https://elementa.deriva.xyz`.
+
 ### [1.67.1] - 2026-09-26
 ---
 #### Fixed
