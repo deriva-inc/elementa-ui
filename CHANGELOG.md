@@ -1,4 +1,10 @@
 # CHANGELOG
+### [1.77.0] - 2026-10-06
+---
+#### Added
+- Add `GradientWave` background block component.
+- Add breakpoints tailwind config for elementa design system.
+
 ### [1.76.1] - 2026-10-02
 ---
 #### Fixed

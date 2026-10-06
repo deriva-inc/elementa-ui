@@ -1,8 +1,8 @@
 /**
  * This file contains utility functions for making API calls.
  */
-import logger from './logger';
 import { NextResponse } from 'next/server';
+import { logger } from './logger';
 
 class ClientSideError extends Error {
     constructor(message: string) {

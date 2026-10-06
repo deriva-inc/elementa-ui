@@ -4,7 +4,7 @@
 // Types for log levels.
 type LogLevel = 'info' | 'warn' | 'error' | 'debug';
 
-const COLORS = {
+const LOG_COLORS = {
     TIMESTAMP: '\x1b[38;2;128;128;128m',
     ERROR: '\x1b[38;2;246;62;2m',
     WARN: '\x1b[38;2;243;183;0m',
@@ -21,7 +21,7 @@ const COLORS = {
  * @returns The colorized text.
  */
 const colorize = (color: string, text: string) =>
-    `${color}${text}${COLORS.RESET}`;
+    `${color}${text}${LOG_COLORS.RESET}`;
 
 /**
  * Function to log messages with timestamps and colors.
@@ -31,26 +31,26 @@ const colorize = (color: string, text: string) =>
  */
 const log = (level: LogLevel, message: string) => {
     const timestamp = new Date().toISOString();
-    const timestampLog = colorize(COLORS.TIMESTAMP, timestamp);
+    const timestampLog = colorize(LOG_COLORS.TIMESTAMP, timestamp);
     switch (level) {
         case 'error':
             console.error(
-                `${timestampLog} | ${colorize(COLORS.ERROR, level.toUpperCase())} : ${colorize(COLORS.ERROR, message)}`
+                `${timestampLog} | ${colorize(LOG_COLORS.ERROR, level.toUpperCase())} : ${colorize(LOG_COLORS.ERROR, message)}`
             );
             break;
         case 'warn':
             console.warn(
-                `${timestampLog} | ${colorize(COLORS.WARN, level.toUpperCase())} : ${colorize(COLORS.WARN, message)}`
+                `${timestampLog} | ${colorize(LOG_COLORS.WARN, level.toUpperCase())} : ${colorize(LOG_COLORS.WARN, message)}`
             );
             break;
         case 'info':
             console.info(
-                `${timestampLog} | ${colorize(COLORS.INFO, level.toUpperCase())} : ${colorize(COLORS.INFO, message)}`
+                `${timestampLog} | ${colorize(LOG_COLORS.INFO, level.toUpperCase())} : ${colorize(LOG_COLORS.INFO, message)}`
             );
             break;
         default:
             console.log(
-                `${timestampLog} | ${colorize(COLORS.DEBUG, level.toUpperCase())} : ${colorize(COLORS.DEBUG, message)}`
+                `${timestampLog} | ${colorize(LOG_COLORS.DEBUG, level.toUpperCase())} : ${colorize(LOG_COLORS.DEBUG, message)}`
             );
             break;
     }
@@ -63,4 +63,4 @@ const logger = {
     debug: (...message: string[]) => log('debug', message.join(' '))
 };
 
-export default logger;
+export { LOG_COLORS, logger };

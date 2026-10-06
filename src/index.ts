@@ -273,6 +273,11 @@ export {
     type GalaxyProps
 } from './blocks/background/galaxy';
 export { GlowingEffect } from './blocks/background/glowing-effect';
+export {
+    default as GradientWaves,
+    type GradientWavesDetail,
+    type GradientWavesProps
+} from './blocks/background/gradient-waves';
 export { default as EmptyState } from './blocks/empty-state';
 export { default as EnergySwitcher } from './blocks/energy-switcher';
 export { default as ErrorState } from './blocks/error-state';
@@ -301,7 +306,7 @@ export {
 // !SECTION: Blocks
 
 // SECTION: Hooks
-export { useIsMobile } from './hooks/use-mobile';
+export * from '../lib/hooks';
 // !SECTION: Hooks
 
 // SECTION: Store & Preferences
@@ -315,9 +320,15 @@ export * from '../lib/types';
 
 // SECTION: Utilities
 export {
+    ClientSideError,
+    handleErrorOnClientSideAPICalls,
+    handleErrorOnServerSideAPICalls
+} from '../lib/api';
+export {
     getDataFromLocalStorage,
     setDataInLocalStorage
 } from '../lib/local-storage';
+export { LOG_COLORS, logger } from '../lib/logger';
 export { copyToClipboard } from '../lib/text';
 export { cn } from '../lib/utils';
 // !SECTION: Utilities

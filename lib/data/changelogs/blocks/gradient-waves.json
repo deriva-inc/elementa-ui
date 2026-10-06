@@ -1,0 +1,14 @@
+{
+    "id": "gradient-waves",
+    "name": "Gradient Waves",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-10-06",
+            "changes": [
+                "Initial block for rendering WebGL raymarched plasma gradient waves using OGL.",
+                "Supports customizable colors, wave scale, swell, turbulence, camera parallax, and film grain."
+            ]
+        }
+    ]
+}

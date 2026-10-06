@@ -3,8 +3,8 @@ import { Slot } from 'radix-ui';
 import * as React from 'react';
 
 import { PanelLeftIcon } from 'lucide-react';
+import { useIsMobile } from '../../lib/hooks/use-mobile';
 import { cn } from '../../lib/utils';
-import { useIsMobile } from '../hooks/use-mobile';
 import { Button } from './button';
 import { Input } from './input';
 import { Separator } from './separator';
