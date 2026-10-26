@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.78.0] - 2026-10-26
+---
+#### Added
+- Add `Ballpit` background block component.
+
 ### [1.77.0] - 2026-10-06
 ---
 #### Added

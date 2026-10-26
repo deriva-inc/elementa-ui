@@ -1,0 +1,14 @@
+{
+    "id": "ball-pit",
+    "name": "Ball Pit",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-10-26",
+            "changes": [
+                "Initial block for rendering a 3D WebGL2 physics ball pit.",
+                "Supports customizable materials, PBR studio lighting, gravity, and pointer interactions."
+            ]
+        }
+    ]
+}
