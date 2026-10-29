@@ -519,6 +519,141 @@
         ]
     },
     {
+        "id": "count-up",
+        "name": "Count Up",
+        "description": "An animated numerical counter supporting smooth easing, slot-machine digit rolling, compact number notation, and scroll-triggered transitions.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-10-29",
+        "thumbnail": "Count Up animated number and rolling slot counter component",
+        "usage": "Use CountUp to animate statistics, financial figures, metrics, and key performance indicators.",
+        "props": [
+            {
+                "name": "to",
+                "type": "number",
+                "default": "undefined",
+                "description": "Target number value to animate towards"
+            },
+            {
+                "name": "from",
+                "type": "number",
+                "default": "0",
+                "description": "Starting number value for the animation"
+            },
+            {
+                "name": "direction",
+                "type": "'up' | 'down'",
+                "default": "'up'",
+                "description": "Counting direction ('up' or 'down')"
+            },
+            {
+                "name": "delay",
+                "type": "number",
+                "default": "0",
+                "description": "Delay before starting the animation in seconds"
+            },
+            {
+                "name": "duration",
+                "type": "number",
+                "default": "2",
+                "description": "Duration of the count animation in seconds"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "''",
+                "description": "Additional CSS classes"
+            },
+            {
+                "name": "style",
+                "type": "CSSProperties",
+                "default": "undefined",
+                "description": "Inline CSS styles"
+            },
+            {
+                "name": "startWhen",
+                "type": "boolean",
+                "default": "true",
+                "description": "Condition flag that triggers the animation when true"
+            },
+            {
+                "name": "separator",
+                "type": "string",
+                "default": "''",
+                "description": "Thousands delimiter separator (e.g. ',')"
+            },
+            {
+                "name": "prefix",
+                "type": "string",
+                "default": "''",
+                "description": "String prefix prepended before the number"
+            },
+            {
+                "name": "suffix",
+                "type": "string",
+                "default": "''",
+                "description": "String suffix appended after the number"
+            },
+            {
+                "name": "mode",
+                "type": "'count' | 'roll'",
+                "default": "'count'",
+                "description": "Animation mode: numeric interpolator ('count') or slot machine digit cycler ('roll')"
+            },
+            {
+                "name": "easing",
+                "type": "'easeOut' | 'linear' | 'expo' | 'spring'",
+                "default": "'easeOut'",
+                "description": "Easing transition curve ('easeOut', 'linear', 'expo', 'spring')"
+            },
+            {
+                "name": "decimals",
+                "type": "number",
+                "default": "undefined",
+                "description": "Number of fixed decimal places to display"
+            },
+            {
+                "name": "format",
+                "type": "'standard' | 'compact'",
+                "default": "'standard'",
+                "description": "Formatting mode: 'standard' or 'compact' (e.g. 1.2M, 50K)"
+            },
+            {
+                "name": "trigger",
+                "type": "'view' | 'load'",
+                "default": "'view'",
+                "description": "Trigger condition: when scrolled into view ('view') or on page load ('load')"
+            },
+            {
+                "name": "replayOnHover",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether to re-trigger the counting animation on mouse enter"
+            },
+            {
+                "name": "onStart",
+                "type": "() => void",
+                "default": "undefined",
+                "description": "Callback fired when the animation begins"
+            },
+            {
+                "name": "onEnd",
+                "type": "() => void",
+                "default": "undefined",
+                "description": "Callback fired when the animation finishes"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Standard Count with Separator and Prefix",
+                "code": "<CountUp to={12500} separator=\",\" prefix=\"$\" />"
+            },
+            {
+                "title": "Compact Roll Mode with Suffix and Spring Easing",
+                "code": "<CountUp to={2500000} mode=\"roll\" format=\"compact\" suffix=\"+\" duration={2.5} easing=\"spring\" />"
+            }
+        ]
+    },
+    {
         "id": "dialog",
         "name": "Dialog",
         "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
@@ -1644,8 +1779,8 @@
         "id": "toggle-group",
         "name": "Toggle Group",
         "description": "A group of two-state buttons that can be toggled on or off, supporting single or multiple selection.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-08-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-10-29",
         "thumbnail": "Toggle Group component for single or multiple selection",
         "usage": "Use ToggleGroup to create grouped toggle buttons for formatting options, filter selectors, or view mode switchers.",
         "props": [

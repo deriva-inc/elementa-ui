@@ -7,9 +7,9 @@ import { toggleVariants } from './toggle';
 /**
  * This function renders a Toggle Group component for the elementa-ui.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-10-29
  */
 const ToggleGroupContext = React.createContext<
     VariantProps<typeof toggleVariants> & {
@@ -45,7 +45,7 @@ function ToggleGroup({
             data-orientation={orientation}
             style={{ '--gap': spacing } as React.CSSProperties}
             className={cn(
-                'group/toggle-group border border-stroke-active-primary flex w-fit flex-row items-center gap-[--spacing(var(--gap))] rounded-lg data-vertical:flex-col data-vertical:items-stretch data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
+                'group/toggle-group border-[0.25px] border-stroke-active-primary flex w-fit flex-row items-center gap-[--spacing(var(--gap))] rounded-lg data-vertical:flex-col data-vertical:items-stretch data-[size=sm]:rounded-[min(var(--radius-md),10px)]',
                 className
             )}
             {...props}

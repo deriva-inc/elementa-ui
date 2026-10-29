@@ -47,6 +47,7 @@ export {
 export { Calendar, CalendarDayButton } from './components/calendar';
 export { Checkbox } from './components/checkbox';
 export { ColorPicker } from './components/color-picker';
+export { CountUp, type CountUpProps } from './components/count-up';
 export {
     ContextMenu,
     ContextMenuCheckboxItem,
@@ -268,6 +269,7 @@ export {
 
 // SECTION: Blocks
 export { BackgroundLines } from './blocks/background/background-lines';
+export { Ballpit } from './blocks/background/ball-pit';
 export {
     default as Galaxy,
     type GalaxyProps

@@ -1501,4 +1501,4 @@ const Ballpit = ({
     );
 };
 
-export default Ballpit;
+export { Ballpit };

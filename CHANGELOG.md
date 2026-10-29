@@ -1,4 +1,9 @@
 # CHANGELOG
+### [1.79.0] - 2026-10-29
+---
+#### Added
+- Add `CountUp` text component.
+
 ### [1.78.0] - 2026-10-26
 ---
 #### Added

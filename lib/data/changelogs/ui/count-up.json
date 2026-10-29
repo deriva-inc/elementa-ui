@@ -1,0 +1,14 @@
+{
+    "id": "count-up",
+    "name": "Count Up",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-10-29",
+            "changes": [
+                "Initial component for rendering an animated count-up number.",
+                "Supports standard counting and slot-machine rolling animations with customizable easing, formatting, and triggers."
+            ]
+        }
+    ]
+}

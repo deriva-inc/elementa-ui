@@ -1,6 +1,6 @@
 {
     "name": "get-elementa-ui",
-    "version": "1.78.0",
+    "version": "1.79.0",
     "description": "Elementa UI components library.",
     "homepage": "https://elementa.deriva.xyz",
     "main": "dist/index.js",
@@ -53,8 +53,8 @@
         "version:major": "npm version major --no-git-tag-version"
     },
     "peerDependencies": {
-        "react": ">=18.0.0",
-        "react-dom": ">=18.0.0"
+        "react": ">=19.3.1",
+        "react-dom": ">=19.3.1"
     },
     "devDependencies": {
         "@babel/core": "^7.27.4",
