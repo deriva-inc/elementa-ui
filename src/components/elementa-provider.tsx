@@ -134,11 +134,19 @@ export function ElementaProvider({
                 href="https://fonts.gstatic.com"
                 crossOrigin="anonymous"
             />
+            {/* Separate tag for Rowan */}
             <link
                 rel="stylesheet"
-                href="https://api.fontshare.com/v2/css?f[]=rowan@400,500,700&f[]=satoshi@300,400,500,700,900&display=swap"
+                href="https://api.fontshare.com/v2/css?f[]=rowan@400,500,700&display=swap"
                 precedence="default"
             />
+            {/* Separate tag for Satoshi */}
+            <link
+                rel="stylesheet"
+                href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
+                precedence="default"
+            />
+            {/* JetBrains Mono */}
             <link
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
