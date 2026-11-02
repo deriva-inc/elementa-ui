@@ -3,6 +3,13 @@
     "name": "ElementaProvider",
     "versions": [
         {
+            "version": "0.3.0",
+            "date": "2026-11-02",
+            "changes": [
+                "Fix font rendering issue by importing fonts in `ElementaProvider` component."
+            ]
+        },
+        {
             "version": "0.2.0",
             "date": "2026-09-25",
             "changes": ["Use relative imports instead of absolute imports."]

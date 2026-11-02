@@ -27,8 +27,9 @@ const ElementaContext = createContext<ElementaContextType | undefined>(
  * ElementaProvider automatically applies Elementa themes and energy attributes
  * to the document root, ensuring themes and energies work out of the box in Next.js apps.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
+ * @modified 2026-11-02
  */
 export function ElementaProvider({
     children,
@@ -118,6 +119,31 @@ export function ElementaProvider({
 
     return (
         <ElementaContext.Provider value={contextValue}>
+            <link
+                rel="preconnect"
+                href="https://api.fontshare.com"
+                crossOrigin="anonymous"
+            />
+            <link
+                rel="preconnect"
+                href="https://fonts.googleapis.com"
+                crossOrigin="anonymous"
+            />
+            <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin="anonymous"
+            />
+            <link
+                rel="stylesheet"
+                href="https://api.fontshare.com/v2/css?f[]=rowan@400,500,700&f[]=satoshi@300,400,500,700,900&display=swap"
+                precedence="default"
+            />
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+                precedence="default"
+            />
             {children}
         </ElementaContext.Provider>
     );

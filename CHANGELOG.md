@@ -1,4 +1,13 @@
 # CHANGELOG
+### [1.80.0 - 2026-11-02
+---
+#### Added
+- Add `DESIGN.md` to instruct design agents how to create UIs with elementa.
+- Add content to `README`.
+
+#### Fixed
+- Fix font rendering issue by importing font in `ElementaProvider` component.
+
 ### [1.79.0] - 2026-10-29
 ---
 #### Added
