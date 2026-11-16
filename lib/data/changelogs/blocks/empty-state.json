@@ -3,6 +3,13 @@
     "name": "Empty State",
     "versions": [
         {
+            "version": "0.4.0",
+            "date": "2026-11-16",
+            "changes": [
+                "Add support for Lottie animations and custom PNG/SVG illustrations with fallback to theme-dependent illustrations."
+            ]
+        },
+        {
             "version": "0.3.0",
             "date": "2026-09-25",
             "changes": ["Use relative imports instead of absolute imports."]

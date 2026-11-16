@@ -81,3 +81,22 @@
   /* Shadows */
   --shadow-top-md: 0 -2px 8px 4px rgba(0,0,0,0.1);
 }
+
+/* Sidebar and BottomNavBar responsiveness for 728px threshold */
+@media (max-width: 727px) {
+  [data-component="app-sidebar"],
+  [data-slot="sidebar-wrapper"] > [data-slot="sidebar"],
+  [data-slot="sidebar-wrapper"] > [data-slot="sidebar-gap"],
+  [data-slot="sidebar-wrapper"] > [data-slot="sidebar-container"] {
+    display: none !important;
+  }
+  body:has([data-component="bottom-nav-bar"]) {
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 728px) {
+  [data-component="bottom-nav-bar"] {
+    display: none !important;
+  }
+}

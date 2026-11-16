@@ -3,31 +3,44 @@ import { cn } from '../../lib/utils';
 import sampleAnimData from '../assets/anims/sample-anim.json';
 import { Text, TextVariant } from '../components/text';
 
+export interface LoadingStateProps {
+    text?: string;
+    animData?: any;
+    illustration?: string | React.ReactNode;
+    illustrationAlt?: string;
+    className?: string;
+}
+
 /**
  * This function renders a loading state component.
+ * Supports Lottie animations, as well as PNG and SVG illustrations if animation data is not present.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
  * @created 2026-09-25
+ * @modified 2026-11-16
  */
 export default function LoadingState({
     text,
-    animData = sampleAnimData,
+    animData,
+    illustration,
+    illustrationAlt,
     className
-}: {
-    text?: string;
-    animData?: any;
-    className?: string;
-}) {
+}: LoadingStateProps) {
     // SECTION: Constants and Variables
-    const sampleAnimLottieOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animData,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-        }
-    };
+    const resolvedAnimData =
+        animData ?? (!illustration ? sampleAnimData : null);
+
+    const sampleAnimLottieOptions = resolvedAnimData
+        ? {
+              loop: true,
+              autoplay: true,
+              animationData: resolvedAnimData,
+              rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+              }
+          }
+        : null;
     // !SECTION: Constants and Variables
 
     // SECTION: States
@@ -50,8 +63,18 @@ export default function LoadingState({
                 className
             )}
         >
-            <div className="m-auto max-h-80 max-w-80">
-                <Lottie options={sampleAnimLottieOptions} />
+            <div className="m-auto flex max-h-80 max-w-80 items-center justify-center">
+                {sampleAnimLottieOptions ? (
+                    <Lottie options={sampleAnimLottieOptions} />
+                ) : typeof illustration === 'string' ? (
+                    <img
+                        src={illustration}
+                        alt={illustrationAlt || text || 'Loading illustration'}
+                        className="max-h-80 max-w-80 object-contain md:h-60 md:w-60 lg:h-80 lg:w-80"
+                    />
+                ) : (
+                    illustration
+                )}
             </div>
             <Text variant={TextVariant.H3}>
                 {text || 'Loading your data...'}
@@ -60,3 +83,5 @@ export default function LoadingState({
     );
     // !SECTION: UI
 }
+
+export { LoadingState };

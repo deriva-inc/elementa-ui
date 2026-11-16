@@ -29,6 +29,11 @@ export {
 } from './components/avatar';
 export { Badge, badgeVariants } from './components/badge';
 export {
+    BottomNavBar,
+    type BottomNavBarProps,
+    type BottomNavItem
+} from './components/bottom-nav-bar';
+export {
     Breadcrumb,
     BreadcrumbEllipsis,
     BreadcrumbItem,
@@ -276,14 +281,33 @@ export {
 } from './blocks/background/galaxy';
 export { GlowingEffect } from './blocks/background/glowing-effect';
 export {
+    default as GradientASCII,
+    type GradientASCIIClickEffect,
+    type GradientASCIIProps,
+    type GradientASCIIShape
+} from './blocks/background/gradient-ascii';
+export {
     default as GradientWaves,
     type GradientWavesDetail,
     type GradientWavesProps
 } from './blocks/background/gradient-waves';
-export { default as EmptyState } from './blocks/empty-state';
+export {
+    default as MoltenMetal,
+    type MoltenMetalProps
+} from './blocks/background/molten-metal';
+export {
+    default as EmptyState,
+    type EmptyStateProps
+} from './blocks/empty-state';
 export { default as EnergySwitcher } from './blocks/energy-switcher';
-export { default as ErrorState } from './blocks/error-state';
-export { default as LoadingState } from './blocks/loading-state';
+export {
+    default as ErrorState,
+    type ErrorStateProps
+} from './blocks/error-state';
+export {
+    default as LoadingState,
+    type LoadingStateProps
+} from './blocks/loading-state';
 export {
     default as ThemeSwitcher,
     type TransitionVariant

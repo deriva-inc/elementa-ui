@@ -1860,5 +1860,86 @@
                 "code": "<TooltipProvider>\n  <Tooltip>\n    <TooltipTrigger asChild>\n      <Button variant=\"outline\">Hover me</Button>\n    </TooltipTrigger>\n    <TooltipContent>\n      <p>Contextual tip</p>\n    </TooltipContent>\n  </Tooltip>\n</TooltipProvider>"
             }
         ]
+    },
+    {
+        "id": "bottom-nav-bar",
+        "name": "Bottom Navigation Bar",
+        "description": "A responsive, accessible bottom navigation bar component supporting up to 5 items with energy-aware active highlights, tertiary inactive styling, and center action button support.",
+        "version": "0.1.0",
+        "lastUpdated": "2026-11-12",
+        "thumbnail": "Bottom Navigation Bar with energy-dependent active item highlight and center action button",
+        "usage": "Use BottomNavBar to provide primary navigation across mobile screens, dashboards, or responsive web views with clean visual hierarchy and energy theming.",
+        "props": [
+            {
+                "name": "items",
+                "type": "BottomNavItem[]",
+                "default": "[]",
+                "description": "Array of up to 5 navigation items with id, label, icon, activeIcon, badge, and isAction"
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "default": "undefined",
+                "description": "Controlled active item identifier"
+            },
+            {
+                "name": "defaultValue",
+                "type": "string",
+                "default": "undefined",
+                "description": "Default active item identifier for uncontrolled usage"
+            },
+            {
+                "name": "onValueChange",
+                "type": "(value: string, item: BottomNavItem) => void",
+                "default": "undefined",
+                "description": "Callback triggered when the selected navigation item changes"
+            },
+            {
+                "name": "variant",
+                "type": "'fixed' | 'floating' | 'inline'",
+                "default": "'fixed'",
+                "description": "Layout display mode: docked fixed bottom, floating pill, or inline"
+            },
+            {
+                "name": "showLabels",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether text labels are rendered below icons"
+            },
+            {
+                "name": "showHomeIndicator",
+                "type": "boolean",
+                "default": "true (on fixed)",
+                "description": "Whether to render the iOS home indicator safe area bar"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS class names for styling customization"
+            },
+            {
+                "name": "style",
+                "type": "CSSProperties",
+                "default": "undefined",
+                "description": "Inline style overrides for the navigation container"
+            },
+            {
+                "name": "ariaLabel",
+                "type": "string",
+                "default": "'Bottom Navigation'",
+                "description": "Accessible landmark label for assistive technologies"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Standard Bottom Navigation with Center Action",
+                "code": "<BottomNavBar\n    items={[\n        { id: 'home', label: 'Home', icon: <Home className=\"size-5\" /> },\n        { id: 'payments', label: 'Payments', icon: <CreditCard className=\"size-5\" /> },\n        { id: 'transfer', label: 'Transfer', icon: <ArrowUpDown className=\"size-5\" />, isAction: true },\n        { id: 'customers', label: 'Customers', icon: <Users className=\"size-5\" /> },\n        { id: 'search', label: 'Search', icon: <Search className=\"size-5\" /> }\n    ]}\n    defaultValue=\"home\"\n/>"
+            },
+            {
+                "title": "Floating Bottom Navigation Pill",
+                "code": "<BottomNavBar\n    variant=\"floating\"\n    items={[\n        { id: 'home', label: 'Home', icon: <Home className=\"size-5\" /> },\n        { id: 'payments', label: 'Payments', icon: <CreditCard className=\"size-5\" /> },\n        { id: 'transfer', label: 'Transfer', icon: <ArrowUpDown className=\"size-5\" />, isAction: true },\n        { id: 'customers', label: 'Customers', icon: <Users className=\"size-5\" /> },\n        { id: 'search', label: 'Search', icon: <Search className=\"size-5\" /> }\n    ]}\n    defaultValue=\"home\"\n/>"
+            }
+        ]
     }
 ]

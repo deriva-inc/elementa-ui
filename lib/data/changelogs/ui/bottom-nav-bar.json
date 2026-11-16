@@ -1,0 +1,16 @@
+{
+    "id": "bottom-nav-bar",
+    "name": "Bottom Navigation Bar",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-11-16",
+            "changes": [
+                "Initial component for rendering a Bottom Navigation Bar.",
+                "Enforces a maximum of 5 navigation items with navigation state management.",
+                "Highlights active items with the current energy primary color and inactive items with tertiary color.",
+                "Supports center circular action button, animated active pill indicator, and fixed, floating, or inline layouts."
+            ]
+        }
+    ]
+}

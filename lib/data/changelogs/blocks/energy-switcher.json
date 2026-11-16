@@ -3,6 +3,14 @@
     "name": "Energy Switcher",
     "versions": [
         {
+            "version": "0.3.0",
+            "date": "2026-11-13",
+            "changes": [
+                "Fix mouse wheel and mobile touch scrolling in theme dropdown list.",
+                "Add data-lenis-prevent, touch-pan-y, and overscroll-contain to enable smooth scrolling on desktop and mobile devices."
+            ]
+        },
+        {
             "version": "0.2.0",
             "date": "2026-09-25",
             "changes": ["Use relative imports instead of absolute imports."]

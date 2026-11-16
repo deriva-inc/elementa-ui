@@ -1,0 +1,14 @@
+{
+    "id": "molten-metal",
+    "name": "Molten Metal",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-11-16",
+            "changes": [
+                "Initial block for rendering WebGL2 raymarched fluid molten metal background.",
+                "Supports customizable fluid colors, core specular highlight, swirl, turbulence, color modes, interactive pointer ripples, and explosive click flares."
+            ]
+        }
+    ]
+}

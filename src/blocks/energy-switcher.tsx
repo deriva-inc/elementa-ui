@@ -22,7 +22,7 @@ import { Text, TextVariant } from '../components/text';
  *
  * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-16
  */
 export default function EnergySwitcher() {
     // SECTION: States and Constants
@@ -62,7 +62,7 @@ export default function EnergySwitcher() {
 
     // SECTION: UI
     return (
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
             <DropdownMenuTrigger
                 asChild
                 className="border-stroke-active-accent-primary border-2"
@@ -86,10 +86,23 @@ export default function EnergySwitcher() {
                     <ChevronDown size={16} className="ml-1" />
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Design System Themes</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <div className="max-h-96 overflow-y-auto">
+            <DropdownMenuContent
+                align="end"
+                data-lenis-prevent
+                className="w-60 sm:w-64 p-0 overflow-hidden"
+            >
+                <div className="p-2 pb-1">
+                    <DropdownMenuLabel className="px-1 py-0.5">
+                        Design System Themes
+                    </DropdownMenuLabel>
+                </div>
+                <DropdownMenuSeparator className="my-0" />
+                <div
+                    data-lenis-prevent
+                    onWheel={(e) => e.stopPropagation()}
+                    onTouchMove={(e) => e.stopPropagation()}
+                    className="max-h-72 sm:max-h-80 overflow-y-auto overscroll-contain touch-pan-y p-1"
+                >
                     {ENERGY_THEMES.map((theme) => (
                         <DropdownMenuItem
                             key={theme.id}

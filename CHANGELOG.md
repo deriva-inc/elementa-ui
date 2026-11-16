@@ -1,4 +1,19 @@
 # CHANGELOG
+### [1.81.0] - 2026-11-16
+---
+#### Added
+- Add `BottomNavBar` navigation component.
+- Add `GradientASCII` background block component.
+- Add `MoltenMetal` background block component.
+- Global `utilities.css` now supports automatic rendering of `BottomNavBar` and `Sidebar` depending on the screen size.
+
+#### Changed
+- Update `EmptyState`, `ErrorState`, and `LoadingState` to also support rendering SVGs and PNGs other than Lottie animations.
+
+#### Fixed
+- Fix rendering logger utility. It uses ASCII colors for server environments and CSS + Browser consoles for non-server environments.
+- Make `EnergySwitcher` block scrollable both with pointer and scroll devices.
+
 ### [1.80.0] - 2026-11-02
 ---
 #### Added

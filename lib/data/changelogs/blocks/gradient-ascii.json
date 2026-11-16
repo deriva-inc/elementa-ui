@@ -1,0 +1,14 @@
+{
+    "id": "gradient-ascii",
+    "name": "Gradient ASCII",
+    "versions": [
+        {
+            "version": "0.1.0",
+            "date": "2026-11-16",
+            "changes": [
+                "Initial block for rendering WebGL procedural gradient ASCII art matrix.",
+                "Supports customizable palettes, mathematical shapes, glyph density, cell size, dynamic flow, mouse interaction, and click effects."
+            ]
+        }
+    ]
+}
