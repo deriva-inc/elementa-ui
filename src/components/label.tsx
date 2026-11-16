@@ -1,3 +1,5 @@
+'use client';
+
 import { Label as LabelPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { cn } from '../../lib/utils';
@@ -5,9 +7,9 @@ import { cn } from '../../lib/utils';
 /**
  * This function renders a Label component for the elementa-ui.
  *
- * @version 0.4.0
+ * @version 0.5.0
  * @author Aayush Goyal
- * @modified 2026-04-29
+ * @modified 2026-11-17
  */
 function Label({
     className,

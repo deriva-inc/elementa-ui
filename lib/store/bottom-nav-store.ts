@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowUpDown, CreditCard, Home, Search, Users } from 'lucide-react';
 import * as React from 'react';
 import { create } from 'zustand';

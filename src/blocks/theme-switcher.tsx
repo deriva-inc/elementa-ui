@@ -1,3 +1,5 @@
+'use client';
+
 import { Monitor, Moon, Sun } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
@@ -36,9 +38,9 @@ const applyThemeToDocument = (themeValue: string) => {
 /**
  * This function renders the Theme Switcher component of the app.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modifed 2026-09-25
+ * @modified 2026-11-17
  */
 export default function ThemeSwitcher({
     duration = 500,

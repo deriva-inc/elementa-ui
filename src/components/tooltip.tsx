@@ -1,3 +1,5 @@
+'use client';
+
 import { Tooltip as TooltipPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { cn } from '../../lib/utils';
@@ -5,9 +7,9 @@ import { cn } from '../../lib/utils';
 /**
  * This function renders a Tooltip component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function TooltipProvider({
     delayDuration = 0,

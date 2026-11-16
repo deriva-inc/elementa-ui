@@ -3,6 +3,13 @@
     "name": "Text",
     "versions": [
         {
+            "version": "0.12.0",
+            "date": "2026-11-17",
+            "changes": [
+                "Add 'use client' directive for modular bundling and React Server Components compatibility."
+            ]
+        },
+        {
             "version": "0.11.0",
             "date": "2026-10-02",
             "changes": ["Fix ref issue in `MotionText` component."]

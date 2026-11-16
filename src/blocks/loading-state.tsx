@@ -1,3 +1,5 @@
+'use client';
+
 import Lottie from 'react-lottie';
 import { cn } from '../../lib/utils';
 import sampleAnimData from '../assets/anims/sample-anim.json';
@@ -15,10 +17,10 @@ export interface LoadingStateProps {
  * This function renders a loading state component.
  * Supports Lottie animations, as well as PNG and SVG illustrations if animation data is not present.
  *
- * @version 0.4.0
+ * @version 0.5.0
  * @author Aayush Goyal
  * @created 2026-09-25
- * @modified 2026-11-16
+ * @modified 2026-11-17
  */
 export default function LoadingState({
     text,

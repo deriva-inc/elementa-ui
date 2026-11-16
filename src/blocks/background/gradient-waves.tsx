@@ -6,9 +6,9 @@ import React, { useEffect, useRef } from 'react';
 /**
  * This function renders a Gradient Wave background block component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modified 2026-10-06
+ * @modified 2026-11-17
  */
 export type GradientWavesDetail = 'low' | 'medium' | 'high';
 

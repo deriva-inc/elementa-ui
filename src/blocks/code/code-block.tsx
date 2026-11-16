@@ -1,3 +1,5 @@
+'use client';
+
 import { Check, Copy } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -15,9 +17,9 @@ import { Text } from '../../components/text';
 /**
  * This component renders a code block with syntax highlighting and copy functionality.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modifed 2026-09-25
+ * @modified 2026-11-17
  */
 
 interface CodeBlockProps {

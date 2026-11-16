@@ -1,3 +1,5 @@
+'use client';
+
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { ContextMenu as ContextMenuPrimitive } from 'radix-ui';
 import * as React from 'react';
@@ -6,9 +8,9 @@ import { cn } from '../../lib/utils';
 /**
  * This function renders a Context Menu component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function ContextMenu({
     ...props

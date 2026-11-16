@@ -1,11 +1,14 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Text } from './text';
 
 /**
  * This function renders a scroll indicator for hero items on the UI.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
+ * @modified 2026-11-17
  * @created 2026-09-25
  */
 export function ScrollIndicator() {

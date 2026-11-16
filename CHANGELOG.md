@@ -1,4 +1,20 @@
 # CHANGELOG
+### [1.82.0] - 2026-11-17
+---
+#### Added
+- Add subpath exports `./server` and `./utils` in `package.json` for importing utilities without pulling in React/DOM dependencies.
+- Add `src/server.ts` and `src/utils.ts` entrypoints for server-side and isomorphic JavaScript/TypeScript utility consumption.
+- Add `lib/api-client.ts` and `lib/api-server.ts` to cleanly separate client and server API error handling.
+
+#### Changed
+- Configure Rollup bundle with `preserveModules: true` and `rollup-plugin-preserve-directives` to preserve `'use client'` per-module rather than applying a global banner.
+- Add per-module `'use client'` directives across client components and blocks for seamless React Server Components (RSC) and SSR compatibility.
+- Update `copyToClipboard` in `lib/text.ts` to lazily import `sonner` so isomorphic utilities remain directive-free.
+- Update `DialogTrigger` in `src/components/dialog.tsx` to support `Button` variants (e.g., `destructive`, `outline`) and sizes, and allow overriding the default outline variant on `DialogClose`.
+
+#### Fixed
+- Fix `Sonner` toast color token classes using proper background utility classes (`bg-bg-*`).
+
 ### [1.81.0] - 2026-11-16
 ---
 #### Added

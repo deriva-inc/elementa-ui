@@ -1,3 +1,5 @@
+'use client';
+
 import { Cancel } from 'elementa-icons';
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import * as React from 'react';
@@ -7,9 +9,9 @@ import { Button } from './button';
 /**
  * This function renders a Dialog component for the elementa-ui.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function Dialog({
     ...props
@@ -18,9 +20,39 @@ function Dialog({
 }
 
 function DialogTrigger({
+    className,
+    children,
+    asChild = false,
+    variant = 'default',
+    size = 'default',
     ...props
-}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
-    return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+}: React.ComponentProps<typeof DialogPrimitive.Trigger> &
+    Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {
+    if (asChild) {
+        return (
+            <DialogPrimitive.Trigger
+                data-slot="dialog-trigger"
+                asChild
+                className={className}
+                {...props}
+            >
+                {children}
+            </DialogPrimitive.Trigger>
+        );
+    }
+
+    return (
+        <DialogPrimitive.Trigger data-slot="dialog-trigger" asChild>
+            <Button
+                variant={variant}
+                size={size}
+                className={className}
+                {...props}
+            >
+                {children}
+            </Button>
+        </DialogPrimitive.Trigger>
+    );
 }
 
 function DialogPortal({
@@ -31,12 +63,13 @@ function DialogPortal({
 
 function DialogClose({
     children,
+    variant = 'outline',
     ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close> &
     React.ComponentProps<typeof Button>) {
     return (
         <DialogPrimitive.Close data-slot="dialog-close" asChild>
-            <Button {...props} variant="outline">
+            <Button variant={variant} {...props}>
                 {children}
             </Button>
         </DialogPrimitive.Close>

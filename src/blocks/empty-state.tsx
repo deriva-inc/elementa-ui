@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { ENERGY_THEMES } from '../../lib/constants';
@@ -29,9 +31,9 @@ export interface EmptyStateProps {
  * Supports Lottie animations, as well as PNG and SVG illustrations if animation data is not present.
  * Falls back to theme-dependent SVG illustration when neither animation data nor custom illustration is provided.
  *
- * @version 0.4.0
+ * @version 0.5.0
  * @author Aayush Goyal
- * @modified 2026-11-16
+ * @modified 2026-11-17
  */
 export default function EmptyState({
     heading,

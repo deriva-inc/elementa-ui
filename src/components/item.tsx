@@ -1,3 +1,5 @@
+'use client';
+
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 import * as React from 'react';
@@ -7,9 +9,9 @@ import { Separator } from './separator';
 /**
  * This function renders a Tooltip component for the elementa-ui.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function ItemGroup({ className, ...props }: React.ComponentProps<'div'>) {
     return (

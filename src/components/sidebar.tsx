@@ -1,3 +1,5 @@
+'use client';
+
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 import * as React from 'react';
@@ -28,9 +30,9 @@ const SIDEBAR_KEYBOARD_SHORTCUT = 'b';
 /**
  * This function renders a Sidebar component for the elementa-ui.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 
 type SidebarContextProps = {

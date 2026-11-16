@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { forwardRef } from 'react';
 import { cn } from '../../lib/utils';
@@ -27,9 +29,9 @@ export interface TextProps {
 /**
  * This function renders the Text component for the library.
  *
- * @version 0.11.0
+ * @version 0.12.0
  * @author Aayush Goyal
- * @modified 2026-10-02
+ * @modified 2026-11-17
  */
 export const Text = forwardRef<HTMLElement, TextProps>(function Text(
     {

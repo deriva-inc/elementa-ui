@@ -1,3 +1,5 @@
+'use client';
+
 // /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React, { createContext, useContext, useState } from 'react';
@@ -7,9 +9,9 @@ import { Text } from './text';
 /**
  * This function renders an Stepper component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 /**
  * This interface defines the context for the Stepper component.

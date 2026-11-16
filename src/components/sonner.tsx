@@ -1,3 +1,5 @@
+'use client';
+
 import { Info, TickCloud } from 'elementa-icons';
 import { Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';
 import { Toaster as Sonner, type ToasterProps } from 'sonner';
@@ -6,9 +8,9 @@ import useUIStore from '../../lib/store/user-ui-preferences-store';
 /**
  * This function renders a custom Sonner toast component for the elementa-ui.
  *
- * @version 0.4.0
+ * @version 0.5.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 const Toaster = ({ ...props }: ToasterProps) => {
     const theme = useUIStore((state) => state.theme);
@@ -35,10 +37,10 @@ const Toaster = ({ ...props }: ToasterProps) => {
             toastOptions={{
                 classNames: {
                     toast: 'cn-toast font-body',
-                    error: 'bg-bg-fill-destructive! text-text-destructive! font-body',
-                    info: 'bg-bg-fill-info! text-text-info! font-body',
-                    success: 'bg-bg-fill-success! text-text-success! font-body',
-                    warning: 'bg-bg-fill-warning! text-text-warning! font-body'
+                    error: 'bg-bg-destructive! text-text-destructive! font-body',
+                    info: 'bg-bg-info! text-text-info! font-body',
+                    success: 'bg-bg-success! text-text-success! font-body',
+                    warning: 'bg-bg-warning! text-text-warning! font-body'
                 }
             }}
             {...props}

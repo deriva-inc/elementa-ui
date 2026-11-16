@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable no-unused-vars */
 import { create } from 'zustand';
 import { THEME_ENUM, ThemeType } from '../types';

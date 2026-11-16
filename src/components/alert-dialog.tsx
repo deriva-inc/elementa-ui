@@ -1,3 +1,5 @@
+'use client';
+
 import { AlertDialog as AlertDialogPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { cn } from '../../lib/utils';
@@ -6,9 +8,9 @@ import { Button } from './button';
 /**
  * This function renders an Alert Dialog component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function AlertDialog({
     ...props

@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronDown, ChevronLeft, ChevronRight } from 'elementa-icons';
 import * as React from 'react';
 import {
@@ -12,9 +14,9 @@ import { Button, buttonVariants } from './button';
 /**
  * This function renders a Calendar component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function Calendar({
     className,

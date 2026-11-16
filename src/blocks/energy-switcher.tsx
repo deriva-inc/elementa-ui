@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { ENERGY_THEMES } from '../../lib/constants';
@@ -20,9 +22,9 @@ import { Text, TextVariant } from '../components/text';
  * This component renders the Energy Switcher for selecting design system themes.
  * It provides access to all 10 available design energy themes.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-11-16
+ * @modified 2026-11-17
  */
 export default function EnergySwitcher() {
     // SECTION: States and Constants

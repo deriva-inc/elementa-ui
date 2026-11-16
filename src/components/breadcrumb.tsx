@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronRight } from 'elementa-icons';
 import { MoreHorizontal } from 'lucide-react';
 import { Slot } from 'radix-ui';
@@ -7,9 +9,9 @@ import { cn } from '../../lib/utils';
 /**
  * This function renders a Breadcrumb component for the elementa-ui.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function Breadcrumb({ ...props }: React.ComponentProps<'nav'>) {
     return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;

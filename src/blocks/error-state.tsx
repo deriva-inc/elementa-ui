@@ -1,3 +1,5 @@
+'use client';
+
 import Lottie from 'react-lottie';
 import { cn } from '../../lib/utils';
 import sampleAnimData from '../assets/anims/sample-anim.json';
@@ -25,9 +27,9 @@ export interface ErrorStateProps {
  * This function renders an error state component.
  * Supports Lottie animations, as well as PNG and SVG illustrations if animation data is not present.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-11-16
+ * @modified 2026-11-17
  */
 export default function ErrorState({
     heading,

@@ -1,17 +1,17 @@
 'use client';
 
-import { Text, TextVariant } from 'get-elementa-ui';
 import gsap from 'gsap';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Button } from '../../components/button';
+import { Text, TextVariant } from '../../components/text';
 
 /**
  * This function renders a LightspunCurvedCarousel block component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modified 2026-10-01
+ * @modified 2026-11-17
  */
 export interface SlideItem {
     id: string | number;

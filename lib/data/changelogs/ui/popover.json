@@ -3,6 +3,13 @@
     "name": "Popover",
     "versions": [
         {
+            "version": "0.3.0",
+            "date": "2026-11-17",
+            "changes": [
+                "Add 'use client' directive for modular bundling and React Server Components compatibility."
+            ]
+        },
+        {
             "version": "0.2.0",
             "date": "2026-09-25",
             "changes": ["Use relative imports instead of absolute imports."]

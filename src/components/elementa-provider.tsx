@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useEffect } from 'react';
 import {
     getDataFromLocalStorage,
@@ -27,9 +29,9 @@ const ElementaContext = createContext<ElementaContextType | undefined>(
  * ElementaProvider automatically applies Elementa themes and energy attributes
  * to the document root, ensuring themes and energies work out of the box in Next.js apps.
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author Aayush Goyal
- * @modified 2026-11-02
+ * @modified 2026-11-17
  */
 export function ElementaProvider({
     children,

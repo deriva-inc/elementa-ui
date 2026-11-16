@@ -3,6 +3,14 @@
     "name": "Dialog",
     "versions": [
         {
+            "version": "0.4.0",
+            "date": "2026-11-17",
+            "changes": [
+                "Updated DialogTrigger to support Button variants (e.g. destructive, outline, secondary, ghost, link) and sizes with default button styling.",
+                "Updated DialogClose to allow overriding the default outline variant."
+            ]
+        },
+        {
             "version": "0.3.0",
             "date": "2026-09-25",
             "changes": ["Use relative imports instead of absolute imports."]

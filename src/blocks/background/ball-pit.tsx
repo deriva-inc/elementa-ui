@@ -323,9 +323,9 @@ const toLinear = (value: string | number): number[] => {
 /**
  * This function renders a Ballpit background block component for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modified 2026-10-26
+ * @modified 2026-11-17
  */
 const Ballpit = ({
     count = 200,

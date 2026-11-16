@@ -3,8 +3,8 @@
         "id": "accordion",
         "name": "Accordion",
         "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-21",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Accordion component for collapsible content sections",
         "usage": "Use Accordion to organize related content into collapsible sections to reduce page clutter and improve scannability.",
         "props": [
@@ -48,8 +48,8 @@
         "id": "alert-dialog",
         "name": "Alert Dialog",
         "description": "A modal dialog that interrupts the user with important content and expects a response.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-20",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Alert Dialog component for confirmation modals and alerts",
         "usage": "Use Alert Dialog to prompt the user with critical information or confirm irreversible actions such as deletion.",
         "props": [
@@ -83,8 +83,8 @@
         "id": "avatar",
         "name": "Avatar",
         "description": "An image element with a fallback for representing the user with support for badges and groups.",
-        "version": "0.5.0",
-        "lastUpdated": "2026-04-20",
+        "version": "0.7.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Avatar component for user profile images and fallbacks",
         "usage": "Use Avatar to visually represent users or entities with support for fallbacks, status badges, and grouped stacks.",
         "props": [
@@ -120,8 +120,8 @@
         "id": "badge",
         "name": "Badge",
         "description": "A small visual status descriptor for UI elements with various feedback and stylistic variants.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-05-28",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Badge component for status labels and tags",
         "usage": "Use Badge to highlight tags, categories, or status indicators with contextual color schemes.",
         "props": [
@@ -168,11 +168,120 @@
         ]
     },
     {
+        "id": "bottom-nav-bar",
+        "name": "Bottom Navigation Bar",
+        "description": "A responsive, accessible bottom navigation bar component supporting up to 5 items with energy-aware active highlights, tertiary inactive styling, center action button support, and its own Zustand store (useBottomNavStore) for managing topNavLinks.",
+        "version": "0.2.0",
+        "lastUpdated": "2026-11-17",
+        "thumbnail": "Bottom Navigation Bar with energy-dependent active item highlight, center action button, and Zustand store integration",
+        "usage": "Use BottomNavBar to provide primary navigation across mobile screens, dashboards, or responsive web views. Omit items to automatically read topNavLinks from useBottomNavStore, and pass user-level props like isAuthenticated and onNavigate from the consuming project.",
+        "props": [
+            {
+                "name": "items",
+                "type": "BottomNavItem[]",
+                "default": "topNavLinks (from useBottomNavStore)",
+                "description": "Optional array of up to 5 navigation items with id, label, icon, activeIcon, badge, href, and isAction. Falls back to topNavLinks from useBottomNavStore if omitted."
+            },
+            {
+                "name": "value",
+                "type": "string",
+                "default": "undefined",
+                "description": "Controlled active item identifier"
+            },
+            {
+                "name": "defaultValue",
+                "type": "string",
+                "default": "undefined",
+                "description": "Default active item identifier for uncontrolled usage"
+            },
+            {
+                "name": "onValueChange",
+                "type": "(value: string, item: BottomNavItem) => void",
+                "default": "undefined",
+                "description": "Callback triggered when the selected navigation item changes"
+            },
+            {
+                "name": "onNavigate",
+                "type": "(href: string, item: BottomNavItem) => void",
+                "default": "undefined",
+                "description": "Optional navigation handler for href links (e.g. router.push in Next.js)"
+            },
+            {
+                "name": "variant",
+                "type": "'fixed' | 'floating' | 'inline'",
+                "default": "'fixed'",
+                "description": "Layout display mode: docked fixed bottom, floating pill, or inline"
+            },
+            {
+                "name": "showLabels",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether text labels are rendered below icons"
+            },
+            {
+                "name": "showHomeIndicator",
+                "type": "boolean",
+                "default": "true (on fixed)",
+                "description": "Whether to render the iOS home indicator safe area bar"
+            },
+            {
+                "name": "mobileOnly",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether to hide the navigation bar on desktop viewports (>= 728px)"
+            },
+            {
+                "name": "isAuthenticated",
+                "type": "boolean",
+                "default": "true",
+                "description": "Whether the current user is authenticated (passed by the consuming project)"
+            },
+            {
+                "name": "hideOnPaths",
+                "type": "string[]",
+                "default": "[]",
+                "description": "Pathnames where the navigation bar should be hidden (e.g. ['/'])"
+            },
+            {
+                "name": "className",
+                "type": "string",
+                "default": "undefined",
+                "description": "Additional CSS class names for styling customization"
+            },
+            {
+                "name": "style",
+                "type": "CSSProperties",
+                "default": "undefined",
+                "description": "Inline style overrides for the navigation container"
+            },
+            {
+                "name": "ariaLabel",
+                "type": "string",
+                "default": "'Bottom Navigation'",
+                "description": "Accessible landmark label for assistive technologies"
+            }
+        ],
+        "examples": [
+            {
+                "title": "Standard Bottom Navigation with Center Action",
+                "code": "<BottomNavBar\n    items={[\n        { id: 'home', label: 'Home', icon: <Home className=\"size-5\" /> },\n        { id: 'payments', label: 'Payments', icon: <CreditCard className=\"size-5\" /> },\n        { id: 'transfer', label: 'Transfer', icon: <ArrowUpDown className=\"size-5\" />, isAction: true },\n        { id: 'customers', label: 'Customers', icon: <Users className=\"size-5\" /> },\n        { id: 'search', label: 'Search', icon: <Search className=\"size-5\" /> }\n    ]}\n    defaultValue=\"home\"\n/>"
+            },
+            {
+                "title": "Floating Bottom Navigation Pill",
+                "code": "<BottomNavBar\n    variant=\"floating\"\n    items={[\n        { id: 'home', label: 'Home', icon: <Home className=\"size-5\" /> },\n        { id: 'payments', label: 'Payments', icon: <CreditCard className=\"size-5\" /> },\n        { id: 'transfer', label: 'Transfer', icon: <ArrowUpDown className=\"size-5\" />, isAction: true },\n        { id: 'customers', label: 'Customers', icon: <Users className=\"size-5\" /> },\n        { id: 'search', label: 'Search', icon: <Search className=\"size-5\" /> }\n    ]}\n    defaultValue=\"home\"\n/>"
+            },
+            {
+                "title": "Store-Managed Navigation with Next.js Router & Auth Guard",
+                "code": "<BottomNavBar\n    mobileOnly\n    isAuthenticated={isUserLoggedIn}\n    hideOnPaths={['/']}\n    onNavigate={(href) => router.push(href)}\n/>"
+            }
+        ]
+    },
+    {
         "id": "breadcrumb",
         "name": "Breadcrumb",
         "description": "A navigational helper displaying the hierarchical path to the current page.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-05-28",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Breadcrumb navigation component with responsive items, separators, and ellipsis",
         "usage": "Use Breadcrumb to help users understand their current location within an application hierarchy and navigate back to parent pages.",
         "props": [
@@ -210,8 +319,8 @@
         "id": "button",
         "name": "Button",
         "description": "A versatile button component with multiple variants and sizes, built with class-variance-authority for flexible styling.",
-        "version": "0.9.0",
-        "lastUpdated": "2026-08-25",
+        "version": "0.12.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Button component for user interactions",
         "usage": "Use the Button component for all clickable actions. Choose variants based on visual hierarchy and context.",
         "props": [
@@ -271,8 +380,8 @@
         "id": "button-group",
         "name": "Button Group",
         "description": "A container that visually and logically groups related buttons together.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "ButtonGroup component for grouping related actions",
         "usage": "Use Button Group to group related actions into a connected visual block, such as segmented controls or toolbars.",
         "props": [
@@ -310,8 +419,8 @@
         "id": "calendar",
         "name": "Calendar",
         "description": "A date picker calendar component built on react-day-picker with customizable ranges and formatting.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-22",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Calendar component for selecting single dates or date ranges",
         "usage": "Use Calendar for date selection, date range picking, or inline scheduling interfaces.",
         "props": [
@@ -367,8 +476,8 @@
         "id": "checkbox",
         "name": "Checkbox",
         "description": "A control that allows the user to toggle between checked and not checked states.",
-        "version": "0.6.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.7.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Checkbox component for multi-selection and toggle states",
         "usage": "Use Checkbox to allow users to select one or multiple options from a list or agree to terms and conditions.",
         "props": [
@@ -412,8 +521,8 @@
         "id": "color-picker",
         "name": "Color Picker",
         "description": "An interactive color picker component with custom HSV/RGB/HSL studio, rainbow hue slider, and preset swatches.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-09-20",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Color Picker component for selecting colors in HEX, RGB, and HSL formats",
         "usage": "Use ColorPicker to allow users to select, customize, and copy color values using an intuitive spectrum studio or compact popover.",
         "props": [
@@ -493,8 +602,8 @@
         "id": "context-menu",
         "name": "Context Menu",
         "description": "Displays a menu to the user — such as a set of actions or functions — triggered by right-click.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Context Menu component triggered by right-click interactions",
         "usage": "Use Context Menu to reveal context-sensitive actions upon right-clicking or long-pressing on an interactive area.",
         "props": [
@@ -522,8 +631,8 @@
         "id": "count-up",
         "name": "Count Up",
         "description": "An animated numerical counter supporting smooth easing, slot-machine digit rolling, compact number notation, and scroll-triggered transitions.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-10-29",
+        "version": "0.2.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Count Up animated number and rolling slot counter component",
         "usage": "Use CountUp to animate statistics, financial figures, metrics, and key performance indicators.",
         "props": [
@@ -657,8 +766,8 @@
         "id": "dialog",
         "name": "Dialog",
         "description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-20",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Dialog component for modal dialogs and overlays",
         "usage": "Use Dialog to present critical information or complex workflows that require user interaction without leaving the current page context.",
         "props": [
@@ -679,12 +788,34 @@
                 "type": "(open: boolean) => void",
                 "default": "undefined",
                 "description": "Event handler called when the open state changes"
+            },
+            {
+                "name": "variant",
+                "type": "'default' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'link'",
+                "default": "'default'",
+                "description": "Button variant for DialogTrigger (when not using asChild)"
+            },
+            {
+                "name": "size",
+                "type": "'default' | 'xs' | 'sm' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg'",
+                "default": "'default'",
+                "description": "Button size for DialogTrigger (when not using asChild)"
+            },
+            {
+                "name": "asChild",
+                "type": "boolean",
+                "default": "false",
+                "description": "Whether DialogTrigger delegates rendering to its direct child element"
             }
         ],
         "examples": [
             {
                 "title": "Default Dialog",
-                "code": "<Dialog>\n  <DialogTrigger asChild>\n    <Button variant=\"outline\">Open Dialog</Button>\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Edit Profile</DialogTitle>\n      <DialogDescription>\n        Make changes to your profile here. Click save when you're done.\n      </DialogDescription>\n    </DialogHeader>\n    <div className=\"grid gap-4 py-4\">\n      <Input placeholder=\"Name\" defaultValue=\"John Doe\" />\n    </div>\n    <DialogFooter>\n      <Button type=\"submit\">Save changes</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
+                "code": "<Dialog>\n  <DialogTrigger>\n    Open Dialog\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Edit Profile</DialogTitle>\n      <DialogDescription>\n        Make changes to your profile here. Click save when you're done.\n      </DialogDescription>\n    </DialogHeader>\n    <div className=\"grid gap-4 py-4\">\n      <Input placeholder=\"Name\" defaultValue=\"John Doe\" />\n    </div>\n    <DialogFooter>\n      <Button type=\"submit\">Save changes</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
+            },
+            {
+                "title": "Destructive Variant Dialog",
+                "code": "<Dialog>\n  <DialogTrigger variant=\"destructive\">\n    Delete Account\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Delete Confirmation</DialogTitle>\n      <DialogDescription>\n        Are you sure you want to delete your account? This action cannot be undone.\n      </DialogDescription>\n    </DialogHeader>\n    <DialogFooter>\n      <DialogClose variant=\"outline\">Cancel</DialogClose>\n      <Button variant=\"destructive\">Confirm Delete</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
             }
         ]
     },
@@ -692,8 +823,8 @@
         "id": "drawer",
         "name": "Drawer",
         "description": "A responsive sliding panel overlay, optimized for mobile devices and sheet-like interactions.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Drawer component for mobile-friendly slide-over sheets",
         "usage": "Use Drawer for mobile-friendly navigation, action sheets, and modal forms sliding in from the viewport edges.",
         "props": [
@@ -733,8 +864,8 @@
         "id": "dropdown-menu",
         "name": "Dropdown Menu",
         "description": "Displays a menu of actions or options to the user, triggered by a button click.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Dropdown Menu component for action lists and submenus",
         "usage": "Use Dropdown Menu to present a list of actions, navigation items, or setting toggles activated by clicking a trigger.",
         "props": [
@@ -768,8 +899,8 @@
         "id": "elementa-provider",
         "name": "ElementaProvider",
         "description": "Context provider for zero-config theme and energy synchronization in Next.js and React applications.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "ElementaProvider for theme and energy state management",
         "usage": "Wrap your root layout or application tree with ElementaProvider to manage dark mode, active energy theme, and localStorage sync.",
         "props": [
@@ -803,8 +934,8 @@
         "id": "field",
         "name": "Field",
         "description": "Composable form field primitives including labels, descriptions, errors, and responsive layouts.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Field component for form layouts, labels, and error messages",
         "usage": "Use Field to structure form elements with accessible labels, helper descriptions, validation errors, and grouped sets.",
         "props": [
@@ -836,8 +967,8 @@
         "id": "hover-card",
         "name": "Hover Card",
         "description": "For sighted users to preview content available behind a link or button on hover.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Hover Card component for rich link previews and metadata",
         "usage": "Use Hover Card to display richer previews or secondary context when hovering over interactive elements.",
         "props": [
@@ -871,8 +1002,8 @@
         "id": "input",
         "name": "Input",
         "description": "A basic text input field component styled with elementa design system tokens.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-04-20",
+        "version": "0.5.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Input component for collecting user text entry",
         "usage": "Use Input to collect short freeform text data from the user such as names, emails, or search queries.",
         "props": [
@@ -914,8 +1045,8 @@
         "id": "input-group",
         "name": "Input Group",
         "description": "A composite container for grouping inputs or textareas with addons, buttons, and icons.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-22",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Input Group component for composed input fields",
         "usage": "Use InputGroup to attach prefixes, suffixes, buttons, or extra controls to inputs and textareas.",
         "props": [
@@ -941,8 +1072,8 @@
         "id": "input-otp",
         "name": "Input OTP",
         "description": "An accessible one-time password component with copy-paste and individual digit slots.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Input OTP component for verification codes and MFA",
         "usage": "Use Input OTP for two-factor authentication, SMS verification, and PIN entry interfaces.",
         "props": [
@@ -982,8 +1113,8 @@
         "id": "item",
         "name": "Item",
         "description": "Composable list item rows with media, content, header, description, and action slots.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Item component for structured list views and settings rows",
         "usage": "Use Item and ItemGroup to build structured list items, notification rows, settings toggles, and metadata cards.",
         "props": [
@@ -1017,8 +1148,8 @@
         "id": "label",
         "name": "Label",
         "description": "Renders an accessible label associated with form controls.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-04-17",
+        "version": "0.5.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Label component for form controls and inputs",
         "usage": "Use Label to provide clear, accessible labels for input fields, checkboxes, sliders, and other form elements.",
         "props": [
@@ -1050,8 +1181,8 @@
         "id": "pagination",
         "name": "Pagination",
         "description": "Pagination with page navigation, next/previous buttons, and truncation ellipses.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Pagination component for tabular and multi-page navigation",
         "usage": "Use Pagination to navigate through discrete pages of large data tables, catalogues, and search results.",
         "props": [
@@ -1073,8 +1204,8 @@
         "id": "popover",
         "name": "Popover",
         "description": "Displays rich content in an accessible floating portal triggered by a button.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-22",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Popover component for floating contextual content and overlays",
         "usage": "Use Popover to render rich contextual details, filters, or form controls overlaying the trigger element.",
         "props": [
@@ -1124,8 +1255,8 @@
         "id": "progress",
         "name": "Progress",
         "description": "Displays an indicator showing the completion progress of a task, typically as a progress bar.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Progress component for visual completion meters",
         "usage": "Use Progress to provide feedback on ongoing operations, profile completion, or upload progress.",
         "props": [
@@ -1163,8 +1294,8 @@
         "id": "radio-group",
         "name": "Radio Group",
         "description": "A set of checkable buttons—known as radio buttons—where no more than one button can be checked at a time.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Radio Group component for single-choice option sets",
         "usage": "Use Radio Group when users must choose exactly one option from a visible set of alternatives.",
         "props": [
@@ -1204,8 +1335,8 @@
         "id": "scroll-indicator",
         "name": "Scroll Indicator",
         "description": "An animated scroll indicator prompting users to explore content below the fold.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-09-20",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Scroll indicator component with floating bounce animation",
         "usage": "Use ScrollIndicator in hero sections or landing pages to guide users to scroll down.",
         "props": [],
@@ -1220,8 +1351,8 @@
         "id": "select",
         "name": "Select",
         "description": "Displays a list of options for the user to pick from—triggered by a button.",
-        "version": "0.5.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.6.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Select dropdown component for single value selection",
         "usage": "Use Select when you need a dropdown to allow users to select a single value from a list of options.",
         "props": [
@@ -1261,8 +1392,8 @@
         "id": "separator",
         "name": "Separator",
         "description": "Visually or semantically separates content with horizontal or vertical dividers.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-04-15",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Separator component for dividing content visually or semantically",
         "usage": "Use Separator to create visual or semantic boundaries between distinct sections of content or interface elements.",
         "props": [
@@ -1300,8 +1431,8 @@
         "id": "sheet",
         "name": "Sheet",
         "description": "Extends the Dialog component to display content that complements the main screen, anchored to viewport edges.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Sheet component for sliding sidebar overlays",
         "usage": "Use Sheet for supplementary content, filters, settings, and navigation drawers that slide in from any edge.",
         "props": [
@@ -1335,8 +1466,8 @@
         "id": "sidebar",
         "name": "Sidebar",
         "description": "A composable, responsive sidebar component with collapsible states and mobile drawer integration.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Sidebar component for responsive application navigation",
         "usage": "Use Sidebar to provide comprehensive vertical navigation for dashboard and enterprise application shells.",
         "props": [
@@ -1370,8 +1501,8 @@
         "id": "skeleton",
         "name": "Skeleton",
         "description": "Use to show a placeholder while content is loading with an animated shimmer effect.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Skeleton component for loading placeholder animations",
         "usage": "Use Skeleton to reduce perceived loading time by previewing layout structure before data resolves.",
         "props": [
@@ -1393,8 +1524,8 @@
         "id": "slider",
         "name": "Slider",
         "description": "An input where the user selects a value from within a given range.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-21",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Slider component for selecting numeric ranges and values",
         "usage": "Use Slider to allow users to adjust continuous values such as volume, size, brightness, or percentage.",
         "props": [
@@ -1456,8 +1587,8 @@
         "id": "sonner",
         "name": "Sonner",
         "description": "An opinionated toast component for React built with Sonner and integrated with elementa-ui theme system.",
-        "version": "0.3.0",
-        "lastUpdated": "2026-08-25",
+        "version": "0.5.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Sonner toast notification component",
         "usage": "Use Toaster with toast triggers to provide actionable feedback or alert messages in response to user actions.",
         "props": [
@@ -1495,8 +1626,8 @@
         "id": "spinner",
         "name": "Spinner",
         "description": "An animated loading spinner indicator for pending operations.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Spinner component for async action loading states",
         "usage": "Use Spinner inside buttons, cards, or screens to signify an active background task.",
         "props": [
@@ -1518,8 +1649,8 @@
         "id": "stepper",
         "name": "Stepper",
         "description": "A progress component that guides users through numbered, sequential steps.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Stepper component for multi-step progress indicators",
         "usage": "Use Stepper to communicate progress through sequential processes, checkouts, and onboarding wizards.",
         "props": [
@@ -1547,8 +1678,8 @@
         "id": "switch",
         "name": "Switch",
         "description": "A control that allows the user to toggle between checked and not checked states.",
-        "version": "0.4.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.5.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Switch component for binary on/off settings",
         "usage": "Use Switch for binary preferences, settings, and instant toggle actions.",
         "props": [
@@ -1594,8 +1725,8 @@
         "id": "table",
         "name": "Table",
         "description": "A responsive and accessible table component with styled headers, rows, cells, and caption support.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-17",
+        "version": "0.4.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Table component for displaying structured tabular data",
         "usage": "Use Table to present data organized into rows and columns with custom styling and cell components.",
         "props": [
@@ -1617,8 +1748,8 @@
         "id": "tabs",
         "name": "Tabs",
         "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-        "version": "0.5.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.6.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Tabs component for segmented content panels",
         "usage": "Use Tabs to partition content into logical panels within the same page context.",
         "props": [
@@ -1658,8 +1789,8 @@
         "id": "text",
         "name": "Text",
         "description": "Typography component with semantic variants adhering to Elementa design tokens.",
-        "version": "0.9.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.12.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Text typography component with variant mapping",
         "usage": "Use Text to display headings, body copy, and subtitles consistent with the active design system.",
         "props": [
@@ -1693,8 +1824,8 @@
         "id": "textarea",
         "name": "Textarea",
         "description": "A multi-line text input field supporting dynamic field sizing and custom states.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-04-20",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Textarea component for multi-line user input",
         "usage": "Use Textarea for multi-line inputs such as comments, messages, descriptions, or reviews.",
         "props": [
@@ -1732,8 +1863,8 @@
         "id": "toggle",
         "name": "Toggle",
         "description": "A two-state button that can be either on or off.",
-        "version": "0.5.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.6.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Toggle button component for pressable state toggling",
         "usage": "Use Toggle for standalone two-state actions like bolding text or muting audio.",
         "props": [
@@ -1779,8 +1910,8 @@
         "id": "toggle-group",
         "name": "Toggle Group",
         "description": "A group of two-state buttons that can be toggled on or off, supporting single or multiple selection.",
-        "version": "0.4.0",
-        "lastUpdated": "2026-10-29",
+        "version": "0.5.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Toggle Group component for single or multiple selection",
         "usage": "Use ToggleGroup to create grouped toggle buttons for formatting options, filter selectors, or view mode switchers.",
         "props": [
@@ -1830,8 +1961,8 @@
         "id": "tooltip",
         "name": "Tooltip",
         "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-        "version": "0.2.0",
-        "lastUpdated": "2026-09-25",
+        "version": "0.3.0",
+        "lastUpdated": "2026-11-17",
         "thumbnail": "Tooltip component for floating contextual help text",
         "usage": "Use Tooltip to clarify icon buttons, keyboard shortcuts, or brief contextual hints.",
         "props": [
@@ -1858,87 +1989,6 @@
             {
                 "title": "Default Tooltip",
                 "code": "<TooltipProvider>\n  <Tooltip>\n    <TooltipTrigger asChild>\n      <Button variant=\"outline\">Hover me</Button>\n    </TooltipTrigger>\n    <TooltipContent>\n      <p>Contextual tip</p>\n    </TooltipContent>\n  </Tooltip>\n</TooltipProvider>"
-            }
-        ]
-    },
-    {
-        "id": "bottom-nav-bar",
-        "name": "Bottom Navigation Bar",
-        "description": "A responsive, accessible bottom navigation bar component supporting up to 5 items with energy-aware active highlights, tertiary inactive styling, and center action button support.",
-        "version": "0.1.0",
-        "lastUpdated": "2026-11-12",
-        "thumbnail": "Bottom Navigation Bar with energy-dependent active item highlight and center action button",
-        "usage": "Use BottomNavBar to provide primary navigation across mobile screens, dashboards, or responsive web views with clean visual hierarchy and energy theming.",
-        "props": [
-            {
-                "name": "items",
-                "type": "BottomNavItem[]",
-                "default": "[]",
-                "description": "Array of up to 5 navigation items with id, label, icon, activeIcon, badge, and isAction"
-            },
-            {
-                "name": "value",
-                "type": "string",
-                "default": "undefined",
-                "description": "Controlled active item identifier"
-            },
-            {
-                "name": "defaultValue",
-                "type": "string",
-                "default": "undefined",
-                "description": "Default active item identifier for uncontrolled usage"
-            },
-            {
-                "name": "onValueChange",
-                "type": "(value: string, item: BottomNavItem) => void",
-                "default": "undefined",
-                "description": "Callback triggered when the selected navigation item changes"
-            },
-            {
-                "name": "variant",
-                "type": "'fixed' | 'floating' | 'inline'",
-                "default": "'fixed'",
-                "description": "Layout display mode: docked fixed bottom, floating pill, or inline"
-            },
-            {
-                "name": "showLabels",
-                "type": "boolean",
-                "default": "true",
-                "description": "Whether text labels are rendered below icons"
-            },
-            {
-                "name": "showHomeIndicator",
-                "type": "boolean",
-                "default": "true (on fixed)",
-                "description": "Whether to render the iOS home indicator safe area bar"
-            },
-            {
-                "name": "className",
-                "type": "string",
-                "default": "undefined",
-                "description": "Additional CSS class names for styling customization"
-            },
-            {
-                "name": "style",
-                "type": "CSSProperties",
-                "default": "undefined",
-                "description": "Inline style overrides for the navigation container"
-            },
-            {
-                "name": "ariaLabel",
-                "type": "string",
-                "default": "'Bottom Navigation'",
-                "description": "Accessible landmark label for assistive technologies"
-            }
-        ],
-        "examples": [
-            {
-                "title": "Standard Bottom Navigation with Center Action",
-                "code": "<BottomNavBar\n    items={[\n        { id: 'home', label: 'Home', icon: <Home className=\"size-5\" /> },\n        { id: 'payments', label: 'Payments', icon: <CreditCard className=\"size-5\" /> },\n        { id: 'transfer', label: 'Transfer', icon: <ArrowUpDown className=\"size-5\" />, isAction: true },\n        { id: 'customers', label: 'Customers', icon: <Users className=\"size-5\" /> },\n        { id: 'search', label: 'Search', icon: <Search className=\"size-5\" /> }\n    ]}\n    defaultValue=\"home\"\n/>"
-            },
-            {
-                "title": "Floating Bottom Navigation Pill",
-                "code": "<BottomNavBar\n    variant=\"floating\"\n    items={[\n        { id: 'home', label: 'Home', icon: <Home className=\"size-5\" /> },\n        { id: 'payments', label: 'Payments', icon: <CreditCard className=\"size-5\" /> },\n        { id: 'transfer', label: 'Transfer', icon: <ArrowUpDown className=\"size-5\" />, isAction: true },\n        { id: 'customers', label: 'Customers', icon: <Users className=\"size-5\" /> },\n        { id: 'search', label: 'Search', icon: <Search className=\"size-5\" /> }\n    ]}\n    defaultValue=\"home\"\n/>"
             }
         ]
     }

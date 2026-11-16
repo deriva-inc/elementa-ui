@@ -1,3 +1,5 @@
+'use client';
+
 import { Check, ChevronDown, Copy, Pipette } from 'lucide-react';
 import * as React from 'react';
 import { cn } from '../../lib/utils';
@@ -7,9 +9,9 @@ import { Popover, PopoverContent, PopoverTrigger } from './popover';
 /**
  * This function renders a Color Picker component for the elementa-ui.
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 
 export interface ColorPickerProps {

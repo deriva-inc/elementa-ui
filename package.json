@@ -1,6 +1,6 @@
 {
     "name": "get-elementa-ui",
-    "version": "1.81.0",
+    "version": "1.82.0",
     "description": "Elementa UI components library.",
     "homepage": "https://elementa.deriva.xyz",
     "main": "dist/index.js",
@@ -12,6 +12,16 @@
             "types": "./dist/types/src/index.d.ts",
             "import": "./dist/index.esm.js",
             "require": "./dist/index.js"
+        },
+        "./server": {
+            "types": "./dist/types/src/server.d.ts",
+            "import": "./dist/server.esm.js",
+            "require": "./dist/server.js"
+        },
+        "./utils": {
+            "types": "./dist/types/src/utils.d.ts",
+            "import": "./dist/utils.esm.js",
+            "require": "./dist/utils.js"
         },
         "./styles.css": "./dist/styles.css",
         "./theme.css": "./dist/theme.css",
@@ -88,6 +98,7 @@
         "rollup": "^4.44.0",
         "rollup-plugin-dts": "^6.2.1",
         "rollup-plugin-postcss": "^4.0.2",
+        "rollup-plugin-preserve-directives": "^0.4.0",
         "rollup-plugin-terser": "^7.0.2",
         "tailwindcss": "^4.2.1",
         "tslib": "^2.8.1",

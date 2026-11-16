@@ -3,11 +3,16 @@
     "name": "Toggle Group",
     "versions": [
         {
+            "version": "0.5.0",
+            "date": "2026-11-17",
+            "changes": [
+                "Add 'use client' directive for modular bundling and React Server Components compatibility."
+            ]
+        },
+        {
             "version": "0.4.0",
             "date": "2026-10-29",
-            "changes": [
-                "Update border width to 0.25px on root container."
-            ]
+            "changes": ["Update border width to 0.25px on root container."]
         },
         {
             "version": "0.3.0",

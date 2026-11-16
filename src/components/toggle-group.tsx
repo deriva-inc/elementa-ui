@@ -1,3 +1,5 @@
+'use client';
+
 import { type VariantProps } from 'class-variance-authority';
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';
 import * as React from 'react';
@@ -7,9 +9,9 @@ import { toggleVariants } from './toggle';
 /**
  * This function renders a Toggle Group component for the elementa-ui.
  *
- * @version 0.4.0
+ * @version 0.5.0
  * @author Aayush Goyal
- * @modified 2026-10-29
+ * @modified 2026-11-17
  */
 const ToggleGroupContext = React.createContext<
     VariantProps<typeof toggleVariants> & {

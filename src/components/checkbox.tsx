@@ -1,3 +1,5 @@
+'use client';
+
 import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import * as React from 'react';
 
@@ -7,9 +9,9 @@ import { cn } from '../../lib/utils';
 /**
  * This function renders an Checkbox component for the elementa-ui.
  *
- * @version 0.6.0
+ * @version 0.7.0
  * @author Aayush Goyal
- * @modified 2026-09-25
+ * @modified 2026-11-17
  */
 function Checkbox({
     className,

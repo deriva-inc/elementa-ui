@@ -6,6 +6,7 @@ import typescript from '@rollup/plugin-typescript';
 import fs from 'fs';
 import path from 'path';
 import copy from 'rollup-plugin-copy';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 // Read package.json synchronously and parse it. This is 100% reliable.
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
@@ -44,10 +45,15 @@ function bundleCssPlugin() {
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap');`);
 
             // 2. tw-animate-css
-            if (fs.existsSync('node_modules/tw-animate-css/dist/tw-animate.css')) {
+            if (
+                fs.existsSync('node_modules/tw-animate-css/dist/tw-animate.css')
+            ) {
                 parts.push(
                     '/* === tw-animate-css === */\n' +
-                        fs.readFileSync('node_modules/tw-animate-css/dist/tw-animate.css', 'utf8')
+                        fs.readFileSync(
+                            'node_modules/tw-animate-css/dist/tw-animate.css',
+                            'utf8'
+                        )
                 );
             }
 
@@ -55,7 +61,10 @@ function bundleCssPlugin() {
             if (fs.existsSync('node_modules/shadcn/dist/tailwind.css')) {
                 parts.push(
                     '/* === shadcn === */\n' +
-                        fs.readFileSync('node_modules/shadcn/dist/tailwind.css', 'utf8')
+                        fs.readFileSync(
+                            'node_modules/shadcn/dist/tailwind.css',
+                            'utf8'
+                        )
                 );
             }
 
@@ -93,7 +102,10 @@ function bundleCssPlugin() {
                     .filter((f) => f.endsWith('.css') && f !== 'index.css');
                 parts.push('/* === Elementa Energies === */');
                 for (const f of energyFiles) {
-                    const eContent = fs.readFileSync(path.join(energyDir, f), 'utf8');
+                    const eContent = fs.readFileSync(
+                        path.join(energyDir, f),
+                        'utf8'
+                    );
                     parts.push(`/* Energy: ${f} */\n` + eContent);
                 }
             }
@@ -123,19 +135,23 @@ function bundleCssPlugin() {
 export default [
     // --- JavaScript and TypeScript Bundle ---
     {
-        input: 'src/index.ts',
+        input: ['src/index.ts', 'src/server.ts', 'src/utils.ts'],
         output: [
             {
-                file: packageJson.main,
+                dir: 'dist',
                 format: 'cjs',
                 sourcemap: true,
-                banner: "'use client';"
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                entryFileNames: '[name].js'
             },
             {
-                file: packageJson.module,
+                dir: 'dist',
                 format: 'esm',
                 sourcemap: true,
-                banner: "'use client';"
+                preserveModules: true,
+                preserveModulesRoot: 'src',
+                entryFileNames: '[name].esm.js'
             }
         ],
         plugins: [
@@ -148,6 +164,7 @@ export default [
                 declarationDir: './dist/types',
                 outDir: './dist'
             }),
+            preserveDirectives(),
             bundleCssPlugin(),
             copy({
                 targets: [

@@ -1,12 +1,14 @@
+'use client';
+
 import { Color, Mesh, Program, Renderer, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
 /**
  * This function renders a Galaxy background block for the elementa-ui.
  *
- * @version 0.1.0
+ * @version 0.2.0
  * @author Aayush Goyal
- * @modified 2026-10-01
+ * @modified 2026-11-17
  */
 
 const vertexShader = `

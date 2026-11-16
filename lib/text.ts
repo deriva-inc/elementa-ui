@@ -2,8 +2,6 @@
  * This file contains utility functions for handling text.
  */
 
-import { toast } from 'sonner';
-
 function capitalizeFirstLetter(text: string): string {
     if (!text) return '';
     return text.charAt(0).toUpperCase() + text.slice(1);
@@ -16,6 +14,8 @@ function capitalizeFirstLetter(text: string): string {
  * @returns A promise that resolves to true if the text was successfully copied, or false if there was an error.
  */
 async function copyToClipboard(text: string): Promise<boolean> {
+    const { toast } = await import('sonner');
+
     try {
         await navigator.clipboard.writeText(text);
 
